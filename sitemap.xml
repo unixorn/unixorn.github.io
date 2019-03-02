@@ -3,7 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/blog/in_the_beginning_there_was_bare_metal/</loc>
+    <lastmod>2019-02-17T16:00:05-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/about/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/arm/</loc>
+    <lastmod>2019-02-17T16:00:05-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/arm7/</loc>
+    <lastmod>2019-02-17T16:00:05-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/blog/</loc>
+    <lastmod>2019-02-17T16:00:05-07:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -13,11 +36,31 @@
   
   <url>
     <loc>/tags/</loc>
+    <lastmod>2019-02-17T16:00:05-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/homelab/</loc>
+    <lastmod>2019-02-17T16:00:05-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/k8s/</loc>
+    <lastmod>2019-02-17T16:00:05-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/categories/tech/</loc>
+    <lastmod>2019-02-17T16:00:05-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/</loc>
+    <lastmod>2019-02-17T16:00:05-07:00</lastmod>
     <priority>0</priority>
   </url>
   

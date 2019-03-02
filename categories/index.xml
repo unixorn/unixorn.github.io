@@ -10,5 +10,23 @@
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
+    <item>
+      <title>homelab</title>
+      <link>/categories/homelab/</link>
+      <pubDate>Sun, 17 Feb 2019 16:00:05 -0700</pubDate>
+      
+      <guid>/categories/homelab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
+      <link>/categories/tech/</link>
+      <pubDate>Sun, 17 Feb 2019 16:00:05 -0700</pubDate>
+      
+      <guid>/categories/tech/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

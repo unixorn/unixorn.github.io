@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>unixorn.github.io</title>
-    <link>/</link>
-    <description>Recent content on unixorn.github.io</description>
+    <title>ARM7 on unixorn.github.io</title>
+    <link>/tags/arm7/</link>
+    <description>Recent content in ARM7 on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 17 Feb 2019 16:00:05 -0700</lastBuildDate>
     
-	<atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="/tags/arm7/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,16 +19,6 @@
       <guid>/blog/in_the_beginning_there_was_bare_metal/</guid>
       <description>Background I recently decided to set up a Kubernetes cluster in my basement, partly because I&amp;rsquo;d never set a cluster up from scratch by myself, and partly because my existing NAS was beginning to run out of headroom.
 For a variety of reasons, I decided to use ODROID HC2 boards. They&amp;rsquo;ve got gigabit ethernet, eight CPU cores, 2 GB RAM and a SATA-3 port for directly connecting a hard drive.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/about/</guid>
-      <description>I&amp;rsquo;m an SRE in Denver. I like cooking, photography, and working on distributed infrastructure.
-I&amp;rsquo;m the organizer for Denver CoffeeOps, which currently meets every Thursday morning from 8am to 10am at the Monk and Mongoose in DTC.</description>
     </item>
     
   </channel>
