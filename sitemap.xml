@@ -12,6 +12,10 @@
   </url>
   
   <url>
+    <loc>/contact/</loc>
+  </url>
+  
+  <url>
     <loc>/tags/arm/</loc>
     <lastmod>2019-02-17T16:00:05-07:00</lastmod>
     <priority>0</priority>

@@ -31,5 +31,15 @@ For a variety of reasons, I decided to use ODROID HC2 boards. They&amp;rsquo;ve 
 I&amp;rsquo;m the organizer for Denver CoffeeOps, which currently meets every Thursday morning from 8am to 10am at the Monk and Mongoose in DTC.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>/contact/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/contact/</guid>
+      <description>Email me at jpb @ unixorn.net.
+I&amp;rsquo;m curiousbiped on twitter.</description>
+    </item>
+    
   </channel>
 </rss>
