@@ -601,7 +601,7 @@ apt-mark hold kubelet kubeadm kubectl
 
 <ol>
 <li>Set <code>/proc/sys/net/bridge/bridge-nf-call-iptables</code> to 1 by running <code>sysctl net.bridge.bridge-nf-call-iptables=1</code> to pass bridged IPv4 traffic to iptables’ chains.</li>
-<li>Flannel supports arm, so <code>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml</code></li>
+<li>Flannel supports the ARM architecture, so <code>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml</code></li>
 </ol>
 
 <h3 id="allow-pods-to-run-on-master-node">Allow pods to run on master node</h3>

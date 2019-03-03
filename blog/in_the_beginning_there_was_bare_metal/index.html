@@ -24,7 +24,7 @@
         "datePublished": "2019-02-17 16:00:05 -0700 MST",
         "dateModified" : "2019-02-17 16:00:05 -0700 MST",
         "url" : "/blog/in_the_beginning_there_was_bare_metal/",
-        "wordCount" : "1060",
+        "wordCount" : "1062",
         "keywords" : [ "ARM","ARM7","k8s","Blog" ]
     }
     </script>
@@ -68,7 +68,7 @@
 
 <meta itemprop="datePublished" content="2019-02-17T16:00:05-07:00" />
 <meta itemprop="dateModified" content="2019-02-17T16:00:05-07:00" />
-<meta itemprop="wordCount" content="1060">
+<meta itemprop="wordCount" content="1062">
 
 
 
@@ -687,7 +687,7 @@ apt-mark hold kubelet kubeadm kubectl
 
 <ol>
 <li>Set <code>/proc/sys/net/bridge/bridge-nf-call-iptables</code> to 1 by running <code>sysctl net.bridge.bridge-nf-call-iptables=1</code> to pass bridged IPv4 traffic to iptables’ chains.</li>
-<li>Flannel supports arm, so <code>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml</code></li>
+<li>Flannel supports the ARM architecture, so <code>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml</code></li>
 </ol>
 
 <h3 id="allow-pods-to-run-on-master-node">Allow pods to run on master node</h3>
