@@ -18,7 +18,7 @@
       
       <guid>/blog/arm_cluster_parts_list/</guid>
       <description>ARM Cluster Parts List Realized I forgot to include a parts list for the cluster in my ARM cluster post (all prices are as of March 3rd, 2019), so here we go.
- Three Odroid HC2 ARM SBCs. $54.95. These have gigabit ethernet ports, a SATA-3 port for 3.5&amp;frasl;2.5 HDD/SSD storage, Samsung Exynos5422 Cortex-A15 2Ghz and Cortex-A7 Octa core 32bit ARM CPUs, with 4 2GHz cores and 4 1.4GHz cores, UHS-1 compatible microSD that supports up to 128GB/SDXC.</description>
+ Three Odroid HC2 ARM SBCs. $54.95. These have gigabit ethernet ports, a SATA-3 port for 3.5 inch or 2.5 inch HDD/SSD drives, Samsung Exynos5422 Cortex-A15 2Ghz and Cortex-A7 Octa core 32bit ARM CPUs, with four 2GHz cores and four 1.</description>
     </item>
     
     <item>
