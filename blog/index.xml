@@ -17,8 +17,8 @@
       <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
       
       <guid>/blog/arm_cluster_parts_list/</guid>
-      <description>ARM Cluster Parts List Realized I forgot to include a parts list for the cluster.
- Three Odroid HC2 ARM SBCs. Three Power adapters and power cords for them (They&amp;rsquo;re sold separately) Three microSD cards - I used some I had already - they&amp;rsquo;re cheap, so get at least 32GB though 16GB works too. One 8 port Ubiquiti UniFi Switch 8 60W (US-8-60W), though really any gigabit switch will do.</description>
+      <description>ARM Cluster Parts List Realized I forgot to include a parts list for the cluster in my ARM cluster post (all prices are as of March 3rd, 2019), so here we go.
+ Three Odroid HC2 ARM SBCs. $54.95. These have gigabit ethernet ports, a SATA-3 port for 3.5&amp;frasl;2.5 HDD/SSD storage, Samsung Exynos5422 Cortex-A15 2Ghz and Cortex-A7 Octa core 32bit ARM CPUs, with 4 2GHz cores and 4 1.4GHz cores, UHS-1 compatible microSD that supports up to 128GB/SDXC.</description>
     </item>
     
     <item>
@@ -28,7 +28,7 @@
       
       <guid>/blog/in_the_beginning_there_was_bare_metal/</guid>
       <description>Background I recently decided to set up a Kubernetes cluster in my basement, partly because I&amp;rsquo;d never set a cluster up from scratch by myself, and partly because my existing NAS was beginning to run out of headroom.
-For a variety of reasons, I decided to use ODROID HC2 boards. They&amp;rsquo;ve got gigabit ethernet, eight CPU cores, 2 GB RAM and a SATA-3 port for directly connecting a hard drive.</description>
+For a variety of reasons, I decided to use ODROID HC2 boards. They&amp;rsquo;ve got gigabit ethernet, eight CPU cores, 2 GB RAM and a SATA-3 port for directly connecting a hard drive, which I wanted so I could use them as file server bricks.</description>
     </item>
     
   </channel>
