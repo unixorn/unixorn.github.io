@@ -62,6 +62,12 @@
   </url>
   
   <url>
+    <loc>/categories/kubernetes/</loc>
+    <lastmod>2019-03-01T21:49:17-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/tech/</loc>
     <lastmod>2019-03-01T21:49:17-07:00</lastmod>
     <priority>0</priority>

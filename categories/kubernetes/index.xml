@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kubernetes on unixorn.github.io</title>
+    <link>/categories/kubernetes/</link>
+    <description>Recent content in kubernetes on unixorn.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Mar 2019 21:49:17 -0700</lastBuildDate>
+    
+	<atom:link href="/categories/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Parts list for the ARM cluster</title>
+      <link>/blog/arm_cluster_parts_list/</link>
+      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
+      
+      <guid>/blog/arm_cluster_parts_list/</guid>
+      <description>ARM Cluster Parts List Realized I forgot to include a parts list for the cluster in my ARM cluster post (all prices are as of March 3rd, 2019), so here we go.
+ Three Odroid HC2 ARM SBCs @ $54.95 each. These have gigabit ethernet ports, a SATA-3 port for 3.5 inch or 2.5 inch HDD/SSD drives, Samsung Exynos5422 Cortex-A15 2Ghz and Cortex-A7 Octa core 32bit ARM CPUs, with four 2GHz cores and four 1.</description>
+    </item>
+    
+    <item>
+      <title>Getting an ARM kubernetes cluster up and running</title>
+      <link>/blog/in_the_beginning_there_was_bare_metal/</link>
+      <pubDate>Sun, 17 Feb 2019 16:00:05 -0700</pubDate>
+      
+      <guid>/blog/in_the_beginning_there_was_bare_metal/</guid>
+      <description>Background I recently decided to set up a Kubernetes cluster in my basement, partly because I&amp;rsquo;d never set a cluster up from scratch by myself, and partly because my existing NAS was beginning to run out of headroom.
+For a variety of reasons, I decided to use ODROID HC2 boards. They&amp;rsquo;ve got gigabit ethernet, eight CPU cores, 2 GB RAM and a SATA-3 port for directly connecting a hard drive, which I wanted so I could use them as file server bricks.</description>
+    </item>
+    
+  </channel>
+</rss>
