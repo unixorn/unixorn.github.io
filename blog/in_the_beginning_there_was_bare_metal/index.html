@@ -24,7 +24,7 @@
         "datePublished": "2019-02-17 16:00:05 -0700 MST",
         "dateModified" : "2019-02-17 16:00:05 -0700 MST",
         "url" : "/blog/in_the_beginning_there_was_bare_metal/",
-        "wordCount" : "1080",
+        "wordCount" : "1235",
         "keywords" : [ "ARM","ARM7","k8s","Blog" ]
     }
     </script>
@@ -68,7 +68,7 @@
 
 <meta itemprop="datePublished" content="2019-02-17T16:00:05-07:00" />
 <meta itemprop="dateModified" content="2019-02-17T16:00:05-07:00" />
-<meta itemprop="wordCount" content="1080">
+<meta itemprop="wordCount" content="1235">
 
 
 
@@ -511,7 +511,7 @@ if (!doNotTrack) {
 
 <p>For a variety of reasons, I decided to use ODROID HC2 boards. They&rsquo;ve got gigabit ethernet, eight CPU cores, 2 GB RAM and a SATA-3 port for directly connecting a hard drive, which I wanted so I could use them as file server bricks. In a future post I will detail how I set up a distributed filesystem across the cluster.</p>
 
-<p>EDIT - Here&rsquo;s the <a href="https://unixorn.github.io/blog/arm_cluster_parts_list/">parts list</a></p>
+<p>EDIT - Added a link to the <a href="https://unixorn.github.io/blog/arm_cluster_parts_list/">parts list</a>, and added instructions for finding the new machine on your network.</p>
 
 <h1 id="setting-up-an-odroid-hc2-cluster">Setting up an ODROID HC2 cluster</h1>
 
@@ -523,7 +523,17 @@ if (!doNotTrack) {
 
 <p>I used <a href="https://etcher.io/">Etcher</a> to burn the debian-stretch ISO to an microSD card.</p>
 
-<p>Flash your microSD card, plug it into the HC2 and attach a SATA drive to your HC2 if you&rsquo;re going to use one, then plug it into your</p>
+<p>Flash your microSD card, plug it into the HC2 and attach a SATA drive to your HC2 if you&rsquo;re going to use one, then connect it to your switch and power up. It will get an IP address with DHCP. Since they don&rsquo;t have a video connector, you&rsquo;ll have to scan your network to figure out what IP it got.</p>
+
+<h2 id="find-the-odroid-on-your-network">Find the Odroid on your network</h2>
+
+<h3 id="nmap">nmap</h3>
+
+<p>You can use <code>nmap</code> to find the Odroid machines. Assuming your network is 10.0.0.1-254, you can scan the network with <code>nmap -sP -n 10.0.0.0/24 | grep -v Host</code>. Look for systems that show <code>Wibrain</code> in their MAC Address line.</p>
+
+<h3 id="angry-ip-scanner">Angry IP Scanner</h3>
+
+<p>If you&rsquo;re not comfortable with <code>nmap</code>, I recommend <a href="https://angryip.org/">Angry IP Scanner</a> to find the new machine on your network because you can configure (select Fetchers in the Angry IP Scanner Menu on macOS, then add MAC Vendor to the selected fetchers) it to show the MAC vendor of your ethernet card - the ODroids show will show up as <strong>WIBRAIN</strong>.</p>
 
 <p>Login as <code>root</code>, password <code>odroid</code>.</p>
 
