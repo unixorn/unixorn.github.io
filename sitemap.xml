@@ -3,6 +3,11 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/blog/fix-macos-captive-portal-issue/</loc>
+    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/arm_cluster_parts_list/</loc>
     <lastmod>2019-03-01T21:49:17-07:00</lastmod>
   </url>
@@ -33,13 +38,20 @@
   </url>
   
   <url>
+    <loc>/categories/apple/</loc>
+    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/blog/</loc>
-    <lastmod>2019-03-01T21:49:17-07:00</lastmod>
+    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/categories/</loc>
+    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -68,14 +80,38 @@
   </url>
   
   <url>
+    <loc>/tags/macos/</loc>
+    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/mojave/</loc>
+    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>/categories/tech/</loc>
-    <lastmod>2019-03-01T21:49:17-07:00</lastmod>
+    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/tumult/</loc>
+    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>/</loc>
-    <lastmod>2019-03-01T21:49:17-07:00</lastmod>
+    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/tags/wifi/</loc>
+    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
     <priority>0</priority>
   </url>
   

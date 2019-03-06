@@ -38,5 +38,41 @@
       <description></description>
     </item>
     
+    <item>
+      <title>macos</title>
+      <link>/tags/macos/</link>
+      <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
+      
+      <guid>/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mojave</title>
+      <link>/tags/mojave/</link>
+      <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
+      
+      <guid>/tags/mojave/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tumult</title>
+      <link>/tags/tumult/</link>
+      <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
+      
+      <guid>/tags/tumult/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wifi</title>
+      <link>/tags/wifi/</link>
+      <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
+      
+      <guid>/tags/wifi/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

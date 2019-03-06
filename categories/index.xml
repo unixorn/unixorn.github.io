@@ -6,9 +6,19 @@
     <description>Recent content in Categories on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
+    <lastBuildDate>Tue, 05 Mar 2019 22:48:25 -0700</lastBuildDate>
     
 	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Apple</title>
+      <link>/categories/apple/</link>
+      <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
+      
+      <guid>/categories/apple/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>homelab</title>
@@ -31,7 +41,7 @@
     <item>
       <title>tech</title>
       <link>/categories/tech/</link>
-      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
+      <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
       
       <guid>/categories/tech/</guid>
       <description></description>
