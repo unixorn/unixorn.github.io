@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Arm on unixorn.github.io</title>
-    <link>http://unixorn.github.io/tags/arm/</link>
-    <description>Recent content in Arm on unixorn.github.io</description>
+    <title>Posts on unixorn.github.io</title>
+    <link>http://unixorn.github.io/post/</link>
+    <description>Recent content in Posts on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 01 Mar 2019 21:49:17 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 05 Mar 2019 22:48:25 -0700</lastBuildDate>
     
-	<atom:link href="http://unixorn.github.io/tags/arm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://unixorn.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Fix macOS Captive WIFI Portal Issue</title>
+      <link>http://unixorn.github.io/post/fix-macos-captive-portal-issue/</link>
+      <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
+      
+      <guid>http://unixorn.github.io/post/fix-macos-captive-portal-issue/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;m not sure if this is just macOS Mojave being flaky or some interaction with the security malware installed on my work laptop, but it refuses to connect to some captive portals.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Parts list for the ARM cluster</title>

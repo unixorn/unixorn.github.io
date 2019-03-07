@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.54.0" />
 
-  <title>Tags &middot; unixorn.github.io</title>
+  <title>Fix macOS Captive WIFI Portal Issue &middot; unixorn.github.io</title>
 
   
   
@@ -39,8 +40,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
-  
-  <link rel="alternate" type="application/rss+xml" title="unixorn.github.io" href="http://unixorn.github.io/tags/index.xml" />
   
 
   
@@ -111,10 +110,6 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="http://unixorn.github.io/tags/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -234,69 +229,52 @@
 
 
 <div class="header">
-  <h1>Tags</h1>
+  <h1>Fix macOS Captive WIFI Portal Issue</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  <ul>
+  <p>I&rsquo;m not sure if this is just macOS Mojave being flaky or some interaction with the security malware installed on my work laptop, but it refuses to connect to some captive portals.</p>
+
+<p>The problem is that it refuses to render the captive portal login page, so you can&rsquo;t agree to their TOS, and don&rsquo;t get a DHCP address.</p>
+
+
+
+<div class="pure-g">
+
   
   
-    <li>
-      <a href="tech">tech</a>
-      <span>&#40;3&#41;</span>
-    </li>
   
-    <li>
-      <a href="arm">arm</a>
-      <span>&#40;2&#41;</span>
-    </li>
   
-    <li>
-      <a href="arm7">arm7</a>
-      <span>&#40;2&#41;</span>
-    </li>
+  <div class="pure-u-1-1">
+    <div style="padding: 0 .2em">
+      <img
+        class="pure-img-responsive"
+        src="http://unixorn.github.io/images/WIFI_fail.png"
+        alt="Wifi failing to render portal">
+    </div>
+  </div>
   
-    <li>
-      <a href="homelab">homelab</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="k8s">k8s</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="kubernetes">kubernetes</a>
-      <span>&#40;2&#41;</span>
-    </li>
-  
-    <li>
-      <a href="apple">apple</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="macos">macos</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="mojave">mojave</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="tumult">tumult</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-    <li>
-      <a href="wifi">wifi</a>
-      <span>&#40;1&#41;</span>
-    </li>
-  
-  </ul>
+
 </div>
+
+
+<p>There&rsquo;s a workaround, you can open Apple&rsquo;s hotspot detection page with Safari directly by running</p>
+
+<p><code>open -a &quot;Safari&quot; &quot;http://captive.apple.com/hotspot-detect.html&quot;</code></p>
+
+<p>in a terminal window.</p>
+
+<p>That&rsquo;s annoying to remember (and honestly, most of the time I don&rsquo;t have Safari running) so I&rsquo;ve added it to my tumult zsh plugin for macOS <a href="https://github.com/unixorn/tumult.plugin.zsh/blob/master/bin/unfuck-captive-portal">here</a></p>
+</div>
+
+<script src="https://utteranc.es/client.js"
+  repo="unixorn/unixorn.github.io"
+  issue-term="title"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+
 
 </div>
 </div>
@@ -323,3 +301,4 @@
 
 </body>
 </html>
+

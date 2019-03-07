@@ -2,75 +2,112 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on unixorn.github.io</title>
-    <link>/tags/</link>
+    <link>http://unixorn.github.io/tags/</link>
     <description>Recent content in Tags on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 01 Mar 2019 21:49:17 -0700</lastBuildDate>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 05 Mar 2019 22:48:25 -0700</lastBuildDate>
     
-	<atom:link href="/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>ARM</title>
-      <link>/tags/arm/</link>
+      <title>Apple</title>
+      <link>http://unixorn.github.io/tags/apple/</link>
+      <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
+      
+      <guid>http://unixorn.github.io/tags/apple/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Arm</title>
+      <link>http://unixorn.github.io/tags/arm/</link>
       <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
       
-      <guid>/tags/arm/</guid>
+      <guid>http://unixorn.github.io/tags/arm/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>ARM7</title>
-      <link>/tags/arm7/</link>
+      <title>Arm7</title>
+      <link>http://unixorn.github.io/tags/arm7/</link>
       <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
       
-      <guid>/tags/arm7/</guid>
+      <guid>http://unixorn.github.io/tags/arm7/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>k8s</title>
-      <link>/tags/k8s/</link>
+      <title>Homelab</title>
+      <link>http://unixorn.github.io/tags/homelab/</link>
       <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
       
-      <guid>/tags/k8s/</guid>
+      <guid>http://unixorn.github.io/tags/homelab/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>macos</title>
-      <link>/tags/macos/</link>
-      <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
+      <title>K8s</title>
+      <link>http://unixorn.github.io/tags/k8s/</link>
+      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
       
-      <guid>/tags/macos/</guid>
+      <guid>http://unixorn.github.io/tags/k8s/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>mojave</title>
-      <link>/tags/mojave/</link>
-      <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
+      <title>Kubernetes</title>
+      <link>http://unixorn.github.io/tags/kubernetes/</link>
+      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
       
-      <guid>/tags/mojave/</guid>
+      <guid>http://unixorn.github.io/tags/kubernetes/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>tumult</title>
-      <link>/tags/tumult/</link>
+      <title>Macos</title>
+      <link>http://unixorn.github.io/tags/macos/</link>
       <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
       
-      <guid>/tags/tumult/</guid>
+      <guid>http://unixorn.github.io/tags/macos/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>wifi</title>
-      <link>/tags/wifi/</link>
+      <title>Mojave</title>
+      <link>http://unixorn.github.io/tags/mojave/</link>
       <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
       
-      <guid>/tags/wifi/</guid>
+      <guid>http://unixorn.github.io/tags/mojave/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tech</title>
+      <link>http://unixorn.github.io/tags/tech/</link>
+      <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
+      
+      <guid>http://unixorn.github.io/tags/tech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tumult</title>
+      <link>http://unixorn.github.io/tags/tumult/</link>
+      <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
+      
+      <guid>http://unixorn.github.io/tags/tumult/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wifi</title>
+      <link>http://unixorn.github.io/tags/wifi/</link>
+      <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
+      
+      <guid>http://unixorn.github.io/tags/wifi/</guid>
       <description></description>
     </item>
     

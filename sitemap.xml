@@ -3,114 +3,113 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/blog/fix-macos-captive-portal-issue/</loc>
+    <loc>http://unixorn.github.io/post/fix-macos-captive-portal-issue/</loc>
     <lastmod>2019-03-05T22:48:25-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/arm_cluster_parts_list/</loc>
+    <loc>http://unixorn.github.io/post/arm_cluster_parts_list/</loc>
     <lastmod>2019-03-01T21:49:17-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/blog/in_the_beginning_there_was_bare_metal/</loc>
+    <loc>http://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</loc>
     <lastmod>2019-02-17T16:00:05-07:00</lastmod>
   </url>
   
   <url>
-    <loc>/about/</loc>
+    <loc>http://unixorn.github.io/about/</loc>
   </url>
   
   <url>
-    <loc>/contact/</loc>
+    <loc>http://unixorn.github.io/contact/</loc>
   </url>
   
   <url>
-    <loc>/tags/arm/</loc>
+    <loc>http://unixorn.github.io/tags/apple/</loc>
+    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://unixorn.github.io/tags/arm/</loc>
     <lastmod>2019-03-01T21:49:17-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/arm7/</loc>
+    <loc>http://unixorn.github.io/tags/arm7/</loc>
     <lastmod>2019-03-01T21:49:17-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/apple/</loc>
-    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/blog/</loc>
-    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
+    <loc>http://unixorn.github.io/tags/homelab/</loc>
     <lastmod>2019-03-01T21:49:17-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/homelab/</loc>
+    <loc>http://unixorn.github.io/tags/k8s/</loc>
     <lastmod>2019-03-01T21:49:17-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/k8s/</loc>
+    <loc>http://unixorn.github.io/tags/kubernetes/</loc>
     <lastmod>2019-03-01T21:49:17-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/kubernetes/</loc>
-    <lastmod>2019-03-01T21:49:17-07:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>/tags/macos/</loc>
+    <loc>http://unixorn.github.io/tags/macos/</loc>
     <lastmod>2019-03-05T22:48:25-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/mojave/</loc>
+    <loc>http://unixorn.github.io/tags/mojave/</loc>
     <lastmod>2019-03-05T22:48:25-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/categories/tech/</loc>
+    <loc>http://unixorn.github.io/post/</loc>
     <lastmod>2019-03-05T22:48:25-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/tumult/</loc>
+    <loc>http://unixorn.github.io/tags/</loc>
     <lastmod>2019-03-05T22:48:25-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>http://unixorn.github.io/tags/tech/</loc>
     <lastmod>2019-03-05T22:48:25-07:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>/tags/wifi/</loc>
+    <loc>http://unixorn.github.io/topics/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://unixorn.github.io/tags/tumult/</loc>
+    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://unixorn.github.io/tags/wifi/</loc>
+    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://unixorn.github.io/</loc>
     <lastmod>2019-03-05T22:48:25-07:00</lastmod>
     <priority>0</priority>
   </url>
