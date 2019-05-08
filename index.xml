@@ -60,5 +60,15 @@ I have a variety of DevOps (and DevOOPs) themed swag on redbubble, if you&amp;rs
 I&amp;rsquo;m: * curiousbiped on twitter * unixorn on redbubble * apeseekingknowledge on instagram.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>//unixorn.github.io/projects/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//unixorn.github.io/projects/</guid>
+      <description>Some projects I maintain and/or created:
+ apgar - Apgar is a quick and dirty health-check driver written in Go. awesome-zsh-plugins - A list of ZSH frameworks, plugins, themes, tab-completions and tutorials. dotfiles.github.io - The unofficial guide to dotfiles on GitHub. git-extra-commands - A collection of useful extra git scripts I&amp;rsquo;ve discovered or written, packaged for ease of use with shell frameworks. sysadmin-reading-list - A reading/viewing list for larval stage SRE/DevOps people.</description>
+    </item>
+    
   </channel>
 </rss>

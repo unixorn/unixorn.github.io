@@ -22,52 +22,7 @@
     </item>
     
     <item>
-      <title>Arm</title>
-      <link>//unixorn.github.io/tags/arm/</link>
-      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/arm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Arm7</title>
-      <link>//unixorn.github.io/tags/arm7/</link>
-      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/arm7/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Homelab</title>
-      <link>//unixorn.github.io/tags/homelab/</link>
-      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/homelab/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>K8s</title>
-      <link>//unixorn.github.io/tags/k8s/</link>
-      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/k8s/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kubernetes</title>
-      <link>//unixorn.github.io/tags/kubernetes/</link>
-      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Macos</title>
+      <title>macos</title>
       <link>//unixorn.github.io/tags/macos/</link>
       <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
       
@@ -76,7 +31,7 @@
     </item>
     
     <item>
-      <title>Mojave</title>
+      <title>mojave</title>
       <link>//unixorn.github.io/tags/mojave/</link>
       <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
       
@@ -85,7 +40,7 @@
     </item>
     
     <item>
-      <title>Tech</title>
+      <title>tech</title>
       <link>//unixorn.github.io/tags/tech/</link>
       <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
       
@@ -94,7 +49,7 @@
     </item>
     
     <item>
-      <title>Tumult</title>
+      <title>tumult</title>
       <link>//unixorn.github.io/tags/tumult/</link>
       <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
       
@@ -103,11 +58,56 @@
     </item>
     
     <item>
-      <title>Wifi</title>
+      <title>wifi</title>
       <link>//unixorn.github.io/tags/wifi/</link>
       <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
       
       <guid>//unixorn.github.io/tags/wifi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ARM</title>
+      <link>//unixorn.github.io/tags/arm/</link>
+      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/arm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ARM7</title>
+      <link>//unixorn.github.io/tags/arm7/</link>
+      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/arm7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homelab</title>
+      <link>//unixorn.github.io/tags/homelab/</link>
+      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/homelab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>k8s</title>
+      <link>//unixorn.github.io/tags/k8s/</link>
+      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/k8s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>//unixorn.github.io/tags/kubernetes/</link>
+      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/kubernetes/</guid>
       <description></description>
     </item>
     
