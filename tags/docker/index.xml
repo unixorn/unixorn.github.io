@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>macos on unixorn.github.io</title>
-    <link>//unixorn.github.io/tags/macos/</link>
-    <description>Recent content in macos on unixorn.github.io</description>
+    <title>docker on unixorn.github.io</title>
+    <link>//unixorn.github.io/tags/docker/</link>
+    <description>Recent content in docker on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Wed, 08 May 2019 09:11:31 -0600</lastBuildDate>
     
-	<atom:link href="//unixorn.github.io/tags/macos/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//unixorn.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -19,15 +19,6 @@
       
       <guid>//unixorn.github.io/post/til-about-docker-mac/</guid>
       <description>I had a bunch of cruft in start scripts that would determine the IP of my laptop and set it as an environment variable to pass to docker-compose and it turns out that with Docker for Mac you don&amp;rsquo;t have to do all that work - just use docker.for.mac.localhost as a hostname.</description>
-    </item>
-    
-    <item>
-      <title>Fix macOS Captive WIFI Portal Issue</title>
-      <link>//unixorn.github.io/post/fix-macos-captive-portal-issue/</link>
-      <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/post/fix-macos-captive-portal-issue/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;m not sure if this is just macOS Mojave being flaky or some interaction with the security malware installed on my work laptop, but it refuses to connect to some captive portals.&lt;/p&gt;</description>
     </item>
     
   </channel>

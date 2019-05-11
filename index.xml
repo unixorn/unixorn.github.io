@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 05 Mar 2019 22:48:25 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 08 May 2019 09:11:31 -0600</lastBuildDate>
     
 	<atom:link href="//unixorn.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Things I Learned About Docker Mac</title>
+      <link>//unixorn.github.io/post/til-about-docker-mac/</link>
+      <pubDate>Wed, 08 May 2019 09:11:31 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/post/til-about-docker-mac/</guid>
+      <description>I had a bunch of cruft in start scripts that would determine the IP of my laptop and set it as an environment variable to pass to docker-compose and it turns out that with Docker for Mac you don&amp;rsquo;t have to do all that work - just use docker.for.mac.localhost as a hostname.</description>
+    </item>
     
     <item>
       <title>Fix macOS Captive WIFI Portal Issue</title>
