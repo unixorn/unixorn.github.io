@@ -7,10 +7,91 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 08 May 2019 09:11:31 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 23 Jun 2019 17:22:47 -0700</lastBuildDate>
     
 	<atom:link href="//unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>ARM</title>
+      <link>//unixorn.github.io/tags/arm/</link>
+      <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/arm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ARM7</title>
+      <link>//unixorn.github.io/tags/arm7/</link>
+      <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/arm7/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ceph</title>
+      <link>//unixorn.github.io/tags/ceph/</link>
+      <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/ceph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dfs</title>
+      <link>//unixorn.github.io/tags/dfs/</link>
+      <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/dfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>glusterfs</title>
+      <link>//unixorn.github.io/tags/glusterfs/</link>
+      <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/glusterfs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homelab</title>
+      <link>//unixorn.github.io/tags/homelab/</link>
+      <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/homelab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>moosefs</title>
+      <link>//unixorn.github.io/tags/moosefs/</link>
+      <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/moosefs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>odroid</title>
+      <link>//unixorn.github.io/tags/odroid/</link>
+      <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/odroid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
+      <link>//unixorn.github.io/tags/tech/</link>
+      <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/tech/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>docker</title>
@@ -27,15 +108,6 @@
       <pubDate>Wed, 08 May 2019 09:11:31 -0600</pubDate>
       
       <guid>//unixorn.github.io/tags/macos/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tech</title>
-      <link>//unixorn.github.io/tags/tech/</link>
-      <pubDate>Wed, 08 May 2019 09:11:31 -0600</pubDate>
-      
-      <guid>//unixorn.github.io/tags/tech/</guid>
       <description></description>
     </item>
     
@@ -72,33 +144,6 @@
       <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
       
       <guid>//unixorn.github.io/tags/wifi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ARM</title>
-      <link>//unixorn.github.io/tags/arm/</link>
-      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/arm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ARM7</title>
-      <link>//unixorn.github.io/tags/arm7/</link>
-      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/arm7/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>homelab</title>
-      <link>//unixorn.github.io/tags/homelab/</link>
-      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/homelab/</guid>
       <description></description>
     </item>
     

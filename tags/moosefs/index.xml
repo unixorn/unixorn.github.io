@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>moosefs on unixorn.github.io</title>
+    <link>//unixorn.github.io/tags/moosefs/</link>
+    <description>Recent content in moosefs on unixorn.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 23 Jun 2019 17:22:47 -0700</lastBuildDate>
+    
+	<atom:link href="//unixorn.github.io/tags/moosefs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Adding a Distributed Filesystem to the Cluster</title>
+      <link>//unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</link>
+      <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</guid>
+      <description>&lt;h1 id=&#34;adding-a-distributed-filesystem-to-the-cluster&#34;&gt;Adding a Distributed Filesystem to the Cluster.&lt;/h1&gt;
+
+&lt;p&gt;One of the reasons I set up my cluster was that I&amp;rsquo;m running out of space on my NAS. I don&amp;rsquo;t want to buy a whole new chassis, and while I could have put individual file shares on each cluster node, that would be both inconvenient and not provide any data redundancy without a lot of brittle home-rolled hacks to &lt;code&gt;rsync&lt;/code&gt; data from node to node. And since distributed file systems are a thing, I&amp;rsquo;d rather not resort to hacks.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

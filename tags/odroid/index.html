@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.55.6" />
 
-  <title> &middot; unixorn.github.io</title>
+  <title>odroid &middot; unixorn.github.io</title>
 
   
   
@@ -39,6 +39,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
+  
+  <link rel="alternate" type="application/rss+xml" title="unixorn.github.io" href="//unixorn.github.io/tags/odroid/index.xml" />
   
 
   
@@ -115,6 +117,10 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="//unixorn.github.io/tags/odroid/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+    </li>
     
 
     
@@ -222,20 +228,127 @@
 
 
 <div class="header">
-  <h1></h1>
-  <h2></h2>
+  <h1>odroid</h1>
 </div>
+
 <div class="content">
-  <p>I&rsquo;m an SRE in Denver. I like cooking, photography, and working on distributed infrastructure.</p>
+  
+    <article>
+  <header>
+    <h2><a href="//unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/">Adding a Distributed Filesystem to the Cluster</a></h2>
 
-<p>I&rsquo;m the organizer for Denver <a href="https://www.meetup.com/Denver-CoffeeOps/">CoffeeOps</a>, which currently meets every Thursday morning from 8am to 10am at the Monk and Mongoose in Greenwood Village near DTC.</p>
+    <div class="post-meta">
 
-<p>I have a variety of DevOps (and DevOOPs) themed swag on <a href="https://www.redbubble.com/people/unixorn?utm_campaign=external-portfolio&amp;utm_medium=embedded&amp;utm_source=unixorn&amp;asc=u">redbubble</a>, if you&rsquo;d like to buy something and contribute to my hardware habit, or you can contribute at <a href="https://www.patreon.com/unixorn">https://www.patreon.com/unixorn</a>.</p>
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>Jun 23 23069, 17:22</time>
+  </div>
 
-<script type="text/javascript" src="http://www.redbubble.com/assets/external_portfolio.js"></script>
-<script id="rb-xzfcxvzx" type="text/javascript">new RBExternalPortfolio('www.redbubble.com', 'unixorn', 3, 3).renderIframe();</script>
+  
 
+  
 
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm">arm</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm7">arm7</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/ceph">ceph</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/dfs">dfs</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/glusterfs">glusterfs</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/homelab">homelab</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/moosefs">moosefs</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/odroid">odroid</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/tech">tech</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  <h1 id="adding-a-distributed-filesystem-to-the-cluster">Adding a Distributed Filesystem to the Cluster.</h1>
+
+<p>One of the reasons I set up my cluster was that I&rsquo;m running out of space on my NAS. I don&rsquo;t want to buy a whole new chassis, and while I could have put individual file shares on each cluster node, that would be both inconvenient and not provide any data redundancy without a lot of brittle home-rolled hacks to <code>rsync</code> data from node to node. And since distributed file systems are a thing, I&rsquo;d rather not resort to hacks.</p>
+  </p>
+
+  
+  <footer>
+    <a href="//unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="//unixorn.github.io/post/in_the_beginning_there_was_bare_metal/">Getting an ARM kubernetes cluster up and running</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>Feb 17 17029, 16:00</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm">ARM</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm7">ARM7</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/homelab">homelab</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/k8s">k8s</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/kubernetes">kubernetes</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/odroid">odroid</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/tech">tech</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  <p>I recently decided to set up a Kubernetes cluster in my basement, partly because I&rsquo;d never set a cluster up from scratch by myself, and partly because my existing NAS was beginning to run out of headroom.</p>
+  </p>
+
+  
+  <footer>
+    <a href="//unixorn.github.io/post/in_the_beginning_there_was_bare_metal/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
 </div>
 
 </div>
@@ -263,4 +376,3 @@
 
 </body>
 </html>
-
