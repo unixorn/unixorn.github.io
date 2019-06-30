@@ -335,9 +335,11 @@
 
 <p>Now that the chunkservers are talking to the master, you can set up automounting it on your nodes.</p>
 
-<p>Make a mountpoint. On my nodes, I&rsquo;m using <code>/data/squirrel</code>, so <code>sudo mkdir -p /data/squirrel</code></p>
+<p>First, install the client software - <code>sudo apt install -y moosefs-client</code></p>
 
-<p>Create a systemd unit file so that the filesystem mounts every boot. I want to be able to use <code>hostPath</code> directives in my kubernetes deployments, so I want it to start before <code>docker</code> and <code>kubelet</code>. Make a file, <code>/etc/systemd/system/yourcluster-mfsmount.service</code> with the following content (replace <code>/mountpoint</code> with whatever mountpoint you&rsquo;re using):</p>
+<p>Second, make a mountpoint. On my nodes, I&rsquo;m using <code>/data/squirrel</code>, so <code>sudo mkdir -p /data/squirrel</code></p>
+
+<p>Finally, create a systemd unit file so that the filesystem mounts every boot. I want to be able to use <code>hostPath</code> directives in my kubernetes deployments, so I want it to start before <code>docker</code> and <code>kubelet</code>. Make a file, <code>/etc/systemd/system/yourcluster-mfsmount.service</code> with the following content (replace <code>/mountpoint</code> with whatever mountpoint you&rsquo;re using):</p>
 
 <pre><code># Original source: https://sourceforge.net/p/moosefs/mailman/message/29522468/
 [Unit]
