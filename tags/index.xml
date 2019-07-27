@@ -7,10 +7,37 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 23 Jun 2019 17:22:47 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 27 Jul 2019 07:09:10 -0600</lastBuildDate>
     
 	<atom:link href="//unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>data breech</title>
+      <link>//unixorn.github.io/tags/data-breech/</link>
+      <pubDate>Sat, 27 Jul 2019 07:09:10 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/data-breech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>settlement</title>
+      <link>//unixorn.github.io/tags/settlement/</link>
+      <pubDate>Sat, 27 Jul 2019 07:09:10 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/settlement/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
+      <link>//unixorn.github.io/tags/tech/</link>
+      <pubDate>Sat, 27 Jul 2019 07:09:10 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/tech/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>arm</title>
@@ -81,15 +108,6 @@
       <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
       
       <guid>//unixorn.github.io/tags/odroid/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tech</title>
-      <link>//unixorn.github.io/tags/tech/</link>
-      <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/tech/</guid>
       <description></description>
     </item>
     
