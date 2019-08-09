@@ -1,0 +1,576 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.56.3" />
+
+  <title>Trying K3s on ARM &middot; unixorn.github.io</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="//unixorn.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="//unixorn.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="//unixorn.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="//unixorn.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="//unixorn.github.io/">unixorn</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="//unixorn.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="//unixorn.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="//unixorn.github.io/tags"><i class="sidebar-button-icon fa fa-lg fa-tags"></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="//unixorn.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="//unixorn.github.io/projects/"><i class='fa fa-list fa-fw'></i>Projects</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="//unixorn.github.io/contact/"><i class='fa fa-envelope fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/curiousbiped" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/apeseekingknowledge" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/unixorn" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2019. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Trying K3s on ARM</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  <h2 id="why-k3s-and-not-stick-with-k8s">Why k3s and not stick with k8s?</h2>
+
+<p>I wanted to experiment with k3s. They package everything you need in a single binary, don&rsquo;t package in deprecated parts of k8s, and it works on ARMv7 and ARM64. It seemed like it&rsquo;d be a less painful way to get Kubernetes on my ARM cluster.</p>
+
+<h2 id="prerequisites">Prerequisites</h2>
+
+<p>You must have set up DNS entries for the nodes you want to cluster, or update <code>/etc/hosts</code> on all the nodes so they can find each other.</p>
+
+<h2 id="installing-k3s">Installing k3s</h2>
+
+<p>I chose to install k3s <em>without</em> the built-in traefik install so I could install that with a custom configuration. I also chose to use <code>docker</code> instead of the baked-in <code>containerd</code> so that I could also run containers outside k3s on my worker nodes without wasting RAM.</p>
+
+<h3 id="installing-the-master">Installing the master</h3>
+
+<pre><code>curl -sfL https://get.k3s.io &gt; install-k3s.sh &amp;&amp; chmod 755 ./install-k3s.sh
+sudo ./install-k3s.sh --no-deploy traefik --docker
+sudo chgrp docker /etc/rancher/k3s/k3s.yaml
+sudo chmod g+r /etc/rancher/k3s/k3s.yaml
+</code></pre>
+
+<p>I also updated <code>/etc/systemd/system/k3s.service</code> to add</p>
+
+<p><code>After=network-online.target cluster-mfsmount.service docker.service</code></p>
+
+<p>because I don&rsquo;t want k3s to attempt to start until after the docker service has started and the cluster&rsquo;s moosefs distributed filesystem is mounted.</p>
+
+<p>Once all that is done, copy the node token from <code>/var/lib/rancher/k3s/server/node-token</code> to each of the worker nodes.</p>
+
+<h3 id="installing-the-workers">Installing the workers</h3>
+
+<p>Copy <code>/var/lib/rancher/k3s/server/node-token</code> from the server to your worker.</p>
+
+<p>Run</p>
+
+<pre><code>./install-k3s.sh --agent --server https://master-server:6443 --kubelet-arg=&quot;address=0.0.0.0&quot; --token &quot;$(cat node-token)&quot; --docker
+</code></pre>
+
+<p>Remove the <code>--docker</code> if you want to use the <code>containerd</code> bundled into k3s - I wanted to be able to also run apps in <code>docker</code> on my nodes and didn&rsquo;t want it using extra RAM for another <code>containerd</code>.</p>
+
+<p>If you&rsquo;re using a distributed filesystem like I am, add</p>
+
+<p><code>After=network-online.target cluster-mfsmount.service docker.service</code></p>
+
+<p>to <code>/etc/systemd/system/k3s-agent.service</code>, and</p>
+
+<p><code>After=network-online.target cluster-mfsmount.service</code></p>
+
+<p>to <code>/lib/systemd/system/docker.service</code> to keep docker from starting until after the distributed filesystem is mounted.</p>
+
+<h2 id="set-up-networking">Set up Networking</h2>
+
+<h3 id="metallb">MetallB</h3>
+
+<p>I wanted to be able to use <code>LoadBalancerIP</code> entries in my cluster services to make using Traefik easier.</p>
+
+<h4 id="installing-metallb">Installing MetallB</h4>
+
+<p>On my master node, I ran</p>
+
+<pre><code>kubectl apply -f https://raw.githubusercontent.com/google/metallb/v0.8.0/manifests/metallb.yaml
+</code></pre>
+
+<h4 id="configuring-metallb">Configuring MetallB</h4>
+
+<p>I used the following configuration for metallb (in <code>metallb-conf.yaml</code>)</p>
+
+<pre><code>apiVersion: v1
+kind: ConfigMap
+metadata:
+  namespace: metallb-system
+  name: config
+data:
+  config: |
+    address-pools:
+    - name: default
+      protocol: layer2
+      addresses:
+      - 10.0.1.16/28
+</code></pre>
+
+<p>And applied it with <code>kubectl apply -f metallb-conf.yaml</code>.</p>
+
+<p>This allows me to use 10.0.1.17 through 10.0.1.30 as <code>LoadBalancerIP</code> entries in my k8s service configurations. 14 entries should be more than enough for my immediate needs.</p>
+
+<p>You will want to change the addresses entry to conform to your own network.</p>
+
+<h3 id="traefik">Traefik</h3>
+
+<p>Installed traefik with my own configuration, which I have posted on <a href="https://github.com/unixorn/blog-scripts/tree/master/arm-k3s">github</a>:</p>
+
+<p>Here are the configuration files I used - you&rsquo;ll need to tweak them for your own network.</p>
+
+<h4 id="traefik-rbac-yaml">traefik-rbac.yaml</h4>
+
+<pre><code>---
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: traefik-ingress-controller
+rules:
+  - apiGroups:
+      - &quot;&quot;
+    resources:
+      - services
+      - endpoints
+      - secrets
+    verbs:
+      - get
+      - list
+      - watch
+  - apiGroups:
+      - extensions
+    resources:
+      - ingresses
+    verbs:
+      - get
+      - list
+      - watch
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: traefik-ingress-controller
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: traefik-ingress-controller
+subjects:
+- kind: ServiceAccount
+  name: traefik-ingress-controller
+  namespace: kube-system
+</code></pre>
+
+<h4 id="traefik-configmap-yaml">traefik-configmap.yaml</h4>
+
+<pre><code>apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: traefik-conf
+  namespace: kube-system
+data:
+  traefik.toml: |
+    defaultEntryPoints = [&quot;http&quot;,&quot;https&quot;]
+    debug = false
+    logLevel = &quot;INFO&quot;
+    
+    # Do not verify backend certificates (use https backends)
+    InsecureSkipVerify = true
+
+    [entryPoints]
+      [entryPoints.http]
+      address = &quot;:80&quot;
+      compress = true
+      [entryPoints.https]
+      address = &quot;:443&quot;
+        [entryPoints.https.tls]
+
+    #Config to redirect http to https
+    #[entryPoints]
+    #  [entryPoints.http]
+    #  address = &quot;:80&quot;
+    #  compress = true
+    #    [entryPoints.http.redirect]
+    #    entryPoint = &quot;https&quot;
+    #  [entryPoints.https]
+    #  address = &quot;:443&quot;
+    #    [entryPoints.https.tls]
+
+    [web]
+      address = &quot;:8080&quot;
+
+    [kubernetes]
+
+    [metrics]
+      [metrics.prometheus]
+      buckets=[0.1,0.3,1.2,5.0]
+      entryPoint = &quot;traefik&quot;
+    [ping]
+    entryPoint = &quot;http&quot;
+
+</code></pre>
+
+<h4 id="traefik-deployment-yaml">traefik-deployment.yaml</h4>
+
+<pre><code>---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: traefik-ingress-controller
+  namespace: kube-system
+---
+kind: Deployment
+apiVersion: extensions/v1beta1
+metadata:
+  name: traefik-ingress-controller
+  namespace: kube-system
+  labels:
+    k8s-app: traefik-ingress-lb
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      k8s-app: traefik-ingress-lb
+  template:
+    metadata:
+      labels:
+        k8s-app: traefik-ingress-lb
+        name: traefik-ingress-lb
+    spec:
+      serviceAccountName: traefik-ingress-controller
+      terminationGracePeriodSeconds: 60
+      containers:
+      - image: traefik:1.7.9
+        name: traefik-ingress-lb
+        volumeMounts:
+        - mountPath: /config
+          name: config
+        ports:
+         - name: http
+           containerPort: 80
+         - name: https
+           containerPort: 443
+         - name: admin
+           containerPort: 8080
+        args:
+        - --api
+        - --kubernetes
+        - --configfile=/config/traefik.toml
+        livenessProbe:
+          httpGet:
+            path: /ping
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3
+          timeoutSeconds: 1
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: role
+                  operator: In
+                  values:
+                  - data
+              topologyKey: kubernetes.io/hostname
+      volumes:
+      - name: config
+        configMap:
+          name: traefik-conf
+</code></pre>
+
+<h4 id="traefik-service-yaml">traefik-service.yaml</h4>
+
+<pre><code>---
+kind: Service
+apiVersion: v1
+metadata:
+  name: traefik-ingress-service
+  namespace: kube-system
+  labels:
+    k8s-app: traefik-ingress-lb
+spec:
+  selector:
+    k8s-app: traefik-ingress-lb
+  externalTrafficPolicy: Local
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+    - protocol: TCP
+      port: 443
+      name: https
+    - protocol: TCP
+      port: 8080
+      name: admin
+  type: LoadBalancer
+  loadBalancerIP: 10.0.1.20
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: traefik-ingress-lb
+  namespace: kube-system
+spec:
+  rules:
+  - host: traefik.example.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: traefik-ingress-service
+          servicePort: admin
+</code></pre>
+
+<p>You&rsquo;ll want to change the <strong>loadBalancerIP</strong> entry and the <strong>host</strong> entry in the spec section to match your network and DNS configurations.</p>
+
+<pre><code class="language-sh">for traefik_yaml in traefik-rbac.yaml traefik-configmap.yaml traefik-deployment.yaml traefik-service.yaml
+do
+  kubectl apply -f $traefik_yaml
+done
+</code></pre>
+</div>
+
+<script src="https://utteranc.es/client.js"
+  repo="unixorn/unixorn.github.io"
+  issue-term="title"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+
+
+<center>
+<style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#000000 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/8UuWLA67y"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+</center>
+
+
+
+
+</div>
+</div>
+<script src="//unixorn.github.io/js/ui.js"></script>
+<script src="//unixorn.github.io/js/menus.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-100853138-2', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+
+</body>
+</html>
+

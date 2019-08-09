@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>k3s on unixorn.github.io</title>
+    <link>//unixorn.github.io/tags/k3s/</link>
+    <description>Recent content in k3s on unixorn.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 09 Aug 2019 09:02:31 -0600</lastBuildDate>
+    
+	<atom:link href="//unixorn.github.io/tags/k3s/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Trying K3s on ARM</title>
+      <link>//unixorn.github.io/post/k3s-on-arm/</link>
+      <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/post/k3s-on-arm/</guid>
+      <description>&lt;h2 id=&#34;why-k3s-and-not-stick-with-k8s&#34;&gt;Why k3s and not stick with k8s?&lt;/h2&gt;
+
+&lt;p&gt;I wanted to experiment with k3s. They package everything you need in a single binary, don&amp;rsquo;t package in deprecated parts of k8s, and it works on ARMv7 and ARM64. It seemed like it&amp;rsquo;d be a less painful way to get Kubernetes on my ARM cluster.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

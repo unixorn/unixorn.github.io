@@ -7,10 +7,82 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 27 Jul 2019 07:09:10 -0600</lastBuildDate>
+    <lastBuildDate>Fri, 09 Aug 2019 09:02:31 -0600</lastBuildDate>
     
 	<atom:link href="//unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>arm</title>
+      <link>//unixorn.github.io/tags/arm/</link>
+      <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/arm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homelab</title>
+      <link>//unixorn.github.io/tags/homelab/</link>
+      <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/homelab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>k3s</title>
+      <link>//unixorn.github.io/tags/k3s/</link>
+      <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/k3s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>k8s</title>
+      <link>//unixorn.github.io/tags/k8s/</link>
+      <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/k8s/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>kubernetes</title>
+      <link>//unixorn.github.io/tags/kubernetes/</link>
+      <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>odroid</title>
+      <link>//unixorn.github.io/tags/odroid/</link>
+      <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/odroid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
+      <link>//unixorn.github.io/tags/tech/</link>
+      <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/tech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>traefik</title>
+      <link>//unixorn.github.io/tags/traefik/</link>
+      <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/traefik/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>data breech</title>
@@ -31,25 +103,7 @@
     </item>
     
     <item>
-      <title>tech</title>
-      <link>//unixorn.github.io/tags/tech/</link>
-      <pubDate>Sat, 27 Jul 2019 07:09:10 -0600</pubDate>
-      
-      <guid>//unixorn.github.io/tags/tech/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>arm</title>
-      <link>//unixorn.github.io/tags/arm/</link>
-      <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/arm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>arm7</title>
+      <title>ARM7</title>
       <link>//unixorn.github.io/tags/arm7/</link>
       <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
       
@@ -85,29 +139,11 @@
     </item>
     
     <item>
-      <title>homelab</title>
-      <link>//unixorn.github.io/tags/homelab/</link>
-      <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/homelab/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>moosefs</title>
       <link>//unixorn.github.io/tags/moosefs/</link>
       <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
       
       <guid>//unixorn.github.io/tags/moosefs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>odroid</title>
-      <link>//unixorn.github.io/tags/odroid/</link>
-      <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/odroid/</guid>
       <description></description>
     </item>
     
@@ -162,24 +198,6 @@
       <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
       
       <guid>//unixorn.github.io/tags/wifi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>k8s</title>
-      <link>//unixorn.github.io/tags/k8s/</link>
-      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/k8s/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>//unixorn.github.io/tags/kubernetes/</link>
-      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/kubernetes/</guid>
       <description></description>
     </item>
     
