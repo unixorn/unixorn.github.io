@@ -291,7 +291,7 @@ sudo chmod g+r /etc/rancher/k3s/k3s.yaml
 
 <h4 id="configuring-metallb">Configuring MetallB</h4>
 
-<p>I used the following configuration for metallb (in <code>metallb-conf.yaml</code>)</p>
+<p>I used the following configuration for metallb (in <a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/metallb-conf.yaml">metallb-conf.yaml</a>)</p>
 
 <pre><code>apiVersion: v1
 kind: ConfigMap
@@ -319,7 +319,7 @@ data:
 
 <p>Here are the configuration files I used - you&rsquo;ll need to tweak them for your own network.</p>
 
-<h4 id="traefik-rbac-yaml">traefik-rbac.yaml</h4>
+<h4 id="traefik-rbac-yaml-https-github-com-unixorn-blog-scripts-blob-master-arm-k3s-traefik-rbac-yaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-rbac.yaml">traefik-rbac.yaml</a></h4>
 
 <pre><code>---
 kind: ClusterRole
@@ -360,7 +360,7 @@ subjects:
   namespace: kube-system
 </code></pre>
 
-<h4 id="traefik-configmap-yaml">traefik-configmap.yaml</h4>
+<h4 id="traefik-configmap-yaml-https-github-com-unixorn-blog-scripts-blob-master-arm-k3s-traefik-configmap-yaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-configmap.yaml">traefik-configmap.yaml</a></h4>
 
 <pre><code>apiVersion: v1
 kind: ConfigMap
@@ -409,7 +409,7 @@ data:
 
 </code></pre>
 
-<h4 id="traefik-deployment-yaml">traefik-deployment.yaml</h4>
+<h4 id="traefik-deployment-yaml-https-github-com-unixorn-blog-scripts-blob-master-arm-k3s-traefik-deployment-yaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-deployment.yaml">traefik-deployment.yaml</a></h4>
 
 <pre><code>---
 apiVersion: v1
@@ -480,7 +480,7 @@ spec:
           name: traefik-conf
 </code></pre>
 
-<h4 id="traefik-service-yaml">traefik-service.yaml</h4>
+<h4 id="traefik-service-yaml-https-github-com-unixorn-blog-scripts-blob-master-arm-k3s-traefik-service-yaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-service.yaml">traefik-service.yaml</a></h4>
 
 <pre><code>---
 kind: Service
