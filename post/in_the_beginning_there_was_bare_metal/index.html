@@ -359,7 +359,7 @@ dns-nameservers 8.8.8.8 8.8.4.4
 
 <h4 id="install-docker">Install docker</h4>
 
-<p><code>apt-get install -y docker-ce</code></p>
+<p><code>apt-get install -y docker-ce --no-install-recommends</code></p>
 
 <h4 id="confirm-docker-is-working">Confirm Docker is working</h4>
 
@@ -461,6 +461,10 @@ apt-mark hold kubelet kubeadm kubectl
 <li><code>DASHSRC=https://raw.githubusercontent.com/kubernetes/dashboard/master</code></li>
 <li><code>curl -sSL $DASHSRC/src/deploy/recommended/kubernetes-dashboard-arm-head.yaml | kubectl apply -f -</code></li>
 </ol>
+
+<h1 id="updates">Updates</h1>
+
+<p>Updated the docker install to use <code>--no-install-recommends</code> - this keeps it from attempting to install aufs-dkms, which causes error messages (but <code>docker</code> still works) on my Raspberry Pi 4 because the necessary kernel module isn&rsquo;t provided.</p>
 </div>
 
 <script src="https://utteranc.es/client.js"
