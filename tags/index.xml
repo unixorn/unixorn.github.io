@@ -7,10 +7,55 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 09 Aug 2019 09:02:31 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 20 Aug 2019 07:10:27 -0600</lastBuildDate>
     
 	<atom:link href="//unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>aws</title>
+      <link>//unixorn.github.io/tags/aws/</link>
+      <pubDate>Tue, 20 Aug 2019 07:10:27 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ebs</title>
+      <link>//unixorn.github.io/tags/ebs/</link>
+      <pubDate>Tue, 20 Aug 2019 07:10:27 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/ebs/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ec2</title>
+      <link>//unixorn.github.io/tags/ec2/</link>
+      <pubDate>Tue, 20 Aug 2019 07:10:27 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/ec2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>filesystems</title>
+      <link>//unixorn.github.io/tags/filesystems/</link>
+      <pubDate>Tue, 20 Aug 2019 07:10:27 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/filesystems/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
+      <link>//unixorn.github.io/tags/tech/</link>
+      <pubDate>Tue, 20 Aug 2019 07:10:27 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/tech/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>arm</title>
@@ -67,15 +112,6 @@
     </item>
     
     <item>
-      <title>tech</title>
-      <link>//unixorn.github.io/tags/tech/</link>
-      <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
-      
-      <guid>//unixorn.github.io/tags/tech/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>traefik</title>
       <link>//unixorn.github.io/tags/traefik/</link>
       <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
@@ -103,7 +139,7 @@
     </item>
     
     <item>
-      <title>arm7</title>
+      <title>ARM7</title>
       <link>//unixorn.github.io/tags/arm7/</link>
       <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
       

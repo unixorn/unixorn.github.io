@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ec2 on unixorn.github.io</title>
+    <link>//unixorn.github.io/tags/ec2/</link>
+    <description>Recent content in ec2 on unixorn.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 20 Aug 2019 07:10:27 -0600</lastBuildDate>
+    
+	<atom:link href="//unixorn.github.io/tags/ec2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Growing EBS Volumes in Place</title>
+      <link>//unixorn.github.io/post/growing-ebs-volumes-in-place/</link>
+      <pubDate>Tue, 20 Aug 2019 07:10:27 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/post/growing-ebs-volumes-in-place/</guid>
+      <description>&lt;p&gt;Yesterday I had to grow a live filesystem on a server in EC2, without downtime. I do this just infrequently enough to not &lt;em&gt;quite&lt;/em&gt; remember all the details without poking around the internet, so I&amp;rsquo;m documenting it all in one place.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

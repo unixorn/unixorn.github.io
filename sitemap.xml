@@ -3,14 +3,55 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>//unixorn.github.io/post/growing-ebs-volumes-in-place/</loc>
+    <lastmod>2019-08-20T07:10:27-06:00</lastmod>
+  </url>
+  
+  <url>
     <loc>//unixorn.github.io/post/</loc>
-    <lastmod>2019-08-09T09:02:31-06:00</lastmod>
+    <lastmod>2019-08-20T07:10:27-06:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>//unixorn.github.io/tags/</loc>
-    <lastmod>2019-08-09T09:02:31-06:00</lastmod>
+    <lastmod>2019-08-20T07:10:27-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//unixorn.github.io/tags/aws/</loc>
+    <lastmod>2019-08-20T07:10:27-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//unixorn.github.io/tags/ebs/</loc>
+    <lastmod>2019-08-20T07:10:27-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//unixorn.github.io/tags/ec2/</loc>
+    <lastmod>2019-08-20T07:10:27-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//unixorn.github.io/tags/filesystems/</loc>
+    <lastmod>2019-08-20T07:10:27-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//unixorn.github.io/tags/tech/</loc>
+    <lastmod>2019-08-20T07:10:27-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//unixorn.github.io/</loc>
+    <lastmod>2019-08-20T07:10:27-06:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -56,19 +97,7 @@
   </url>
   
   <url>
-    <loc>//unixorn.github.io/tags/tech/</loc>
-    <lastmod>2019-08-09T09:02:31-06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
     <loc>//unixorn.github.io/tags/traefik/</loc>
-    <lastmod>2019-08-09T09:02:31-06:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>//unixorn.github.io/</loc>
     <lastmod>2019-08-09T09:02:31-06:00</lastmod>
     <priority>0</priority>
   </url>
@@ -91,14 +120,14 @@
   </url>
   
   <url>
-    <loc>//unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</loc>
-    <lastmod>2019-06-23T17:22:47-07:00</lastmod>
-  </url>
-  
-  <url>
     <loc>//unixorn.github.io/tags/arm7/</loc>
     <lastmod>2019-06-23T17:22:47-07:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>//unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</loc>
+    <lastmod>2019-06-23T17:22:47-07:00</lastmod>
   </url>
   
   <url>

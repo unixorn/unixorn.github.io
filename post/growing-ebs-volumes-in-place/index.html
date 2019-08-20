@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.56.3" />
 
-  <title>Posts &middot; unixorn.github.io</title>
+  <title>Growing EBS Volumes in Place &middot; unixorn.github.io</title>
 
   
   
@@ -39,8 +40,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
-  
-  <link rel="alternate" type="application/rss+xml" title="unixorn.github.io" href="//unixorn.github.io/post/index.xml" />
   
 
   
@@ -117,10 +116,6 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="//unixorn.github.io/post/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -228,40 +223,48 @@
 
 
 <div class="header">
-  <h1>Posts</h1>
+  <h1>Growing EBS Volumes in Place</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  
-  <h2>2019</h2>
-  <ul>
-  
-    <li><time>Tue, Aug 20, 2019 at 07:10</time> - <a href="//unixorn.github.io/post/growing-ebs-volumes-in-place/">Growing EBS Volumes in Place</a></li>
+  <p>Yesterday I had to grow a live filesystem on a server in EC2, without downtime. I do this just infrequently enough to not <em>quite</em> remember all the details without poking around the internet, so I&rsquo;m documenting it all in one place.</p>
 
-  
-    <li><time>Fri, Aug 9, 2019 at 09:02</time> - <a href="//unixorn.github.io/post/k3s-on-arm/">Trying K3s on ARM, Part 1</a></li>
+<h2 id="grow-the-volume">Grow the volume</h2>
 
-  
-    <li><time>Sat, Jul 27, 2019 at 07:09</time> - <a href="//unixorn.github.io/post/equifax-2017-breach-settlement/">Equifax 2017 Breach Settlement Information</a></li>
+<ol>
+<li>Log into the EC2 console and find your instance. In the description tab, look at the block devices (bottom right as of August 2019) and find the volume you need to grow and get its volume ID.</li>
+<li>Find that volume in the EBS volumes list. Now is a good time to name it something useful like &ldquo;InstanceName /data01&rdquo; if you haven&rsquo;t already named it.</li>
+<li>Click <strong>Modify Volume</strong>, then give it a new size. It may take a minute or two to finish growing the volume, you&rsquo;ll see a percentage displayed.</li>
+</ol>
 
-  
-    <li><time>Sun, Jun 23, 2019 at 17:22</time> - <a href="//unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/">Adding a Distributed Filesystem to the Cluster</a></li>
+<h2 id="resize-the-filesystem">Resize the filesystem</h2>
 
-  
-    <li><time>Wed, May 8, 2019 at 09:11</time> - <a href="//unixorn.github.io/post/til-about-docker-mac/">Things I Learned About Docker Mac</a></li>
-
-  
-    <li><time>Tue, Mar 5, 2019 at 22:48</time> - <a href="//unixorn.github.io/post/fix-macos-captive-portal-issue/">Fix macOS Captive WIFI Portal Issue</a></li>
-
-  
-    <li><time>Fri, Mar 1, 2019 at 21:49</time> - <a href="//unixorn.github.io/post/arm_cluster_parts_list/">Parts list for the ARM cluster</a></li>
-
-  
-    <li><time>Sun, Feb 17, 2019 at 16:00</time> - <a href="//unixorn.github.io/post/in_the_beginning_there_was_bare_metal/">Getting an ARM kubernetes cluster up and running</a></li>
-
-  
-  </ul>
-  
+<ol>
+<li>Log into the instance and start a screen session to do all the work in. Getting disconnected in the middle of resizing the filesystem would be bad.</li>
+<li>Use <code>lsblk</code> to confirm that the EBS block device has increased to the size you expect.</li>
+<li>If you have partitioned your drive, do <code>sudo growpart /dev/xyz1 0</code> to grow the partition.</li>
+<li>Check <code>/etc/fstab</code> to see what format the filesystem is.</li>
+<li>If you&rsquo;re using xfs, <code>sudo xfs_growfs /dev/DEVICE</code>. If you&rsquo;re using <strong>ext2</strong>, <em>ext3</em> or <em>ext4</em>, do <code>sudo resize2fs /dev/DEVICE</code>. If you&rsquo;re using <strong>ext2</strong> or <strong>ext3</strong>, seriously consider replacing this filesystem with an <strong>ext4</strong> one during your next downtime window.</li>
+<li><strong>Wait</strong>. Depending on how much larger the EBS volume has become and the instance type, it can take several minutes for the filesystem to finish growing.</li>
+<li>Confirm the new size with <code>df</code></li>
+</ol>
 </div>
+
+<script src="https://utteranc.es/client.js"
+  repo="unixorn/unixorn.github.io"
+  issue-term="title"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+
+
+<center>
+<style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#000000 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/8UuWLA67y"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+</center>
+
+
+
 
 </div>
 </div>
