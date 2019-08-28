@@ -343,6 +343,10 @@ dns-nameservers 8.8.8.8 8.8.4.4
 # dns-nameservers 192.168.1.1
 </code></pre>
 
+<h3 id="disable-swap">Disable swap</h3>
+
+<p>Kubernetes doesn&rsquo;t like swap, so disable it with <code>swapoff -a</code>.</p>
+
 <h2 id="install-docker-and-kubernetes">Install Docker and Kubernetes</h2>
 
 <h3 id="docker">Docker</h3>
@@ -473,7 +477,7 @@ apt-mark hold kubelet kubeadm kubectl
 
 <ul>
 <li>Updated the docker install to use <code>--no-install-recommends</code> - this keeps it from attempting to install aufs-dkms, which causes error messages (but <code>docker</code> still works) on my Raspberry Pi 4 because the necessary kernel module isn&rsquo;t provided.</li>
-<li>Added instructions for adding new worker nodes</li>
+<li>Added instructions for adding new worker nodes and disabling swap</li>
 </ul>
 </div>
 
