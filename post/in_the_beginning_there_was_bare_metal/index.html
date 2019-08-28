@@ -451,6 +451,13 @@ apt-mark hold kubelet kubeadm kubectl
 <p>If you only have one node in the cluster, k8s won&rsquo;t run pods on the master node. Disable tainting with
 <code>kubectl taint nodes --all node-role.kubernetes.io/master-</code></p>
 
+<h3 id="add-worker-nodes">Add worker nodes</h3>
+
+<p>On the master, run <code>kubeadm token create --print-join-command</code> to generate an add command, then run that on the worker. It will look something like:</p>
+
+<pre><code>kubeadm join --token SUPERSECRET 10.9.8.7:6443 --discovery-token-ca-cert-hash sha256:1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF
+</code></pre>
+
 <h3 id="install-helm">Install helm</h3>
 
 <p><code>helm init --tiller-image=jessestuart/tiller:v2.9.1 --upgrade</code></p>
@@ -464,7 +471,10 @@ apt-mark hold kubelet kubeadm kubectl
 
 <h1 id="updates">Updates</h1>
 
-<p>Updated the docker install to use <code>--no-install-recommends</code> - this keeps it from attempting to install aufs-dkms, which causes error messages (but <code>docker</code> still works) on my Raspberry Pi 4 because the necessary kernel module isn&rsquo;t provided.</p>
+<ul>
+<li>Updated the docker install to use <code>--no-install-recommends</code> - this keeps it from attempting to install aufs-dkms, which causes error messages (but <code>docker</code> still works) on my Raspberry Pi 4 because the necessary kernel module isn&rsquo;t provided.</li>
+<li>Added instructions for adding new worker nodes</li>
+</ul>
 </div>
 
 <script src="https://utteranc.es/client.js"
