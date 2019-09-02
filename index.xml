@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 20 Aug 2019 07:10:27 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 01 Sep 2019 15:47:23 -0600</lastBuildDate>
     
 	<atom:link href="//unixorn.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Backing Up the Cluster with Duplicacy</title>
+      <link>//unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</link>
+      <pubDate>Sun, 01 Sep 2019 15:47:23 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</guid>
+      <description>Motivation I wanted to ensure any data I put into my ARM k3s cluster](https://unixorn.github.io/post/k3s-on-arm/) is backed up to prevent data loss.
+Backup Contenders I took a look at CrashPlan, restic and Duplicacy.
+ CrashPlan - Even though they have a decent linux client, I eliminated Crashplan because:
+ They&amp;rsquo;ve already abandoned the home market. I currently use their CrashPlan for Small Business account for my Mac. I suspect they&amp;rsquo;ll also abandon this market because accounts with a small number of licenses also aren&amp;rsquo;t worth their time.</description>
+    </item>
     
     <item>
       <title>Growing EBS Volumes in Place</title>
@@ -29,7 +41,7 @@
       <guid>//unixorn.github.io/post/k3s-on-arm/</guid>
       <description>&lt;h2 id=&#34;why-k3s-and-not-stick-with-k8s&#34;&gt;Why k3s and not stick with k8s?&lt;/h2&gt;
 
-&lt;p&gt;I wanted to experiment with k3s. They package everything you need in a single binary, don&amp;rsquo;t package in deprecated parts of k8s, and it works on ARMv7 and ARM64. It seemed like it&amp;rsquo;d be a less painful way to get Kubernetes on my ARM cluster.&lt;/p&gt;</description>
+&lt;p&gt;I wanted to experiment with &lt;a href=&#34;https://k3s.io&#34;&gt;k3s&lt;/a&gt;. They package everything you need in a single binary, don&amp;rsquo;t package in deprecated parts of k8s, and it works on Intel, ARMv7 and ARM64. It seemed like it&amp;rsquo;d be a less painful way to runn Kubernetes on my ARM cluster.&lt;/p&gt;</description>
     </item>
     
     <item>

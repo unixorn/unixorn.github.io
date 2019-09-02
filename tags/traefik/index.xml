@@ -20,7 +20,7 @@
       <guid>//unixorn.github.io/post/k3s-on-arm/</guid>
       <description>&lt;h2 id=&#34;why-k3s-and-not-stick-with-k8s&#34;&gt;Why k3s and not stick with k8s?&lt;/h2&gt;
 
-&lt;p&gt;I wanted to experiment with k3s. They package everything you need in a single binary, don&amp;rsquo;t package in deprecated parts of k8s, and it works on ARMv7 and ARM64. It seemed like it&amp;rsquo;d be a less painful way to get Kubernetes on my ARM cluster.&lt;/p&gt;</description>
+&lt;p&gt;I wanted to experiment with &lt;a href=&#34;https://k3s.io&#34;&gt;k3s&lt;/a&gt;. They package everything you need in a single binary, don&amp;rsquo;t package in deprecated parts of k8s, and it works on Intel, ARMv7 and ARM64. It seemed like it&amp;rsquo;d be a less painful way to runn Kubernetes on my ARM cluster.&lt;/p&gt;</description>
     </item>
     
   </channel>

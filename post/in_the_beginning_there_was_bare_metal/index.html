@@ -476,7 +476,7 @@ apt-mark hold kubelet kubeadm kubectl
 <h1 id="updates">Updates</h1>
 
 <ul>
-<li>Updated the docker install to use <code>--no-install-recommends</code> - this keeps it from attempting to install aufs-dkms, which causes error messages (but <code>docker</code> still works) on my Raspberry Pi 4 because the necessary kernel module isn&rsquo;t provided.</li>
+<li>Updated the docker install to use <code>--no-install-recommends</code> - this keeps it from attempting to install the <strong>aufs-dkms</strong> package, which causes error messages (but <code>docker</code> still works) on my Raspberry Pi 4 because the necessary kernel module isn&rsquo;t provided.</li>
 <li>Added instructions for adding new worker nodes and disabling swap</li>
 </ul>
 </div>

@@ -7,10 +7,22 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 23 Jun 2019 17:22:47 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 01 Sep 2019 15:47:23 -0600</lastBuildDate>
     
 	<atom:link href="//unixorn.github.io/tags/arm7/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Backing Up the Cluster with Duplicacy</title>
+      <link>//unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</link>
+      <pubDate>Sun, 01 Sep 2019 15:47:23 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</guid>
+      <description>Motivation I wanted to ensure any data I put into my ARM k3s cluster](https://unixorn.github.io/post/k3s-on-arm/) is backed up to prevent data loss.
+Backup Contenders I took a look at CrashPlan, restic and Duplicacy.
+ CrashPlan - Even though they have a decent linux client, I eliminated Crashplan because:
+ They&amp;rsquo;ve already abandoned the home market. I currently use their CrashPlan for Small Business account for my Mac. I suspect they&amp;rsquo;ll also abandon this market because accounts with a small number of licenses also aren&amp;rsquo;t worth their time.</description>
+    </item>
     
     <item>
       <title>Adding a Distributed Filesystem to the Cluster</title>

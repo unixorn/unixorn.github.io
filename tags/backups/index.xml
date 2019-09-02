@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>docker on unixorn.github.io</title>
-    <link>//unixorn.github.io/tags/docker/</link>
-    <description>Recent content in docker on unixorn.github.io</description>
+    <title>backups on unixorn.github.io</title>
+    <link>//unixorn.github.io/tags/backups/</link>
+    <description>Recent content in backups on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
     <lastBuildDate>Sun, 01 Sep 2019 15:47:23 -0600</lastBuildDate>
     
-	<atom:link href="//unixorn.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="//unixorn.github.io/tags/backups/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -22,15 +22,6 @@
 Backup Contenders I took a look at CrashPlan, restic and Duplicacy.
  CrashPlan - Even though they have a decent linux client, I eliminated Crashplan because:
  They&amp;rsquo;ve already abandoned the home market. I currently use their CrashPlan for Small Business account for my Mac. I suspect they&amp;rsquo;ll also abandon this market because accounts with a small number of licenses also aren&amp;rsquo;t worth their time.</description>
-    </item>
-    
-    <item>
-      <title>Things I Learned About Docker Mac</title>
-      <link>//unixorn.github.io/post/til-about-docker-mac/</link>
-      <pubDate>Wed, 08 May 2019 09:11:31 -0600</pubDate>
-      
-      <guid>//unixorn.github.io/post/til-about-docker-mac/</guid>
-      <description>I had a bunch of cruft in start scripts that would determine the IP of my laptop and set it as an environment variable to pass to docker-compose and it turns out that with Docker for Mac you don&amp;rsquo;t have to do all that work - just use docker.for.mac.localhost as a hostname.</description>
     </item>
     
   </channel>

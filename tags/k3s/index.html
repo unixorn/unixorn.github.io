@@ -235,6 +235,68 @@
   
     <article>
   <header>
+    <h2><a href="//unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/">Backing Up the Cluster with Duplicacy</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>Sun, Sep 1, 2019 at 15:47</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm">arm</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm7">arm7</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/b2">b2</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/backups">backups</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/docker">docker</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/k3s">k3s</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/k8s">k8s</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/kubernetes">kubernetes</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/tech">tech</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Motivation I wanted to ensure any data I put into my ARM k3s cluster](https://unixorn.github.io/post/k3s-on-arm/) is backed up to prevent data loss.
+Backup Contenders I took a look at CrashPlan, restic and Duplicacy.
+ CrashPlan - Even though they have a decent linux client, I eliminated Crashplan because:
+ They&rsquo;ve already abandoned the home market. I currently use their CrashPlan for Small Business account for my Mac. I suspect they&rsquo;ll also abandon this market because accounts with a small number of licenses also aren&rsquo;t worth their time.
+  </p>
+
+  
+  <footer>
+    <a href="//unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="//unixorn.github.io/post/k3s-on-arm/">Trying K3s on ARM, Part 1</a></h2>
 
     <div class="post-meta">
@@ -281,12 +343,67 @@
   <p>
   <h2 id="why-k3s-and-not-stick-with-k8s">Why k3s and not stick with k8s?</h2>
 
-<p>I wanted to experiment with k3s. They package everything you need in a single binary, don&rsquo;t package in deprecated parts of k8s, and it works on ARMv7 and ARM64. It seemed like it&rsquo;d be a less painful way to get Kubernetes on my ARM cluster.</p>
+<p>I wanted to experiment with <a href="https://k3s.io">k3s</a>. They package everything you need in a single binary, don&rsquo;t package in deprecated parts of k8s, and it works on Intel, ARMv7 and ARM64. It seemed like it&rsquo;d be a less painful way to runn Kubernetes on my ARM cluster.</p>
   </p>
 
   
   <footer>
     <a href="//unixorn.github.io/post/k3s-on-arm/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
+  
+    <article>
+  <header>
+    <h2><a href="//unixorn.github.io/post/arm_cluster_parts_list/">Parts list for the ARM cluster</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>Fri, Mar 1, 2019 at 21:49</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/tech">tech</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/homelab">homelab</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/kubernetes">kubernetes</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm">ARM</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm7">ARM7</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/k8s">k8s</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/k3s">k3s</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  <p>Realized I forgot to include a parts list for the cluster in my <a href="https://unixorn.github.io/blog/in_the_beginning_there_was_bare_metal/">ARM cluster post</a> (all prices are as of March 3rd, 2019), so here we go.</p>
+  </p>
+
+  
+  <footer>
+    <a href="//unixorn.github.io/post/arm_cluster_parts_list/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
