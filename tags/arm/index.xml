@@ -18,10 +18,9 @@
       <pubDate>Sun, 01 Sep 2019 15:47:23 -0600</pubDate>
       
       <guid>//unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</guid>
-      <description>Motivation I wanted to ensure any data I put into my ARM k3s cluster](https://unixorn.github.io/post/k3s-on-arm/) is backed up to prevent data loss.
-Backup Contenders I took a look at CrashPlan, restic and Duplicacy.
- CrashPlan - Even though they have a decent linux client, I eliminated Crashplan because:
- They&amp;rsquo;ve already abandoned the home market. I currently use their CrashPlan for Small Business account for my Mac. I suspect they&amp;rsquo;ll also abandon this market because accounts with a small number of licenses also aren&amp;rsquo;t worth their time.</description>
+      <description>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;
+
+&lt;p&gt;I wanted to ensure any data I put into my &lt;a href=&#34;https://unixorn.github.io/post/k3s-on-arm/&#34;&gt;ARM k3s cluster&lt;/a&gt; is backed up to prevent data loss.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -50,7 +49,7 @@ Backup Contenders I took a look at CrashPlan, restic and Duplicacy.
       <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
       
       <guid>//unixorn.github.io/post/arm_cluster_parts_list/</guid>
-      <description>&lt;p&gt;Realized I forgot to include a parts list for the cluster in my &lt;a href=&#34;https://unixorn.github.io/blog/in_the_beginning_there_was_bare_metal/&#34;&gt;ARM cluster post&lt;/a&gt; (all prices are as of March 3rd, 2019), so here we go.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I realized I forgot to include a parts list for the cluster in my &lt;a href=&#34;https://unixorn.github.io/blog/in_the_beginning_there_was_bare_metal/&#34;&gt;ARM cluster post&lt;/a&gt; (all prices are as of March 3rd, 2019), so here we go.&lt;/p&gt;</description>
     </item>
     
     <item>
