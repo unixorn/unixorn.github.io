@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.64.0" />
 
   <title>Fix macOS Captive WIFI Portal Issue &middot; unixorn.github.io</title>
 
@@ -228,9 +228,7 @@
 </div>
 <div class="content">
   <p>I&rsquo;m not sure if this is just macOS Mojave being flaky or some interaction with the security malware installed on my work laptop, but it refuses to connect to some captive portals.</p>
-
 <p>The problem is that it refuses to render the captive portal login page, so you can&rsquo;t agree to their TOS, and don&rsquo;t get a DHCP address.</p>
-
 
 
 <div class="pure-g">
@@ -251,13 +249,9 @@
 
 </div>
 
-
 <p>There&rsquo;s a workaround, you can open Apple&rsquo;s hotspot detection page with Safari directly by running</p>
-
 <p><code>open -a &quot;Safari&quot; &quot;http://captive.apple.com/hotspot-detect.html&quot;</code></p>
-
 <p>in a terminal window.</p>
-
 <p>That&rsquo;s annoying to remember (and honestly, most of the time I don&rsquo;t have Safari running) so I&rsquo;ve added it to my tumult zsh plugin for macOS <a href="https://github.com/unixorn/tumult.plugin.zsh/blob/master/bin/unfuck-captive-portal">here</a>.</p>
 </div>
 

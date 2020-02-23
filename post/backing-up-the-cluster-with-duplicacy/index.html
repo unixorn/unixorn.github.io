@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.64.0" />
 
   <title>Backing Up the Cluster with Duplicacy &middot; unixorn.github.io</title>
 
@@ -228,88 +228,64 @@
 </div>
 <div class="content">
   <h1 id="motivation">Motivation</h1>
-
 <p>I wanted to ensure any data I put into my <a href="https://unixorn.github.io/post/k3s-on-arm/">ARM k3s cluster</a> is backed up to prevent data loss.</p>
-
 <h1 id="backup-contenders">Backup Contenders</h1>
-
 <p>I took a look at <a href="https://www.crashplan.com">CrashPlan</a>, <a href="https://restic.net">restic</a> and <a href="https://github.com/gilbertchen/duplicacy">Duplicacy</a>.</p>
-
 <ul>
-<li><p><a href="https://www.crashplan.com">CrashPlan</a> - Even though they have a decent linux client, I eliminated Crashplan because:</p>
-
+<li>
+<p><a href="https://www.crashplan.com">CrashPlan</a> - Even though they have a decent linux client, I eliminated Crashplan because:</p>
 <ul>
 <li>They&rsquo;ve already abandoned the home market. I currently use their CrashPlan for Small Business account for my Mac. I suspect they&rsquo;ll also abandon this market because accounts with a small number of licenses also aren&rsquo;t worth their time.</li>
 <li>They bill per-machine instead of by the amount of storage used.</li>
-</ul></li>
-
-<li><p><a href="https://restic.net">restic</a> - Open source, which is great, but I ended up eliminating them because their deduplication wasn&rsquo;t as strong as Duplicacy. It also seemed a little awkward to prune snapshots when I experimented with it.</p></li>
-
-<li><p><a href="https://github.com/gilbertchen/duplicacy">Duplicacy</a> - I chose <code>Duplicacy</code> because it:</p>
-
+</ul>
+</li>
+<li>
+<p><a href="https://restic.net">restic</a> - Open source, which is great, but I ended up eliminating them because their deduplication wasn&rsquo;t as strong as Duplicacy. It also seemed a little awkward to prune snapshots when I experimented with it.</p>
+</li>
+<li>
+<p><a href="https://github.com/gilbertchen/duplicacy">Duplicacy</a> - I chose <code>Duplicacy</code> because it:</p>
 <ul>
 <li>Supports cross-source deduplication</li>
 <li>Works well with B2</li>
 <li>Runs on Linux, Windows and Mac</li>
 <li>Allows multiple source directories to be backed up simultaneously to the same B2 bucket.</li>
-<li>Continues backing up where it leaves off after being interrupted and restarted. This eliminates having to completely restart the backup and re-upload everything.
-<br /></li>
-</ul></li>
+<li>Continues backing up where it leaves off after being interrupted and restarted. This eliminates having to completely restart the backup and re-upload everything.</li>
 </ul>
-
+</li>
+</ul>
 <p>It didn&rsquo;t hurt that I know several people using it with large amounts of data who are happy with it.</p>
-
-<h1 id="onto-the-backups">Onto the Backups</h1>
-
+<h1 id="on-to-the-backups">On to the Backups</h1>
 <p>I made a docker image, <a href="https://github.com/unixorn/thoth-duplicacy">thoth-duplicacy</a>, which installs duplicacy and <a href="https://github.com/jeffaco/duplicacy-util">duplicacy-util</a> on top of debian buster-slim, along with some helper scripts to make using it more convenient.</p>
-
 <p>The image is published on docker hub, with both an Intel and and ARM7 version - the most current builds are tagged <code>unixorn/thoth-duplicacy:armv7l</code> and <code>unixorn/thoth-duplicacy:x86_64</code>.</p>
-
 <h1 id="usage">Usage</h1>
-
 <p>For simplicity, I&rsquo;m running my backups as kubernetes cron jobs. This allows me to easily run backups of multiple directory trees at once, and the kubernetes scheduler will automagically spread them around the cluster to the least loaded nodes.</p>
-
 <h2 id="pre-requisites">Pre-requisites</h2>
-
 <h3 id="create-a-kubernetes-namespace">Create a Kubernetes Namespace</h3>
-
 <p>I like my cluster neat and organized, with different services in their own namespaces, so I created a <strong>backups</strong> namespace by running <code>kubectl create namespace backup</code>.</p>
-
 <h3 id="set-up-a-b2-storage-bucket-for-duplicacy">Set up a B2 Storage Bucket for Duplicacy</h3>
-
 <h4 id="create-a-b2-bucket-and-app-key">Create a B2 Bucket and App Key</h4>
-
 <ol>
 <li>Create a bucket in B2. <strong>Only use this bucket for <code>duplicacy</code> backups.</strong>. Do this first so that when you create the app key, using the dropdown menu you can easily restrict its access to only this bucket.</li>
 <li>Create an app key in B2 that you only use with Duplicacy. Definitely do <strong>not</strong> use the root account&rsquo;s credentials. <strong>When you create it, specify that it&rsquo;s only allowed to use your backups bucket.</strong> Make sure to copy the app key information when you create it, it will only be displayed once.</li>
 </ol>
-
 <p>Now you&rsquo;re ready to initialize the bucket for the first directory you want to back up. The easiest way to do this is by running <code>duplicacy</code> inside the <code>thoth-duplicacy</code> container with <code>docker-compose</code>.</p>
-
 <h4 id="set-up-thoth-duplicacy-container">Set up thoth-duplicacy container</h4>
-
 <ol>
 <li><code>git clone git@github.com:unixorn/thoth-duplicacy.git</code></li>
 <li><code>BACKUP_LOCATION=/that/first/directory docker-compose run thoth-duplicacy bash</code></li>
 <li><code>cd /data</code></li>
 <li><code>mkdir -p .duplicacy</code></li>
 </ol>
-
 <h4 id="initialize-the-b2-bucket">Initialize the B2 Bucket.</h4>
-
 <ol>
 <li><code>duplicacy init -encrypt -storage-name b2 STORAGEID b2://yourbucket</code>. STORAGEID cannot have spaces or any special characters besides <code>-</code> and <code>_</code>. <code>duplicacy</code> will prompt you for the B2 app ID, app key, and the encryption password for your backups. Store the password in your secure password manager - <strong>without it, you can&rsquo;t restore any of your data</strong>. Annoyingly you have to also set the password, B2 id and key again after initializing the bucket so that backups won&rsquo;t prompt you for them.</li>
 <li>Set the B2 ID - <code>duplicacy set -storage b2://net-unixorn-blog-test -key b2_id -value YOUR_APP_ID</code></li>
 <li>Set the B2 key - <code>duplicacy set -storage b2://net-unixorn-blog-test -key b2_key -value YOUR_APP_KEY</code></li>
 <li>Set the password - <code>duplicacy set -storage b2://net-unixorn-blog-test -key password -value YOURPASSWORD</code></li>
 </ol>
-
 <p>You can now run <code>backup-cronjob</code> and watch the first backup grind.</p>
-
 <p>After I configured <code>duplicacy</code> for the first time, it was much less hassle to copy the <code>.duplicacy/preferences</code> json file to each new directory tree. I wanted to back up the <code>.duplicacy</code> directory and change the <strong>id</strong> key to a new unique one — don&rsquo;t put spaces or any special characters in the id other than <code>_</code> and <code>-</code>. You don&rsquo;t have to change the storage key, and actually shouldn&rsquo;t - sharing the same storage bucket is what allows <code>duplicacy</code> to deduplicate your files across multiple source directories, which keeps your storage bill down.</p>
-
 <p>Here&rsquo;s an example <code>preferences</code> file -</p>
-
 <pre><code>[
     {
         &quot;name&quot;: &quot;b2&quot;,
@@ -328,14 +304,9 @@
         }
     }
 ]
-</code></pre>
-
-<h2 id="backing-up-a-directory-tree">Backing up a Directory Tree</h2>
-
+</code></pre><h2 id="backing-up-a-directory-tree">Backing up a Directory Tree</h2>
 <p>Here&rsquo;s a sample job that backs up one of my directory trees. I&rsquo;m using the <strong>backups</strong> namespace that I created earlier to keep things tidy - if you want to use the default namespace instead, delete the namespace entry in the metadata section.</p>
-
 <p>Here&rsquo;s some things you&rsquo;ll need to customize if you base a job on this example:</p>
-
 <ul>
 <li>Change the <strong>namespace</strong> entry in the metadata section to match whichever namespace you decided to use.</li>
 <li>I run this on Odroid HC2s and Raspberry Pis, which both use ARM CPUs. If you&rsquo;re using x86, change the <strong>image</strong> entry to <code>unixorn/thoth-duplicacy:x86_64</code> in the template spec section.</li>
@@ -343,11 +314,8 @@
 <li>The <code>B2_STORAGE_NAME</code> environment variable is used by the <a href="https://github.com/unixorn/thoth-duplicacy/blob/master/bin/backup-cronjob">backup-cronjob</a> script to determine where to write the backup, so alter the value according to your setup.</li>
 <li>I&rsquo;m backing up a <a href="https://unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/">moosefs</a> distributed file system. I had already tagged all my chunk servers with <code>kubectl label node NODENAME odroid=true</code> and I use a <code>nodeSelector</code> stanza in the backup cron jobs to restrict the backup to only run on one of the chunk servers where the data resides. The moosefs data is distributed across all the chunk servers and each chunk server in the cluster currently contains 33% of the files, so running the backup on a chunk server maximizes the amount of data that can be local reads and don&rsquo;t have to go across the network. Update or delete the <code>nodeSelector</code> clause to work with your environment.</li>
 </ul>
-
 <p>Once you&rsquo;ve updated the file, install the cronjob with <code>kubectl apply -f backup-example-directory-tree.yml</code>.</p>
-
 <p>You can download this from <a href="https://github.com/unixorn/blog-scripts/blob/master/duplicacy-examples/backup-example-directory-tree.yml">backup-example-directory-tree.yml</a> instead of hassling with copy and paste.</p>
-
 <pre><code>apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
@@ -408,24 +376,14 @@ spec:
                 # this field is optional
                 type: Directory
 
-</code></pre>
-
-<h3 id="pruning-snapshots">Pruning Snapshots</h3>
-
+</code></pre><h3 id="pruning-snapshots">Pruning Snapshots</h3>
 <p>I don&rsquo;t want to keep snapshots forever, so I made a kubernetes cron job to clean them up.</p>
-
 <p>Briefly, you can specify multiple <code>-keep X:Y</code> arguments, where you keep one snapshot for every <code>X</code> days after the snapshots are older than <code>Y</code> days.</p>
-
 <p>For example, in the <code>purge-stale-duplicacy-snapshots.yml</code> job below, I have it set with <code>-keep 0:365 -keep 30:90 -keep 7:30 -keep 1:2</code>, which means keep <em>no</em> snapshots more than 365 days old, for snapshots older than 90 days keep one every 30 days, after fourteen days keep one every seven days, and after two days keep one every day.</p>
-
 <p><strong>Warning:</strong> Notice that I specified the expiration rules starting with the longest (365 days) and continuing in descending age order - a minor annoyance with <code>duplicacy</code> is that you have to specify the <code>-keep</code> clauses starting with the longest age threshold and then specify the rules for shorter thresholds, or <code>duplicacy</code> will ignore the rules specified out of order, which could lead to more snapshots being purged than you would expect. Run with <code>-dry-run</code> first so you can see whether all your rules are being applied as you expect.</p>
-
 <p>Before using this job definition, at a minimum you should set the namespace for the cron job, update the image if you&rsquo;re running on x86, and update the <code>-keep X:Y</code> statements to correspond with your snapshot retention policy.</p>
-
 <p>Once you&rsquo;ve updated the configuration, install the cron job with <code>kubectl apply -f purge-stale-duplicacy-snapshots.yml</code></p>
-
 <p>You can download this from <a href="https://github.com/unixorn/blog-scripts/blob/master/duplicacy-examples/purge-stale-duplicacy-snapshots.yml">purge-stale-duplicacy-snapshots.yml</a> instead of hassling with copy and paste.</p>
-
 <pre><code>apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
@@ -495,29 +453,26 @@ spec:
                 path: /dfs/volumes/exampledir
                 # this field is optional
                 type: Directory
-</code></pre>
-
-<h2 id="restoring-files">Restoring Files</h2>
-
+</code></pre><h2 id="restoring-files">Restoring Files</h2>
 <p>Backups are useless if you can&rsquo;t restore.</p>
-
 <p>To restore, use <code>docker-compose</code> and the thoth-duplicacy repository. I only did my test restores with the command line, I haven&rsquo;t bothered experimenting with the GUI from <a href="https://duplicacy.com">https://duplicacy.com</a>.</p>
-
 <ol>
 <li>Use <code>git clone git@github.com:unixorn/thoth-duplicacy.git</code> if you didn&rsquo;t keep the checkout when you initialized your B2 bucket</li>
 <li>Make a directory to restore to, and a <code>.duplicacy</code> subdirectory for the configuration with <code>mkdir -p /path/to/restore/.duplicacy</code>. While you can restore in place over the live directory, I&rsquo;m a bit too cautious to do that especially if I&rsquo;m doing a restore after having already lost files.</li>
 <li>Copy the <code>preferences</code> file from the directory tree you want to restore to <code>/path/to/restore/.duplicacy</code>.</li>
 <li>Start a container with <code>BACKUP_LOCATION=/path/to/restore docker-compose run thoth-duplicacy bash</code></li>
 </ol>
-
 <p>Now that you&rsquo;re in a running <code>thoth-duplicacy</code> container with your restore directory mounted as <code>/data</code>, you can restore files. <code>cd /data</code> before running <code>duplicacy</code> commands so it can find its configuration.</p>
-
 <ul>
-<li><p>You can look at the available snapshots with <code>duplicacy list</code>. It will list snapshot name, revision number, and the timestamp when each snapshot was created.</p></li>
-
-<li><p>Once you know what snapshots are in the bucket, you can examine the files available in a specific snapshot with <code>duplicacy list -files -r REVISION_NUMBER</code>.</p></li>
-
-<li><p>Now you can restore files - if you want to restore just the <code>foo</code> directory, from revision 99, you&rsquo;d run <code>duplicacy restore -r 99 'foo/*'</code>.</p></li>
+<li>
+<p>You can look at the available snapshots with <code>duplicacy list</code>. It will list snapshot name, revision number, and the timestamp when each snapshot was created.</p>
+</li>
+<li>
+<p>Once you know what snapshots are in the bucket, you can examine the files available in a specific snapshot with <code>duplicacy list -files -r REVISION_NUMBER</code>.</p>
+</li>
+<li>
+<p>Now you can restore files - if you want to restore just the <code>foo</code> directory, from revision 99, you&rsquo;d run <code>duplicacy restore -r 99 'foo/*'</code>.</p>
+</li>
 </ul>
 </div>
 

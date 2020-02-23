@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.64.0" />
 
   <title>Growing EBS Volumes in Place &middot; unixorn.github.io</title>
 
@@ -228,17 +228,13 @@
 </div>
 <div class="content">
   <p>Yesterday I had to grow a live filesystem on a server in EC2, without downtime. I do this just infrequently enough to not <em>quite</em> remember all the details without poking around the internet, so I&rsquo;m documenting it all in one place.</p>
-
 <h2 id="grow-the-volume">Grow the volume</h2>
-
 <ol>
 <li>Log into the EC2 console and find your instance. In the description tab, look at the block devices (bottom right as of August 2019) and find the volume you need to grow and get its volume ID.</li>
 <li>Find that volume in the EBS volumes list. Now is a good time to name it something useful like &ldquo;InstanceName /data01&rdquo; if you haven&rsquo;t already named it.</li>
 <li>Click <strong>Modify Volume</strong>, then give it a new size. It may take a minute or two to finish growing the volume, you&rsquo;ll see a percentage displayed.</li>
 </ol>
-
 <h2 id="resize-the-filesystem">Resize the filesystem</h2>
-
 <ol>
 <li>Log into the instance and start a screen session to do all the work in. Getting disconnected in the middle of resizing the filesystem would be bad.</li>
 <li>Use <code>lsblk</code> to confirm that the EBS block device has increased to the size you expect.</li>

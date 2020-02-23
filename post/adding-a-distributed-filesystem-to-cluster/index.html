@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.57.2" />
+  <meta name="generator" content="Hugo 0.64.0" />
 
   <title>Adding a Distributed Filesystem to the Cluster &middot; unixorn.github.io</title>
 
@@ -228,27 +228,16 @@
 </div>
 <div class="content">
   <p>One of the reasons I set up my cluster was that I&rsquo;m running out of space on my NAS. I don&rsquo;t want to buy a whole new chassis, and while I could have put individual file shares on each cluster node, that would be both inconvenient and not provide any data redundancy without a lot of brittle home-rolled hacks to <code>rsync</code> data from node to node. And since distributed file systems are a thing, I&rsquo;d rather not resort to hacks.</p>
-
 <h1 id="alternatives-considered">Alternatives Considered</h1>
-
 <p>To make a long story short, I considered ceph, glusterfs, lizardfs &amp; moosefs.</p>
-
-<h2 id="ceph-https-ceph-com"><a href="https://ceph.com">ceph</a></h2>
-
+<h2 id="cephhttpscephcom"><a href="https://ceph.com">ceph</a></h2>
 <p>Ceph&rsquo;s published specs show that it basically won&rsquo;t fit in my ODROID nodes. They say metadata servers need 1GB, OSDs need another 500MB, and the HC2s in my cluster only have 2GB of onboard RAM, and I&rsquo;m running k8s on them too, so Ceph is out.</p>
-
-<h2 id="glusterfs-https-docs-gluster-org"><a href="https://docs.gluster.org">GlusterFS</a></h2>
-
+<h2 id="glusterfshttpsdocsglusterorg"><a href="https://docs.gluster.org">GlusterFS</a></h2>
 <p>GlusterFS looked nice at first, but it&rsquo;s both less flexible (you can&rsquo;t add single drives to the storage cluster) and less performant (by a factor of 2 compared to MooseFS) on my HC2 hardware.</p>
-
-<h2 id="lizardfs-https-lizardfs-com"><a href="https://lizardfs.com">LizardFS</a></h2>
-
+<h2 id="lizardfshttpslizardfscom"><a href="https://lizardfs.com">LizardFS</a></h2>
 <p>LizardFS is a fork of MooseFS, and when I was trying to install it in my cluster I had a hard time finding debs for it. When I was looking for them online, I found a lot of complaints about performance issues on ARM, so that eliminated it from consideration.</p>
-
-<h2 id="moosefs-https-moosefs-com"><a href="https://moosefs.com">MooseFS</a></h2>
-
+<h2 id="moosefshttpsmoosefscom"><a href="https://moosefs.com">MooseFS</a></h2>
 <p>There were a lot of things to like about MooseFS for my use case on my hardware.</p>
-
 <ul>
 <li>There were prebuilt ARM debs on their site, in a handy PPA.</li>
 <li>It was twice as fast <em>on my hardware</em> as GlusterFS.</li>
@@ -256,93 +245,60 @@
 <li>The memory requirements are small enough that I can run it on the same nodes that I&rsquo;m running kubernetes on.</li>
 <li>It dynamically balances disk usage across the bricks - when I added a third brickserver to my cluster, moosefs shuffled replica chunks over to it until all three servers had a roughly equal usage percentage.</li>
 <li>It allows custom storage policies:
-
 <ul>
 <li>You can label storage bricks (say SSD as label A, spinning disks as label B) and use the labels in policy definitions.</li>
 <li>It&rsquo;s flexible - you can create policies with different replication requirements and assign those on a per-directory or even per-file basis.</li>
 <li>By referring to brick labels, you can do things like create a policy that requires that at file creation, one replica be written to SSD and one to spinning disk, and then after that initial write is complete (so it can report back to the writing process that the write is done), that it then try to make sure there is a third copy so that there are two copies on spinning disks and one on SSD.</li>
 <li>You can make policies that change replication policies after user-specified amounts of time - so maybe your policy is that new files get one copy on SSD and 2 on spinning disk, but after 30 days, switch to one copy on a regular spinning disk and two on bigger slower drives.</li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <h1 id="installing">Installing</h1>
-
 <p>You&rsquo;re going to need a moosefs master, chunkservers for each machine that hosts drives, and should run a metadata backup server. You may also want to run the cgi to visualize the cluster status.</p>
-
 <h2 id="pre-requisites">Pre-Requisites</h2>
-
 <ol>
 <li>Static IPs for the cluster nodes, preferably with DNS entries. Setting this up is out of scope for this post.</li>
 <li>Decide which nodes will just be chunkservers, which will be the master, and optionally which are going to be metadata servers and cgi servers. You can run the master, metadata and cgi servers on machines that are also chunkservers.</li>
 </ol>
-
 <h2 id="all-servers">All servers</h2>
-
 <h3 id="add-the-moosefs-ppa">Add the MooseFS PPA</h3>
-
 <ol>
-<li><p>Add a file, <code>/etc/apt/sources.list.d/moosefs.list</code>, with the following contents</p>
-
-<pre><code>deb http://ppa.moosefs.com/moosefs-3/apt/raspbian/jessie jessie main
-</code></pre></li>
-
-<li><p>Run <code>wget -O - https://ppa.moosefs.com/moosefs.key | sudo apt-key add -</code> to add the moosefs PPA key</p></li>
-
-<li><p>Run <code>apt-get update</code></p></li>
+<li>Add a file, <code>/etc/apt/sources.list.d/moosefs.list</code>, with the following contents</li>
 </ol>
-
+<pre><code>deb http://ppa.moosefs.com/moosefs-3/apt/raspbian/jessie jessie main
+</code></pre><ol start="2">
+<li>
+<p>Run <code>wget -O - https://ppa.moosefs.com/moosefs.key | sudo apt-key add -</code> to add the moosefs PPA key</p>
+</li>
+<li>
+<p>Run <code>apt-get update</code></p>
+</li>
+</ol>
 <h2 id="master-server">Master Server</h2>
-
 <p>Install the master server software on one of your nodes with <code>apt install moosefs-master</code>. Do this first, the chunkservers will need to communicate with it.</p>
-
 <p>Optionally install the cgi server  with <code>apt install moosefs-cgiserv</code></p>
-
 <p>Configure <code>/etc/mfs/mfsmaster.cfg</code> and <code>/etc/mfs/mfsexports.cfg</code>. Start by copying <code>/etc/mfs/mfsmaster.cfg.sample</code> and <code>/etc/mfs/mfsexports.cfg.sample</code>.</p>
-
 <p>Set the master software to start on boot with <code>systemctl enable moosefs-master</code>. If you installed the cgi server, enable it too with <code>systemctl enable moosefs-cgiserv</code>.</p>
-
 <p>Start the master and cgi server with <code>systemctl start moosefs-master &amp;&amp; systemctl start moosefs-cgiserv</code>.</p>
-
 <h2 id="chunkservers">Chunkservers</h2>
-
 <p>For each of your chunkservers, take the following steps:</p>
-
 <h3 id="install-moosefs-software">Install moosefs software</h3>
-
 <p>Install the software with <code>apt install moosefs-chunkserver</code>.</p>
-
 <h3 id="configure-which-drives-to-use-for-storage">Configure which drives to use for storage</h3>
-
 <p>Make a directory to store the moosefs data. On my HC2 instances, I mount the data drives on <code>/mnt/sata</code>, and keep the raw mfs data in <code>/mnt/sata/moosefs</code></p>
-
 <p>Configure <code>/etc/mfs/mfshdd.cfg</code>. There&rsquo;s an example in <code>/etc/mfs/mfshdd.cfg.sample</code> - add one line per directory to be shared.</p>
-
 <p>In my case, I want to keep 50 gigs free on the drive, so my entry in <code>mfshdd.cfg</code> is</p>
-
 <pre><code>/mnt/sata/moosefs -50GB
-</code></pre>
-
-<h3 id="configure-the-chunkserver-options">Configure the chunkserver options</h3>
-
+</code></pre><h3 id="configure-the-chunkserver-options">Configure the chunkserver options</h3>
 <p>Copy <code>/etc/mfs/mfschunkserver.cfg.sample</code> to  <code>/etc/mfs/mfschunkserver.cfg</code> and edit it to meet your needs - at a minimum, you&rsquo;ll need to set <code>MASTER_HOST = yourmaster.example.com</code></p>
-
 <h3 id="enable-and-start-the-chunkserver">Enable and start the chunkserver</h3>
-
 <p>Set up the chunkserver to start at boot, and start it now -</p>
-
 <pre><code>systemctl enable moosefs-chunkserver &amp;&amp; systemctl start moosefs-chunkserver
-</code></pre>
-
-<h1 id="mounting-the-filesystem">Mounting the filesystem</h1>
-
+</code></pre><h1 id="mounting-the-filesystem">Mounting the filesystem</h1>
 <p>Now that the chunkservers are talking to the master, you can set up automounting it on your nodes.</p>
-
 <p>First, install the client software - <code>sudo apt install -y moosefs-client</code></p>
-
 <p>Second, make a mountpoint. On my nodes, I&rsquo;m using <code>/data/squirrel</code>, so <code>sudo mkdir -p /data/squirrel</code></p>
-
 <p>Finally, create a systemd unit file so that the filesystem mounts every boot. I want to be able to use <code>hostPath</code> directives in my kubernetes deployments, so I want it to start before <code>docker</code> and <code>kubelet</code>. Make a file, <code>/etc/systemd/system/yourcluster-mfsmount.service</code> with the following content (replace <code>/mountpoint</code> with whatever mountpoint you&rsquo;re using):</p>
-
 <pre><code># Original source: https://sourceforge.net/p/moosefs/mailman/message/29522468/
 [Unit]
 Description=MooseFS mounts
@@ -357,10 +313,7 @@ ExecStop=/usr/bin/umount /mountpoint
 
 [Install]
 WantedBy=multi-user.target
-</code></pre>
-
-<p>Enable it so it starts every boot:</p>
-
+</code></pre><p>Enable it so it starts every boot:</p>
 <pre><code>systemctl enable yourcluster-mfsmount &amp;&amp; systemctl start yourcluster-mfsmount
 </code></pre>
 </div>
