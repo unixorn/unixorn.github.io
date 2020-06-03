@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 09 Aug 2019 09:02:31 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2020 15:37:45 -0700</lastBuildDate>
     
 	<atom:link href="//unixorn.github.io/tags/homelab/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Setting up an N2</title>
+      <link>//unixorn.github.io/post/setting-up-an-n2/</link>
+      <pubDate>Sun, 29 Mar 2020 15:37:45 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/post/setting-up-an-n2/</guid>
+      <description>&lt;h1 id=&#34;setting-up-an-odroid-n2&#34;&gt;Setting up an Odroid N2&lt;/h1&gt;
+&lt;p&gt;I wanted a machine with more memory to be the master node for my ARM k3s cluster. I had an Odroid N2 with 4GB of RAM, sitting around, so here&amp;rsquo;s the log of getting it installed and running.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Trying K3s on ARM, Part 1</title>

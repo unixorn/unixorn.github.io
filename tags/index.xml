@@ -7,7 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 01 Sep 2019 15:47:23 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2020 15:37:45 -0700</lastBuildDate>
     
 	<atom:link href="//unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -15,9 +15,36 @@
     <item>
       <title>arm</title>
       <link>//unixorn.github.io/tags/arm/</link>
-      <pubDate>Sun, 01 Sep 2019 15:47:23 -0600</pubDate>
+      <pubDate>Sun, 29 Mar 2020 15:37:45 -0700</pubDate>
       
       <guid>//unixorn.github.io/tags/arm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>arm64</title>
+      <link>//unixorn.github.io/tags/arm64/</link>
+      <pubDate>Sun, 29 Mar 2020 15:37:45 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/arm64/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homelab</title>
+      <link>//unixorn.github.io/tags/homelab/</link>
+      <pubDate>Sun, 29 Mar 2020 15:37:45 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/homelab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>odroid</title>
+      <link>//unixorn.github.io/tags/odroid/</link>
+      <pubDate>Sun, 29 Mar 2020 15:37:45 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/odroid/</guid>
       <description></description>
     </item>
     
@@ -126,24 +153,6 @@
       <pubDate>Tue, 20 Aug 2019 07:10:27 -0600</pubDate>
       
       <guid>//unixorn.github.io/tags/filesystems/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>homelab</title>
-      <link>//unixorn.github.io/tags/homelab/</link>
-      <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
-      
-      <guid>//unixorn.github.io/tags/homelab/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>odroid</title>
-      <link>//unixorn.github.io/tags/odroid/</link>
-      <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
-      
-      <guid>//unixorn.github.io/tags/odroid/</guid>
       <description></description>
     </item>
     

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.71.1" />
 
-  <title>Posts &middot; unixorn.github.io</title>
+  <title>Setting up an N2 &middot; unixorn.github.io</title>
 
   
   
@@ -39,8 +40,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
-  
-  <link rel="alternate" type="application/rss+xml" title="unixorn.github.io" href="//unixorn.github.io/post/index.xml" />
   
 
   
@@ -117,10 +116,6 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="//unixorn.github.io/post/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -228,51 +223,97 @@
 
 
 <div class="header">
-  <h1>Posts</h1>
+  <h1>Setting up an N2</h1>
+  <h2></h2>
 </div>
 <div class="content">
-  
-  <h2>2020</h2>
-  <ul>
-  
-    <li><time>Sun, Mar 29, 2020 at 15:37</time> - <a href="//unixorn.github.io/post/setting-up-an-n2/">Setting up an N2</a></li>
+  <h1 id="setting-up-an-odroid-n2">Setting up an Odroid N2</h1>
+<p>I wanted a machine with more memory to be the master node for my ARM k3s cluster. I had an Odroid N2 with 4GB of RAM, sitting around, so here&rsquo;s the log of getting it installed and running.</p>
+<h1 id="parts">Parts</h1>
+<ul>
+<li>ODROID N2</li>
+<li>MMC card with preloaded Ubuntu</li>
+</ul>
+<h1 id="installation">Installation</h1>
+<h2 id="base">Base</h2>
+<p>Login as <strong>root</strong>. Default password is <strong>odroid</strong></p>
+<ol>
+<li>Change the root password! <code>passwd</code></li>
+<li>Disable XWindow - <code>systemctl set-default multi-user.target</code></li>
+<li>Purge XWindow packages - <code>apt purge 'x11-*' &amp;&amp; apt autoremove</code></li>
+<li>Now that we&rsquo;ve gotten rid of XWindow, get up to date - <code>apt update &amp;&amp; apt upgrade</code></li>
+<li>Install some useful tools <code>apt install -y zsh git htop iotop vim libssl-dev software-properties-common python3-pip</code></li>
+<li>Disable Ubuntu motd spam <code>sed -i 's/^ENABLED=.*/ENABLED=0/' /etc/default/motd-news</code></li>
+<li>Fix locale complaints during login <code>locale-gen en_US.UTF-8</code></li>
+</ol>
+<h2 id="docker">Docker</h2>
+<p>Add docker repository key - <code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code></p>
+<p>Add the repo:</p>
+<pre><code>sudo add-apt-repository \
+   &quot;deb [arch=arm64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable&quot;
+</code></pre><p>Install docker community edition
+<code>apt update &amp;&amp; apt install docker-ce docker-ce-cli containerd.io</code></p>
+<hr>
+<pre><code>#!/usr/bin/env bash
+#
+# Put the setup all in one script. Run as root with sudo.
 
-  
-  </ul>
-  
-  <h2>2019</h2>
-  <ul>
-  
-    <li><time>Sun, Sep 1, 2019 at 15:47</time> - <a href="//unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/">Backing Up the Cluster with Duplicacy</a></li>
+# Disable XWindow login
+systemctl set-default multi-user.target
 
-  
-    <li><time>Tue, Aug 20, 2019 at 07:10</time> - <a href="//unixorn.github.io/post/growing-ebs-volumes-in-place/">Growing EBS Volumes in Place</a></li>
+# This is going to sit on a shelf in my rack, so purge xwindow
+apt remove xorg
+apt purge 'x11-*'
+apt autoremove
 
-  
-    <li><time>Fri, Aug 9, 2019 at 09:02</time> - <a href="//unixorn.github.io/post/k3s-on-arm/">Trying K3s on ARM, Part 1</a></li>
+# Add docker apt repository
+add-apt-repository \
+   &quot;deb [arch=arm64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable&quot;
 
-  
-    <li><time>Sat, Jul 27, 2019 at 07:09</time> - <a href="//unixorn.github.io/post/equifax-2017-breach-settlement/">Equifax 2017 Breach Settlement Information</a></li>
+# Now that we've purged xwindow, upgrade what's left
+apt-get update &amp;&amp; apt-get upgrade
 
-  
-    <li><time>Sun, Jun 23, 2019 at 17:22</time> - <a href="//unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/">Adding a Distributed Filesystem to the Cluster</a></li>
+apt-get install -y \
+    git \
+    htop \
+    iotop \
+    libssl-dev \
+    python3-pip \
+    vim vim-doc vim-scripts \
+    zsh
 
-  
-    <li><time>Wed, May 8, 2019 at 09:11</time> - <a href="//unixorn.github.io/post/til-about-docker-mac/">Things I Learned About Docker Mac</a></li>
+# Install docker community edition
+apt update &amp;&amp; apt install docker-ce docker-ce-cli containerd.io
 
-  
-    <li><time>Tue, Mar 5, 2019 at 22:48</time> - <a href="//unixorn.github.io/post/fix-macos-captive-portal-issue/">Fix macOS Captive WIFI Portal Issue</a></li>
+# Finally do some cleanups
 
-  
-    <li><time>Fri, Mar 1, 2019 at 21:49</time> - <a href="//unixorn.github.io/post/arm_cluster_parts_list/">Parts list for the ARM cluster</a></li>
+# Fix locale whining
+locale-gen en_US.UTF-8
 
-  
-    <li><time>Sun, Feb 17, 2019 at 16:00</time> - <a href="//unixorn.github.io/post/in_the_beginning_there_was_bare_metal/">Getting an ARM kubernetes cluster up and running</a></li>
-
-  
-  </ul>
-  
+# Disable Ubuntu motd spam
+sed -i 's/^ENABLED=.*/ENABLED=0/' /etc/default/motd-news
+</code></pre>
 </div>
+
+<script type="text/javascript" src="//unixorn.github.io/js/utterances.js">
+  repo="unixorn/unixorn.github.io"
+  issue-term="title"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+
+
+<center>
+<style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#000000 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/8UuWLA67y"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+</center>
+
+
+
 
 </div>
 </div>

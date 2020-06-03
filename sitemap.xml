@@ -4,7 +4,42 @@
   
   <url>
     <loc>//unixorn.github.io/tags/arm/</loc>
-    <lastmod>2019-09-01T15:47:23-06:00</lastmod>
+    <lastmod>2020-03-29T15:37:45-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//unixorn.github.io/tags/arm64/</loc>
+    <lastmod>2020-03-29T15:37:45-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//unixorn.github.io/tags/homelab/</loc>
+    <lastmod>2020-03-29T15:37:45-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//unixorn.github.io/tags/odroid/</loc>
+    <lastmod>2020-03-29T15:37:45-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//unixorn.github.io/post/</loc>
+    <lastmod>2020-03-29T15:37:45-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//unixorn.github.io/post/setting-up-an-n2/</loc>
+    <lastmod>2020-03-29T15:37:45-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//unixorn.github.io/tags/</loc>
+    <lastmod>2020-03-29T15:37:45-07:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>//unixorn.github.io/</loc>
+    <lastmod>2020-03-29T15:37:45-07:00</lastmod>
   </url>
   
   <url>
@@ -48,22 +83,7 @@
   </url>
   
   <url>
-    <loc>//unixorn.github.io/post/</loc>
-    <lastmod>2019-09-01T15:47:23-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//unixorn.github.io/tags/</loc>
-    <lastmod>2019-09-01T15:47:23-06:00</lastmod>
-  </url>
-  
-  <url>
     <loc>//unixorn.github.io/tags/tech/</loc>
-    <lastmod>2019-09-01T15:47:23-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//unixorn.github.io/</loc>
     <lastmod>2019-09-01T15:47:23-06:00</lastmod>
   </url>
   
@@ -90,16 +110,6 @@
   <url>
     <loc>//unixorn.github.io/post/growing-ebs-volumes-in-place/</loc>
     <lastmod>2019-08-20T07:10:27-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//unixorn.github.io/tags/homelab/</loc>
-    <lastmod>2019-08-09T09:02:31-06:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//unixorn.github.io/tags/odroid/</loc>
-    <lastmod>2019-08-09T09:02:31-06:00</lastmod>
   </url>
   
   <url>
