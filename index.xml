@@ -7,10 +7,19 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 29 Mar 2020 15:37:45 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 13 Jun 2020 09:07:49 -0600</lastBuildDate>
     
 	<atom:link href="//unixorn.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Building Multi Architecture Docker Images with buildx</title>
+      <link>//unixorn.github.io/post/multi-architecture-images/</link>
+      <pubDate>Sat, 13 Jun 2020 09:07:49 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/post/multi-architecture-images/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are arm7, some Raspberry Pi 4s that are arm64, and am soon going to add an Intel node as well. It&amp;rsquo;s more hassle than it&amp;rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Setting up an N2</title>

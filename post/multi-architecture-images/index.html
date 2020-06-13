@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.71.1" />
 
-  <title>docker &middot; unixorn.github.io</title>
+  <title>Building Multi Architecture Docker Images with buildx &middot; unixorn.github.io</title>
 
   
   
@@ -39,8 +40,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
-  
-  <link rel="alternate" type="application/rss+xml" title="unixorn.github.io" href="//unixorn.github.io/tags/docker/index.xml" />
   
 
   
@@ -117,10 +116,6 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="//unixorn.github.io/tags/docker/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -228,166 +223,38 @@
 
 
 <div class="header">
-  <h1>docker</h1>
+  <h1>Building Multi Architecture Docker Images with buildx</h1>
+  <h2></h2>
 </div>
-
 <div class="content">
-  
-    <article>
-  <header>
-    <h2><a href="//unixorn.github.io/post/multi-architecture-images/">Building Multi Architecture Docker Images with buildx</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>Sat, Jun 13, 2020 at 09:07</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/tech">tech</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/docker">docker</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm7">arm7</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm64">arm64</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm">arm</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
   <p>I&rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are arm7, some Raspberry Pi 4s that are arm64, and am soon going to add an Intel node as well. It&rsquo;s more hassle than it&rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.</p>
-  </p>
-
-  
-  <footer>
-    <a href="//unixorn.github.io/post/multi-architecture-images/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="//unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/">Backing Up the Cluster with Duplicacy</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>Sun, Sep 1, 2019 at 15:47</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm">arm</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm7">arm7</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/b2">b2</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/backups">backups</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/docker">docker</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/k3s">k3s</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/k8s">k8s</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/kubernetes">kubernetes</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/tech">tech</a>
-    
-  </div>
-  
-  
-
+<p>This turned out to be a lot easier than I was expecting - recent stable builds (2.0.4.0 (33772) or higher) of Docker Desktop can build for other architectures by running virtual machines in QEMU, so I can do the whole build on my MacBook Pro instead of baking each architecture separately and stitching them together with a manifest file.</p>
+<ol>
+<li>Install the latest Docker Desktop for macOS</li>
+<li>Do <code>docker buildx ls</code> to see the current builders</li>
+<li><code>docker buildx create --name multiarch</code></li>
+<li><code>docker buildx use multiarch</code></li>
+<li><code>docker buildx inspect --bootstrap</code></li>
+</ol>
+<p>Now you&rsquo;re ready to build. Go into one of your docker projects, then do <code>docker buildx --platform linux/amd64,linux/arm64,linux/arm/v7 -t username/demo --push .</code></p>
+<p>If you&rsquo;re not ready to push your image to docker hub, do <code>--load</code> instead of <code>--push</code> to have it build the image and copy it out of the buildx system and into your local docker.</p>
 </div>
 
-  </header>
+<script type="text/javascript" src="//unixorn.github.io/js/utterances.js">
+  repo="unixorn/unixorn.github.io"
+  issue-term="title"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
 
-  <p>
-  <h1 id="motivation">Motivation</h1>
-<p>I wanted to ensure any data I put into my <a href="https://unixorn.github.io/post/k3s-on-arm/">ARM k3s cluster</a> is backed up to prevent data loss.</p>
-  </p>
 
-  
-  <footer>
-    <a href="//unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
+<center>
+<style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#000000 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/8UuWLA67y"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+</center>
 
-  
-    <article>
-  <header>
-    <h2><a href="//unixorn.github.io/post/til-about-docker-mac/">Things I Learned About Docker Mac</a></h2>
 
-    <div class="post-meta">
 
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>Wed, May 8, 2019 at 09:11</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/tech">tech</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/docker">docker</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/macos">macos</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  I had a bunch of cruft in start scripts that would determine the IP of my laptop and set it as an environment variable to pass to docker-compose and it turns out that with Docker for Mac you don&rsquo;t have to do all that work - just use docker.for.mac.localhost as a hostname.
-  </p>
-
-  
-</article>
-
-  
-</div>
 
 </div>
 </div>
@@ -414,3 +281,4 @@
 
 </body>
 </html>
+
