@@ -116,6 +116,19 @@
     
     <item>
       <title></title>
+      <link>//unixorn.github.io/about-orig/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>//unixorn.github.io/about-orig/</guid>
+      <description>I&amp;rsquo;m an SRE in Denver for Twilio.
+I like cooking, photography, and working on distributed infrastructure.
+I&amp;rsquo;m the organizer for Denver CoffeeOps, which currently meets online - the meetup link has the Google Meet details.
+I have a variety of DevOps (and DevOOPs) themed swag on redbubble, if you&amp;rsquo;d like to buy something and contribute to my hardware habit, or you can contribute at https://www.patreon.com/unixorn.
+ new RBExternalPortfolio(&#39;www.redbubble.com&#39;, &#39;unixorn&#39;, 3, 3).</description>
+    </item>
+    
+    <item>
+      <title></title>
       <link>//unixorn.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -123,8 +136,7 @@
       <description>I&amp;rsquo;m an SRE in Denver for Twilio.
 I like cooking, photography, and working on distributed infrastructure.
 I&amp;rsquo;m the organizer for Denver CoffeeOps, which currently meets online - the meetup link has the Google Meet details.
-I have a variety of DevOps (and DevOOPs) themed swag on redbubble, if you&amp;rsquo;d like to buy something and contribute to my hardware habit, or you can contribute at https://www.patreon.com/unixorn.
- new RBExternalPortfolio(&#39;www.redbubble.com&#39;, &#39;unixorn&#39;, 3, 3).</description>
+This year is a vital election. Your vote will determine whether democracy as we know it lives or dies in the United States. If you found anything on this blog useful, please consider contributing to ActBlue.</description>
     </item>
     
     <item>

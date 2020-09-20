@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.74.3" />
 
-  <title>Building Multi Architecture Docker Images with buildx &middot; unixorn.github.io</title>
+  <title> &middot; unixorn.github.io</title>
 
   
   
@@ -223,40 +222,19 @@
 
 
 <div class="header">
-  <h1>Building Multi Architecture Docker Images with buildx</h1>
+  <h1></h1>
   <h2></h2>
 </div>
 <div class="content">
-  <p>I&rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are arm7, some Raspberry Pi 4s that are arm64, and am soon going to add an Intel node as well. It&rsquo;s more hassle than it&rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.</p>
-<p>This turned out to be a lot easier than I was expecting - recent stable builds (2.0.4.0 (33772) or higher) of Docker Desktop can build for other architectures by running virtual machines in QEMU, so I can do the whole build on my MacBook Pro instead of baking each architecture separately and stitching them together with a manifest file.</p>
-<ol>
-<li>Install the latest Docker Desktop for macOS</li>
-<li>Enable experimental mode either by setting <code>DOCKER_CLI_EXPERIMENTAL=enabled</code> in your environment or by adding <code>&quot;experimental&quot; : &quot;enabled&quot;</code> to <code>~/.docker/config.json</code></li>
-<li>Do <code>docker buildx ls</code> to see the current builders</li>
-<li><code>docker buildx create --name multiarch</code></li>
-<li><code>docker buildx use multiarch</code></li>
-<li><code>docker buildx inspect --bootstrap</code></li>
-</ol>
-<p>Now you&rsquo;re ready to build. Go into one of your docker projects, then do <code>docker buildx --platform linux/amd64,linux/arm64,linux/arm/v7 -t username/demo --push .</code></p>
-<p>If you&rsquo;re not ready to push your image to docker hub, do <code>--load</code> instead of <code>--push</code> to have it build the image and copy it out of the buildx system and into your local docker.</p>
-<ul>
-<li>Edit - documented enabling Docker&rsquo;s experimental mode</li>
-</ul>
+  <p>I&rsquo;m an SRE in Denver for Twilio.</p>
+<p>I like cooking, photography, and working on distributed infrastructure.</p>
+<p>I&rsquo;m the organizer for Denver <a href="https://www.meetup.com/Denver-CoffeeOps/">CoffeeOps</a>, which currently meets online - the meetup link has the Google Meet details.</p>
+<p>I have a variety of DevOps (and DevOOPs) themed swag on <a href="https://www.redbubble.com/people/unixorn/collections/1069603-devoops?asc=u">redbubble</a>, if you&rsquo;d like to buy something and contribute to my hardware habit, or you can contribute at <a href="https://www.patreon.com/unixorn">https://www.patreon.com/unixorn</a>.</p>
+<script type="text/javascript" src="http://www.redbubble.com/assets/external_portfolio.js"></script>
+<script id="rb-xzfcxvzx" type="text/javascript">new RBExternalPortfolio('www.redbubble.com', 'unixorn', 3, 3).renderIframe();</script>
+
+
 </div>
-
-<script type="text/javascript" src="//unixorn.github.io/js/utterances.js">
-  repo="unixorn/unixorn.github.io"
-  issue-term="title"
-  theme="github-light"
-  crossorigin="anonymous"
-  async>
-</script>
-
-
-<center>
-If you liked this, please contribute to <a href="https://secure.actblue.com/donate/needasenatemajority">ActBlue</a>.
-</center>
-
 
 </div>
 </div>
