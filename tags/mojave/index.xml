@@ -7,11 +7,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 05 Mar 2019 22:48:25 -0700</lastBuildDate>
-    
-	<atom:link href="//unixorn.github.io/tags/mojave/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 05 Mar 2019 22:48:25 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/mojave/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fix macOS Captive WIFI Portal Issue</title>
       <link>//unixorn.github.io/post/fix-macos-captive-portal-issue/</link>
