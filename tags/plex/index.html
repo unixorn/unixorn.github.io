@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.78.0" />
 
-  <title>arm64 &middot; unixorn.github.io</title>
+  <title>plex &middot; unixorn.github.io</title>
 
   
   
@@ -40,7 +40,7 @@
 
  
   
-  <link rel="alternate" type="application/rss+xml" title="unixorn.github.io" href="//unixorn.github.io/tags/arm64/index.xml" />
+  <link rel="alternate" type="application/rss+xml" title="unixorn.github.io" href="//unixorn.github.io/tags/plex/index.xml" />
   
 
   
@@ -119,7 +119,7 @@
 
     
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href="//unixorn.github.io/tags/arm64/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      <a class="pure-menu-link" href="//unixorn.github.io/tags/plex/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
     </li>
     
 
@@ -228,20 +228,20 @@
 
 
 <div class="header">
-  <h1>arm64</h1>
+  <h1>plex</h1>
 </div>
 
 <div class="content">
   
     <article>
   <header>
-    <h2><a href="//unixorn.github.io/post/multi-architecture-images/">Building Multi Architecture Docker Images with buildx</a></h2>
+    <h2><a href="//unixorn.github.io/post/add-plex-to-hass/">Add Plex to Home Assistant</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>Sat, Jun 13, 2020 at 09:07</time>
+    <time>Sun, Nov 8, 2020 at 21:10</time>
   </div>
 
   
@@ -256,13 +256,9 @@
     
       <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/tech">tech</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/docker">docker</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/home-assistant">home assistant</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm7">arm7</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm64">arm64</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm">arm</a>
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/plex">plex</a>
     
   </div>
   
@@ -273,62 +269,13 @@
   </header>
 
   <p>
-  <p>I&rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are arm7, some Raspberry Pi 4s that are arm64, and am soon going to add an Intel node as well. It&rsquo;s more hassle than it&rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.</p>
+  Adding the Plex integration to Home Assistant is pretty straightforward with the exception of finding your Plex token.
+Find Your Plex token:  Sign into your Plex.tv account Browse to one of the media files (TV episode, movie) on your connected server. You&rsquo;ll need a Plex pass for this. Select Get info Click View XML Ignore the XML. Look in the URL to the XML page - you&rsquo;ll see Plex-Token\=XYZZY. That&rsquo;s the token you&rsquo;ll need.
   </p>
 
   
   <footer>
-    <a href="//unixorn.github.io/post/multi-architecture-images/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="//unixorn.github.io/post/setting-up-an-n2/">Setting up an N2</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>Sun, Mar 29, 2020 at 15:37</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm">arm</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm64">arm64</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/homelab">homelab</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/odroid">odroid</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  <h1 id="setting-up-an-odroid-n2">Setting up an Odroid N2</h1>
-<p>I wanted a machine with more memory to be the master node for my ARM k3s cluster. I had an Odroid N2 with 4GB of RAM, sitting around, so here&rsquo;s the log of getting it installed and running.</p>
-  </p>
-
-  
-  <footer>
-    <a href="//unixorn.github.io/post/setting-up-an-n2/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="//unixorn.github.io/post/add-plex-to-hass/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

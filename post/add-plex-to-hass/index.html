@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.78.0" />
 
-  <title>arm64 &middot; unixorn.github.io</title>
+  <title>Add Plex to Home Assistant &middot; unixorn.github.io</title>
 
   
   
@@ -39,8 +40,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
-  
-  <link rel="alternate" type="application/rss+xml" title="unixorn.github.io" href="//unixorn.github.io/tags/arm64/index.xml" />
   
 
   
@@ -117,10 +116,6 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="//unixorn.github.io/tags/arm64/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -228,113 +223,44 @@
 
 
 <div class="header">
-  <h1>arm64</h1>
+  <h1>Add Plex to Home Assistant</h1>
+  <h2></h2>
 </div>
-
 <div class="content">
-  
-    <article>
-  <header>
-    <h2><a href="//unixorn.github.io/post/multi-architecture-images/">Building Multi Architecture Docker Images with buildx</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>Sat, Jun 13, 2020 at 09:07</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/tech">tech</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/docker">docker</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm7">arm7</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm64">arm64</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm">arm</a>
-    
-  </div>
-  
-  
+  <p>Adding the Plex integration to Home Assistant is pretty straightforward with the exception of finding your Plex token.</p>
+<h2 id="find-your-plex-token">Find Your Plex token:</h2>
+<ol>
+<li>Sign into your <a href="https://plex.tv">Plex.tv</a> account</li>
+<li>Browse to one of the media files (TV episode, movie) on your connected server. You&rsquo;ll need a Plex pass for this.</li>
+<li>Select <strong>Get info</strong></li>
+<li>Click <strong>View XML</strong></li>
+<li><em>Ignore the XML.</em> Look in the URL to the XML page - you&rsquo;ll see <code>Plex-Token\=XYZZY</code>. That&rsquo;s the token you&rsquo;ll need.</li>
+</ol>
+<h2 id="set-up-the-plex-home-assistant-integration">Set up the Plex Home Assistant Integration</h2>
+<p>Once you have the token,</p>
+<ol>
+<li>Sign into your Home Assistant</li>
+<li>Go to <strong>Configuration -&gt; Integrations</strong></li>
+<li>Pick <strong>Add</strong>, and select Plex.</li>
+<li>Pick the manual setup option</li>
+<li>Enter your Plex server&rsquo;s address and the token.</li>
+</ol>
 
 </div>
 
-  </header>
+<script type="text/javascript" src="//unixorn.github.io/js/utterances.js">
+  repo="unixorn/unixorn.github.io"
+  issue-term="title"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
 
-  <p>
-  <p>I&rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are arm7, some Raspberry Pi 4s that are arm64, and am soon going to add an Intel node as well. It&rsquo;s more hassle than it&rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.</p>
-  </p>
 
-  
-  <footer>
-    <a href="//unixorn.github.io/post/multi-architecture-images/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
+<center>
+If you liked this, please contribute to Actblue via my <a href="https://unixorn.github.io/post/2020-elections/">donation contest page</a>.
+</center>
 
-  
-    <article>
-  <header>
-    <h2><a href="//unixorn.github.io/post/setting-up-an-n2/">Setting up an N2</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>Sun, Mar 29, 2020 at 15:37</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm">arm</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/arm64">arm64</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/homelab">homelab</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/odroid">odroid</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  <h1 id="setting-up-an-odroid-n2">Setting up an Odroid N2</h1>
-<p>I wanted a machine with more memory to be the master node for my ARM k3s cluster. I had an Odroid N2 with 4GB of RAM, sitting around, so here&rsquo;s the log of getting it installed and running.</p>
-  </p>
-
-  
-  <footer>
-    <a href="//unixorn.github.io/post/setting-up-an-n2/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-</div>
 
 </div>
 </div>
@@ -361,3 +287,4 @@
 
 </body>
 </html>
+
