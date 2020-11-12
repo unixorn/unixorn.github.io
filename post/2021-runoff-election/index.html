@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.78.0" />
 
-  <title>Building Multi Architecture Docker Images with buildx &middot; unixorn.github.io</title>
+  <title>2021 Georgia Runoff Elections &middot; unixorn.github.io</title>
 
   
   
@@ -223,25 +223,24 @@
 
 
 <div class="header">
-  <h1>Building Multi Architecture Docker Images with buildx</h1>
+  <h1>2021 Georgia Runoff Elections</h1>
   <h2></h2>
 </div>
 <div class="content">
-  <p>I&rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are arm7, some Raspberry Pi 4s that are arm64, and am soon going to add an Intel node as well. It&rsquo;s more hassle than it&rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.</p>
-<p>This turned out to be a lot easier than I was expecting - recent stable builds (2.0.4.0 (33772) or higher) of Docker Desktop can build for other architectures by running virtual machines in QEMU, so I can do the whole build on my MacBook Pro instead of baking each architecture separately and stitching them together with a manifest file.</p>
-<ol>
-<li>Install the latest Docker Desktop for macOS</li>
-<li>Enable experimental mode either by setting <code>DOCKER_CLI_EXPERIMENTAL=enabled</code> in your environment or by adding <code>&quot;experimental&quot; : &quot;enabled&quot;</code> to <code>~/.docker/config.json</code></li>
-<li>Do <code>docker buildx ls</code> to see the current builders</li>
-<li><code>docker buildx create --name multiarch</code></li>
-<li><code>docker buildx use multiarch</code></li>
-<li><code>docker buildx inspect --bootstrap</code></li>
-</ol>
-<p>Now you&rsquo;re ready to build. Go into one of your docker projects, then do <code>docker buildx --platform linux/amd64,linux/arm64,linux/arm/v7 -t username/demo --push .</code></p>
-<p>If you&rsquo;re not ready to push your image to docker hub, do <code>--load</code> instead of <code>--push</code> to have it build the image and copy it out of the buildx system and into your local docker.</p>
+  <p>Biden won! Awesome! The fight isn&rsquo;t over though.</p>
+<p>Time to donate to the Georgia Runoff Senate Elections. I&rsquo;ve set up identical fundraisers, this time for all the different Star Trek Series.</p>
+<p>Donate to your favorite series link and we&rsquo;ll see which series has the most fan support.</p>
 <ul>
-<li>Edit - documented enabling Docker&rsquo;s experimental mode</li>
+<li>TOS - <a href="https://secure.actblue.com/donate/ga-tos">https://secure.actblue.com/donate/ga-tos</a></li>
+<li>TNG - <a href="https://secure.actblue.com/donate/ga-tng">https://secure.actblue.com/donate/ga-tng</a></li>
+<li>DS9 - <a href="https://secure.actblue.com/donate/ga-ds9">https://secure.actblue.com/donate/ga-ds9</a></li>
+<li>Enterprise - <a href="https://secure.actblue.com/donate/ga-enterprise">https://secure.actblue.com/donate/ga-enterprise</a></li>
+<li>Voyager - <a href="https://secure.actblue.com/donate/ga-voyager">https://secure.actblue.com/donate/ga-voyager</a></li>
+<li>Discovery - <a href="https://secure.actblue.com/donate/ga-discovery">https://secure.actblue.com/donate/ga-discovery</a></li>
+<li>Lower Decks - <a href="https://secure.actblue.com/donate/ga-lowerdecks">https://secure.actblue.com/donate/ga-lowerdecks</a></li>
+<li>Picard - <a href="https://secure.actblue.com/donate/ga-picard">https://secure.actblue.com/donate/ga-picard</a></li>
 </ul>
+
 </div>
 
 <script type="text/javascript" src="//unixorn.github.io/js/utterances.js">
