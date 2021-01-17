@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 08 Nov 2020 21:10:48 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/home-assistant/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jan 2021 16:47:09 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/home-assistant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Home Assistant Notifications via Twilio SMS</title>
+      <link>//unixorn.github.io/post/home-assistant-notifications-via-twilio/</link>
+      <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/post/home-assistant-notifications-via-twilio/</guid>
+      <description>Sending notifications from Home Assistant via Twilio SMS I got a post published at work about How to Receive Alerts from Home Assistant with Twilio SMS, so I won&amp;rsquo;t replicate it here.
+TL;DR - It is super easy to send SMS messages via Twilio SMS with curl.</description>
+    </item>
+    
     <item>
       <title>Add Plex to Home Assistant</title>
       <link>//unixorn.github.io/post/add-plex-to-hass/</link>
