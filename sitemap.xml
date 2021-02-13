@@ -23,6 +23,11 @@
   </url>
   
   <url>
+    <loc>//unixorn.github.io/tags/homelab/</loc>
+    <lastmod>2021-02-13T12:08:24-07:00</lastmod>
+  </url>
+  
+  <url>
     <loc>//unixorn.github.io/post/</loc>
     <lastmod>2021-02-13T12:08:24-07:00</lastmod>
   </url>
@@ -59,11 +64,6 @@
   
   <url>
     <loc>//unixorn.github.io/post/home-assistant-notifications-via-twilio/</loc>
-    <lastmod>2021-01-17T16:47:09-07:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>//unixorn.github.io/tags/homelab/</loc>
     <lastmod>2021-01-17T16:47:09-07:00</lastmod>
   </url>
   
