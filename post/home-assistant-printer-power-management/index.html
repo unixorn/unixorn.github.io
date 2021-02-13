@@ -264,8 +264,8 @@ exec docker run -t --rm eclipse-mosquitto mosquitto_pub $@
 <p>Once I had cupsd configured to share the printer (as Franklin), I wrote a quick script that checks the print queue to see if it is empty or not. If there are jobs in the queue, it writes <strong>ON</strong> to an MQTT topic, <code>hass/printers/franklin</code>. If the queue is empty, it writes <strong>OFF</strong>. The examples here all assume your printer is named Franklin, replace Franklin with your printer&rsquo;s name.</p>
 <p>Actually, I lied. When there are jobs, it writes <strong>OFF</strong> and <em>then</em> <strong>ON</strong>.</p>
 <p>Why? Because I don&rsquo;t want HA to switch the printer off immediately once the queue drains - the printer has enough RAM that there may still be several pages left to print when it has accepted all of the job from the server.</p>
-<p>Instead, I&rsquo;ve configured HA to restart a timer every time it sees the MQTT topic <code>hass/printers/franklin</code> switch from <strong>OFF</strong> to <strong>ON</strong>, and only turn the printer off after the queue has been empty for ten continuous minutes.</p>
-<p>Here&rsquo;s the script source - you can download it from github <a href="https://github.com/unixorn/blog-scripts/blob/master/cupsd-hass/ha-check-for-print-jobs">here</a>.</p>
+<p>Instead, I&rsquo;ve configured HA to restart a timer every time it sees the MQTT topic <code>hass/printers/franklin</code> switch from <strong>OFF</strong> to <strong>ON</strong>, and only turn the printer off after the queue has been empty for five continuous minutes.</p>
+<p>Here&rsquo;s the <code>ha-check-for-print-jobs</code> script source - you can download it from github <a href="https://github.com/unixorn/blog-scripts/blob/master/cupsd-hass/ha-check-for-print-jobs">here</a>.</p>
 <p>Put the script in <code>/usr/local/bin</code> on the same server you&rsquo;re running the cupsd container on - it is designed to run a tool inside that container.</p>
 <pre><code>#!/usr/bin/env bash
 #
