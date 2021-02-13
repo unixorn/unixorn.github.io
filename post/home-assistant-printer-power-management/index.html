@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.80.0" />
+
+  <title>Home Assistant Printer Power Management &middot; unixorn.github.io</title>
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="//unixorn.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="//unixorn.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="//unixorn.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="//unixorn.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="//unixorn.github.io/">unixorn</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="//unixorn.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="//unixorn.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="//unixorn.github.io/tags"><i class="sidebar-button-icon fa fa-lg fa-tags"></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="//unixorn.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="//unixorn.github.io/projects/"><i class='fa fa-list fa-fw'></i>Projects</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="//unixorn.github.io/contact/"><i class='fa fa-envelope fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/curiousbiped" target="_blank"><i class="fa fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/apeseekingknowledge" target="_blank"><i class="fa fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/unixorn" target="_blank"><i class="fa fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2019. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Home Assistant Printer Power Management</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  <p>I&rsquo;ve got an old HP laser printer in my basement. We barely print 10 pages a month between the two of us, so we only turn it on when we&rsquo;re going to print. That&rsquo;s a hassle though, because inevitably we forget to shut it off sometimes and it stays on overnight or even for days, and while it has a powersave mode, the 4050N is so old that even that burns a good amount of power.</p>
+<p>Enter Home Assistant.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<h3 id="you-have-ha-configured-to-connect-to-a-mqtt-server">You have HA configured to connect to a MQTT server</h3>
+<p>The watcher script and associated tooling all presume that we can send messages to a MQTT topic that HA is watching.</p>
+<h3 id="your-printer-is-connected-to-a-cupsd-server-running-in-a-container">Your printer is connected to a cupsd server running in a container</h3>
+<p>Your computers should be configured to print to the cupsd server instead of directly to the printer.</p>
+<p>I run cupsd in a container on one of my Raspberry Pis. I could run it on the same Odroid HC2 that I run Home Assistant (HA) on, but there&rsquo;s no compelling reason to do so and I&rsquo;m reserving that node for strictly HA containers like Home Assistant itself and my MQTT server.</p>
+<p>You could modify the watcher script if you&rsquo;re running cupsd directly instead of in a container, but I run my cupsd in a container, so that&rsquo;s what the script is designed for.</p>
+<h3 id="your-printer-is-plugged-into-an-outlet-controlled-by-ha">Your printer is plugged into an outlet controlled by HA</h3>
+<p>We want to be able to toggle the power from Home Assistant.</p>
+<h2 id="printer-power-control">Printer Power Control</h2>
+<h3 id="mosquitto-helper-script">mosquitto helper script</h3>
+<p>I don&rsquo;t like to install anything more on my docker hosts than I absolutely have to, so instead of installing mosquitto directly on the printserver machine, I run <code>mosquitto_pub</code> inside a container with the following <code>c-mosquitto_pub</code> helper script. You can download it from github <a href="https://github.com/unixorn/blog-scripts/blob/master/cupsd-hass/c-mosquitto_pub">here</a>. Put this in <code>/usr/local/bin</code>.</p>
+<pre><code>#!/usr/bin/env bash
+#
+# Use docker to run mosquitto_pub
+#
+# Copyright 2019, Joe Block &lt;jpb@unixorn.net&gt;
+#
+# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+exec docker run -t --rm eclipse-mosquitto mosquitto_pub $@
+</code></pre><h3 id="cupsd-watcher">cupsd Watcher</h3>
+<p>Once I had cupsd configured to share the printer (as Franklin), I wrote a quick script that checks the print queue to see if it is empty or not. If there are jobs in the queue, it writes <strong>ON</strong> to an MQTT topic, <code>hass/printers/franklin</code>. If the queue is empty, it writes <strong>OFF</strong>. The examples here all assume your printer is named Franklin, replace Franklin with your printer&rsquo;s name.</p>
+<p>Actually, I lied. When there are jobs, it writes <strong>OFF</strong> and <em>then</em> <strong>ON</strong>.</p>
+<p>Why? Because I don&rsquo;t want HA to switch the printer off immediately once the queue drains - the printer has enough RAM that there may still be several pages left to print when it has accepted all of the job from the server.</p>
+<p>Instead, I&rsquo;ve configured HA to restart a timer every time it sees the MQTT topic <code>hass/printers/franklin</code> switch from <strong>OFF</strong> to <strong>ON</strong>, and only turn the printer off after the queue has been empty for ten continuous minutes.</p>
+<p>Here&rsquo;s the script source - you can download it from github <a href="https://github.com/unixorn/blog-scripts/blob/master/cupsd-hass/ha-check-for-print-jobs">here</a>.</p>
+<p>Put the script in <code>/usr/local/bin</code> on the same server you&rsquo;re running the cupsd container on - it is designed to run a tool inside that container.</p>
+<pre><code>#!/usr/bin/env bash
+#
+# ha-check-for-print-jobs
+#
+# Check if there are print jobs on $PRINT_Q. If there are, write
+# MQTT messages to a watched topic so HA knows to turn on the power
+# to the printer.
+#
+# Copyright 2021, Joe Block &lt;jpb@unixorn.net&gt;
+#
+# License: Apache 2
+
+set -o pipefail
+
+# Make all these overridable easily in your cron setup
+PRINT_Q=${PRINT_Q:-'Franklin'}
+CONTAINER=${CONTAINER:-'cupsd-server'}
+MQTT_HOST=${MQTT_HOST:-'mqtt.example.com'}
+MQTT_TOPIC=${MQTT_TOPIC:-'hass/printers/gutenberg'}
+
+# We are run out of cron every minute, but I don't want it to take an
+# entire minute to turn on the power because I'm impatient and the printer
+# takes a bit to start up. When we print and walk downstairs, I want it
+# to have already started printing by the time I get there.
+#
+# So, when we get run by cron, we check the queue CHECK_COUNT times, with
+# CHECK_DELAY seconds between each run.
+CHECK_COUNT=${CHECK_COUNT:-'11'}
+CHECK_DELAY=${CHECK_DELAY:-'5'}
+
+export PATH=&quot;$PATH:/usr/local/bin:/usr/local/sbin&quot;
+
+if [[ -f /tmp/printerdebug ]]; then
+  DEBUG='true'
+fi
+
+# Only spam syslog when DEBUG is set
+debugout() {
+  if [[ -n &quot;$DEBUG&quot; ]]; then
+    echo &quot;$@&quot;
+  fi
+}
+
+validate-settings(){
+  debugout &quot;CONTAINER: $CONTAINER&quot;
+  debugout &quot;PRINT_Q: $PRINT_Q&quot;
+  debugout &quot;MQTT_HOST: $MQTT_HOST&quot;
+  debugout &quot;MQTT_TOPIC: $MQTT_TOPIC&quot;
+
+  valid='true'
+  if [[ -z &quot;$CONTAINER&quot; ]]; then
+    echo &quot;CONTAINER is unset&quot;
+    valid='false'
+  fi
+  if [[ -z &quot;$PRINT_Q&quot; ]]; then
+    echo &quot;PRINT_Q is unset&quot;
+    valid='false'
+  fi
+  if [[ -z &quot;$MQTT_HOST&quot; ]]; then
+    echo &quot;MQTT_HOST is unset&quot;
+    valid='false'
+  fi
+  if [[ -z &quot;$MQTT_TOPIC&quot; ]]; then
+    echo &quot;MQTT_TOPIC is unset&quot;
+    valid='false'
+  fi
+  if [[ &quot;$valid&quot; == &quot;false&quot; ]]; then
+    echo &quot;Configure your settings.&quot;
+    exit 1
+  fi
+}
+
+print-job-checker() {
+  printjobs=$(docker exec -t &quot;$CONTAINER&quot; lpq -P &quot;$PRINT_Q&quot; | grep -c 'no entries')
+
+  if [[ &quot;$printjobs&quot; == '1' ]]; then
+    debugout &quot;No jobs in print queue, notifying HA&quot;
+    c-mosquitto_pub -h &quot;$MQTT_HOST&quot; -t &quot;$MQTT_TOPIC&quot; -m OFF
+  else
+    echo &quot;jobs found in print queue, notifying HA&quot;
+
+    docker exec -t &quot;$CONTAINER&quot; lpq -P &quot;$PRINT_Q&quot;
+
+    # Set the status off, then back to on, so that the HA timer restarts
+    # and HA doesn't turn off the printer in the middle of a job
+    c-mosquitto_pub -h &quot;$MQTT_HOST&quot; -t &quot;$MQTT_TOPIC&quot; -m OFF
+    c-mosquitto_pub -h &quot;$MQTT_HOST&quot; -t &quot;$MQTT_TOPIC&quot; -m ON
+    debugout &quot;re-enabling printer $PRINT_Q...&quot;
+    docker exec -t &quot;$CONTAINER&quot; lpadmin -p &quot;$PRINT_Q&quot; -o printer-error-policy=retry-current-job
+  fi
+}
+
+validate-settings
+
+# We run the print-job-checker every 5 seconds to minimize the UI delay on the
+# macOs end
+
+for i in $(seq $CHECK_COUNT)
+do
+  print-job-checker
+  debugout &quot;waiting...&quot;
+  sleep $CHECK_DELAY
+done
+</code></pre><h3 id="home-assistant-setup">Home Assistant Setup</h3>
+<p>I configured my HA to watch a MQTT topic as a binary sensor. You can download this snippet <a href="https://github.com/unixorn/blog-scripts/blob/master/cupsd-hass/printer-binary-sensor.yaml">here</a>.</p>
+<pre><code>binary_sensor:
+  - platform: mqtt
+    name: &quot;Franklin Print Queue&quot;
+    payload_on: &quot;ON&quot;
+    state_topic: &quot;hass/printers/franklin&quot;
+</code></pre><p>Now, when the watcher writes <strong>ON</strong> and <strong>OFF</strong> to the <code>hass/printers/franklin</code> queue, that binary sensor will change status and we can trigger an automation for it.</p>
+<p>This automation will turn the printer power on every time the binary sensor is turned on, and turn it off five minutes after the last time the binary sensor switched from <strong>ON</strong> to <strong>OFF</strong>.</p>
+<p>The outlet my printer is plugged into is controlled by HA and rather unimaginatively named <code>switch.printerpower</code>.</p>
+<p>Add this stanza to your automations.yaml file. Download it <a href="https://github.com/unixorn/blog-scripts/blob/master/cupsd-hass/printer-automations.yaml">here</a>.</p>
+<pre><code># Franklin power is controlled by MQTT
+  - alias: 'Turn on Franklin when there are jobs in the queue'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.franklin_print_queue
+      to: 'on'
+    action:
+      service: homeassistant.turn_on
+      entity_id: switch.printerpower
+
+  - alias: 'Turn off printer 15 minutes after print queue drains'
+    trigger:
+      platform: state
+      entity_id: binary_sensor.franklin_print_queue
+      to: 'off'
+      for:
+        minutes: 5
+    action:
+      service: homeassistant.turn_off
+      entity_id: switch.printerpower
+</code></pre><h3 id="test-the-pieces">Test the pieces</h3>
+<p>Confirm that you&rsquo;ve got the print queue configured correctly by running <code>docker exec -it cupsd-server lpq -P Franklin</code>. If there are no jobs, it should print something like</p>
+<pre><code>Franklin is ready
+no entries
+</code></pre><p>Reload your automations, and you should now be able to test that the automations are correct by running <code>c-mosquitto_pub -h mqtt.yourdomain.com -t hass/printers/franklin -m OFF</code> or <code>-m ON</code> and watch HA turn the power to your printer off and on.</p>
+<p>Once that is working, print a job, and if you run <code>ha-check-for-print-jobs</code> the printer power should get turned on.</p>
+<h3 id="run-it-all-automatically">Run it all automatically</h3>
+<p>Now that you&rsquo;ve confirmed that the power is being cycled properly when the MQTT queue recieves messages and that the print job checker is seeing the printer queue, we can add the checker job to cron.</p>
+<p>Add</p>
+<pre><code>* * * * * PRINT_Q=Franklin MQTT_HOST=mqtt.example.com MQTT_TOPIC=hass/printers/franklin CONTAINER=cupsd_server /usr/local/bin/ha-check-for-print-jobs | logger -t printserver
+</code></pre><p>to your <code>/etc/crontab</code>, and you&rsquo;re good to go.</p>
+</div>
+
+<script type="text/javascript" src="//unixorn.github.io/js/utterances.js">
+  repo="unixorn/unixorn.github.io"
+  issue-term="title"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+
+
+<center>
+  <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#000000 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/8UuWLA67y"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+</center>
+
+
+</div>
+</div>
+<script src="//unixorn.github.io/js/ui.js"></script>
+<script src="//unixorn.github.io/js/menus.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-100853138-2', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+
+</body>
+</html>
+

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>hass on unixorn.github.io</title>
-    <link>//unixorn.github.io/tags/hass/</link>
-    <description>Recent content in hass on unixorn.github.io</description>
+    <title>cupsd on unixorn.github.io</title>
+    <link>//unixorn.github.io/tags/cupsd/</link>
+    <description>Recent content in cupsd on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 13 Feb 2021 12:08:24 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/hass/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Feb 2021 12:08:24 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/cupsd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Home Assistant Printer Power Management</title>
       <link>//unixorn.github.io/post/home-assistant-printer-power-management/</link>
@@ -16,16 +16,6 @@
       <guid>//unixorn.github.io/post/home-assistant-printer-power-management/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve got an old HP laser printer in my basement. We barely print 10 pages a month between the two of us, so we only turn it on when we&amp;rsquo;re going to print. That&amp;rsquo;s a hassle though, because inevitably we forget to shut it off sometimes and it stays on overnight or even for days, and while it has a powersave mode, the 4050N is so old that even that burns a good amount of power.&lt;/p&gt;
 &lt;p&gt;Enter Home Assistant.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Home Assistant Notifications via Twilio SMS</title>
-      <link>//unixorn.github.io/post/home-assistant-notifications-via-twilio/</link>
-      <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/post/home-assistant-notifications-via-twilio/</guid>
-      <description>Sending notifications from Home Assistant via Twilio SMS I got a post published at work about How to Receive Alerts from Home Assistant with Twilio SMS, so I won&amp;rsquo;t replicate it here.
-TL;DR - It is super easy to send SMS messages via Twilio SMS with curl.</description>
     </item>
     
   </channel>

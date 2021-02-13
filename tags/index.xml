@@ -7,11 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 17 Jan 2021 16:47:09 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Feb 2021 12:08:24 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>cupsd</title>
+      <link>//unixorn.github.io/tags/cupsd/</link>
+      <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/cupsd/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>hass</title>
       <link>//unixorn.github.io/tags/hass/</link>
-      <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
+      <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
       
       <guid>//unixorn.github.io/tags/hass/</guid>
       <description></description>
@@ -20,9 +29,45 @@
     <item>
       <title>home assistant</title>
       <link>//unixorn.github.io/tags/home-assistant/</link>
-      <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
+      <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
       
       <guid>//unixorn.github.io/tags/home-assistant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>printer</title>
+      <link>//unixorn.github.io/tags/printer/</link>
+      <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/printer/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Raspberry PI</title>
+      <link>//unixorn.github.io/tags/raspberry-pi/</link>
+      <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/raspberry-pi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>rpi</title>
+      <link>//unixorn.github.io/tags/rpi/</link>
+      <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/rpi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
+      <link>//unixorn.github.io/tags/tech/</link>
+      <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/tech/</guid>
       <description></description>
     </item>
     
@@ -41,15 +86,6 @@
       <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
       
       <guid>//unixorn.github.io/tags/sms/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tech</title>
-      <link>//unixorn.github.io/tags/tech/</link>
-      <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/tech/</guid>
       <description></description>
     </item>
     
