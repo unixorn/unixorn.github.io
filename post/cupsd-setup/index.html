@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +8,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.80.0" />
 
-  <title>rpi &middot; unixorn.github.io</title>
+  <title>Cupsd Setup &middot; unixorn.github.io</title>
 
   
   
@@ -39,8 +40,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
-  
-  <link rel="alternate" type="application/rss+xml" title="unixorn.github.io" href="//unixorn.github.io/tags/rpi/index.xml" />
   
 
   
@@ -117,10 +116,6 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="//unixorn.github.io/tags/rpi/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
-    </li>
     
 
     
@@ -228,127 +223,52 @@
 
 
 <div class="header">
-  <h1>rpi</h1>
+  <h1>Cupsd Setup</h1>
+  <h2></h2>
 </div>
-
 <div class="content">
-  
-    <article>
-  <header>
-    <h2><a href="//unixorn.github.io/post/home-assistant-printer-power-management/">Home Assistant Printer Power Management</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>Sat, Feb 13, 2021 at 12:08</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/home-assistant">Home Assistant</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/cupsd">cupsd</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/hass">hass</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/homelab">homelab</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/printer">printer</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/rpi">rpi</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/raspberry-pi">Raspberry PI</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/tech">tech</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  <h1 id="home-assistant-printer-power-management">Home Assistant Printer Power Management</h1>
-<p>I&rsquo;ve got an old HP laser printer in my basement. We barely print 10 pages a month between the two of us, so we only turn it on when we&rsquo;re going to print. That&rsquo;s a hassle though, because inevitably we forget to shut it off sometimes and it stays on overnight or even for days, and while it has a powersave mode, the 4050N is so old that even that burns a good amount of power.</p>
-<p>Enter Home Assistant.</p>
-  </p>
-
-  
-  <footer>
-    <a href="//unixorn.github.io/post/home-assistant-printer-power-management/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="//unixorn.github.io/post/cupsd-setup/">Cupsd Setup</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>Mon, Feb 8, 2021 at 12:11</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/raspberry-pi">Raspberry PI</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/cupsd">cupsd</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/docker">docker</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/homelab">homelab</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/printer">printer</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/rpi">rpi</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/tech">tech</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
   <h1 id="run-a-print-server-on-raspberry-pi">Run a print server on Raspberry Pi</h1>
 <p>I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here&rsquo;s how I set that up.</p>
-  </p>
-
-  
-  <footer>
-    <a href="//unixorn.github.io/post/cupsd-setup/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
+<h2 id="prerequisites">Prerequisites</h2>
+<ul>
+<li>A Raspberry Pi (or honestly any linux box) running docker. I like the Raspberry Pi and Odroid HC2 for this sort of thing because they are very low power.</li>
+<li>A printer.</li>
+</ul>
+<h2 id="setup">Setup</h2>
+<p>Setup is easy. There are several docker images out there you can use, I made one (the source is on github at <a href="https://github.com/unixorn/docker-cupsd">unixorn/docker-cupsd</a>) because I wanted one that was multi-architecture - mine has AMD64, ARM7 and ARM64 all baked into the same image so you don&rsquo;t have to change the image label based on what system you&rsquo;re running it on. It works fine on Raspberry Pi, Odroids and Intel servers.</p>
+<p>The unixorn/cupsd image is a bit on the large side because I crammed a lot of printer drivers into it, you may want to look for images that only support single printer families.</p>
+<p>We&rsquo;re going to store <code>printers.conf</code> in a directory outside the container so that we don&rsquo;t lose our printer configuration every time we upgrade our container.</p>
+<ol>
+<li>Make a directory to store your printer configuration. We&rsquo;ll use <code>/docker/cupsd/etc</code></li>
+<li><code>export CUPSD_DIR='/docker/cupsd/etc'</code></li>
+<li><code>touch $CUPSD_DIR/printers.conf</code></li>
+<li>Run the <code>cupsd</code> server with</li>
+</ol>
+<pre><code>sudo docker run -d --restart unless-stopped \
+  -p 631:631 \
+  --privileged \
+  -v /var/run/dbus:/var/run/dbus \
+  -v /dev/bus/usb:/dev/bus/usb \
+  -v $CUPSD_DIR/printers.conf:/etc/cups/printers.conf \
+  unixorn/cupsd
+</code></pre><p>You can now connect to http://SERVER:631 and add printers using the web UI.</p>
+<p>When adding the printers to your Mac, select Internet Printing Protocol and put in the IP or DNS name of your print server machine.</p>
+<p>The queues are <code>printers/printername</code>, not <code>printername</code>.</p>
 </div>
+
+<script type="text/javascript" src="//unixorn.github.io/js/utterances.js">
+  repo="unixorn/unixorn.github.io"
+  issue-term="title"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+
+
+<center>
+  <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#000000 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/8UuWLA67y"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+</center>
+
 
 </div>
 </div>
@@ -375,3 +295,4 @@
 
 </body>
 </html>
+

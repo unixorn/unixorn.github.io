@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.80.0" />
 
-  <title>rpi &middot; unixorn.github.io</title>
+  <title>twilio &middot; unixorn.github.io</title>
 
   
   
@@ -40,7 +40,7 @@
 
  
   
-  <link rel="alternate" type="application/rss+xml" title="unixorn.github.io" href="//unixorn.github.io/tags/rpi/index.xml" />
+  <link rel="alternate" type="application/rss+xml" title="unixorn.github.io" href="//unixorn.github.io/tags/twilio/index.xml" />
   
 
   
@@ -119,7 +119,7 @@
 
     
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href="//unixorn.github.io/tags/rpi/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
+      <a class="pure-menu-link" href="//unixorn.github.io/tags/twilio/index.xml"><i class="fa fa-rss fa-fw"></i>RSS</a>
     </li>
     
 
@@ -228,20 +228,20 @@
 
 
 <div class="header">
-  <h1>rpi</h1>
+  <h1>twilio</h1>
 </div>
 
 <div class="content">
   
     <article>
   <header>
-    <h2><a href="//unixorn.github.io/post/home-assistant-printer-power-management/">Home Assistant Printer Power Management</a></h2>
+    <h2><a href="//unixorn.github.io/post/home-assistant-notifications-via-twilio/">Home Assistant Notifications via Twilio SMS</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>Sat, Feb 13, 2021 at 12:08</time>
+    <time>Sun, Jan 17, 2021 at 16:47</time>
   </div>
 
   
@@ -253,22 +253,18 @@
   
   <div>
     <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/home-assistant">Home Assistant</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/cupsd">cupsd</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/hass">hass</a>&nbsp;&#47;
     
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/home-assistant">home assistant</a>&nbsp;&#47;
+    
       <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/homelab">homelab</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/printer">printer</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/sms">sms</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/rpi">rpi</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/tech">tech</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/raspberry-pi">Raspberry PI</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/tech">tech</a>
+      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/twilio">twilio</a>
     
   </div>
   
@@ -279,71 +275,10 @@
   </header>
 
   <p>
-  <h1 id="home-assistant-printer-power-management">Home Assistant Printer Power Management</h1>
-<p>I&rsquo;ve got an old HP laser printer in my basement. We barely print 10 pages a month between the two of us, so we only turn it on when we&rsquo;re going to print. That&rsquo;s a hassle though, because inevitably we forget to shut it off sometimes and it stays on overnight or even for days, and while it has a powersave mode, the 4050N is so old that even that burns a good amount of power.</p>
-<p>Enter Home Assistant.</p>
+  Sending notifications from Home Assistant via Twilio SMS I got a post published at work about How to Receive Alerts from Home Assistant with Twilio SMS, so I won&rsquo;t replicate it here.
+TL;DR - It is super easy to send SMS messages via Twilio SMS with curl.
   </p>
 
-  
-  <footer>
-    <a href="//unixorn.github.io/post/home-assistant-printer-power-management/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="//unixorn.github.io/post/cupsd-setup/">Cupsd Setup</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>Mon, Feb 8, 2021 at 12:11</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/raspberry-pi">Raspberry PI</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/cupsd">cupsd</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/docker">docker</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/homelab">homelab</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/printer">printer</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/rpi">rpi</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="//unixorn.github.io/tags/tech">tech</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  <h1 id="run-a-print-server-on-raspberry-pi">Run a print server on Raspberry Pi</h1>
-<p>I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here&rsquo;s how I set that up.</p>
-  </p>
-
-  
-  <footer>
-    <a href="//unixorn.github.io/post/cupsd-setup/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
   
 </article>
 

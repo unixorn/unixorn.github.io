@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 13 Jun 2020 09:07:49 -0600</lastBuildDate><atom:link href="//unixorn.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Feb 2021 12:11:24 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cupsd Setup</title>
+      <link>//unixorn.github.io/post/cupsd-setup/</link>
+      <pubDate>Mon, 08 Feb 2021 12:11:24 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/post/cupsd-setup/</guid>
+      <description>&lt;h1 id=&#34;run-a-print-server-on-raspberry-pi&#34;&gt;Run a print server on Raspberry Pi&lt;/h1&gt;
+&lt;p&gt;I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here&amp;rsquo;s how I set that up.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Building Multi Architecture Docker Images with buildx</title>
       <link>//unixorn.github.io/post/multi-architecture-images/</link>
