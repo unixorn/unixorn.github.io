@@ -238,6 +238,7 @@
 <p>Setup is easy. There are several docker images out there you can use, I made one (the source is on github at <a href="https://github.com/unixorn/docker-cupsd">unixorn/docker-cupsd</a>) because I wanted one that was multi-architecture - mine has AMD64, ARM7 and ARM64 all baked into the same image so you don&rsquo;t have to change the image label based on what system you&rsquo;re running it on. It works fine on Raspberry Pi, Odroids and Intel servers.</p>
 <p>The unixorn/cupsd image is a bit on the large side because I crammed a lot of printer drivers into it, you may want to look for images that only support single printer families.</p>
 <p>We&rsquo;re going to store <code>printers.conf</code> in a directory outside the container so that we don&rsquo;t lose our printer configuration every time we upgrade our container.</p>
+<p>I run the <code>cupsd</code> server on an Odroid HC2 because I have <code>/var/lib/docker</code> on the 2TB drive attached to it. I could have put it on one of the Raspberry Pis in the cluster, but didn&rsquo;t want it spooling print jobs and causing excessive wear on the rPi&rsquo;s microSD card.</p>
 <ol>
 <li>Make a directory to store your printer configuration. We&rsquo;ll use <code>/docker/cupsd/etc</code></li>
 <li><code>export CUPSD_DIR='/docker/cupsd/etc'</code></li>

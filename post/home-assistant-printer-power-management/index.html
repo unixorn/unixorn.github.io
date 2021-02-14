@@ -235,8 +235,9 @@
 <p>The watcher script and associated tooling all presume that we can send messages to a MQTT topic that HA is watching.</p>
 <h3 id="your-printer-is-connected-to-a-cupsd-server-running-in-a-container">Your printer is connected to a cupsd server running in a container</h3>
 <p>Your computers should be configured to print to the cupsd server instead of directly to the printer.</p>
-<p>I run cupsd in a container on one of my Raspberry Pis. I could run it on the same Odroid HC2 that I run Home Assistant (HA) on, but there&rsquo;s no compelling reason to do so and I&rsquo;m reserving that node for strictly HA containers like Home Assistant itself and my MQTT server.</p>
-<p>You could modify the watcher script if you&rsquo;re running cupsd directly instead of in a container, but I run my cupsd in a container, so that&rsquo;s what the script is designed for.</p>
+<p>I run <code>cupsd</code> in a container on one of my Odroids. I could run it on the same Odroid HC2 that I run Home Assistant (HA) on, but there&rsquo;s no compelling reason to do so and I&rsquo;m reserving that node for strictly HA containers like Home Assistant itself and my MQTT server. I picked an Odroid because it has a SATA drive attached and my <code>/var/lib/docker</code> is on the hard drive and not an microSD card - there&rsquo;s no reason you can&rsquo;t run it on a Raspberry Pi other than to prevent excessive wear on the microSD card.</p>
+<p>You could modify the watcher script if you&rsquo;re running <code>cupsd</code> directly instead of in a container, but I run my <code>cupsd</code> in a container, so that&rsquo;s what the script is designed for.</p>
+<p>There are plenty of articles about setting up <code>cupsd</code>, but I wrote about setting up <code>cupsd</code> <a href="https://unixorn.github.io/post/cupsd-setup/">here</a>.</p>
 <h3 id="your-printer-is-plugged-into-an-outlet-controlled-by-ha">Your printer is plugged into an outlet controlled by HA</h3>
 <p>We want to be able to toggle the power from Home Assistant.</p>
 <h2 id="printer-power-control">Printer Power Control</h2>
