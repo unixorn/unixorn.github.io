@@ -208,7 +208,7 @@
 
   <div>
   <div class="small-print">
-    <small>&copy; 2019. All rights reserved.</small>
+    <small>&copy; 2019-2021. All rights reserved.</small>
   </div>
   <div class="small-print">
     <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
@@ -292,7 +292,8 @@ MQTT_TOPIC=${MQTT_TOPIC:-'hass/printers/franklin'}
 # We are run out of cron every minute, but I don't want it to take an
 # entire minute to turn on the power because I'm impatient and the printer
 # takes a bit to start up. When we print and walk downstairs, I want it
-# to have already started printing by the time I get there.
+# to have already started printing by the time I get there. If I was
+# patient, I wouldn't have bothered to write this tool :-)
 #
 # So, when we get run by cron, we check the queue CHECK_COUNT times, with
 # CHECK_DELAY seconds between each run.
@@ -393,7 +394,7 @@ done
       service: homeassistant.turn_on
       entity_id: switch.printerpower
 
-  - alias: 'Turn off printer 15 minutes after print queue drains'
+  - alias: 'Turn off printer 5 minutes after print queue drains'
     trigger:
       platform: state
       entity_id: binary_sensor.franklin_print_queue
@@ -404,16 +405,18 @@ done
       service: homeassistant.turn_off
       entity_id: switch.printerpower
 </code></pre><h3 id="test-the-pieces">Test the pieces</h3>
+<h4 id="print-server-check">Print server check</h4>
 <p>Confirm that you&rsquo;ve got the print queue configured correctly by running <code>docker exec -it cupsd-server lpq -P Franklin</code>. If there are no jobs, it should print something like</p>
 <pre><code>Franklin is ready
 no entries
-</code></pre><p>Reload your automations, and you should now be able to test that the automations are correct by running <code>c-mosquitto_pub -h mqtt.yourdomain.com -t hass/printers/franklin -m OFF</code> or <code>-m ON</code> and watch HA turn the power to your printer off and on.</p>
+</code></pre><h4 id="automation-test">Automation test</h4>
+<p>Reload your automations, and you should now be able to test that the automations are correct by running <code>c-mosquitto_pub -h mqtt.yourdomain.com -t hass/printers/franklin -m OFF</code> or <code>-m ON</code> and watch HA turn the power to your printer off and on.</p>
 <p>Once that is working, print a job, and if you run <code>ha-check-for-print-jobs</code> the printer power should get turned on.</p>
 <h3 id="run-it-all-automatically">Run it all automatically</h3>
 <p>Now that you&rsquo;ve confirmed that the power is being cycled properly when the MQTT queue recieves messages and that the print job checker is seeing the printer queue, we can add the checker job to cron.</p>
 <p>Add</p>
 <pre><code>* * * * * PRINT_Q=Franklin MQTT_HOST=mqtt.example.com MQTT_TOPIC=hass/printers/franklin CONTAINER=cupsd_server /usr/local/bin/ha-check-for-print-jobs | logger -t printserver
-</code></pre><p>to your <code>/etc/crontab</code>, and you&rsquo;re good to go.</p>
+</code></pre><p>to your <code>/etc/crontab</code>, and you&rsquo;re good to go. Now every minute, the checker script will get run by <code>cron</code>, and it will check every five seconds for print jobs and exit before the next invocation by <code>cron</code>.</p>
 </div>
 
 <script type="text/javascript" src="//unixorn.github.io/js/utterances.js">
