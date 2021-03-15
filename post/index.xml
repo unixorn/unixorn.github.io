@@ -7,7 +7,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019-2021. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 13 Feb 2021 12:08:24 -0700</lastBuildDate><atom:link href="//unixorn.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Mar 2021 01:59:26 -0700</lastBuildDate><atom:link href="//unixorn.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting up Shinobi and a Wyze G2 Camera</title>
+      <link>//unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</link>
+      <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</guid>
+      <description>&lt;h1 id=&#34;setting-up-shinobi-and-a-wyze-g2-camera&#34;&gt;Setting up Shinobi and a Wyze G2 Camera&lt;/h1&gt;
+&lt;p&gt;I wanted to set up a security camera outside, but I didn&amp;rsquo;t want to be dependent on an outside cloud service - if my internet goes out, I don&amp;rsquo;t want to lose my ability to record footage.&lt;/p&gt;
+&lt;p&gt;Wyze cameras are nice and cheap, and you can reflash them to support RTSP in addition to streaming to the Wyze cloud.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Home Assistant Printer Power Management</title>
       <link>//unixorn.github.io/post/home-assistant-printer-power-management/</link>

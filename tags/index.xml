@@ -7,7 +7,106 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019-2021. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 13 Feb 2021 12:08:24 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Mar 2021 01:59:26 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker</title>
+      <link>//unixorn.github.io/tags/docker/</link>
+      <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>dvr</title>
+      <link>//unixorn.github.io/tags/dvr/</link>
+      <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/dvr/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>home automation</title>
+      <link>//unixorn.github.io/tags/home-automation/</link>
+      <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/home-automation/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homelab</title>
+      <link>//unixorn.github.io/tags/homelab/</link>
+      <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/homelab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iot</title>
+      <link>//unixorn.github.io/tags/iot/</link>
+      <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/iot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>//unixorn.github.io/tags/security/</link>
+      <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/security/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>shinobi</title>
+      <link>//unixorn.github.io/tags/shinobi/</link>
+      <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/shinobi/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
+      <link>//unixorn.github.io/tags/tech/</link>
+      <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/tech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wyze</title>
+      <link>//unixorn.github.io/tags/wyze/</link>
+      <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/wyze/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wyze camera</title>
+      <link>//unixorn.github.io/tags/wyze-camera/</link>
+      <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/wyze-camera/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>wyze g2</title>
+      <link>//unixorn.github.io/tags/wyze-g2/</link>
+      <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/tags/wyze-g2/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>cupsd</title>
       <link>//unixorn.github.io/tags/cupsd/</link>
@@ -36,15 +135,6 @@
     </item>
     
     <item>
-      <title>homelab</title>
-      <link>//unixorn.github.io/tags/homelab/</link>
-      <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/homelab/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>printer</title>
       <link>//unixorn.github.io/tags/printer/</link>
       <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
@@ -68,24 +158,6 @@
       <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
       
       <guid>//unixorn.github.io/tags/rpi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tech</title>
-      <link>//unixorn.github.io/tags/tech/</link>
-      <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/tech/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>//unixorn.github.io/tags/docker/</link>
-      <pubDate>Mon, 08 Feb 2021 12:11:24 -0700</pubDate>
-      
-      <guid>//unixorn.github.io/tags/docker/</guid>
       <description></description>
     </item>
     

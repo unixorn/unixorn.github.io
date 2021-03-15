@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>iot on unixorn.github.io</title>
+    <link>//unixorn.github.io/tags/iot/</link>
+    <description>Recent content in iot on unixorn.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>&amp;copy; 2019-2021. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 14 Mar 2021 01:59:26 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/iot/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting up Shinobi and a Wyze G2 Camera</title>
+      <link>//unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</link>
+      <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
+      
+      <guid>//unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</guid>
+      <description>&lt;h1 id=&#34;setting-up-shinobi-and-a-wyze-g2-camera&#34;&gt;Setting up Shinobi and a Wyze G2 Camera&lt;/h1&gt;
+&lt;p&gt;I wanted to set up a security camera outside, but I didn&amp;rsquo;t want to be dependent on an outside cloud service - if my internet goes out, I don&amp;rsquo;t want to lose my ability to record footage.&lt;/p&gt;
+&lt;p&gt;Wyze cameras are nice and cheap, and you can reflash them to support RTSP in addition to streaming to the Wyze cloud.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
