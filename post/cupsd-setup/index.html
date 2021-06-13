@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.81.0" />
+  <meta name="generator" content="Hugo 0.83.1" />
 
   <title>Cupsd Setup &middot; unixorn.github.io</title>
 
@@ -232,11 +232,11 @@
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
 <li>A Raspberry Pi (or honestly any linux box) running docker. I like the Raspberry Pi and Odroid HC2 for this sort of thing because they are very low power.</li>
-<li>A printer.</li>
+<li>A printer supported by the <a href="https://cups.org">CUPS</a> project.</li>
 </ul>
 <h2 id="setup">Setup</h2>
-<p>Setup is easy. There are several docker images out there you can use, I made one (the source is on github at <a href="https://github.com/unixorn/docker-cupsd">unixorn/docker-cupsd</a>) because I wanted one that was multi-architecture - mine has AMD64, ARM7 and ARM64 all baked into the same image so you don&rsquo;t have to change the image label based on what system you&rsquo;re running it on. It works fine on Raspberry Pi, Odroids and Intel servers.</p>
-<p>The unixorn/cupsd image is a bit on the large side because I crammed a lot of printer drivers into it, you may want to look for images that only support single printer families.</p>
+<p>Setup is easy. There are several docker images out there you can use, I made one (the source is on github at <a href="https://github.com/unixorn/docker-cupsd">unixorn/docker-cupsd</a>) because I wanted one that was multi-architecture - my image has AMD64, ARM7 and ARM64 artchitectures all baked into the same image so you don&rsquo;t have to change the image label based on what system you&rsquo;re running it on. It works fine on (at least) Raspberry Pi, Odroids and Intel servers.</p>
+<p>The <a href="https://hub.docker.com/repository/docker/unixorn/cupsd">unixorn/cupsd</a> docker image is a bit on the large side because I crammed a lot of printer drivers into it, you may want to look for images that only support single printer families.</p>
 <p>We&rsquo;re going to store <code>printers.conf</code> in a directory outside the container so that we don&rsquo;t lose our printer configuration every time we upgrade our container.</p>
 <p>I run the <code>cupsd</code> server on an Odroid HC2 because I have <code>/var/lib/docker</code> on the 2TB drive attached to it. I could have put it on one of the Raspberry Pis in the cluster, but didn&rsquo;t want it spooling print jobs and causing excessive wear on the rPi&rsquo;s microSD card.</p>
 <ol>
@@ -270,6 +270,7 @@
   <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#000000 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/8UuWLA67y"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
 </center>
 
+[![My DEV Community Profile](https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg)](https://dev.to/unixorn)
 
 </div>
 </div>
