@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>mojave on unixorn.github.io</title>
-    <link>http://unixorn.github.io/tags/mojave/</link>
+    <link>https://unixorn.github.io/tags/mojave/</link>
     <description>Recent content in mojave on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>2019-2021, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 05 Mar 2019 22:48:25 -0700</lastBuildDate><atom:link href="http://unixorn.github.io/tags/mojave/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright 2019-2021, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 05 Mar 2019 22:48:25 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/mojave/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fix macOS Captive WIFI Portal Issue</title>
-      <link>http://unixorn.github.io/post/fix-macos-captive-portal-issue/</link>
+      <link>https://unixorn.github.io/post/fix-macos-captive-portal-issue/</link>
       <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
       
-      <guid>http://unixorn.github.io/post/fix-macos-captive-portal-issue/</guid>
+      <guid>https://unixorn.github.io/post/fix-macos-captive-portal-issue/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m not sure if this is just macOS Mojave being flaky or some interaction with the security malware installed on my work laptop, but it refuses to connect to some captive portals.&lt;/p&gt;</description>
     </item>
     

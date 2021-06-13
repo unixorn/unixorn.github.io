@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.83.1" />
 
-  <title>Setting up an N2 &middot; unixorn.github.io</title>
+  <title>Setting up an ODROID N2 &middot; unixorn.github.io</title>
 
     
 
@@ -24,13 +24,13 @@
   <!--<![endif]-->
 
   <!--[if lte IE 8]>
-  <link rel="stylesheet" href="http://unixorn.github.io/css/side-menu-old-ie.css">
+  <link rel="stylesheet" href="https://unixorn.github.io/css/side-menu-old-ie.css">
   <![endif]-->
   <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="http://unixorn.github.io/css/side-menu.css">
+  <link rel="stylesheet" href="https://unixorn.github.io/css/side-menu.css">
   <!--<![endif]-->
 
-  <link rel="stylesheet" href="http://unixorn.github.io/css/blackburn.css">
+  <link rel="stylesheet" href="https://unixorn.github.io/css/blackburn.css">
 
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -52,7 +52,7 @@
   <script>hljs.initHighlightingOnLoad();</script>
   
 
-  <link rel="shortcut icon" href="http://unixorn.github.io/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://unixorn.github.io/img/favicon.ico" type="image/x-icon" />
 
   
   
@@ -71,7 +71,7 @@
 <div id="menu">
 
   
-  <a class="pure-menu-heading brand" href="http://unixorn.github.io/">unixorn</a>
+  <a class="pure-menu-heading brand" href="https://unixorn.github.io/">unixorn</a>
 
 
   <div class="pure-menu">
@@ -79,37 +79,37 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://unixorn.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+          <a class="pure-menu-link" href="https://unixorn.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://unixorn.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+          <a class="pure-menu-link" href="https://unixorn.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://unixorn.github.io/tags"><i class="sidebar-button-icon fa fa-lg fa-tags"></i>Tags</a>
+          <a class="pure-menu-link" href="https://unixorn.github.io/tags"><i class="sidebar-button-icon fa fa-lg fa-tags"></i>Tags</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://unixorn.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+          <a class="pure-menu-link" href="https://unixorn.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://unixorn.github.io/projects/"><i class='fa fa-list fa-fw'></i>Projects</a>
+          <a class="pure-menu-link" href="https://unixorn.github.io/projects/"><i class='fa fa-list fa-fw'></i>Projects</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://unixorn.github.io/contact/"><i class='fa fa-envelope fa-fw'></i>Contact</a>
+          <a class="pure-menu-link" href="https://unixorn.github.io/contact/"><i class='fa fa-envelope fa-fw'></i>Contact</a>
       
         </li>
       
@@ -209,7 +209,7 @@
 
   <div>
   <div class="small-print">
-    <small>2019-2021, Joe Block. All rights reserved.</small>
+    <small>Copyright 2019-2021, Joe Block. All rights reserved.</small>
   </div>
   <div class="small-print">
     <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
@@ -224,12 +224,11 @@
 
 
 <div class="header">
-  <h1>Setting up an N2</h1>
+  <h1>Setting up an ODROID N2</h1>
   <h2></h2>
 </div>
 <div class="content">
-  <h1 id="setting-up-an-odroid-n2">Setting up an Odroid N2</h1>
-<p>I wanted a machine with more memory to be the master node for my ARM k3s cluster. I had an Odroid N2 with 4GB of RAM, sitting around, so here&rsquo;s the log of getting it installed and running.</p>
+  <p>I wanted a machine with more memory to be the master node for my ARM k3s cluster. I had an Odroid N2 with 4GB of RAM, sitting around, so here&rsquo;s the log of getting it installed and running.</p>
 <h1 id="parts">Parts</h1>
 <ul>
 <li>ODROID N2</li>
@@ -250,57 +249,57 @@
 <h2 id="docker">Docker</h2>
 <p>Add docker repository key - <code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code></p>
 <p>Add the repo:</p>
-<pre><code>sudo add-apt-repository \
-   &quot;deb [arch=arm64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable&quot;
-</code></pre><p>Install docker community edition
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo add-apt-repository <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>   <span style="color:#e6db74">&#34;deb [arch=arm64] https://download.docker.com/linux/ubuntu \
+</span><span style="color:#e6db74">   </span><span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> \
+</span><span style="color:#e6db74">   stable&#34;</span>
+</code></pre></div><p>Install docker community edition
 <code>apt update &amp;&amp; apt install docker-ce docker-ce-cli containerd.io</code></p>
 <hr>
-<pre><code>#!/usr/bin/env bash
-#
-# Put the setup all in one script. Run as root with sudo.
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/usr/bin/env bash
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span>
+<span style="color:#75715e"># Put the setup all in one script. Run as root with sudo.</span>
 
-# Disable XWindow login
+<span style="color:#75715e"># Disable XWindow login</span>
 systemctl set-default multi-user.target
 
-# This is going to sit on a shelf in my rack, so purge xwindow
+<span style="color:#75715e"># This is going to sit on a shelf in my rack, so purge xwindow</span>
 apt remove xorg
-apt purge 'x11-*'
+apt purge <span style="color:#e6db74">&#39;x11-*&#39;</span>
 apt autoremove
 
-# Add docker apt repository
-add-apt-repository \
-   &quot;deb [arch=arm64] https://download.docker.com/linux/ubuntu \
-   $(lsb_release -cs) \
-   stable&quot;
+<span style="color:#75715e"># Add docker apt repository</span>
+add-apt-repository <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>   <span style="color:#e6db74">&#34;deb [arch=arm64] https://download.docker.com/linux/ubuntu \
+</span><span style="color:#e6db74">   </span><span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> \
+</span><span style="color:#e6db74">   stable&#34;</span>
 
-# Now that we've purged xwindow, upgrade what's left
-apt-get update &amp;&amp; apt-get upgrade
+<span style="color:#75715e"># Now that we&#39;ve purged xwindow, upgrade what&#39;s left</span>
+apt-get update <span style="color:#f92672">&amp;&amp;</span> apt-get upgrade
 
-apt-get install -y \
-    git \
-    htop \
-    iotop \
-    libssl-dev \
-    python3-pip \
-    vim vim-doc vim-scripts \
-    zsh
+apt-get install -y <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    git <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    htop <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    iotop <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    libssl-dev <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    python3-pip <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    vim vim-doc vim-scripts <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    zsh
 
-# Install docker community edition
-apt update &amp;&amp; apt install docker-ce docker-ce-cli containerd.io
+<span style="color:#75715e"># Install docker community edition</span>
+apt update <span style="color:#f92672">&amp;&amp;</span> apt install docker-ce docker-ce-cli containerd.io
 
-# Finally do some cleanups
+<span style="color:#75715e"># Finally do some cleanups</span>
 
-# Fix locale whining
+<span style="color:#75715e"># Fix locale whining</span>
 locale-gen en_US.UTF-8
 
-# Disable Ubuntu motd spam
-sed -i 's/^ENABLED=.*/ENABLED=0/' /etc/default/motd-news
-</code></pre>
+<span style="color:#75715e"># Disable Ubuntu motd spam</span>
+sed -i <span style="color:#e6db74">&#39;s/^ENABLED=.*/ENABLED=0/&#39;</span> /etc/default/motd-news
+</code></pre></div>
 </div>
 
-<script type="text/javascript" src="http://unixorn.github.io/js/utterances.js">
+<script type="text/javascript" src="https://unixorn.github.io/js/utterances.js">
   repo="unixorn/unixorn.github.io"
   issue-term="title"
   theme="github-light"
@@ -313,12 +312,11 @@ sed -i 's/^ENABLED=.*/ENABLED=0/' /etc/default/motd-news
   <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#000000 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/8UuWLA67y"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
 </center>
 
-[![My DEV Community Profile](https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg)](https://dev.to/unixorn)
 
 </div>
 </div>
-<script src="http://unixorn.github.io/js/ui.js"></script>
-<script src="http://unixorn.github.io/js/menus.js"></script>
+<script src="https://unixorn.github.io/js/ui.js"></script>
+<script src="https://unixorn.github.io/js/menus.js"></script>
 
 
 
@@ -340,7 +338,7 @@ sed -i 's/^ENABLED=.*/ENABLED=0/' /etc/default/motd-news
 
 
 
-<script src="http://unixorn.github.io/js/math-code.js"></script>
+<script src="https://unixorn.github.io/js/math-code.js"></script>
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   
 

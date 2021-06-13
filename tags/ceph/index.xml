@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ceph on unixorn.github.io</title>
-    <link>http://unixorn.github.io/tags/ceph/</link>
+    <link>https://unixorn.github.io/tags/ceph/</link>
     <description>Recent content in ceph on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>2019-2021, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 23 Jun 2019 17:22:47 -0700</lastBuildDate><atom:link href="http://unixorn.github.io/tags/ceph/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright 2019-2021, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 23 Jun 2019 17:22:47 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/ceph/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Adding a Distributed Filesystem to the Cluster</title>
-      <link>http://unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</link>
+      <link>https://unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</link>
       <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
       
-      <guid>http://unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</guid>
+      <guid>https://unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</guid>
       <description>&lt;p&gt;One of the reasons I set up my cluster was that I&amp;rsquo;m running out of space on my NAS. I don&amp;rsquo;t want to buy a whole new chassis, and while I could have put individual file shares on each cluster node, that would be both inconvenient and not provide any data redundancy without a lot of brittle home-rolled hacks to &lt;code&gt;rsync&lt;/code&gt; data from node to node. And since distributed file systems are a thing, I&amp;rsquo;d rather not resort to hacks.&lt;/p&gt;</description>
     </item>
     

@@ -24,13 +24,13 @@
   <!--<![endif]-->
 
   <!--[if lte IE 8]>
-  <link rel="stylesheet" href="http://unixorn.github.io/css/side-menu-old-ie.css">
+  <link rel="stylesheet" href="https://unixorn.github.io/css/side-menu-old-ie.css">
   <![endif]-->
   <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="http://unixorn.github.io/css/side-menu.css">
+  <link rel="stylesheet" href="https://unixorn.github.io/css/side-menu.css">
   <!--<![endif]-->
 
-  <link rel="stylesheet" href="http://unixorn.github.io/css/blackburn.css">
+  <link rel="stylesheet" href="https://unixorn.github.io/css/blackburn.css">
 
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
@@ -52,7 +52,7 @@
   <script>hljs.initHighlightingOnLoad();</script>
   
 
-  <link rel="shortcut icon" href="http://unixorn.github.io/img/favicon.ico" type="image/x-icon" />
+  <link rel="shortcut icon" href="https://unixorn.github.io/img/favicon.ico" type="image/x-icon" />
 
   
   
@@ -71,7 +71,7 @@
 <div id="menu">
 
   
-  <a class="pure-menu-heading brand" href="http://unixorn.github.io/">unixorn</a>
+  <a class="pure-menu-heading brand" href="https://unixorn.github.io/">unixorn</a>
 
 
   <div class="pure-menu">
@@ -79,37 +79,37 @@
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://unixorn.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+          <a class="pure-menu-link" href="https://unixorn.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://unixorn.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+          <a class="pure-menu-link" href="https://unixorn.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://unixorn.github.io/tags"><i class="sidebar-button-icon fa fa-lg fa-tags"></i>Tags</a>
+          <a class="pure-menu-link" href="https://unixorn.github.io/tags"><i class="sidebar-button-icon fa fa-lg fa-tags"></i>Tags</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://unixorn.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+          <a class="pure-menu-link" href="https://unixorn.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://unixorn.github.io/projects/"><i class='fa fa-list fa-fw'></i>Projects</a>
+          <a class="pure-menu-link" href="https://unixorn.github.io/projects/"><i class='fa fa-list fa-fw'></i>Projects</a>
       
         </li>
       
       
         <li class="pure-menu-item">
-          <a class="pure-menu-link" href="http://unixorn.github.io/contact/"><i class='fa fa-envelope fa-fw'></i>Contact</a>
+          <a class="pure-menu-link" href="https://unixorn.github.io/contact/"><i class='fa fa-envelope fa-fw'></i>Contact</a>
       
         </li>
       
@@ -209,7 +209,7 @@
 
   <div>
   <div class="small-print">
-    <small>2019-2021, Joe Block. All rights reserved.</small>
+    <small>Copyright 2019-2021, Joe Block. All rights reserved.</small>
   </div>
   <div class="small-print">
     <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
@@ -228,8 +228,7 @@
   <h2></h2>
 </div>
 <div class="content">
-  <h1 id="setting-up-shinobi-and-a-wyze-g2-camera">Setting up Shinobi and a Wyze G2 Camera</h1>
-<p>I wanted to set up a security camera outside, but I didn&rsquo;t want to be dependent on an outside cloud service - if my internet goes out, I don&rsquo;t want to lose my ability to record footage.</p>
+  <p>I wanted to set up a security camera outside, but I didn&rsquo;t want to be dependent on an outside cloud service - if my internet goes out, I don&rsquo;t want to lose my ability to record footage.</p>
 <p>Wyze cameras are nice and cheap, and you can reflash them to support RTSP in addition to streaming to the Wyze cloud.</p>
 <h2 id="setup">Setup</h2>
 <h3 id="prerequisites">Prerequisites</h3>
@@ -244,7 +243,7 @@
 <p>I looked at a variety of camera options, and Wirecutter&rsquo;s <a href="https://www.nytimes.com/wirecutter/reviews/best-wi-fi-home-security-camera/">Best Wifi Home Security Camera</a> listed the Wyze G2 as runner-up. It and the first choice (Eufy 2K Indoor cam) both support RTSP, but the Wyze was in stock (and half the price at $26) so I went with it.</p>
 <p>I did have to reflash the Wyze G2 to enable a beta firmware that supports both Wyze&rsquo;s cloud and RTSP. Conveniently, it can stream to both simultaneously, so I can watch the streams with the Wyze app when away from home and still record everything to my homelab cluster.</p>
 <h4 id="reflash-the-wyze-camera">Reflash the Wyze Camera</h4>
-<p>Wyze now has a beta firmware that simultanously supports both their cloud offering and RTSP. Note that they&rsquo;ve explicitly stated that the RTSP branch will get features later than the mainline firmware. I personally don&rsquo;t care, but it is something to consider if you&rsquo;re going to want to use.</p>
+<p>Wyze now has a beta firmware that simultanously supports both their cloud offering and RTSP. Note that they&rsquo;ve explicitly stated that the RTSP branch will get features later than the mainline firmware. I personally don&rsquo;t care, but it is something to consider if you&rsquo;re going to want to use bleeding edge features.</p>
 <p>The official instructions for reflashing the G2 camera are on the <a href="https://wyzelabs.zendesk.com/hc/en-us/articles/360026245231-Wyze-Cam-RTSP">Wyze Cam RTSP page</a> and clear, so I&rsquo;m not going to rehash them here. You&rsquo;ll need a FAT32 formatted microSD card to do the firmware reflash.</p>
 <p>After you reflash the camera, you&rsquo;ll need to configure a username/password combination for the camera stream using the Wyze phone app.</p>
 <p>Before you configure the camera, I recommend that you go into your router&rsquo;s configuration and assign the camera a static IP so that your DVR doesn&rsquo;t lose the stream connection when the camera or router are rebooted. You can also hardcode an IP address into the G2 camera&rsquo;s configuration, but I prefer to keep all the static IP assignments for my network in one place, the DHCP configuration on my router.</p>
@@ -254,47 +253,47 @@
 <h4 id="start-shinobi">Start shinobi</h4>
 <p>I&rsquo;m running shinobi in a docker container. As of 2021-03-14, there is only an AMD64 build of this docker image so I&rsquo;m running it on the an Intel machine in my homelab cluster.</p>
 <p>Here&rsquo;s a <a href="https://github.com/unixorn/blog-scripts/blob/master/shinobi/shinobi-start">shinobi-start</a> script:</p>
-<pre><code>#!/usr/bin/env bash
-#
-# Start shinobi
-#
-# Copyright 2021, Joe Block &lt;jpb@unixorn.net&gt;
-#
-# License: Apache 2.0
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/usr/bin/env bash
+</span><span style="color:#75715e"></span><span style="color:#75715e">#</span>
+<span style="color:#75715e"># Start shinobi</span>
+<span style="color:#75715e">#</span>
+<span style="color:#75715e"># Copyright 2021, Joe Block &lt;jpb@unixorn.net&gt;</span>
+<span style="color:#75715e">#</span>
+<span style="color:#75715e"># License: Apache 2.0</span>
 
-SHINOBI_D=${SHINOBI_D:-'/data/shinobi'}
+SHINOBI_D<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>SHINOBI_D<span style="color:#66d9ef">:-</span><span style="color:#e6db74">&#39;/data/shinobi&#39;</span><span style="color:#e6db74">}</span>
 
 set -o pipefail
-if [[ -n &quot;$DEBUG&quot; ]]; then
+<span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -n <span style="color:#e6db74">&#34;</span>$DEBUG<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
   set -x
-fi
+<span style="color:#66d9ef">fi</span>
 
-for dvr_d in config customAutoLoad database plugins video
-do
-  mkdir -p &quot;$SHINOBI_D/$dvr_d&quot;
-done
+<span style="color:#66d9ef">for</span> dvr_d in config customAutoLoad database plugins video
+<span style="color:#66d9ef">do</span>
+  mkdir -p <span style="color:#e6db74">&#34;</span>$SHINOBI_D<span style="color:#e6db74">/</span>$dvr_d<span style="color:#e6db74">&#34;</span>
+<span style="color:#66d9ef">done</span>
 
-exec docker run -d -p 8080:8080 \
-  --name='shinobi' \
-  -v ${SHINOBI_D}/config:/config:rw \
-  -v ${SHINOBI_D}/customAutoLoad:/home/Shinobi/libs/customAutoLoad:rw \
-  -v ${SHINOBI_D}/database:/var/lib/mysql:rw \
-  -v ${SHINOBI_D}/plugins:/plugins:rw \
-  -v ${SHINOBI_D}/videos:/home/Shinobi/videos:rw \
-  -v /dev/shm/Shinobi/streams:/dev/shm/streams:rw \
-  -v /etc/localtime:/etc/localtime:ro \
-  -v /etc/timezone:/etc/timezone:ro \
-  --restart always \
-  shinobisystems/shinobi
-</code></pre><p>Run this with <code>SHINOBI_D=/path/to/local/dvr/files shinobi_start</code> and it will create any missing required directories for you and start shinobi.</p>
+exec docker run -d -p 8080:8080 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --name<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;shinobi&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -v <span style="color:#e6db74">${</span>SHINOBI_D<span style="color:#e6db74">}</span>/config:/config:rw <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -v <span style="color:#e6db74">${</span>SHINOBI_D<span style="color:#e6db74">}</span>/customAutoLoad:/home/Shinobi/libs/customAutoLoad:rw <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -v <span style="color:#e6db74">${</span>SHINOBI_D<span style="color:#e6db74">}</span>/database:/var/lib/mysql:rw <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -v <span style="color:#e6db74">${</span>SHINOBI_D<span style="color:#e6db74">}</span>/plugins:/plugins:rw <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -v <span style="color:#e6db74">${</span>SHINOBI_D<span style="color:#e6db74">}</span>/videos:/home/Shinobi/videos:rw <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -v /dev/shm/Shinobi/streams:/dev/shm/streams:rw <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -v /etc/localtime:/etc/localtime:ro <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -v /etc/timezone:/etc/timezone:ro <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  --restart always <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  shinobisystems/shinobi
+</code></pre></div><p>Run this with <code>SHINOBI_D=/path/to/local/dvr/files shinobi_start</code> and it will create any missing required directories for you and start shinobi.</p>
 <h4 id="configure-shinobi">Configure shinobi</h4>
-<p>Set up a new admin account</p>
+<h5 id="set-up-a-new-admin-account">Set up a new admin account</h5>
 <ol>
 <li>Login at <a href="http://your.shinobi.server:8080/super">http://your.shinobi.server:8080/super</a> with username <a href="mailto:admin@shinobi.vido">admin@shinobi.vido</a> and password admin</li>
 <li>Create a new admin account</li>
 <li>Don&rsquo;t forget to reset the password for the <a href="mailto:admin@shinobi.video">admin@shinobi.video</a> account!</li>
 </ol>
-<h4 id="add-the-camera">Add the camera</h4>
+<h5 id="add-the-camera">Add the camera</h5>
 <ol>
 <li>Login at <a href="http://your.shinobi.server:8080">http://your.shinobi.server:8080</a></li>
 <li>Click on the <strong>+</strong> icon in the toolbar at the top of the page</li>
@@ -313,7 +312,7 @@ exec docker run -d -p 8080:8080 \
 <p>It took about 30-45 seconds before my camera stream was visible in shinobi.</p>
 </div>
 
-<script type="text/javascript" src="http://unixorn.github.io/js/utterances.js">
+<script type="text/javascript" src="https://unixorn.github.io/js/utterances.js">
   repo="unixorn/unixorn.github.io"
   issue-term="title"
   theme="github-light"
@@ -326,12 +325,11 @@ exec docker run -d -p 8080:8080 \
   <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#000000 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/8UuWLA67y"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
 </center>
 
-[![My DEV Community Profile](https://d2fltix0v2e0sb.cloudfront.net/dev-badge.svg)](https://dev.to/unixorn)
 
 </div>
 </div>
-<script src="http://unixorn.github.io/js/ui.js"></script>
-<script src="http://unixorn.github.io/js/menus.js"></script>
+<script src="https://unixorn.github.io/js/ui.js"></script>
+<script src="https://unixorn.github.io/js/menus.js"></script>
 
 
 
@@ -353,7 +351,7 @@ exec docker run -d -p 8080:8080 \
 
 
 
-<script src="http://unixorn.github.io/js/math-code.js"></script>
+<script src="https://unixorn.github.io/js/math-code.js"></script>
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   
 

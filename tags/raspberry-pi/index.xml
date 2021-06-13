@@ -2,31 +2,29 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Raspberry PI on unixorn.github.io</title>
-    <link>http://unixorn.github.io/tags/raspberry-pi/</link>
+    <link>https://unixorn.github.io/tags/raspberry-pi/</link>
     <description>Recent content in Raspberry PI on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>2019-2021, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 13 Feb 2021 12:08:24 -0700</lastBuildDate><atom:link href="http://unixorn.github.io/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright 2019-2021, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 13 Feb 2021 12:08:24 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/raspberry-pi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Home Assistant Printer Power Management</title>
-      <link>http://unixorn.github.io/post/home-assistant-printer-power-management/</link>
+      <link>https://unixorn.github.io/post/home-assistant-printer-power-management/</link>
       <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
       
-      <guid>http://unixorn.github.io/post/home-assistant-printer-power-management/</guid>
-      <description>&lt;h1 id=&#34;home-assistant-printer-power-management&#34;&gt;Home Assistant Printer Power Management&lt;/h1&gt;
-&lt;p&gt;I&amp;rsquo;ve got an old HP laser printer in my basement. We barely print 10 pages a month between the two of us, so we only turn it on when we&amp;rsquo;re going to print. That&amp;rsquo;s a hassle though, because inevitably we forget to shut it off sometimes and it stays on overnight or even for days, and while it has a powersave mode, the 4050N is so old that even that burns a good amount of power.&lt;/p&gt;
+      <guid>https://unixorn.github.io/post/home-assistant-printer-power-management/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve got an old HP laser printer in my basement. We barely print 10 pages a month between the two of us, so we only turn it on when we&amp;rsquo;re going to print. That&amp;rsquo;s a hassle though, because inevitably we forget to shut it off sometimes and it stays on overnight or even for days, and while it has a powersave mode, the 4050N is so old that even that burns a good amount of power.&lt;/p&gt;
 &lt;p&gt;Enter Home Assistant.&lt;/p&gt;</description>
     </item>
     
     <item>
-      <title>Cupsd Setup</title>
-      <link>http://unixorn.github.io/post/cupsd-setup/</link>
+      <title>Run a CUPSD print server on Raspberry Pi</title>
+      <link>https://unixorn.github.io/post/cupsd-setup/</link>
       <pubDate>Mon, 08 Feb 2021 12:11:24 -0700</pubDate>
       
-      <guid>http://unixorn.github.io/post/cupsd-setup/</guid>
-      <description>&lt;h1 id=&#34;run-a-print-server-on-raspberry-pi&#34;&gt;Run a print server on Raspberry Pi&lt;/h1&gt;
-&lt;p&gt;I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here&amp;rsquo;s how I set that up.&lt;/p&gt;</description>
+      <guid>https://unixorn.github.io/post/cupsd-setup/</guid>
+      <description>&lt;p&gt;I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here&amp;rsquo;s how I set that up.&lt;/p&gt;</description>
     </item>
     
   </channel>
