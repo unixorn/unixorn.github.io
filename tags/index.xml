@@ -7,7 +7,25 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>&amp;copy; 2019-2021. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 14 Mar 2021 01:59:26 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Jun 2021 15:21:03 -0600</lastBuildDate><atom:link href="//unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ec2</title>
+      <link>//unixorn.github.io/tags/ec2/</link>
+      <pubDate>Sun, 13 Jun 2021 15:21:03 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/ec2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iam</title>
+      <link>//unixorn.github.io/tags/iam/</link>
+      <pubDate>Sun, 13 Jun 2021 15:21:03 -0600</pubDate>
+      
+      <guid>//unixorn.github.io/tags/iam/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>docker</title>
       <link>//unixorn.github.io/tags/docker/</link>
@@ -302,15 +320,6 @@
       <pubDate>Tue, 20 Aug 2019 07:10:27 -0600</pubDate>
       
       <guid>//unixorn.github.io/tags/ebs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ec2</title>
-      <link>//unixorn.github.io/tags/ec2/</link>
-      <pubDate>Tue, 20 Aug 2019 07:10:27 -0600</pubDate>
-      
-      <guid>//unixorn.github.io/tags/ec2/</guid>
       <description></description>
     </item>
     
