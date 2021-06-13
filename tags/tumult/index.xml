@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tumult on unixorn.github.io</title>
-    <link>//unixorn.github.io/tags/tumult/</link>
+    <link>http://unixorn.github.io/tags/tumult/</link>
     <description>Recent content in tumult on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>2019-2021, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 05 Mar 2019 22:48:25 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/tumult/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 05 Mar 2019 22:48:25 -0700</lastBuildDate><atom:link href="http://unixorn.github.io/tags/tumult/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fix macOS Captive WIFI Portal Issue</title>
-      <link>//unixorn.github.io/post/fix-macos-captive-portal-issue/</link>
+      <link>http://unixorn.github.io/post/fix-macos-captive-portal-issue/</link>
       <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
       
-      <guid>//unixorn.github.io/post/fix-macos-captive-portal-issue/</guid>
+      <guid>http://unixorn.github.io/post/fix-macos-captive-portal-issue/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m not sure if this is just macOS Mojave being flaky or some interaction with the security malware installed on my work laptop, but it refuses to connect to some captive portals.&lt;/p&gt;</description>
     </item>
     

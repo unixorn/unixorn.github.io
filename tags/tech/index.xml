@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>tech on unixorn.github.io</title>
-    <link>//unixorn.github.io/tags/tech/</link>
+    <link>http://unixorn.github.io/tags/tech/</link>
     <description>Recent content in tech on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>2019-2021, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 14 Mar 2021 01:59:26 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/tech/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Mar 2021 01:59:26 -0700</lastBuildDate><atom:link href="http://unixorn.github.io/tags/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setting up Shinobi and a Wyze G2 Camera</title>
-      <link>//unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</link>
+      <link>http://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</link>
       <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
       
-      <guid>//unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</guid>
+      <guid>http://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</guid>
       <description>&lt;h1 id=&#34;setting-up-shinobi-and-a-wyze-g2-camera&#34;&gt;Setting up Shinobi and a Wyze G2 Camera&lt;/h1&gt;
 &lt;p&gt;I wanted to set up a security camera outside, but I didn&amp;rsquo;t want to be dependent on an outside cloud service - if my internet goes out, I don&amp;rsquo;t want to lose my ability to record footage.&lt;/p&gt;
 &lt;p&gt;Wyze cameras are nice and cheap, and you can reflash them to support RTSP in addition to streaming to the Wyze cloud.&lt;/p&gt;</description>
@@ -21,10 +21,10 @@
     
     <item>
       <title>Home Assistant Printer Power Management</title>
-      <link>//unixorn.github.io/post/home-assistant-printer-power-management/</link>
+      <link>http://unixorn.github.io/post/home-assistant-printer-power-management/</link>
       <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
       
-      <guid>//unixorn.github.io/post/home-assistant-printer-power-management/</guid>
+      <guid>http://unixorn.github.io/post/home-assistant-printer-power-management/</guid>
       <description>&lt;h1 id=&#34;home-assistant-printer-power-management&#34;&gt;Home Assistant Printer Power Management&lt;/h1&gt;
 &lt;p&gt;I&amp;rsquo;ve got an old HP laser printer in my basement. We barely print 10 pages a month between the two of us, so we only turn it on when we&amp;rsquo;re going to print. That&amp;rsquo;s a hassle though, because inevitably we forget to shut it off sometimes and it stays on overnight or even for days, and while it has a powersave mode, the 4050N is so old that even that burns a good amount of power.&lt;/p&gt;
 &lt;p&gt;Enter Home Assistant.&lt;/p&gt;</description>
@@ -32,123 +32,123 @@
     
     <item>
       <title>Cupsd Setup</title>
-      <link>//unixorn.github.io/post/cupsd-setup/</link>
+      <link>http://unixorn.github.io/post/cupsd-setup/</link>
       <pubDate>Mon, 08 Feb 2021 12:11:24 -0700</pubDate>
       
-      <guid>//unixorn.github.io/post/cupsd-setup/</guid>
+      <guid>http://unixorn.github.io/post/cupsd-setup/</guid>
       <description>&lt;h1 id=&#34;run-a-print-server-on-raspberry-pi&#34;&gt;Run a print server on Raspberry Pi&lt;/h1&gt;
 &lt;p&gt;I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here&amp;rsquo;s how I set that up.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Home Assistant Notifications via Twilio SMS</title>
-      <link>//unixorn.github.io/post/home-assistant-notifications-via-twilio/</link>
+      <link>http://unixorn.github.io/post/home-assistant-notifications-via-twilio/</link>
       <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
       
-      <guid>//unixorn.github.io/post/home-assistant-notifications-via-twilio/</guid>
+      <guid>http://unixorn.github.io/post/home-assistant-notifications-via-twilio/</guid>
       <description>Sending notifications from Home Assistant via Twilio SMS I got a post published at work about How to Receive Alerts from Home Assistant with Twilio SMS, so I won&amp;rsquo;t replicate it here.
 TL;DR - It is super easy to send SMS messages via Twilio SMS with curl.</description>
     </item>
     
     <item>
       <title>Add Plex to Home Assistant</title>
-      <link>//unixorn.github.io/post/add-plex-to-hass/</link>
+      <link>http://unixorn.github.io/post/add-plex-to-hass/</link>
       <pubDate>Sun, 08 Nov 2020 21:10:48 -0700</pubDate>
       
-      <guid>//unixorn.github.io/post/add-plex-to-hass/</guid>
+      <guid>http://unixorn.github.io/post/add-plex-to-hass/</guid>
       <description>Adding the Plex integration to Home Assistant is pretty straightforward with the exception of finding your Plex token.
 Find Your Plex token:  Sign into your Plex.tv account Browse to one of the media files (TV episode, movie) on your connected server. You&amp;rsquo;ll need a Plex pass for this. Select Get info Click View XML Ignore the XML. Look in the URL to the XML page - you&amp;rsquo;ll see Plex-Token\=XYZZY. That&amp;rsquo;s the token you&amp;rsquo;ll need.</description>
     </item>
     
     <item>
       <title>Building Multi Architecture Docker Images with buildx</title>
-      <link>//unixorn.github.io/post/multi-architecture-images/</link>
+      <link>http://unixorn.github.io/post/multi-architecture-images/</link>
       <pubDate>Sat, 13 Jun 2020 09:07:49 -0600</pubDate>
       
-      <guid>//unixorn.github.io/post/multi-architecture-images/</guid>
+      <guid>http://unixorn.github.io/post/multi-architecture-images/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are arm7, some Raspberry Pi 4s that are arm64, and am soon going to add an Intel node as well. It&amp;rsquo;s more hassle than it&amp;rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Backing Up the Cluster with Duplicacy</title>
-      <link>//unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</link>
+      <link>http://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</link>
       <pubDate>Sun, 01 Sep 2019 15:47:23 -0600</pubDate>
       
-      <guid>//unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</guid>
+      <guid>http://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</guid>
       <description>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;
 &lt;p&gt;I wanted to ensure any data I put into my &lt;a href=&#34;https://unixorn.github.io/post/k3s-on-arm/&#34;&gt;ARM k3s cluster&lt;/a&gt; is backed up to prevent data loss.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Growing EBS Volumes in Place</title>
-      <link>//unixorn.github.io/post/growing-ebs-volumes-in-place/</link>
+      <link>http://unixorn.github.io/post/growing-ebs-volumes-in-place/</link>
       <pubDate>Tue, 20 Aug 2019 07:10:27 -0600</pubDate>
       
-      <guid>//unixorn.github.io/post/growing-ebs-volumes-in-place/</guid>
+      <guid>http://unixorn.github.io/post/growing-ebs-volumes-in-place/</guid>
       <description>&lt;p&gt;Yesterday I had to grow a live filesystem on a server in EC2, without downtime. I do this just infrequently enough to not &lt;em&gt;quite&lt;/em&gt; remember all the details without poking around the internet, so I&amp;rsquo;m documenting it all in one place.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Trying K3s on ARM, Part 1</title>
-      <link>//unixorn.github.io/post/k3s-on-arm/</link>
+      <link>http://unixorn.github.io/post/k3s-on-arm/</link>
       <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
       
-      <guid>//unixorn.github.io/post/k3s-on-arm/</guid>
+      <guid>http://unixorn.github.io/post/k3s-on-arm/</guid>
       <description>&lt;h2 id=&#34;why-k3s-and-not-stick-with-k8s&#34;&gt;Why k3s and not stick with k8s?&lt;/h2&gt;
 &lt;p&gt;I wanted to experiment with &lt;a href=&#34;https://k3s.io&#34;&gt;k3s&lt;/a&gt;. They package everything you need in a single binary, don&amp;rsquo;t package in deprecated parts of k8s, and it works on Intel, ARMv7 and ARM64. It seemed like it&amp;rsquo;d be a less painful way to runn Kubernetes on my ARM cluster.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Equifax 2017 Breach Settlement Information</title>
-      <link>//unixorn.github.io/post/equifax-2017-breach-settlement/</link>
+      <link>http://unixorn.github.io/post/equifax-2017-breach-settlement/</link>
       <pubDate>Sat, 27 Jul 2019 07:09:10 -0600</pubDate>
       
-      <guid>//unixorn.github.io/post/equifax-2017-breach-settlement/</guid>
+      <guid>http://unixorn.github.io/post/equifax-2017-breach-settlement/</guid>
       <description>&lt;p&gt;Get your money from the Equifax settlement regarding the 2017 security breach.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Adding a Distributed Filesystem to the Cluster</title>
-      <link>//unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</link>
+      <link>http://unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</link>
       <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
       
-      <guid>//unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</guid>
+      <guid>http://unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</guid>
       <description>&lt;p&gt;One of the reasons I set up my cluster was that I&amp;rsquo;m running out of space on my NAS. I don&amp;rsquo;t want to buy a whole new chassis, and while I could have put individual file shares on each cluster node, that would be both inconvenient and not provide any data redundancy without a lot of brittle home-rolled hacks to &lt;code&gt;rsync&lt;/code&gt; data from node to node. And since distributed file systems are a thing, I&amp;rsquo;d rather not resort to hacks.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Things I Learned About Docker Mac</title>
-      <link>//unixorn.github.io/post/til-about-docker-mac/</link>
+      <link>http://unixorn.github.io/post/til-about-docker-mac/</link>
       <pubDate>Wed, 08 May 2019 09:11:31 -0600</pubDate>
       
-      <guid>//unixorn.github.io/post/til-about-docker-mac/</guid>
+      <guid>http://unixorn.github.io/post/til-about-docker-mac/</guid>
       <description>I had a bunch of cruft in start scripts that would determine the IP of my laptop and set it as an environment variable to pass to docker-compose and it turns out that with Docker for Mac you don&amp;rsquo;t have to do all that work - just use docker.for.mac.localhost as a hostname.</description>
     </item>
     
     <item>
       <title>Fix macOS Captive WIFI Portal Issue</title>
-      <link>//unixorn.github.io/post/fix-macos-captive-portal-issue/</link>
+      <link>http://unixorn.github.io/post/fix-macos-captive-portal-issue/</link>
       <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
       
-      <guid>//unixorn.github.io/post/fix-macos-captive-portal-issue/</guid>
+      <guid>http://unixorn.github.io/post/fix-macos-captive-portal-issue/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m not sure if this is just macOS Mojave being flaky or some interaction with the security malware installed on my work laptop, but it refuses to connect to some captive portals.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Parts list for the ARM cluster</title>
-      <link>//unixorn.github.io/post/arm_cluster_parts_list/</link>
+      <link>http://unixorn.github.io/post/arm_cluster_parts_list/</link>
       <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
       
-      <guid>//unixorn.github.io/post/arm_cluster_parts_list/</guid>
+      <guid>http://unixorn.github.io/post/arm_cluster_parts_list/</guid>
       <description>&lt;p&gt;I realized I forgot to include a parts list for the cluster in my &lt;a href=&#34;https://unixorn.github.io/blog/in_the_beginning_there_was_bare_metal/&#34;&gt;ARM cluster post&lt;/a&gt; (all prices are as of March 3rd, 2019), so here we go.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Getting an ARM kubernetes cluster up and running</title>
-      <link>//unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</link>
+      <link>http://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</link>
       <pubDate>Sun, 17 Feb 2019 16:00:05 -0700</pubDate>
       
-      <guid>//unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</guid>
+      <guid>http://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</guid>
       <description>&lt;p&gt;I recently decided to set up a Kubernetes cluster in my basement, partly because I&amp;rsquo;d never set a cluster up from scratch by myself, and partly because my existing NAS was beginning to run out of headroom.&lt;/p&gt;</description>
     </item>
     

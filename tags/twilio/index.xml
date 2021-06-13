@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>twilio on unixorn.github.io</title>
-    <link>//unixorn.github.io/tags/twilio/</link>
+    <link>http://unixorn.github.io/tags/twilio/</link>
     <description>Recent content in twilio on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>2019-2021, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 17 Jan 2021 16:47:09 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/twilio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 17 Jan 2021 16:47:09 -0700</lastBuildDate><atom:link href="http://unixorn.github.io/tags/twilio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Home Assistant Notifications via Twilio SMS</title>
-      <link>//unixorn.github.io/post/home-assistant-notifications-via-twilio/</link>
+      <link>http://unixorn.github.io/post/home-assistant-notifications-via-twilio/</link>
       <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
       
-      <guid>//unixorn.github.io/post/home-assistant-notifications-via-twilio/</guid>
+      <guid>http://unixorn.github.io/post/home-assistant-notifications-via-twilio/</guid>
       <description>Sending notifications from Home Assistant via Twilio SMS I got a post published at work about How to Receive Alerts from Home Assistant with Twilio SMS, so I won&amp;rsquo;t replicate it here.
 TL;DR - It is super easy to send SMS messages via Twilio SMS with curl.</description>
     </item>

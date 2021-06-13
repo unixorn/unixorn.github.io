@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>docker on unixorn.github.io</title>
-    <link>//unixorn.github.io/tags/docker/</link>
+    <link>http://unixorn.github.io/tags/docker/</link>
     <description>Recent content in docker on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>2019-2021, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 14 Mar 2021 01:59:26 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Mar 2021 01:59:26 -0700</lastBuildDate><atom:link href="http://unixorn.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setting up Shinobi and a Wyze G2 Camera</title>
-      <link>//unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</link>
+      <link>http://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</link>
       <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
       
-      <guid>//unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</guid>
+      <guid>http://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</guid>
       <description>&lt;h1 id=&#34;setting-up-shinobi-and-a-wyze-g2-camera&#34;&gt;Setting up Shinobi and a Wyze G2 Camera&lt;/h1&gt;
 &lt;p&gt;I wanted to set up a security camera outside, but I didn&amp;rsquo;t want to be dependent on an outside cloud service - if my internet goes out, I don&amp;rsquo;t want to lose my ability to record footage.&lt;/p&gt;
 &lt;p&gt;Wyze cameras are nice and cheap, and you can reflash them to support RTSP in addition to streaming to the Wyze cloud.&lt;/p&gt;</description>
@@ -21,39 +21,39 @@
     
     <item>
       <title>Cupsd Setup</title>
-      <link>//unixorn.github.io/post/cupsd-setup/</link>
+      <link>http://unixorn.github.io/post/cupsd-setup/</link>
       <pubDate>Mon, 08 Feb 2021 12:11:24 -0700</pubDate>
       
-      <guid>//unixorn.github.io/post/cupsd-setup/</guid>
+      <guid>http://unixorn.github.io/post/cupsd-setup/</guid>
       <description>&lt;h1 id=&#34;run-a-print-server-on-raspberry-pi&#34;&gt;Run a print server on Raspberry Pi&lt;/h1&gt;
 &lt;p&gt;I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here&amp;rsquo;s how I set that up.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Building Multi Architecture Docker Images with buildx</title>
-      <link>//unixorn.github.io/post/multi-architecture-images/</link>
+      <link>http://unixorn.github.io/post/multi-architecture-images/</link>
       <pubDate>Sat, 13 Jun 2020 09:07:49 -0600</pubDate>
       
-      <guid>//unixorn.github.io/post/multi-architecture-images/</guid>
+      <guid>http://unixorn.github.io/post/multi-architecture-images/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are arm7, some Raspberry Pi 4s that are arm64, and am soon going to add an Intel node as well. It&amp;rsquo;s more hassle than it&amp;rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Backing Up the Cluster with Duplicacy</title>
-      <link>//unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</link>
+      <link>http://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</link>
       <pubDate>Sun, 01 Sep 2019 15:47:23 -0600</pubDate>
       
-      <guid>//unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</guid>
+      <guid>http://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</guid>
       <description>&lt;h1 id=&#34;motivation&#34;&gt;Motivation&lt;/h1&gt;
 &lt;p&gt;I wanted to ensure any data I put into my &lt;a href=&#34;https://unixorn.github.io/post/k3s-on-arm/&#34;&gt;ARM k3s cluster&lt;/a&gt; is backed up to prevent data loss.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Things I Learned About Docker Mac</title>
-      <link>//unixorn.github.io/post/til-about-docker-mac/</link>
+      <link>http://unixorn.github.io/post/til-about-docker-mac/</link>
       <pubDate>Wed, 08 May 2019 09:11:31 -0600</pubDate>
       
-      <guid>//unixorn.github.io/post/til-about-docker-mac/</guid>
+      <guid>http://unixorn.github.io/post/til-about-docker-mac/</guid>
       <description>I had a bunch of cruft in start scripts that would determine the IP of my laptop and set it as an environment variable to pass to docker-compose and it turns out that with Docker for Mac you don&amp;rsquo;t have to do all that work - just use docker.for.mac.localhost as a hostname.</description>
     </item>
     

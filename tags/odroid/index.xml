@@ -2,47 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>odroid on unixorn.github.io</title>
-    <link>//unixorn.github.io/tags/odroid/</link>
+    <link>http://unixorn.github.io/tags/odroid/</link>
     <description>Recent content in odroid on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>2019-2021, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 29 Mar 2020 15:37:45 -0700</lastBuildDate><atom:link href="//unixorn.github.io/tags/odroid/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 29 Mar 2020 15:37:45 -0700</lastBuildDate><atom:link href="http://unixorn.github.io/tags/odroid/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setting up an N2</title>
-      <link>//unixorn.github.io/post/setting-up-an-n2/</link>
+      <link>http://unixorn.github.io/post/setting-up-an-n2/</link>
       <pubDate>Sun, 29 Mar 2020 15:37:45 -0700</pubDate>
       
-      <guid>//unixorn.github.io/post/setting-up-an-n2/</guid>
+      <guid>http://unixorn.github.io/post/setting-up-an-n2/</guid>
       <description>&lt;h1 id=&#34;setting-up-an-odroid-n2&#34;&gt;Setting up an Odroid N2&lt;/h1&gt;
 &lt;p&gt;I wanted a machine with more memory to be the master node for my ARM k3s cluster. I had an Odroid N2 with 4GB of RAM, sitting around, so here&amp;rsquo;s the log of getting it installed and running.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Trying K3s on ARM, Part 1</title>
-      <link>//unixorn.github.io/post/k3s-on-arm/</link>
+      <link>http://unixorn.github.io/post/k3s-on-arm/</link>
       <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
       
-      <guid>//unixorn.github.io/post/k3s-on-arm/</guid>
+      <guid>http://unixorn.github.io/post/k3s-on-arm/</guid>
       <description>&lt;h2 id=&#34;why-k3s-and-not-stick-with-k8s&#34;&gt;Why k3s and not stick with k8s?&lt;/h2&gt;
 &lt;p&gt;I wanted to experiment with &lt;a href=&#34;https://k3s.io&#34;&gt;k3s&lt;/a&gt;. They package everything you need in a single binary, don&amp;rsquo;t package in deprecated parts of k8s, and it works on Intel, ARMv7 and ARM64. It seemed like it&amp;rsquo;d be a less painful way to runn Kubernetes on my ARM cluster.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Adding a Distributed Filesystem to the Cluster</title>
-      <link>//unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</link>
+      <link>http://unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</link>
       <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
       
-      <guid>//unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</guid>
+      <guid>http://unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</guid>
       <description>&lt;p&gt;One of the reasons I set up my cluster was that I&amp;rsquo;m running out of space on my NAS. I don&amp;rsquo;t want to buy a whole new chassis, and while I could have put individual file shares on each cluster node, that would be both inconvenient and not provide any data redundancy without a lot of brittle home-rolled hacks to &lt;code&gt;rsync&lt;/code&gt; data from node to node. And since distributed file systems are a thing, I&amp;rsquo;d rather not resort to hacks.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Getting an ARM kubernetes cluster up and running</title>
-      <link>//unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</link>
+      <link>http://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</link>
       <pubDate>Sun, 17 Feb 2019 16:00:05 -0700</pubDate>
       
-      <guid>//unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</guid>
+      <guid>http://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</guid>
       <description>&lt;p&gt;I recently decided to set up a Kubernetes cluster in my basement, partly because I&amp;rsquo;d never set a cluster up from scratch by myself, and partly because my existing NAS was beginning to run out of headroom.&lt;/p&gt;</description>
     </item>
     

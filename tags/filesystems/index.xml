@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>filesystems on unixorn.github.io</title>
-    <link>//unixorn.github.io/tags/filesystems/</link>
+    <link>http://unixorn.github.io/tags/filesystems/</link>
     <description>Recent content in filesystems on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>2019-2021, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 20 Aug 2019 07:10:27 -0600</lastBuildDate><atom:link href="//unixorn.github.io/tags/filesystems/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 20 Aug 2019 07:10:27 -0600</lastBuildDate><atom:link href="http://unixorn.github.io/tags/filesystems/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Growing EBS Volumes in Place</title>
-      <link>//unixorn.github.io/post/growing-ebs-volumes-in-place/</link>
+      <link>http://unixorn.github.io/post/growing-ebs-volumes-in-place/</link>
       <pubDate>Tue, 20 Aug 2019 07:10:27 -0600</pubDate>
       
-      <guid>//unixorn.github.io/post/growing-ebs-volumes-in-place/</guid>
+      <guid>http://unixorn.github.io/post/growing-ebs-volumes-in-place/</guid>
       <description>&lt;p&gt;Yesterday I had to grow a live filesystem on a server in EC2, without downtime. I do this just infrequently enough to not &lt;em&gt;quite&lt;/em&gt; remember all the details without poking around the internet, so I&amp;rsquo;m documenting it all in one place.&lt;/p&gt;</description>
     </item>
     
