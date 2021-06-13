@@ -6,7 +6,7 @@
     <description>Recent content in k8s on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>&amp;copy; 2019-2021. All rights reserved.</copyright>
+    <copyright>2019-2021, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sun, 01 Sep 2019 15:47:23 -0600</lastBuildDate><atom:link href="//unixorn.github.io/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Backing Up the Cluster with Duplicacy</title>
