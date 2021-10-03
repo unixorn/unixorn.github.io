@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.83.1" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Setting up an ODROID N2 &middot; unixorn.github.io</title>
 
@@ -249,14 +249,14 @@
 <h2 id="docker">Docker</h2>
 <p>Add docker repository key - <code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code></p>
 <p>Add the repo:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo add-apt-repository <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo add-apt-repository <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>   <span style="color:#e6db74">&#34;deb [arch=arm64] https://download.docker.com/linux/ubuntu \
 </span><span style="color:#e6db74">   </span><span style="color:#66d9ef">$(</span>lsb_release -cs<span style="color:#66d9ef">)</span><span style="color:#e6db74"> \
 </span><span style="color:#e6db74">   stable&#34;</span>
 </code></pre></div><p>Install docker community edition
 <code>apt update &amp;&amp; apt install docker-ce docker-ce-cli containerd.io</code></p>
 <hr>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/usr/bin/env bash
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/usr/bin/env bash
 </span><span style="color:#75715e"></span><span style="color:#75715e">#</span>
 <span style="color:#75715e"># Put the setup all in one script. Run as root with sudo.</span>
 

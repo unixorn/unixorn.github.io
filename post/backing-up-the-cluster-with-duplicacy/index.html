@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.83.1" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Backing Up the Cluster with Duplicacy &middot; unixorn.github.io</title>
 
@@ -287,7 +287,7 @@
 <p>You can now run <code>backup-cronjob</code> and watch the first backup grind.</p>
 <p>After I configured <code>duplicacy</code> for the first time, it was much less hassle to copy the <code>.duplicacy/preferences</code> json file to each new directory tree. I wanted to back up the <code>.duplicacy</code> directory and change the <strong>id</strong> key to a new unique one — don&rsquo;t put spaces or any special characters in the id other than <code>_</code> and <code>-</code>. You don&rsquo;t have to change the storage key, and actually shouldn&rsquo;t - sharing the same storage bucket is what allows <code>duplicacy</code> to deduplicate your files across multiple source directories, which keeps your storage bill down.</p>
 <p>Here&rsquo;s an example <code>preferences</code> file -</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
     {
         <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;b2&#34;</span>,
         <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;UNIQUE_ID_FOR_YOUR_DIRECTORY&#34;</span>,
@@ -317,7 +317,7 @@
 </ul>
 <p>Once you&rsquo;ve updated the file, install the cronjob with <code>kubectl apply -f backup-example-directory-tree.yml</code>.</p>
 <p>You can download this from <a href="https://github.com/unixorn/blog-scripts/blob/master/duplicacy-examples/backup-example-directory-tree.yml">backup-example-directory-tree.yml</a> instead of hassling with copy and paste.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">batch/v1beta1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">batch/v1beta1</span>
 <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">CronJob</span>
 <span style="color:#f92672">metadata</span>:
   <span style="color:#f92672">name</span>: <span style="color:#ae81ff">backup-exampledir</span>
@@ -385,7 +385,7 @@
 <p>Before using this job definition, at a minimum you should set the namespace for the cron job, update the image if you&rsquo;re running on x86, and update the <code>-keep X:Y</code> statements to correspond with your snapshot retention policy.</p>
 <p>Once you&rsquo;ve updated the configuration, install the cron job with <code>kubectl apply -f purge-stale-duplicacy-snapshots.yml</code></p>
 <p>You can download this from <a href="https://github.com/unixorn/blog-scripts/blob/master/duplicacy-examples/purge-stale-duplicacy-snapshots.yml">purge-stale-duplicacy-snapshots.yml</a> instead of hassling with copy and paste.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">batch/v1beta1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">batch/v1beta1</span>
 <span style="color:#f92672">kind</span>: <span style="color:#ae81ff">CronJob</span>
 <span style="color:#f92672">metadata</span>:
   <span style="color:#f92672">name</span>: <span style="color:#ae81ff">purge-stale-duplicacy-snapshots</span>

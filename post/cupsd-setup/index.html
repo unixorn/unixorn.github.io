@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.83.1" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Run a CUPSD print server on Raspberry Pi &middot; unixorn.github.io</title>
 
@@ -245,7 +245,7 @@
 <li><code>touch $CUPSD_DIR/printers.conf</code></li>
 <li>Run the <code>cupsd</code> server with</li>
 </ol>
-<pre><code>sudo docker run -d --restart unless-stopped \
+<pre tabindex="0"><code>sudo docker run -d --restart unless-stopped \
   -p 631:631 \
   --privileged \
   -v /var/run/dbus:/var/run/dbus \

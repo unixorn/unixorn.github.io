@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="In the beginning, there was bare metal">
-  <meta name="generator" content="Hugo 0.83.1" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Getting an ARM kubernetes cluster up and running &middot; unixorn.github.io</title>
 
@@ -254,7 +254,7 @@
 <p>Now we&rsquo;re ready to install Docker and Kubernetes.</p>
 <h2 id="install-docker-ce">Install docker-ce</h2>
 <h3 id="install-the-docker-ce-pre-requisites">Install the docker-ce pre-requisites</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    apt-get install <span style="color:#ae81ff">\
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    apt-get install <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>         apt-transport-https <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>         ca-certificates <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span>         curl <span style="color:#ae81ff">\
@@ -288,7 +288,7 @@
 <h3 id="force-a-static-ip-for-the-node">Force a static IP for the node</h3>
 <p>First, back up the current network config with <code>cp /etc/network/interfaces /etc/network/interfaces-original</code></p>
 <p>Now edit <code>/etc/network/interfaces</code> and put in:</p>
-<pre><code># Ethernet adapter 0
+<pre tabindex="0"><code># Ethernet adapter 0
 auto eth0
 allow-hotplug eth0
 #no-auto-down eth0
@@ -313,7 +313,7 @@ dns-nameservers 8.8.8.8 8.8.4.4
 <h4 id="confirm-docker-is-working">Confirm Docker is working</h4>
 <p><code>docker run hello-world</code></p>
 <p>You should see something similar to this:</p>
-<pre><code>root@rodan:~# docker run hello-world
+<pre tabindex="0"><code>root@rodan:~# docker run hello-world
 Unable to find image 'hello-world:latest' locally
 latest: Pulling from library/hello-world
 c1eda109e4da: Pull complete
@@ -344,10 +344,10 @@ For more examples and ideas, visit:
 <h4 id="install-the-k8s-repository-key">Install the k8s repository key</h4>
 <p><code>curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -</code></p>
 <h4 id="add-the-k8s-apt-repo">Add the k8s apt repo</h4>
-<pre><code class="language-cat" data-lang="cat">deb https://apt.kubernetes.io/ kubernetes-xenial main
+<pre tabindex="0"><code class="language-cat" data-lang="cat">deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
 </code></pre><h4 id="install-kubernetes-1">Install kubernetes</h4>
-<pre><code>apt-get update
+<pre tabindex="0"><code>apt-get update
 apt-get install -y kubelet kubeadm kubectl
 apt-mark hold kubelet kubeadm kubectl
 </code></pre><p>Uptodate at <a href="https://kubernetes.io/docs/setup/independent/">https://kubernetes.io/docs/setup/independent/</a></p>
@@ -372,7 +372,7 @@ apt-mark hold kubelet kubeadm kubectl
 <code>kubectl taint nodes --all node-role.kubernetes.io/master-</code></p>
 <h3 id="add-worker-nodes">Add worker nodes</h3>
 <p>On the master, run <code>kubeadm token create --print-join-command</code> to generate an add command, then run that on the worker. It will look something like:</p>
-<pre><code>kubeadm join --token SUPERSECRET 10.9.8.7:6443 --discovery-token-ca-cert-hash sha256:1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF
+<pre tabindex="0"><code>kubeadm join --token SUPERSECRET 10.9.8.7:6443 --discovery-token-ca-cert-hash sha256:1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF
 </code></pre><h3 id="install-helm">Install helm</h3>
 <p><code>helm init --tiller-image=jessestuart/tiller:v2.9.1 --upgrade</code></p>
 <h3 id="set-up-the-dashboard">Set up the dashboard</h3>

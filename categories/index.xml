@@ -1,51 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on unixorn.github.io</title>
-    <link>/categories/</link>
+    <link>https://unixorn.github.io/categories/</link>
     <description>Recent content in Categories on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 05 Mar 2019 22:48:25 -0700</lastBuildDate>
-    
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Apple</title>
-      <link>/categories/apple/</link>
-      <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
-      
-      <guid>/categories/apple/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>homelab</title>
-      <link>/categories/homelab/</link>
-      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
-      
-      <guid>/categories/homelab/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>kubernetes</title>
-      <link>/categories/kubernetes/</link>
-      <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
-      
-      <guid>/categories/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tech</title>
-      <link>/categories/tech/</link>
-      <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
-      
-      <guid>/categories/tech/</guid>
-      <description></description>
-    </item>
-    
+    <copyright>Copyright 2019-2021, Joe Block. All rights reserved.</copyright><atom:link href="https://unixorn.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>

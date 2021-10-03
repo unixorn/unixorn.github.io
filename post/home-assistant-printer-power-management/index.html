@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.83.1" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Home Assistant Printer Power Management &middot; unixorn.github.io</title>
 
@@ -243,7 +243,7 @@
 <h2 id="printer-power-control">Printer Power Control</h2>
 <h3 id="mosquitto-helper-script">mosquitto helper script</h3>
 <p>I don&rsquo;t like to install anything more on my docker hosts than I absolutely have to, so instead of installing mosquitto directly on the printserver machine, I run <code>mosquitto_pub</code> inside a container with the following <code>c-mosquitto_pub</code> helper script. You can download it from github <a href="https://github.com/unixorn/blog-scripts/blob/master/cupsd-hass/c-mosquitto_pub">here</a>. Put this in <code>/usr/local/bin</code>.</p>
-<pre><code>#!/usr/bin/env bash
+<pre tabindex="0"><code>#!/usr/bin/env bash
 #
 # Use docker to run mosquitto_pub
 #
@@ -269,7 +269,7 @@ exec docker run -t --rm eclipse-mosquitto mosquitto_pub $@
 <p>Instead, I&rsquo;ve configured HA to restart a timer every time it sees the MQTT topic <code>hass/printers/franklin</code> switch from <strong>OFF</strong> to <strong>ON</strong>, and only turn the printer off after the queue has been empty for five continuous minutes.</p>
 <p>Here&rsquo;s the <code>ha-check-for-print-jobs</code> script source - you can download it from github <a href="https://github.com/unixorn/blog-scripts/blob/master/cupsd-hass/ha-check-for-print-jobs">here</a>.</p>
 <p>Put the script in <code>/usr/local/bin</code> on the same server you&rsquo;re running the cupsd container on - it is designed to run a tool inside that container.</p>
-<pre><code>#!/usr/bin/env bash
+<pre tabindex="0"><code>#!/usr/bin/env bash
 #
 # ha-check-for-print-jobs
 #
@@ -375,7 +375,7 @@ do
 done
 </code></pre><h3 id="home-assistant-setup">Home Assistant Setup</h3>
 <p>I configured my HA to watch a MQTT topic as a binary sensor. You can download this snippet <a href="https://github.com/unixorn/blog-scripts/blob/master/cupsd-hass/printer-binary-sensor.yaml">here</a>.</p>
-<pre><code>binary_sensor:
+<pre tabindex="0"><code>binary_sensor:
   - platform: mqtt
     name: &quot;Franklin Print Queue&quot;
     payload_on: &quot;ON&quot;
@@ -384,7 +384,7 @@ done
 <p>This automation will turn the printer power on every time the binary sensor is turned on, and turn it off five minutes after the last time the binary sensor switched from <strong>ON</strong> to <strong>OFF</strong>.</p>
 <p>The outlet my printer is plugged into is controlled by HA and rather unimaginatively named <code>switch.printerpower</code>.</p>
 <p>Add this stanza to your automations.yaml file. Download it <a href="https://github.com/unixorn/blog-scripts/blob/master/cupsd-hass/printer-automations.yaml">here</a>.</p>
-<pre><code># Franklin power is controlled by MQTT
+<pre tabindex="0"><code># Franklin power is controlled by MQTT
   - alias: 'Turn on Franklin when there are jobs in the queue'
     trigger:
       platform: state
@@ -407,7 +407,7 @@ done
 </code></pre><h3 id="test-the-pieces">Test the pieces</h3>
 <h4 id="print-server-check">Print server check</h4>
 <p>Confirm that you&rsquo;ve got the print queue configured correctly by running <code>docker exec -it cupsd-server lpq -P Franklin</code>. If there are no jobs, it should print something like</p>
-<pre><code>Franklin is ready
+<pre tabindex="0"><code>Franklin is ready
 no entries
 </code></pre><h4 id="automation-test">Automation test</h4>
 <p>Reload your automations, and you should now be able to test that the automations are correct by running <code>c-mosquitto_pub -h mqtt.yourdomain.com -t hass/printers/franklin -m OFF</code> or <code>-m ON</code> and watch HA turn the power to your printer off and on.</p>
@@ -415,7 +415,7 @@ no entries
 <h3 id="run-it-all-automatically">Run it all automatically</h3>
 <p>Now that you&rsquo;ve confirmed that the power is being cycled properly when the MQTT queue recieves messages and that the print job checker is seeing the printer queue, we can add the checker job to cron.</p>
 <p>Add</p>
-<pre><code>* * * * * PRINT_Q=Franklin MQTT_HOST=mqtt.example.com MQTT_TOPIC=hass/printers/franklin CONTAINER=cupsd_server /usr/local/bin/ha-check-for-print-jobs | logger -t printserver
+<pre tabindex="0"><code>* * * * * PRINT_Q=Franklin MQTT_HOST=mqtt.example.com MQTT_TOPIC=hass/printers/franklin CONTAINER=cupsd_server /usr/local/bin/ha-check-for-print-jobs | logger -t printserver
 </code></pre><p>to your <code>/etc/crontab</code>, and you&rsquo;re good to go. Now every minute, the checker script will get run by <code>cron</code>, and it will check every five seconds for print jobs and exit before the next invocation by <code>cron</code>.</p>
 </div>
 

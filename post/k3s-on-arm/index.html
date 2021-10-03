@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.83.1" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Trying K3s on ARM, Part 1 &middot; unixorn.github.io</title>
 
@@ -235,7 +235,7 @@
 <h2 id="installing-k3s">Installing k3s</h2>
 <p>I chose to install k3s <em>without</em> the built-in traefik install so I could install that with a custom configuration. I also chose to use <code>docker</code> instead of the baked-in <code>containerd</code> so that I could also run containers outside k3s on my worker nodes without wasting RAM.</p>
 <h3 id="installing-the-master">Installing the master</h3>
-<pre><code>curl -sfL https://get.k3s.io &gt; install-k3s.sh &amp;&amp; chmod 755 ./install-k3s.sh
+<pre tabindex="0"><code>curl -sfL https://get.k3s.io &gt; install-k3s.sh &amp;&amp; chmod 755 ./install-k3s.sh
 sudo ./install-k3s.sh --no-deploy traefik --docker
 sudo chgrp docker /etc/rancher/k3s/k3s.yaml
 sudo chmod g+r /etc/rancher/k3s/k3s.yaml
@@ -246,7 +246,7 @@ sudo chmod g+r /etc/rancher/k3s/k3s.yaml
 <h3 id="installing-the-workers">Installing the workers</h3>
 <p>Copy <code>/var/lib/rancher/k3s/server/node-token</code> from the server to your worker.</p>
 <p>Run</p>
-<pre><code>./install-k3s.sh --agent --server https://master-server:6443 --kubelet-arg=&quot;address=0.0.0.0&quot; --token &quot;$(cat node-token)&quot; --docker
+<pre tabindex="0"><code>./install-k3s.sh --agent --server https://master-server:6443 --kubelet-arg=&quot;address=0.0.0.0&quot; --token &quot;$(cat node-token)&quot; --docker
 </code></pre><p>Remove the <code>--docker</code> if you want to use the <code>containerd</code> bundled into k3s - I wanted to be able to also run apps in <code>docker</code> on my nodes and didn&rsquo;t want it using extra RAM for another <code>containerd</code>.</p>
 <p>If you&rsquo;re using a distributed filesystem like I am, add</p>
 <p><code>After=network-online.target cluster-mfsmount.service docker.service</code></p>
@@ -258,10 +258,10 @@ sudo chmod g+r /etc/rancher/k3s/k3s.yaml
 <p>I wanted to be able to use <code>LoadBalancerIP</code> entries in my cluster services to make using Traefik easier.</p>
 <h4 id="installing-metallb">Installing MetallB</h4>
 <p>On my master node, I ran</p>
-<pre><code>kubectl apply -f https://raw.githubusercontent.com/danderson/metallb/master/manifests/metallb.yaml
+<pre tabindex="0"><code>kubectl apply -f https://raw.githubusercontent.com/danderson/metallb/master/manifests/metallb.yaml
 </code></pre><h4 id="configuring-metallb">Configuring MetallB</h4>
 <p>I used the following configuration for metallb (in <a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/metallb-conf.yaml">metallb-conf.yaml</a>)</p>
-<pre><code>apiVersion: v1
+<pre tabindex="0"><code>apiVersion: v1
 kind: ConfigMap
 metadata:
   namespace: metallb-system
@@ -280,7 +280,7 @@ data:
 <p>Installed traefik with my own configuration, which I have posted on <a href="https://github.com/unixorn/blog-scripts/tree/master/arm-k3s">github</a>:</p>
 <p>Here are the configuration files I used - you&rsquo;ll need to tweak them for your own network.</p>
 <h4 id="traefik-rbacyamlhttpsgithubcomunixornblog-scriptsblobmasterarm-k3straefik-rbacyaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-rbac.yaml">traefik-rbac.yaml</a></h4>
-<pre><code>---
+<pre tabindex="0"><code>---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1beta1
 metadata:
@@ -318,7 +318,7 @@ subjects:
   name: traefik-ingress-controller
   namespace: kube-system
 </code></pre><h4 id="traefik-configmapyamlhttpsgithubcomunixornblog-scriptsblobmasterarm-k3straefik-configmapyaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-configmap.yaml">traefik-configmap.yaml</a></h4>
-<pre><code>apiVersion: v1
+<pre tabindex="0"><code>apiVersion: v1
 kind: ConfigMap
 metadata:
   name: traefik-conf
@@ -364,7 +364,7 @@ data:
     entryPoint = &quot;http&quot;
 
 </code></pre><h4 id="traefik-deploymentyamlhttpsgithubcomunixornblog-scriptsblobmasterarm-k3straefik-deploymentyaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-deployment.yaml">traefik-deployment.yaml</a></h4>
-<pre><code>---
+<pre tabindex="0"><code>---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -432,7 +432,7 @@ spec:
         configMap:
           name: traefik-conf
 </code></pre><h4 id="traefik-serviceyamlhttpsgithubcomunixornblog-scriptsblobmasterarm-k3straefik-serviceyaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-service.yaml">traefik-service.yaml</a></h4>
-<pre><code>---
+<pre tabindex="0"><code>---
 kind: Service
 apiVersion: v1
 metadata:
@@ -472,7 +472,7 @@ spec:
           serviceName: traefik-ingress-service
           servicePort: admin
 </code></pre><p>You&rsquo;ll want to change the <strong>loadBalancerIP</strong> entry and the <strong>host</strong> entry in the spec section to match your network and DNS configurations.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#66d9ef">for</span> traefik_yaml in traefik-rbac.yaml traefik-configmap.yaml traefik-deployment.yaml traefik-service.yaml
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#66d9ef">for</span> traefik_yaml in traefik-rbac.yaml traefik-configmap.yaml traefik-deployment.yaml traefik-service.yaml
 <span style="color:#66d9ef">do</span>
   kubectl apply -f $traefik_yaml
 <span style="color:#66d9ef">done</span>

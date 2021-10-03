@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.83.1" />
+  <meta name="generator" content="Hugo 0.88.1" />
 
   <title>Adding a Distributed Filesystem to the Cluster &middot; unixorn.github.io</title>
 
@@ -266,7 +266,7 @@
 <ol>
 <li>Add a file, <code>/etc/apt/sources.list.d/moosefs.list</code>, with the following contents</li>
 </ol>
-<pre><code>deb http://ppa.moosefs.com/moosefs-3/apt/raspbian/jessie jessie main
+<pre tabindex="0"><code>deb http://ppa.moosefs.com/moosefs-3/apt/raspbian/jessie jessie main
 </code></pre><ol start="2">
 <li>
 <p>Run <code>wget -O - https://ppa.moosefs.com/moosefs.key | sudo apt-key add -</code> to add the moosefs PPA key</p>
@@ -289,18 +289,18 @@
 <p>Make a directory to store the moosefs data. On my HC2 instances, I mount the data drives on <code>/mnt/sata</code>, and keep the raw mfs data in <code>/mnt/sata/moosefs</code></p>
 <p>Configure <code>/etc/mfs/mfshdd.cfg</code>. There&rsquo;s an example in <code>/etc/mfs/mfshdd.cfg.sample</code> - add one line per directory to be shared.</p>
 <p>In my case, I want to keep 50 gigs free on the drive, so my entry in <code>mfshdd.cfg</code> is</p>
-<pre><code>/mnt/sata/moosefs -50GB
+<pre tabindex="0"><code>/mnt/sata/moosefs -50GB
 </code></pre><h3 id="configure-the-chunkserver-options">Configure the chunkserver options</h3>
 <p>Copy <code>/etc/mfs/mfschunkserver.cfg.sample</code> to  <code>/etc/mfs/mfschunkserver.cfg</code> and edit it to meet your needs - at a minimum, you&rsquo;ll need to set <code>MASTER_HOST = yourmaster.example.com</code></p>
 <h3 id="enable-and-start-the-chunkserver">Enable and start the chunkserver</h3>
 <p>Set up the chunkserver to start at boot, and start it now -</p>
-<pre><code>systemctl enable moosefs-chunkserver &amp;&amp; systemctl start moosefs-chunkserver
+<pre tabindex="0"><code>systemctl enable moosefs-chunkserver &amp;&amp; systemctl start moosefs-chunkserver
 </code></pre><h1 id="mounting-the-filesystem">Mounting the filesystem</h1>
 <p>Now that the chunkservers are talking to the master, you can set up automounting it on your nodes.</p>
 <p>First, install the client software - <code>sudo apt install -y moosefs-client</code></p>
 <p>Second, make a mountpoint. On my nodes, I&rsquo;m using <code>/data/squirrel</code>, so <code>sudo mkdir -p /data/squirrel</code></p>
 <p>Finally, create a systemd unit file so that the filesystem mounts every boot. I want to be able to use <code>hostPath</code> directives in my kubernetes deployments, so I want it to start before <code>docker</code> and <code>kubelet</code>. Make a file, <code>/etc/systemd/system/yourcluster-mfsmount.service</code> with the following content (replace <code>/mountpoint</code> with whatever mountpoint you&rsquo;re using):</p>
-<pre><code># Original source: https://sourceforge.net/p/moosefs/mailman/message/29522468/
+<pre tabindex="0"><code># Original source: https://sourceforge.net/p/moosefs/mailman/message/29522468/
 [Unit]
 Description=MooseFS mounts
 After=syslog.target network.target ypbind.service moosefs-chunkserver.service moosefs-master.service
@@ -315,7 +315,7 @@ ExecStop=/usr/bin/umount /mountpoint
 [Install]
 WantedBy=multi-user.target
 </code></pre><p>Enable it so it starts every boot:</p>
-<pre><code>systemctl enable yourcluster-mfsmount &amp;&amp; systemctl start yourcluster-mfsmount
+<pre tabindex="0"><code>systemctl enable yourcluster-mfsmount &amp;&amp; systemctl start yourcluster-mfsmount
 </code></pre>
 </div>
 
