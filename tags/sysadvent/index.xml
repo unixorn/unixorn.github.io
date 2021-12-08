@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>sysadvent on unixorn.github.io</title>
+    <link>https://unixorn.github.io/tags/sysadvent/</link>
+    <description>Recent content in sysadvent on unixorn.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019-2021, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 07 Dec 2021 11:13:39 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/sysadvent/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sysadvent 2021 Article</title>
+      <link>https://unixorn.github.io/post/sysadvent-2021-article/</link>
+      <pubDate>Tue, 07 Dec 2021 11:13:39 -0700</pubDate>
+      
+      <guid>https://unixorn.github.io/post/sysadvent-2021-article/</guid>
+      <description>I wrote an article on Baking Multi-Architecture Docker Images for Sysadvent 2021.</description>
+    </item>
+    
+  </channel>
+</rss>
