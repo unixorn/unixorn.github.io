@@ -251,7 +251,7 @@
 <h3 id="dvr-setup">DVR Setup</h3>
 <p>I don&rsquo;t use any IOT devices that require a cloud service to function. In this case, I especially do not want to be unable to record security footage just because the internet is down, so I set up <a href="https://shinobi.video/">shinobi</a> as a local DVR to record my security footage.</p>
 <h4 id="start-shinobi">Start shinobi</h4>
-<p>I&rsquo;m running shinobi in a docker container. As of 2021-03-14, there is only an AMD64 build of this docker image so I&rsquo;m running it on the an Intel machine in my homelab cluster.</p>
+<p>I&rsquo;m running shinobi in a docker container. As of 2021-03-14, there is only an AMD64 build of this docker image so I&rsquo;m running it on the Intel machine in my homelab.</p>
 <p>Here&rsquo;s a <a href="https://github.com/unixorn/blog-scripts/blob/master/shinobi/shinobi-start">shinobi-start</a> script:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/usr/bin/env bash
 </span><span style="color:#75715e"></span><span style="color:#75715e">#</span>
@@ -291,7 +291,7 @@ exec docker run -d -p 8080:8080 <span style="color:#ae81ff">\
 <ol>
 <li>Login at <a href="http://your.shinobi.server:8080/super">http://your.shinobi.server:8080/super</a> with username <a href="mailto:admin@shinobi.vido">admin@shinobi.vido</a> and password admin</li>
 <li>Create a new admin account</li>
-<li>Don&rsquo;t forget to reset the password for the <a href="mailto:admin@shinobi.video">admin@shinobi.video</a> account!</li>
+<li>Don&rsquo;t forget to reset the password for the <code>admin@shinobi.video</code> account!</li>
 </ol>
 <h5 id="add-the-camera">Add the camera</h5>
 <ol>
