@@ -9,12 +9,13 @@
     <copyright>Copyright 2019-2021, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Tue, 07 Dec 2021 11:13:39 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/containerd/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Sysadvent 2021 Article</title>
+      <title>Sysadvent 2021 Articles</title>
       <link>https://unixorn.github.io/post/sysadvent-2021-article/</link>
       <pubDate>Tue, 07 Dec 2021 11:13:39 -0700</pubDate>
       
       <guid>https://unixorn.github.io/post/sysadvent-2021-article/</guid>
-      <description>I wrote an article on Baking Multi-Architecture Docker Images for Sysadvent 2021.</description>
+      <description>I wrote two articles in sysadvent 2021
+ Baking Multi-Architecture Docker Images Setting up k3s in your home lab  </description>
     </item>
     
   </channel>
