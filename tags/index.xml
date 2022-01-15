@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2021, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 07 Dec 2021 11:13:39 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 15 Jan 2022 07:32:37 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tech zfs raid server</title>
+      <link>https://unixorn.github.io/tags/tech-zfs-raid-server/</link>
+      <pubDate>Sat, 15 Jan 2022 07:32:37 -0700</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/tech-zfs-raid-server/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>containerd</title>
       <link>https://unixorn.github.io/tags/containerd/</link>
