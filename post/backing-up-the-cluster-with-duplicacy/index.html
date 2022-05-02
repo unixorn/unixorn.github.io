@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.89.1" />
+  <meta name="generator" content="Hugo 0.96.0" />
 
   <title>Backing Up the Cluster with Duplicacy &middot; unixorn.github.io</title>
 
@@ -287,25 +287,25 @@
 <p>You can now run <code>backup-cronjob</code> and watch the first backup grind.</p>
 <p>After I configured <code>duplicacy</code> for the first time, it was much less hassle to copy the <code>.duplicacy/preferences</code> json file to each new directory tree. I wanted to back up the <code>.duplicacy</code> directory and change the <strong>id</strong> key to a new unique one — don&rsquo;t put spaces or any special characters in the id other than <code>_</code> and <code>-</code>. You don&rsquo;t have to change the storage key, and actually shouldn&rsquo;t - sharing the same storage bucket is what allows <code>duplicacy</code> to deduplicate your files across multiple source directories, which keeps your storage bill down.</p>
 <p>Here&rsquo;s an example <code>preferences</code> file -</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
-    {
-        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;b2&#34;</span>,
-        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;UNIQUE_ID_FOR_YOUR_DIRECTORY&#34;</span>,
-        <span style="color:#f92672">&#34;repository&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
-        <span style="color:#f92672">&#34;storage&#34;</span>: <span style="color:#e6db74">&#34;b2://your-backups-bucket&#34;</span>,
-        <span style="color:#f92672">&#34;encrypted&#34;</span>: <span style="color:#66d9ef">true</span>,
-        <span style="color:#f92672">&#34;no_backup&#34;</span>: <span style="color:#66d9ef">false</span>,
-        <span style="color:#f92672">&#34;no_restore&#34;</span>: <span style="color:#66d9ef">false</span>,
-        <span style="color:#f92672">&#34;no_save_password&#34;</span>: <span style="color:#66d9ef">false</span>,
-        <span style="color:#f92672">&#34;nobackup_file&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
-        <span style="color:#f92672">&#34;keys&#34;</span>: {
-            <span style="color:#f92672">&#34;b2_id&#34;</span>: <span style="color:#e6db74">&#34;ROLE_ACCOUNT_B2_ID&#34;</span>,
-            <span style="color:#f92672">&#34;b2_key&#34;</span>: <span style="color:#e6db74">&#34;ROLE_ACCOUNT_B2_KEY&#34;</span>,
-            <span style="color:#f92672">&#34;password&#34;</span>: <span style="color:#e6db74">&#34;SUPER_SECRET_ENCRYPTION_PASSWORD_FOR_YOUR_DATA&#34;</span>
-        }
-    }
-]
-</code></pre></div><h2 id="backing-up-a-directory-tree">Backing up a Directory Tree</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;b2&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;id&#34;</span>: <span style="color:#e6db74">&#34;UNIQUE_ID_FOR_YOUR_DIRECTORY&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;repository&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;storage&#34;</span>: <span style="color:#e6db74">&#34;b2://your-backups-bucket&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;encrypted&#34;</span>: <span style="color:#66d9ef">true</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;no_backup&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;no_restore&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;no_save_password&#34;</span>: <span style="color:#66d9ef">false</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;nobackup_file&#34;</span>: <span style="color:#e6db74">&#34;&#34;</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;keys&#34;</span>: {
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;b2_id&#34;</span>: <span style="color:#e6db74">&#34;ROLE_ACCOUNT_B2_ID&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;b2_key&#34;</span>: <span style="color:#e6db74">&#34;ROLE_ACCOUNT_B2_KEY&#34;</span>,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;password&#34;</span>: <span style="color:#e6db74">&#34;SUPER_SECRET_ENCRYPTION_PASSWORD_FOR_YOUR_DATA&#34;</span>
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>]
+</span></span></code></pre></div><h2 id="backing-up-a-directory-tree">Backing up a Directory Tree</h2>
 <p>Here&rsquo;s a sample job that backs up one of my directory trees. I&rsquo;m using the <strong>backups</strong> namespace that I created earlier to keep things tidy - if you want to use the default namespace instead, delete the namespace entry in the metadata section.</p>
 <p>Here&rsquo;s some things you&rsquo;ll need to customize if you base a job on this example:</p>
 <ul>
@@ -317,67 +317,66 @@
 </ul>
 <p>Once you&rsquo;ve updated the file, install the cronjob with <code>kubectl apply -f backup-example-directory-tree.yml</code>.</p>
 <p>You can download this from <a href="https://github.com/unixorn/blog-scripts/blob/master/duplicacy-examples/backup-example-directory-tree.yml">backup-example-directory-tree.yml</a> instead of hassling with copy and paste.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">batch/v1beta1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">CronJob</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">backup-exampledir</span>
-  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">backups</span>
-<span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">schedule</span>: <span style="color:#e6db74">&#34;35 */2 * * *&#34;</span>
-  <span style="color:#f92672">jobTemplate</span>:
-    <span style="color:#f92672">spec</span>:
-      <span style="color:#75715e"># Ensure only one copy of the backup is running, even if it takes</span>
-      <span style="color:#75715e"># so long to run that it is still running when the next cron slot</span>
-      <span style="color:#75715e"># occurs</span>
-      <span style="color:#f92672">concurrencyPolicy</span>: <span style="color:#ae81ff">Forbid</span>
-      <span style="color:#f92672">template</span>:
-        <span style="color:#f92672">spec</span>:
-          <span style="color:#f92672">containers</span>:
-          - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">backup-exampledir</span>
-            <span style="color:#75715e"># I&#39;m running this on the odroids in my cluster, so I&#39;m specifying</span>
-            <span style="color:#75715e"># the ARM7 build</span>
-            <span style="color:#f92672">image</span>: <span style="color:#ae81ff">unixorn/thoth-duplicacy:arm7l</span>
-            <span style="color:#75715e"># Use the x86_64 tag if you&#39;re on Intel</span>
-            <span style="color:#75715e"># image: unixorn/thoth-duplicacy:x86_64</span>
-            <span style="color:#f92672">args</span>:
-            - <span style="color:#ae81ff">/bin/sh</span>
-            - -<span style="color:#ae81ff">c</span>
-            - <span style="color:#ae81ff">/usr/local/bin/backup-cronjob</span>
-
-            <span style="color:#f92672">volumeMounts</span>:
-              - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">data-volume</span>
-                <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/data/</span>
-
-            <span style="color:#f92672">env</span>:
-                <span style="color:#75715e"># I want to restrict the number of threads used for uploads</span>
-                <span style="color:#75715e"># so that duplicacy doesn&#39;t consume all my upload bandwidth.</span>
-                <span style="color:#75715e"># I don&#39;t care if it makes my backups slower.</span>
-              - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">DUPLICACY_BACKUP_THEAD_COUNT</span>
-                <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;3&#34;</span>
-                <span style="color:#75715e"># backup-cronjob needs to know what defined storage to back up</span>
-                <span style="color:#75715e"># files to.</span>
-              - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">B2_STORAGE_NAME</span>
-                <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;b2&#34;</span>
-
-          <span style="color:#f92672">restartPolicy</span>: <span style="color:#ae81ff">OnFailure</span>
-
-          <span style="color:#75715e"># Keep it running on a chunkserver so that at least part of the</span>
-          <span style="color:#75715e"># I/O is to local disk instead of across the network. Remove if</span>
-          <span style="color:#75715e"># you don&#39;t care what node backups happen on.</span>
-          <span style="color:#f92672">nodeSelector</span>:
-            <span style="color:#f92672">odroid</span>: <span style="color:#e6db74">&#34;true&#34;</span>
-
-          <span style="color:#f92672">volumes</span>:
-            - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">data-volume</span>
-              <span style="color:#f92672">hostPath</span>:
-                <span style="color:#75715e"># This will be remapped to /data which is where duplicacy</span>
-                <span style="color:#75715e"># expects to find the data it is backing up, and the .duplicacy</span>
-                <span style="color:#75715e"># directory with its settings.</span>
-                <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/dfs/volumes/exampledir</span>
-                <span style="color:#75715e"># this field is optional</span>
-                <span style="color:#f92672">type</span>: <span style="color:#ae81ff">Directory</span>
-
-</code></pre></div><h3 id="pruning-snapshots">Pruning Snapshots</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">batch/v1beta1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">CronJob</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">backup-exampledir</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">backups</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">schedule</span>: <span style="color:#e6db74">&#34;35 */2 * * *&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobTemplate</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># Ensure only one copy of the backup is running, even if it takes</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># so long to run that it is still running when the next cron slot</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># occurs</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">concurrencyPolicy</span>: <span style="color:#ae81ff">Forbid</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">template</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">backup-exampledir</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># I&#39;m running this on the odroids in my cluster, so I&#39;m specifying</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># the ARM7 build</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">image</span>: <span style="color:#ae81ff">unixorn/thoth-duplicacy:arm7l</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Use the x86_64 tag if you&#39;re on Intel</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># image: unixorn/thoth-duplicacy:x86_64</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">args</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#ae81ff">/bin/sh</span>
+</span></span><span style="display:flex;"><span>            - -<span style="color:#ae81ff">c</span>
+</span></span><span style="display:flex;"><span>            - <span style="color:#ae81ff">/usr/local/bin/backup-cronjob</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">volumeMounts</span>:
+</span></span><span style="display:flex;"><span>              - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">data-volume</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/data/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># I want to restrict the number of threads used for uploads</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># so that duplicacy doesn&#39;t consume all my upload bandwidth.</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># I don&#39;t care if it makes my backups slower.</span>
+</span></span><span style="display:flex;"><span>              - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">DUPLICACY_BACKUP_THEAD_COUNT</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;3&#34;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># backup-cronjob needs to know what defined storage to back up</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># files to.</span>
+</span></span><span style="display:flex;"><span>              - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">B2_STORAGE_NAME</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;b2&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">restartPolicy</span>: <span style="color:#ae81ff">OnFailure</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e"># Keep it running on a chunkserver so that at least part of the</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e"># I/O is to local disk instead of across the network. Remove if</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#75715e"># you don&#39;t care what node backups happen on.</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">nodeSelector</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">odroid</span>: <span style="color:#e6db74">&#34;true&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">data-volume</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">hostPath</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># This will be remapped to /data which is where duplicacy</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># expects to find the data it is backing up, and the .duplicacy</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># directory with its settings.</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/dfs/volumes/exampledir</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># this field is optional</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">type</span>: <span style="color:#ae81ff">Directory</span>
+</span></span></code></pre></div><h3 id="pruning-snapshots">Pruning Snapshots</h3>
 <p>I don&rsquo;t want to keep snapshots forever, so I made a kubernetes cron job to clean them up.</p>
 <p>Briefly, you can specify multiple <code>-keep X:Y</code> arguments, where you keep one snapshot for every <code>X</code> days after the snapshots are older than <code>Y</code> days.</p>
 <p>For example, in the <code>purge-stale-duplicacy-snapshots.yml</code> job below, I have it set with <code>-keep 0:365 -keep 30:90 -keep 7:30 -keep 1:2</code>, which means keep <em>no</em> snapshots more than 365 days old, for snapshots older than 90 days keep one every 30 days, after fourteen days keep one every seven days, and after two days keep one every day.</p>
@@ -385,76 +384,76 @@
 <p>Before using this job definition, at a minimum you should set the namespace for the cron job, update the image if you&rsquo;re running on x86, and update the <code>-keep X:Y</code> statements to correspond with your snapshot retention policy.</p>
 <p>Once you&rsquo;ve updated the configuration, install the cron job with <code>kubectl apply -f purge-stale-duplicacy-snapshots.yml</code></p>
 <p>You can download this from <a href="https://github.com/unixorn/blog-scripts/blob/master/duplicacy-examples/purge-stale-duplicacy-snapshots.yml">purge-stale-duplicacy-snapshots.yml</a> instead of hassling with copy and paste.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">batch/v1beta1</span>
-<span style="color:#f92672">kind</span>: <span style="color:#ae81ff">CronJob</span>
-<span style="color:#f92672">metadata</span>:
-  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">purge-stale-duplicacy-snapshots</span>
-  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">backups</span>
-<span style="color:#f92672">spec</span>:
-  <span style="color:#f92672">schedule</span>: <span style="color:#e6db74">&#34;48 */3 * * *&#34;</span>
-  <span style="color:#f92672">jobTemplate</span>:
-    <span style="color:#f92672">spec</span>:
-      <span style="color:#f92672">concurrencyPolicy</span>: <span style="color:#ae81ff">Forbid</span>
-      <span style="color:#f92672">template</span>:
-        <span style="color:#f92672">spec</span>:
-          <span style="color:#f92672">containers</span>:
-          - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">purge-stale-duplicacy-snapshots</span>
-            <span style="color:#75715e"># I&#39;m running this on the odroids in my cluster, so I&#39;m specifying</span>
-            <span style="color:#75715e"># the ARM7 build</span>
-            <span style="color:#f92672">image</span>: <span style="color:#ae81ff">unixorn/thoth-duplicacy:arm7l</span>
-            <span style="color:#75715e"># Use the x86_64 tag if you&#39;re on Intel</span>
-            <span style="color:#75715e"># image: unixorn/thoth-duplicacy:x86_64</span>
-
-            <span style="color:#75715e"># Make sure we run inside /data so that duplicacy can find</span>
-            <span style="color:#75715e"># the configuration directory.</span>
-            <span style="color:#f92672">workingDir</span>: <span style="color:#ae81ff">/data</span>
-
-            <span style="color:#75715e"># Remember that the -keep arguments must be listed from longest</span>
-            <span style="color:#75715e"># time frame to shortest, otherwise the disordered ones will be</span>
-            <span style="color:#75715e"># ignored, which could mean deleting snapshots you want to keep.</span>
-            <span style="color:#75715e">#</span>
-            <span style="color:#75715e"># I&#39;m specifying to keep no snapshots more than 365 days old, keep</span>
-            <span style="color:#75715e"># a single snapshot every 30 days for snapshots older than 90 days,</span>
-            <span style="color:#75715e"># a single snapshot a week for snapshots older than 30 days, and </span>
-            <span style="color:#75715e"># finally keep only a single snapshot per day for snapshots</span>
-            <span style="color:#75715e"># older than 2 days.</span>
-            <span style="color:#75715e">#</span>
-            <span style="color:#75715e"># Also note that the duplicacy verb (prune) has to come before</span>
-            <span style="color:#75715e"># any of the settings command line options.</span>
-            <span style="color:#f92672">args</span>:
-            - <span style="color:#ae81ff">duplicacy</span>
-            - <span style="color:#ae81ff">prune</span>
-            - -<span style="color:#ae81ff">storage</span>
-            - <span style="color:#ae81ff">b2</span>
-            - -<span style="color:#ae81ff">all</span>
-            - -<span style="color:#ae81ff">keep 0:365</span>
-            - -<span style="color:#ae81ff">keep 30:90</span>
-            - -<span style="color:#ae81ff">keep 7:14</span>
-            - -<span style="color:#ae81ff">keep 1:2</span>
-            - -<span style="color:#ae81ff">exhaustive</span>
-
-            <span style="color:#f92672">volumeMounts</span>:
-              - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">data-volume</span>
-                <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/data/</span>
-
-            <span style="color:#f92672">env</span>:
-              - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">DUPLICACY_BACKUP_THEAD_COUNT</span>
-                <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;3&#34;</span>
-              - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">B2_STORAGE_NAME</span>
-                <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;b2&#34;</span>
-
-          <span style="color:#f92672">restartPolicy</span>: <span style="color:#ae81ff">OnFailure</span>
-
-          <span style="color:#f92672">volumes</span>:
-            - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">data-volume</span>
-              <span style="color:#f92672">hostPath</span>:
-                <span style="color:#75715e"># This will be remapped to /data which is where duplicacy</span>
-                <span style="color:#75715e"># expects to find the data it is backing up, and the .duplicacy</span>
-                <span style="color:#75715e"># directory with its settings.</span>
-                <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/dfs/volumes/exampledir</span>
-                <span style="color:#75715e"># this field is optional</span>
-                <span style="color:#f92672">type</span>: <span style="color:#ae81ff">Directory</span>
-</code></pre></div><h2 id="restoring-files">Restoring Files</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">apiVersion</span>: <span style="color:#ae81ff">batch/v1beta1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">kind</span>: <span style="color:#ae81ff">CronJob</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">metadata</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">purge-stale-duplicacy-snapshots</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">namespace</span>: <span style="color:#ae81ff">backups</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">schedule</span>: <span style="color:#e6db74">&#34;48 */3 * * *&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">jobTemplate</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">concurrencyPolicy</span>: <span style="color:#ae81ff">Forbid</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">template</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">spec</span>:
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">containers</span>:
+</span></span><span style="display:flex;"><span>          - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">purge-stale-duplicacy-snapshots</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># I&#39;m running this on the odroids in my cluster, so I&#39;m specifying</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># the ARM7 build</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">image</span>: <span style="color:#ae81ff">unixorn/thoth-duplicacy:arm7l</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Use the x86_64 tag if you&#39;re on Intel</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># image: unixorn/thoth-duplicacy:x86_64</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Make sure we run inside /data so that duplicacy can find</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># the configuration directory.</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">workingDir</span>: <span style="color:#ae81ff">/data</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Remember that the -keep arguments must be listed from longest</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># time frame to shortest, otherwise the disordered ones will be</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># ignored, which could mean deleting snapshots you want to keep.</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># I&#39;m specifying to keep no snapshots more than 365 days old, keep</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># a single snapshot every 30 days for snapshots older than 90 days,</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># a single snapshot a week for snapshots older than 30 days, and </span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># finally keep only a single snapshot per day for snapshots</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># older than 2 days.</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># Also note that the duplicacy verb (prune) has to come before</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># any of the settings command line options.</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">args</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#ae81ff">duplicacy</span>
+</span></span><span style="display:flex;"><span>            - <span style="color:#ae81ff">prune</span>
+</span></span><span style="display:flex;"><span>            - -<span style="color:#ae81ff">storage</span>
+</span></span><span style="display:flex;"><span>            - <span style="color:#ae81ff">b2</span>
+</span></span><span style="display:flex;"><span>            - -<span style="color:#ae81ff">all</span>
+</span></span><span style="display:flex;"><span>            - -<span style="color:#ae81ff">keep 0:365</span>
+</span></span><span style="display:flex;"><span>            - -<span style="color:#ae81ff">keep 30:90</span>
+</span></span><span style="display:flex;"><span>            - -<span style="color:#ae81ff">keep 7:14</span>
+</span></span><span style="display:flex;"><span>            - -<span style="color:#ae81ff">keep 1:2</span>
+</span></span><span style="display:flex;"><span>            - -<span style="color:#ae81ff">exhaustive</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">volumeMounts</span>:
+</span></span><span style="display:flex;"><span>              - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">data-volume</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">mountPath</span>: <span style="color:#ae81ff">/data/</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">env</span>:
+</span></span><span style="display:flex;"><span>              - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">DUPLICACY_BACKUP_THEAD_COUNT</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;3&#34;</span>
+</span></span><span style="display:flex;"><span>              - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">B2_STORAGE_NAME</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">value</span>: <span style="color:#e6db74">&#34;b2&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">restartPolicy</span>: <span style="color:#ae81ff">OnFailure</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>            - <span style="color:#f92672">name</span>: <span style="color:#ae81ff">data-volume</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#f92672">hostPath</span>:
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># This will be remapped to /data which is where duplicacy</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># expects to find the data it is backing up, and the .duplicacy</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># directory with its settings.</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">path</span>: <span style="color:#ae81ff">/dfs/volumes/exampledir</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#75715e"># this field is optional</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">type</span>: <span style="color:#ae81ff">Directory</span>
+</span></span></code></pre></div><h2 id="restoring-files">Restoring Files</h2>
 <p>Backups are useless if you can&rsquo;t restore.</p>
 <p>To restore, use <code>docker-compose</code> and the thoth-duplicacy repository. I only did my test restores with the command line, I haven&rsquo;t bothered experimenting with the GUI from <a href="https://duplicacy.com">https://duplicacy.com</a>.</p>
 <ol>

@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.89.1" />
+  <meta name="generator" content="Hugo 0.96.0" />
 
   <title>Home Assistant Printer Power Management &middot; unixorn.github.io</title>
 
@@ -249,14 +249,14 @@
 #
 # Copyright 2019, Joe Block &lt;jpb@unixorn.net&gt;
 #
-# Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);
+# Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
 #     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &quot;AS IS&quot; BASIS,
+# distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
@@ -284,81 +284,81 @@ exec docker run -t --rm eclipse-mosquitto mosquitto_pub $@
 set -o pipefail
 
 # Make all these overridable easily in your cron setup
-PRINT_Q=${PRINT_Q:-'Franklin'}
-CONTAINER=${CONTAINER:-'cupsd-server'}
-MQTT_HOST=${MQTT_HOST:-'mqtt.example.com'}
-MQTT_TOPIC=${MQTT_TOPIC:-'hass/printers/franklin'}
+PRINT_Q=${PRINT_Q:-&#39;Franklin&#39;}
+CONTAINER=${CONTAINER:-&#39;cupsd-server&#39;}
+MQTT_HOST=${MQTT_HOST:-&#39;mqtt.example.com&#39;}
+MQTT_TOPIC=${MQTT_TOPIC:-&#39;hass/printers/franklin&#39;}
 
-# We are run out of cron every minute, but I don't want it to take an
-# entire minute to turn on the power because I'm impatient and the printer
+# We are run out of cron every minute, but I don&#39;t want it to take an
+# entire minute to turn on the power because I&#39;m impatient and the printer
 # takes a bit to start up. When we print and walk downstairs, I want it
 # to have already started printing by the time I get there. If I was
-# patient, I wouldn't have bothered to write this tool :-)
+# patient, I wouldn&#39;t have bothered to write this tool :-)
 #
 # So, when we get run by cron, we check the queue CHECK_COUNT times, with
 # CHECK_DELAY seconds between each run.
-CHECK_COUNT=${CHECK_COUNT:-'11'}
-CHECK_DELAY=${CHECK_DELAY:-'5'}
+CHECK_COUNT=${CHECK_COUNT:-&#39;11&#39;}
+CHECK_DELAY=${CHECK_DELAY:-&#39;5&#39;}
 
-export PATH=&quot;$PATH:/usr/local/bin:/usr/local/sbin&quot;
+export PATH=&#34;$PATH:/usr/local/bin:/usr/local/sbin&#34;
 
 if [[ -f /tmp/printerdebug ]]; then
-  DEBUG='true'
+  DEBUG=&#39;true&#39;
 fi
 
 # Only spam syslog when DEBUG is set
 debugout() {
-  if [[ -n &quot;$DEBUG&quot; ]]; then
-    echo &quot;$@&quot;
+  if [[ -n &#34;$DEBUG&#34; ]]; then
+    echo &#34;$@&#34;
   fi
 }
 
 validate-settings(){
-  debugout &quot;CONTAINER: $CONTAINER&quot;
-  debugout &quot;PRINT_Q: $PRINT_Q&quot;
-  debugout &quot;MQTT_HOST: $MQTT_HOST&quot;
-  debugout &quot;MQTT_TOPIC: $MQTT_TOPIC&quot;
+  debugout &#34;CONTAINER: $CONTAINER&#34;
+  debugout &#34;PRINT_Q: $PRINT_Q&#34;
+  debugout &#34;MQTT_HOST: $MQTT_HOST&#34;
+  debugout &#34;MQTT_TOPIC: $MQTT_TOPIC&#34;
 
-  valid='true'
-  if [[ -z &quot;$CONTAINER&quot; ]]; then
-    echo &quot;CONTAINER is unset&quot;
-    valid='false'
+  valid=&#39;true&#39;
+  if [[ -z &#34;$CONTAINER&#34; ]]; then
+    echo &#34;CONTAINER is unset&#34;
+    valid=&#39;false&#39;
   fi
-  if [[ -z &quot;$PRINT_Q&quot; ]]; then
-    echo &quot;PRINT_Q is unset&quot;
-    valid='false'
+  if [[ -z &#34;$PRINT_Q&#34; ]]; then
+    echo &#34;PRINT_Q is unset&#34;
+    valid=&#39;false&#39;
   fi
-  if [[ -z &quot;$MQTT_HOST&quot; ]]; then
-    echo &quot;MQTT_HOST is unset&quot;
-    valid='false'
+  if [[ -z &#34;$MQTT_HOST&#34; ]]; then
+    echo &#34;MQTT_HOST is unset&#34;
+    valid=&#39;false&#39;
   fi
-  if [[ -z &quot;$MQTT_TOPIC&quot; ]]; then
-    echo &quot;MQTT_TOPIC is unset&quot;
-    valid='false'
+  if [[ -z &#34;$MQTT_TOPIC&#34; ]]; then
+    echo &#34;MQTT_TOPIC is unset&#34;
+    valid=&#39;false&#39;
   fi
-  if [[ &quot;$valid&quot; == &quot;false&quot; ]]; then
-    echo &quot;Configure your settings.&quot;
+  if [[ &#34;$valid&#34; == &#34;false&#34; ]]; then
+    echo &#34;Configure your settings.&#34;
     exit 1
   fi
 }
 
 print-job-checker() {
-  printjobs=$(docker exec -t &quot;$CONTAINER&quot; lpq -P &quot;$PRINT_Q&quot; | grep -c 'no entries')
+  printjobs=$(docker exec -t &#34;$CONTAINER&#34; lpq -P &#34;$PRINT_Q&#34; | grep -c &#39;no entries&#39;)
 
-  if [[ &quot;$printjobs&quot; == '1' ]]; then
-    debugout &quot;No jobs in print queue, notifying HA&quot;
-    c-mosquitto_pub -h &quot;$MQTT_HOST&quot; -t &quot;$MQTT_TOPIC&quot; -m OFF
+  if [[ &#34;$printjobs&#34; == &#39;1&#39; ]]; then
+    debugout &#34;No jobs in print queue, notifying HA&#34;
+    c-mosquitto_pub -h &#34;$MQTT_HOST&#34; -t &#34;$MQTT_TOPIC&#34; -m OFF
   else
-    echo &quot;jobs found in print queue, notifying HA&quot;
+    echo &#34;jobs found in print queue, notifying HA&#34;
 
-    docker exec -t &quot;$CONTAINER&quot; lpq -P &quot;$PRINT_Q&quot;
+    docker exec -t &#34;$CONTAINER&#34; lpq -P &#34;$PRINT_Q&#34;
 
     # Set the status off, then back to on, so that the HA timer restarts
-    # and HA doesn't turn off the printer in the middle of a job
-    c-mosquitto_pub -h &quot;$MQTT_HOST&quot; -t &quot;$MQTT_TOPIC&quot; -m OFF
-    c-mosquitto_pub -h &quot;$MQTT_HOST&quot; -t &quot;$MQTT_TOPIC&quot; -m ON
-    debugout &quot;re-enabling printer $PRINT_Q...&quot;
-    docker exec -t &quot;$CONTAINER&quot; lpadmin -p &quot;$PRINT_Q&quot; -o printer-error-policy=retry-current-job
+    # and HA doesn&#39;t turn off the printer in the middle of a job
+    c-mosquitto_pub -h &#34;$MQTT_HOST&#34; -t &#34;$MQTT_TOPIC&#34; -m OFF
+    c-mosquitto_pub -h &#34;$MQTT_HOST&#34; -t &#34;$MQTT_TOPIC&#34; -m ON
+    debugout &#34;re-enabling printer $PRINT_Q...&#34;
+    docker exec -t &#34;$CONTAINER&#34; lpadmin -p &#34;$PRINT_Q&#34; -o printer-error-policy=retry-current-job
   fi
 }
 
@@ -370,35 +370,35 @@ validate-settings
 for i in $(seq $CHECK_COUNT)
 do
   print-job-checker
-  debugout &quot;waiting...&quot;
+  debugout &#34;waiting...&#34;
   sleep $CHECK_DELAY
 done
 </code></pre><h3 id="home-assistant-setup">Home Assistant Setup</h3>
 <p>I configured my HA to watch a MQTT topic as a binary sensor. You can download this snippet <a href="https://github.com/unixorn/blog-scripts/blob/master/cupsd-hass/printer-binary-sensor.yaml">here</a>.</p>
 <pre tabindex="0"><code>binary_sensor:
   - platform: mqtt
-    name: &quot;Franklin Print Queue&quot;
-    payload_on: &quot;ON&quot;
-    state_topic: &quot;hass/printers/franklin&quot;
+    name: &#34;Franklin Print Queue&#34;
+    payload_on: &#34;ON&#34;
+    state_topic: &#34;hass/printers/franklin&#34;
 </code></pre><p>Now, when the watcher writes <strong>ON</strong> and <strong>OFF</strong> to the <code>hass/printers/franklin</code> queue, that binary sensor will change status and we can trigger an automation for it.</p>
 <p>This automation will turn the printer power on every time the binary sensor is turned on, and turn it off five minutes after the last time the binary sensor switched from <strong>ON</strong> to <strong>OFF</strong>.</p>
 <p>The outlet my printer is plugged into is controlled by HA and rather unimaginatively named <code>switch.printerpower</code>.</p>
 <p>Add this stanza to your automations.yaml file. Download it <a href="https://github.com/unixorn/blog-scripts/blob/master/cupsd-hass/printer-automations.yaml">here</a>.</p>
 <pre tabindex="0"><code># Franklin power is controlled by MQTT
-  - alias: 'Turn on Franklin when there are jobs in the queue'
+  - alias: &#39;Turn on Franklin when there are jobs in the queue&#39;
     trigger:
       platform: state
       entity_id: binary_sensor.franklin_print_queue
-      to: 'on'
+      to: &#39;on&#39;
     action:
       service: homeassistant.turn_on
       entity_id: switch.printerpower
 
-  - alias: 'Turn off printer 5 minutes after print queue drains'
+  - alias: &#39;Turn off printer 5 minutes after print queue drains&#39;
     trigger:
       platform: state
       entity_id: binary_sensor.franklin_print_queue
-      to: 'off'
+      to: &#39;off&#39;
       for:
         minutes: 5
     action:

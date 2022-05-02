@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="In the beginning, there was bare metal">
-  <meta name="generator" content="Hugo 0.89.1" />
+  <meta name="generator" content="Hugo 0.96.0" />
 
   <title>Getting an ARM kubernetes cluster up and running &middot; unixorn.github.io</title>
 
@@ -254,12 +254,12 @@
 <p>Now we&rsquo;re ready to install Docker and Kubernetes.</p>
 <h2 id="install-docker-ce">Install docker-ce</h2>
 <h3 id="install-the-docker-ce-pre-requisites">Install the docker-ce pre-requisites</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    apt-get install <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>         apt-transport-https <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>         ca-certificates <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>         curl <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>         gnupg2 <span style="color:#ae81ff">\
-</span><span style="color:#ae81ff"></span>         software-properties-common</code></pre></div>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    apt-get install <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>         apt-transport-https <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>         ca-certificates <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>         curl <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>         gnupg2 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>         software-properties-common</span></span></code></pre></div>
 <h2 id="partition--format-the-drive">Partition &amp; Format the drive</h2>
 <h3 id="install-pre-requisites">Install pre-requisites</h3>
 <p>Check what&rsquo;s on your drive with <code>lshw -C disk</code></p>
@@ -314,7 +314,7 @@ dns-nameservers 8.8.8.8 8.8.4.4
 <p><code>docker run hello-world</code></p>
 <p>You should see something similar to this:</p>
 <pre tabindex="0"><code>root@rodan:~# docker run hello-world
-Unable to find image 'hello-world:latest' locally
+Unable to find image &#39;hello-world:latest&#39; locally
 latest: Pulling from library/hello-world
 c1eda109e4da: Pull complete
 Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586f744621577a99efb77324b0fe535
@@ -325,7 +325,7 @@ This message shows that your installation appears to be working correctly.
 
 To generate this message, Docker took the following steps:
  1. The Docker client contacted the Docker daemon.
- 2. The Docker daemon pulled the &quot;hello-world&quot; image from the Docker Hub.
+ 2. The Docker daemon pulled the &#34;hello-world&#34; image from the Docker Hub.
     (arm32v7)
  3. The Docker daemon created a new container from that image which runs the
     executable that produces the output you are currently reading.

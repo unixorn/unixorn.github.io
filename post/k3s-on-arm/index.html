@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.89.1" />
+  <meta name="generator" content="Hugo 0.96.0" />
 
   <title>Trying K3s on ARM, Part 1 &middot; unixorn.github.io</title>
 
@@ -246,7 +246,7 @@ sudo chmod g+r /etc/rancher/k3s/k3s.yaml
 <h3 id="installing-the-workers">Installing the workers</h3>
 <p>Copy <code>/var/lib/rancher/k3s/server/node-token</code> from the server to your worker.</p>
 <p>Run</p>
-<pre tabindex="0"><code>./install-k3s.sh --agent --server https://master-server:6443 --kubelet-arg=&quot;address=0.0.0.0&quot; --token &quot;$(cat node-token)&quot; --docker
+<pre tabindex="0"><code>./install-k3s.sh --agent --server https://master-server:6443 --kubelet-arg=&#34;address=0.0.0.0&#34; --token &#34;$(cat node-token)&#34; --docker
 </code></pre><p>Remove the <code>--docker</code> if you want to use the <code>containerd</code> bundled into k3s - I wanted to be able to also run apps in <code>docker</code> on my nodes and didn&rsquo;t want it using extra RAM for another <code>containerd</code>.</p>
 <p>If you&rsquo;re using a distributed filesystem like I am, add</p>
 <p><code>After=network-online.target cluster-mfsmount.service docker.service</code></p>
@@ -287,7 +287,7 @@ metadata:
   name: traefik-ingress-controller
 rules:
   - apiGroups:
-      - &quot;&quot;
+      - &#34;&#34;
     resources:
       - services
       - endpoints
@@ -325,44 +325,43 @@ metadata:
   namespace: kube-system
 data:
   traefik.toml: |
-    defaultEntryPoints = [&quot;http&quot;,&quot;https&quot;]
+    defaultEntryPoints = [&#34;http&#34;,&#34;https&#34;]
     debug = false
-    logLevel = &quot;INFO&quot;
+    logLevel = &#34;INFO&#34;
     
     # Do not verify backend certificates (use https backends)
     InsecureSkipVerify = true
 
     [entryPoints]
       [entryPoints.http]
-      address = &quot;:80&quot;
+      address = &#34;:80&#34;
       compress = true
       [entryPoints.https]
-      address = &quot;:443&quot;
+      address = &#34;:443&#34;
         [entryPoints.https.tls]
 
     #Config to redirect http to https
     #[entryPoints]
     #  [entryPoints.http]
-    #  address = &quot;:80&quot;
+    #  address = &#34;:80&#34;
     #  compress = true
     #    [entryPoints.http.redirect]
-    #    entryPoint = &quot;https&quot;
+    #    entryPoint = &#34;https&#34;
     #  [entryPoints.https]
-    #  address = &quot;:443&quot;
+    #  address = &#34;:443&#34;
     #    [entryPoints.https.tls]
 
     [web]
-      address = &quot;:8080&quot;
+      address = &#34;:8080&#34;
 
     [kubernetes]
 
     [metrics]
       [metrics.prometheus]
       buckets=[0.1,0.3,1.2,5.0]
-      entryPoint = &quot;traefik&quot;
+      entryPoint = &#34;traefik&#34;
     [ping]
-    entryPoint = &quot;http&quot;
-
+    entryPoint = &#34;http&#34;
 </code></pre><h4 id="traefik-deploymentyamlhttpsgithubcomunixornblog-scriptsblobmasterarm-k3straefik-deploymentyaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-deployment.yaml">traefik-deployment.yaml</a></h4>
 <pre tabindex="0"><code>---
 apiVersion: v1
@@ -472,11 +471,11 @@ spec:
           serviceName: traefik-ingress-service
           servicePort: admin
 </code></pre><p>You&rsquo;ll want to change the <strong>loadBalancerIP</strong> entry and the <strong>host</strong> entry in the spec section to match your network and DNS configurations.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#66d9ef">for</span> traefik_yaml in traefik-rbac.yaml traefik-configmap.yaml traefik-deployment.yaml traefik-service.yaml
-<span style="color:#66d9ef">do</span>
-  kubectl apply -f $traefik_yaml
-<span style="color:#66d9ef">done</span>
-</code></pre></div><h2 id="updates">Updates</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> traefik_yaml in traefik-rbac.yaml traefik-configmap.yaml traefik-deployment.yaml traefik-service.yaml
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  kubectl apply -f $traefik_yaml
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><h2 id="updates">Updates</h2>
 <ul>
 <li>Updated URL for metallb install yaml file to use latest instead of pinning a specific version. k3s is actively being updated and the old version no longer worked.</li>
 </ul>

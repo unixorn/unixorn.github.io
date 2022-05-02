@@ -7,7 +7,52 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2021, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 15 Jan 2022 07:32:37 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 May 2022 18:06:38 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>3d_printing</title>
+      <link>https://unixorn.github.io/tags/3d_printing/</link>
+      <pubDate>Sun, 01 May 2022 18:06:38 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/3d_printing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>autodesk</title>
+      <link>https://unixorn.github.io/tags/autodesk/</link>
+      <pubDate>Sun, 01 May 2022 18:06:38 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/autodesk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>autodesk fusion 360</title>
+      <link>https://unixorn.github.io/tags/autodesk-fusion-360/</link>
+      <pubDate>Sun, 01 May 2022 18:06:38 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/autodesk-fusion-360/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>macos</title>
+      <link>https://unixorn.github.io/tags/macos/</link>
+      <pubDate>Sun, 01 May 2022 18:06:38 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/macos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
+      <link>https://unixorn.github.io/tags/tech/</link>
+      <pubDate>Sun, 01 May 2022 18:06:38 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/tech/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>tech zfs raid server</title>
       <link>https://unixorn.github.io/tags/tech-zfs-raid-server/</link>
@@ -50,15 +95,6 @@
       <pubDate>Tue, 07 Dec 2021 11:13:39 -0700</pubDate>
       
       <guid>https://unixorn.github.io/tags/sysadvent/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tech</title>
-      <link>https://unixorn.github.io/tags/tech/</link>
-      <pubDate>Tue, 07 Dec 2021 11:13:39 -0700</pubDate>
-      
-      <guid>https://unixorn.github.io/tags/tech/</guid>
       <description></description>
     </item>
     
@@ -419,15 +455,6 @@
       <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
       
       <guid>https://unixorn.github.io/tags/moosefs/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>macos</title>
-      <link>https://unixorn.github.io/tags/macos/</link>
-      <pubDate>Wed, 08 May 2019 09:11:31 -0600</pubDate>
-      
-      <guid>https://unixorn.github.io/tags/macos/</guid>
       <description></description>
     </item>
     
