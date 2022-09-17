@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.101.0" />
 
-  <title>Add Plex to Home Assistant &middot; unixorn.github.io</title>
+  <title>pagerduty &middot; unixorn.github.io</title>
 
     
 
@@ -43,6 +42,9 @@
   <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
  
+  
+  <link rel="alternate" type="application/rss+xml" title="unixorn.github.io"
+    href='https://unixorn.github.io/tags/pagerduty/index.xml' />
   
 
   
@@ -119,6 +121,11 @@
   <div class="pure-menu social">
   <ul class="pure-menu-list">
 
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href='https://unixorn.github.io/tags/pagerduty/index.xml'><i
+          class="fas fa-rss fa-fw"></i>RSS</a>
+    </li>
     
 
     
@@ -224,44 +231,61 @@
 
 
 <div class="header">
-  <h1>Add Plex to Home Assistant</h1>
-  <h2></h2>
+  <h1>pagerduty</h1>
 </div>
+
 <div class="content">
-  <p>Adding the Plex integration to Home Assistant is pretty straightforward with the exception of finding your Plex token.</p>
-<h2 id="find-your-plex-token">Find Your Plex token:</h2>
-<ol>
-<li>Sign into your <a href="https://plex.tv">Plex.tv</a> account</li>
-<li>Browse to one of the media files (TV episode, movie) on your connected server. You&rsquo;ll need a Plex pass for this.</li>
-<li>Select <strong>Get info</strong></li>
-<li>Click <strong>View XML</strong></li>
-<li><em>Ignore the XML.</em> Look in the URL to the XML page - you&rsquo;ll see <code>Plex-Token\=XYZZY</code>. That&rsquo;s the token you&rsquo;ll need.</li>
-</ol>
-<h2 id="set-up-the-plex-home-assistant-integration">Set up the Plex Home Assistant Integration</h2>
-<p>Once you have the token,</p>
-<ol>
-<li>Sign into your Home Assistant</li>
-<li>Go to <strong>Configuration -&gt; Integrations</strong></li>
-<li>Pick <strong>Add</strong>, and select Plex.</li>
-<li>Pick the manual setup option</li>
-<li>Enter your Plex server&rsquo;s address and the token.</li>
-</ol>
+  
+    <article>
+  <header>
+    <h2><a href="https://unixorn.github.io/post/use-pagerduty-with-home-assistant/">Use Pagerduty With Home Assistant</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>Sat, Sep 17, 2022 at 15:38</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/tech">tech</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/hass">hass</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/homeassistant">homeassistant</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/pagerduty">pagerduty</a>
+    
+  </div>
+  
+  
 
 </div>
 
-<script type="text/javascript" src="https://unixorn.github.io/js/utterances.js">
-  repo="unixorn/unixorn.github.io"
-  issue-term="title"
-  theme="github-light"
-  crossorigin="anonymous"
-  async>
-</script>
+  </header>
 
+  <p>
+  <p>I wanted my Home Assistant to be able to send me alerts when Bad Things are detected (like water on my basement floor). I&rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal PagerDuty account and connect it to my Home Assistant.</p>
+  </p>
 
-<center>
-  <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#000000 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/8UuWLA67y"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
-</center>
+  
+  <footer>
+    <a href="https://unixorn.github.io/post/use-pagerduty-with-home-assistant/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
 
+  
+</div>
 
 </div>
 </div>
@@ -288,11 +312,7 @@
 
 
 
-<script src="https://unixorn.github.io/js/math-code.js"></script>
-  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-  
 
 
 </body>
 </html>
-

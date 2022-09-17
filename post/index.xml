@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2021, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 01 May 2022 18:06:38 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 17 Sep 2022 15:38:01 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use Pagerduty With Home Assistant</title>
+      <link>https://unixorn.github.io/post/use-pagerduty-with-home-assistant/</link>
+      <pubDate>Sat, 17 Sep 2022 15:38:01 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/post/use-pagerduty-with-home-assistant/</guid>
+      <description>&lt;p&gt;I wanted my Home Assistant to be able to send me alerts when Bad Things are detected (like water on my basement floor). I&amp;rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal PagerDuty account and connect it to my Home Assistant.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Fixing Autodesk Fusion 360 First Time Launch on macOS Problems</title>
       <link>https://unixorn.github.io/post/autodesk-fusion-signup/</link>
@@ -35,7 +44,7 @@ I got lucky when I bought my last batch of Reds, they were all CMR, but it was p
       
       <guid>https://unixorn.github.io/post/sysadvent-2021-article/</guid>
       <description>I wrote two articles in sysadvent 2021
- Baking Multi-Architecture Docker Images Setting up k3s in your home lab  </description>
+Baking Multi-Architecture Docker Images Setting up k3s in your home lab </description>
     </item>
     
     <item>
@@ -95,7 +104,7 @@ TL;DR - It is super easy to send SMS messages via Twilio SMS with curl.</descrip
       <description>Biden won! Awesome! The fight isn&amp;rsquo;t over though.
 Time to donate to the Georgia Runoff Senate Elections. I&amp;rsquo;ve set up identical fundraisers, this time for all the different Star Trek Series.
 Donate to your favorite series link and we&amp;rsquo;ll see which series has the most fan support.
- TOS - https://secure.actblue.com/donate/ga-tos TNG - https://secure.actblue.com/donate/ga-tng DS9 - https://secure.actblue.com/donate/ga-ds9 Enterprise - https://secure.actblue.com/donate/ga-enterprise Voyager - https://secure.actblue.com/donate/ga-voyager Discovery - https://secure.actblue.com/donate/ga-discovery Lower Decks - https://secure.actblue.com/donate/ga-lowerdecks Picard - https://secure.</description>
+TOS - https://secure.actblue.com/donate/ga-tos TNG - https://secure.actblue.com/donate/ga-tng DS9 - https://secure.actblue.com/donate/ga-ds9 Enterprise - https://secure.actblue.com/donate/ga-enterprise Voyager - https://secure.actblue.com/donate/ga-voyager Discovery - https://secure.actblue.com/donate/ga-discovery Lower Decks - https://secure.actblue.com/donate/ga-lowerdecks Picard - https://secure.</description>
     </item>
     
     <item>
@@ -105,7 +114,7 @@ Donate to your favorite series link and we&amp;rsquo;ll see which series has the
       
       <guid>https://unixorn.github.io/post/add-plex-to-hass/</guid>
       <description>Adding the Plex integration to Home Assistant is pretty straightforward with the exception of finding your Plex token.
-Find Your Plex token:  Sign into your Plex.tv account Browse to one of the media files (TV episode, movie) on your connected server. You&amp;rsquo;ll need a Plex pass for this. Select Get info Click View XML Ignore the XML. Look in the URL to the XML page - you&amp;rsquo;ll see Plex-Token\=XYZZY. That&amp;rsquo;s the token you&amp;rsquo;ll need.</description>
+Find Your Plex token: Sign into your Plex.tv account Browse to one of the media files (TV episode, movie) on your connected server. You&amp;rsquo;ll need a Plex pass for this. Select Get info Click View XML Ignore the XML. Look in the URL to the XML page - you&amp;rsquo;ll see Plex-Token\=XYZZY. That&amp;rsquo;s the token you&amp;rsquo;ll need.</description>
     </item>
     
     <item>
