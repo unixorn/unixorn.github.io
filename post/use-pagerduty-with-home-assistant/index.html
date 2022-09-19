@@ -228,20 +228,20 @@
   <h2></h2>
 </div>
 <div class="content">
-  <p>I wanted my Home Assistant to be able to send me alerts when Bad Things are detected (like water on my basement floor). I&rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal PagerDuty account and connect it to my Home Assistant.</p>
+  <p>I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I&rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal PagerDuty account and connect it to my Home Assistant.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ol>
-<li>A working Home Assistant installation. Setting this up is out of scope for this post - presumably you&rsquo;re reading this because you already have Home Assistant running and want to enable it to send you notifications</li>
+<li>A working Home Assistant installation. Initial set up of Home Assistant is out of scope for this post - presumably you&rsquo;re reading this because you already have Home Assistant running and want to enable it to send you notifications</li>
 <li>A <a href="https://www.pagerduty.com">PagerDuty</a> account. They have a free tier that is probably more than adequate for most people&rsquo;s needs.</li>
 </ol>
 <h2 id="setup">Setup</h2>
 <h3 id="pagerduty">PagerDuty</h3>
-<p>Create your PagerDuty account at <a href="https://www.pagerduty.com">PagerDuty</a> and create a new service. I unimaginatively named mine &ldquo;Home Assistant&rdquo;. You&rsquo;ll also need to configure your notification settings in your profile. If you don&rsquo;t have their app installed, you can install it now, but PagerDuty can send you text messages and you can control it that way if you prefer.</p>
+<p>Create your PagerDuty account at <a href="https://www.pagerduty.com">PagerDuty.com</a> and create a new service. I unimaginatively named mine &ldquo;Home Assistant&rdquo;. You&rsquo;ll also need to configure your notification settings in your profile. If you don&rsquo;t have their app installed, you can install it now, but PagerDuty can send you text messages and you can control it that way if you prefer.</p>
 <p>In the new service, click the <strong>Integrations</strong> tab. We&rsquo;re going to want to use v2 of the Events API to create alerts, so click on the down arrow to the right of <strong>Events API V2</strong> to reveal details. We&rsquo;re going to need both the <code>Integration Key</code> and the <code>Integration URL (Alert Events)</code>, so copy them into a scratch file for later.</p>
 <h3 id="home-assistant">Home Assistant</h3>
 <p>Now we&rsquo;ll connect PagerDuty to Home Assistant. I didn&rsquo;t want to install a helper script into my HA system, and conveniently enough you can create alerts using PagerDuty&rsquo;s API directly, so we&rsquo;re going to create a <code>rest_command</code> to make the API calls for us.</p>
 <p>To keep our <code>configuration.yaml</code> easier to share, we want to use <code>!secret</code>, so first, edit your <code>secrets.yaml</code> file and add a <code>pd_integration_key</code> entry with the integration key you copied from your service&rsquo;s <strong>Integrations</strong> tab.</p>
-<p>Annoyingly, you can&rsquo;t directly embed a <code>!secret xyz</code> call inside the <code>rest_command</code>&rsquo;s payload, so we&rsquo;re going work around it by creating a sensor (where we <em>can</em> use <code>!secret</code>) and then read that value into the <code>rest_command</code>&rsquo;s payload template. This is ugly but it works.</p>
+<p>Annoyingly, you can&rsquo;t directly embed a <code>!secret xyz</code> call inside the <code>rest_command</code>&rsquo;s payload, so we&rsquo;re going to have to work around it by creating a sensor (where we <em>can</em> use <code>!secret</code>) and then read that value into the <code>rest_command</code>&rsquo;s payload template. This is ugly but it works.</p>
 <p>Add a <code>pd_routing_key</code> sensor to your <code>configuration.yaml</code> file</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">sensor</span>:
 </span></span><span style="display:flex;"><span>  - <span style="color:#f92672">platform</span>: <span style="color:#ae81ff">template</span>
@@ -287,7 +287,7 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">source</span>: <span style="color:#ae81ff">Test Source</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">custom_title</span>: <span style="color:#ae81ff">Issue</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">custom_details</span>: <span style="color:#ae81ff">Test alert to PagerDuty</span>
-</span></span></code></pre></div><p>Click the <code>CALL SERVICE</code> button. You should get an alert almost immediately, depending on your personal notification settings.</p>
+</span></span></code></pre></div><p>Click the <code>CALL SERVICE</code> button. You should get an alert almost immediately, depending on your personal notification settings. Once that&rsquo;s working, you can use your new <code>pagerduty_message</code> service in your scripts and automations.</p>
 </div>
 
 <script type="text/javascript" src="https://unixorn.github.io/js/utterances.js">
