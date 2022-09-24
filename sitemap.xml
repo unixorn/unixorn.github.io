@@ -2,6 +2,9 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/tags/alerting/</loc>
+    <lastmod>2022-09-17T15:38:01-06:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/tags/hass/</loc>
     <lastmod>2022-09-17T15:38:01-06:00</lastmod>
   </url><url>
@@ -9,6 +12,9 @@
     <lastmod>2022-09-17T15:38:01-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/home-assistant/</loc>
+    <lastmod>2022-09-17T15:38:01-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/monitoring/</loc>
     <lastmod>2022-09-17T15:38:01-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/pagerduty/</loc>

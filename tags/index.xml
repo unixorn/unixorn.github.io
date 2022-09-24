@@ -9,6 +9,15 @@
     <copyright>Copyright 2019-2021, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sat, 17 Sep 2022 15:38:01 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>alerting</title>
+      <link>https://unixorn.github.io/tags/alerting/</link>
+      <pubDate>Sat, 17 Sep 2022 15:38:01 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/alerting/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>hass</title>
       <link>https://unixorn.github.io/tags/hass/</link>
       <pubDate>Sat, 17 Sep 2022 15:38:01 -0600</pubDate>
@@ -32,6 +41,15 @@
       <pubDate>Sat, 17 Sep 2022 15:38:01 -0600</pubDate>
       
       <guid>https://unixorn.github.io/tags/home-assistant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>monitoring</title>
+      <link>https://unixorn.github.io/tags/monitoring/</link>
+      <pubDate>Sat, 17 Sep 2022 15:38:01 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/monitoring/</guid>
       <description></description>
     </item>
     

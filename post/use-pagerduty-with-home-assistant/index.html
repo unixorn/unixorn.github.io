@@ -229,6 +229,8 @@
 </div>
 <div class="content">
   <p>I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I&rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal PagerDuty account and connect it to my Home Assistant.</p>
+<p>Why PagerDuty and not Twilio SMS? When I was working at Twilio I wrote the blog post on their site about using their API with Home Assistant. The down side of using Twilio to notify is that their API doesn&rsquo;t have a way to mark messages as potential duplicates, so if you have an automation that triggers for some potentially flappy state like motion in the yard or, you might get 20 messages for the same problem, which is not awesome in the middle of the night.</p>
+<p>With PagerDuty, all you have to do is specify a <code>dedupe_key</code> and it will automatically ignore new alerts on that key until you resolve the incident, without you having to add any complicated logic to your automations.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ol>
 <li>A working Home Assistant installation. Initial set up of Home Assistant is out of scope for this post - presumably you&rsquo;re reading this because you already have Home Assistant running and want to enable it to send you notifications</li>
@@ -269,12 +271,12 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           }
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        }
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      }</span>      
-</span></span></code></pre></div><p>Confirm that you don&rsquo;t have any typos and your configuration is valid by going to http://yourHA:8123/developer-tools/yaml and clicking <code>CHECK CONFIGURATION</code>. If it&rsquo;s valid, you can safely restart HA.</p>
+</span></span></code></pre></div><p>Confirm that you don&rsquo;t have any typos and your configuration is valid by going to <a href="http://yourHA:8123/developer-tools/yaml">http://yourHA:8123/developer-tools/yaml</a> and clicking <code>CHECK CONFIGURATION</code>. If it reports it valid, you can safely restart HA.</p>
 <h2 id="testing">Testing</h2>
 <p>Click on the <code>services</code> tab on your HA&rsquo;s developer tools page. Select <code>RESTful Command: pagerduty_message</code>, and then paste the following snippet in.</p>
 <ul>
 <li><code>message</code> value is the subject of the alert.</li>
-<li><code>dedup_key</code> is used to prevent you from getting spammed with multiple alerts for the same problem. Until you mark an incident as resolved, any new alerts the same <code>dedup_key</code> value will not generate new alerts. I have a separate <code>dedup_key</code> for each of my water sensor automations so that if water is detected under one of my sinks, I&rsquo;ll only get one alert per sink instead of getting a new alert every five minutes for the same problem.</li>
+<li><code>dedup_key</code> is used to prevent you from getting spammed with multiple alerts for the same problem. Until you mark an incident as resolved, any new alerts with the same <code>dedup_key</code> value will not generate new alerts. I have a different unique <code>dedup_key</code> for each of my water sensor automations so that if water is detected under one of my sinks, I&rsquo;ll only get one alert per sink instead of getting a new alert every five minutes for the same problem.</li>
 <li><code>severity</code>- must be <code>critical</code>, <code>error</code>, <code>warning</code>, or <code>info</code></li>
 <li><code>custom_title</code> - This will be displayed in the <strong>Details</strong> section of alerts.</li>
 <li><code>custom_details</code> - This will be in the <strong>Details</strong> section of alerts.</li>
