@@ -228,9 +228,9 @@
   <h2></h2>
 </div>
 <div class="content">
-  <p>I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I&rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal PagerDuty account and connect it to my Home Assistant.</p>
-<p>Why PagerDuty and not Twilio SMS? When I was working at Twilio I wrote the blog post on their site about using their API with Home Assistant. The down side of using Twilio to notify is that their API doesn&rsquo;t have a way to mark messages as potential duplicates, so if you have an automation that triggers for some potentially flappy state like motion in the yard you might get 20 messages for the same problem, which is not awesome in the middle of the night.</p>
-<p>With PagerDuty, all you have to do is specify a <code>dedupe_key</code> and it will automatically ignore new alerts on that key until you resolve the incident, without you having to add any complicated logic to your automations.</p>
+  <p>I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I&rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal <a href="https://www.pagerduty.com/">PagerDuty</a> account and connect it to my Home Assistant.</p>
+<p>Why PagerDuty and not Twilio SMS? When I was working at Twilio I wrote the blog post on their site about using their API with Home Assistant. The down side of using Twilio to notify is that their API doesn&rsquo;t have a simple way to mark messages as potential duplicates, so if you have an automation that triggers for some potentially flappy state like motion in the yard you might get 20 messages for the same problem, which is not awesome in the middle of the night.</p>
+<p>With PagerDuty, you can specify a <code>dedupe_key</code> and it will automatically ignore new alerts on that key until you resolve the incident, without you having to add any complicated logic to your automations or notify service.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ol>
 <li>A working Home Assistant installation. Initial set up of Home Assistant is out of scope for this post - presumably you&rsquo;re reading this because you already have Home Assistant running and want to enable it to send you notifications</li>
