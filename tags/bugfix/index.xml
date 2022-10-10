@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bugfix on unixorn.github.io</title>
+    <link>https://unixorn.github.io/tags/bugfix/</link>
+    <description>Recent content in bugfix on unixorn.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019-2021, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 06 Oct 2022 21:20:45 -1000</lastBuildDate><atom:link href="https://unixorn.github.io/tags/bugfix/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fix Securifi Peanut issue with zigbee2mqtt</title>
+      <link>https://unixorn.github.io/post/securifi-peanut-gotcha/</link>
+      <pubDate>Thu, 06 Oct 2022 21:20:45 -1000</pubDate>
+      
+      <guid>https://unixorn.github.io/post/securifi-peanut-gotcha/</guid>
+      <description>&lt;h2 id=&#34;securifi-peanut-plugs-have-issues-with-zigbee2mqtt&#34;&gt;Securifi Peanut plugs have issues with zigbee2mqtt&lt;/h2&gt;
+&lt;p&gt;I have several Securifi &lt;a href=&#34;https://smile.amazon.com/gp/product/B00TC9NC82&#34;&gt;Peanut&lt;/a&gt; Zigbee switches. Overall, they&amp;rsquo;re nice little smart plugs and make good Zigbee routers to strengthen your Zigbee mesh, but they have one annoying issue - &lt;a href=&#34;https://zigbee2mqtt.io&#34;&gt;zigbee2mqtt&lt;/a&gt; doesn&amp;rsquo;t recognize them perfectly, though there&amp;rsquo;s a simple fix that I&amp;rsquo;m going to document here.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
