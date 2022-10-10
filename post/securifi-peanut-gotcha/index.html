@@ -228,7 +228,7 @@
   <h2></h2>
 </div>
 <div class="content">
-  <h2 id="securifi-peanut-plugs-have-issues-with-zigbee2mqtt">Securifi Peanut plugs have issues with zigbee2mqtt</h2>
+  <p>Securifi Peanut plugs have issues with zigbee2mqtt.</p>
 <p>I have several Securifi <a href="https://smile.amazon.com/gp/product/B00TC9NC82">Peanut</a> Zigbee switches. Overall, they&rsquo;re nice little smart plugs and make good Zigbee routers to strengthen your Zigbee mesh, but they have one annoying issue - <a href="https://zigbee2mqtt.io">zigbee2mqtt</a> doesn&rsquo;t recognize them perfectly, though there&rsquo;s a simple fix that I&rsquo;m going to document here.</p>
 <h2 id="adding-peanut-smart-plugs-to-zigbee2mqtt">Adding Peanut Smart Plugs to zigbee2mqtt</h2>
 <p>The Peanut Smart Plug does not provide a <code>modelId</code> in its database entry, so <code>zigbee2mqtt</code> can&rsquo;t identify it to know how to handle it. Fortunately, it&rsquo;s an easy fix, though you&rsquo;ll have to do it every time you add a new Peanut plug.</p>
