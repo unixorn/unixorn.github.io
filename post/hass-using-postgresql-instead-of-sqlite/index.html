@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.101.0" />
+
+  <title>Switch Home Assistant to Use PostgreSQL Instead of SQLite &middot; unixorn.github.io</title>
+
+    
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://unixorn.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://unixorn.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://unixorn.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" type="text/css">
+
+  
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/androidstudio.min.css">
+  <script async src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://unixorn.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://unixorn.github.io/">unixorn</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/tags"><i class="sidebar-button-icon fa fa-lg fa-tags"></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/projects/"><i class='fa fa-list fa-fw'></i>Projects</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/contact/"><i class='fa fa-envelope fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/curiousbiped" rel="me" target="_blank"><i class="fab fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/apeseekingknowledge" rel="me" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/unixorn" rel="me" target="_blank"><i class="fab fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>Copyright 2019-2022, Joe Block. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Switch Home Assistant to Use PostgreSQL Instead of SQLite</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  <p>I wanted to switch my new Home Assistant (HA) installation to write its history data to <a href="https://www.postgresql.org/">PostgreSQL</a> instead of SQLite for a variety of reasons. Here&rsquo;s how I did it.</p>
+<p>Here&rsquo;s why I decided to switch:</p>
+<ul>
+<li><strong>Resilience</strong>. If you&rsquo;re running Home Assistant on a Raspberry Pi&rsquo;s SD card, the constant churn of history updates will eventually destroy the card. The more entities you have, the faster HA will grind your SD card to failure. Writing all that to another server that is writing to a real SSD or spinning disk eliminates that problem.</li>
+<li><strong>Convenience</strong>. I can back up the postgres database without having to stop HA. I don&rsquo;t even have to run the backup on the HA server.</li>
+<li><strong>Speed</strong>. Using a real database will speed up history display, especially once you have a large number of entities.</li>
+</ul>
+<h2 id="pre-requisites">Pre-requisites</h2>
+<p>Note - I did this on a fresh server with no history I wanted to preserve. <strong>What I&rsquo;m describing here will discard all your old history data</strong>. If you <em>do</em> have history you want to preserve, there&rsquo;s a forum post <a href="https://community.home-assistant.io/t/migrate-to-postgresql/2832/3">here</a> that explains how to load your history from SQLite and into <code>postgres</code> with <code>pgloader</code>.</p>
+<p>A PostgreSQL server. I recommend that you configure your router to assign your server a static IP address so when you reboot it it doesn&rsquo;t get a different IP from the DHCP pool and force you to update your HA server&rsquo;s <code>configuration.yml</code>.</p>
+<p>Here&rsquo;s an example <code>docker-compose.yaml</code> file that will start postgres for you. Rather than use a docker volume and then have to save and restore that, this configuration will mount <code>/path/to/postgres/data</code> into the container so you can safely destroy and recreate your docker environment without having to restore your database from a backup.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">postgres</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">postgres</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">postgres:14.5</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">restart</span>: <span style="color:#ae81ff">always</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">network_mode</span>: <span style="color:#ae81ff">host</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;5234:5234&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">environment</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">POSTGRES_USER</span>: <span style="color:#ae81ff">postgresadmin</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">POSTGRES_PASSWORD</span>: <span style="color:#ae81ff">&lt;redacted&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/path/to/postgres/data:/var/lib/postgresql/data</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">/etc/localtime:/etc/localtime:ro</span>
+</span></span></code></pre></div><p>The first time you run this image, it&rsquo;ll generate the database files, create a user with admin privileges named <code>POSTGRES_USER</code> with password <code>POSTGRES_PASSWORD</code>. Now that it&rsquo;s running, we should create a user just for Home Assistant.</p>
+<p>I set this up on one of my Odroid HC2s so I could keep the data directory on the hard drive there for ease of backup.</p>
+<p>Now that the postgres server is running, we&rsquo;re going to use <code>psql</code> (the postgres command line client) to set up a Home Assistant user and database. You can install <code>psql</code> on your machine, but I prefer to use a container.</p>
+<p>Run <code>docker run -it --rm postgres:14.5 bash</code> to get a shell running inside a postgres container. It&rsquo;ll have the tools you need to create an account for your Home Assistant instance.</p>
+<p>Here&rsquo;s the commands you&rsquo;re going to need:</p>
+<ol>
+<li><code>psql</code></li>
+<li><code>CREATE USER homeassistant WITH PASSWORD 'yourpassword';</code></li>
+<li><code>CREATE DATABASE homeassistant_db WITH OWNER homeassistant ENCODING 'utf8' TEMPLATE template0;</code></li>
+</ol>
+<p>Now that the postgres server is set up, you can configure your HA server to use it instead of SQLite.</p>
+<p>Here&rsquo;s a snippet from my <code>configuration.yaml</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># Database</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">recorder</span>:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">db_url</span>: !<span style="color:#ae81ff">secret psql_connector_string</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">db_retry_wait</span>: <span style="color:#ae81ff">10</span> <span style="color:#75715e"># Wait 10 seconds before retrying</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">exclude</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">domains</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">automation</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">updater</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">entity_globs</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">sensor.weather_*</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">entities</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">sun.sun</span> <span style="color:#75715e"># Don&#39;t record sun data</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">sensor.last_boot</span> <span style="color:#75715e"># Comes from &#39;systemmonitor&#39; sensor platform</span>
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">sensor.date</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">event_types</span>:
+</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">call_service</span> <span style="color:#75715e"># Don&#39;t record service calls</span>
+</span></span></code></pre></div><p>To save space, I&rsquo;ve disabled storing changes to <code>sun.sun</code>, <code>sensor.date</code> and <code>sensor.last_boot</code>, along with weather information and calls to services. Tune yours as you see fit.</p>
+<p>I&rsquo;m using a secret for the <code>db_url</code>, and here&rsquo;s a redacted example from my <code>secrets.yaml</code> file showing the proper format:</p>
+<p><code>psql_connector_string: &quot;postgresql://DATABSE_USERNAME:DATABASE_PASSWORD@DNSNAME_OR_IP_OF_POSTGRES_SERVER/DATABASE_NAME&quot;</code></p>
+<p>So in my case, the redacted string is <code>postgresql://hassuser:hasspassword@postgres.example.com/homeassistant_db</code></p>
+<p>Now that you&rsquo;ve updated the server configuration, confirm that you don&rsquo;t have any typos and your configuration is valid by going to <a href="http://yourHA:8123/developer-tools/yaml">http://yourHA:8123/developer-tools/yaml</a> and clicking <code>CHECK CONFIGURATION</code>. If it reports it valid, you can safely restart HA and you&rsquo;ll be storing all your history data in Postgres.</p>
+<h2 id="backing-up">Backing Up</h2>
+<p>Now that we&rsquo;re writing data to postgres, time to take advantage of not having to shut it down for backups and start backing things up.</p>
+<p>I wrote a simple shell script for backing up your postgres database, <a href="https://github.com/unixorn/hass-postgresql-backup">ha-postgresql-backup</a>. It has reasonable default settings, which you can override for your environment by setting environment variables.</p>
+<ul>
+<li><code>COMPRESSOR</code> - If you set this, also set <code>EXTENSION</code>. Defaults looking for <code>bzip2</code> and <code>gzip</code>, and will use <code>bzip2</code> if both are found.</li>
+<li><code>DUMP_D</code> - What directory to write the dump file to. If you don&rsquo;t set this, it will use the current directory</li>
+<li><code>HASS_D</code> - What postgres database to back up. Defaults to <code>homeassistant_db</code></li>
+<li><code>PG_PASSWORD</code> - The ha user&rsquo;s password</li>
+<li><code>PG_SERVER</code> - What server to connect to</li>
+<li><code>PG_USERNAME</code> - Used to log into your postgres server. Defaults to <code>homeassistant</code>. You should use the same username &amp; password your Home Assistant is using.</li>
+<li><code>POSTGRESQL_IMAGE</code> - What docker image to use. Defaults to <code>postgres:14.5</code></li>
+</ul>
+<p>Example usage: <code>PG_PASSWORD=your_ha_pg_password PG_USER=your_ha_pg_user PG_SERVER=pg.example.com HASS_DB=homeassistant_db DUMP_D=/path/to/directory hass-postgresql-backup</code></p>
+<p>You don&rsquo;t need to stop Home Assistant to pull a backup, and you also don&rsquo;t need to run it on the same server you&rsquo;re running the postgres server on.</p>
+</div>
+
+<script type="text/javascript" src="https://unixorn.github.io/js/utterances.js">
+  repo="unixorn/unixorn.github.io"
+  issue-term="title"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+
+
+<center>
+  <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#000000 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/8UuWLA67y"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+</center>
+
+
+</div>
+</div>
+<script src="https://unixorn.github.io/js/ui.js"></script>
+<script src="https://unixorn.github.io/js/menus.js"></script>
+
+
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-100853138-2', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
+

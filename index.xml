@@ -6,8 +6,23 @@
     <description>Recent content on unixorn.github.io</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright 2019-2021, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 06 Oct 2022 21:20:45 -1000</lastBuildDate><atom:link href="https://unixorn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Copyright 2019-2022, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 05 Nov 2022 09:42:58 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Switch Home Assistant to Use PostgreSQL Instead of SQLite</title>
+      <link>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</link>
+      <pubDate>Sat, 05 Nov 2022 09:42:58 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</guid>
+      <description>&lt;p&gt;I wanted to switch my new Home Assistant (HA) installation to write its history data to &lt;a href=&#34;https://www.postgresql.org/&#34;&gt;PostgreSQL&lt;/a&gt; instead of SQLite for a variety of reasons. Here&amp;rsquo;s how I did it.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s why I decided to switch:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Resilience&lt;/strong&gt;. If you&amp;rsquo;re running Home Assistant on a Raspberry Pi&amp;rsquo;s SD card, the constant churn of history updates will eventually destroy the card. The more entities you have, the faster HA will grind your SD card to failure. Writing all that to another server that is writing to a real SSD or spinning disk eliminates that problem.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Convenience&lt;/strong&gt;. I can back up the postgres database without having to stop HA. I don&amp;rsquo;t even have to run the backup on the HA server.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Speed&lt;/strong&gt;. Using a real database will speed up history display, especially once you have a large number of entities.&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
+    
     <item>
       <title>Fix Securifi Peanut issue with zigbee2mqtt</title>
       <link>https://unixorn.github.io/post/securifi-peanut-gotcha/</link>
@@ -259,8 +274,9 @@ I have a variety of DevOps (and DevOOPs) themed swag on redbubble, if you&amp;rs
       <guid>https://unixorn.github.io/about/</guid>
       <description>About Me I&amp;rsquo;m an SRE in Denver for ZScaler.
 I like cooking, photography, home automation and working on distributed infrastructure.
-I&amp;rsquo;m the organizer for the Denver CoffeeOps meetup, which currently meets online - the meetup link details are posted in the Colorado channels of both the hangops and coffeeops slacks.
-I have a variety of DevOps (and DevOOPs) themed swag on redbubble, if you&amp;rsquo;d like to buy something and contribute to me buying new hardware to write about, or you can contribute at https://www.</description>
+You can find me online at:
+Mastodon: @unixorn@mstdn.social Twitter (deprecated) - @curiousbiped I&amp;rsquo;m the organizer for the Denver CoffeeOps meetup, which currently meets online - the meetup link details are posted in the Colorado channels of both the hangops and coffeeops slacks.
+I have a variety of DevOPS (and DevOOPs) themed swag on redbubble, if you&amp;rsquo;d like to buy something and contribute to me buying new hardware to write about, or you can contribute at https://www.</description>
     </item>
     
     <item>
@@ -270,8 +286,8 @@ I have a variety of DevOps (and DevOOPs) themed swag on redbubble, if you&amp;rs
       
       <guid>https://unixorn.github.io/contact/</guid>
       <description>Email me at blog @ unixorn.net.
-I&amp;rsquo;m:
-curiousbiped on twitter unixorn on github unixorn on redbubble apeseekingknowledge on instagram. </description>
+You can find me around the internet at:
+curiousbiped on Twitter unixorn on GitHub @unixorn@mstdn.social on Mastodon unixorn on redbubble apeseekingknowledge on Instagram. </description>
     </item>
     
     <item>
@@ -280,8 +296,7 @@ curiousbiped on twitter unixorn on github unixorn on redbubble apeseekingknowled
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://unixorn.github.io/projects/</guid>
-      <description>Some projects I maintain and/or created:
-apgar - Apgar is a quick and dirty health-check driver written in Go to prevent dependency conflicts. It is explicitly designed to be simple and not interfere with anything else running on your servers. awesome-zsh-plugins - A list of ZSH frameworks, plugins, themes, tab-completions and tutorials. dotfiles.github.io - The unofficial guide to dotfiles on GitHub. online-devops-meetups - A list of free online devops meetups. git-extra-commands - A collection of useful extra git scripts I&amp;rsquo;ve discovered or written, packaged for ease of use with shell frameworks.</description>
+      <description>Some projects I maintain and/or created apgar - Apgar is a quick and dirty health-check driver written in Go to prevent dependency conflicts. It is explicitly designed to be simple and not interfere with anything else running on your servers. awesome-zsh-plugins - A list of ZSH frameworks, plugins, themes, tab-completions and tutorials. dotfiles.github.io - The unofficial guide to dotfiles on GitHub. online-devops-meetups - A list of free online devops meetups. git-extra-commands - A collection of useful extra git scripts I&amp;rsquo;ve discovered or written, packaged for ease of use with shell frameworks.</description>
     </item>
     
   </channel>
