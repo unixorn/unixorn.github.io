@@ -3,15 +3,36 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://unixorn.github.io/tags/hass/</loc>
-    <lastmod>2022-11-05T09:42:58-06:00</lastmod>
+    <lastmod>2022-11-06T14:47:14-10:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/homeassistant/</loc>
-    <lastmod>2022-11-05T09:42:58-06:00</lastmod>
+    <lastmod>2022-11-06T14:47:14-10:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/tags/postgres/</loc>
-    <lastmod>2022-11-05T09:42:58-06:00</lastmod>
+    <loc>https://unixorn.github.io/tags/iot/</loc>
+    <lastmod>2022-11-06T14:47:14-10:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/</loc>
+    <lastmod>2022-11-06T14:47:14-10:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2022-11-06T14:47:14-10:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/tech/</loc>
+    <lastmod>2022-11-06T14:47:14-10:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/</loc>
+    <lastmod>2022-11-06T14:47:14-10:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/zigbee/</loc>
+    <lastmod>2022-11-06T14:47:14-10:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/</loc>
+    <lastmod>2022-11-06T14:47:14-10:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/zwave/</loc>
+    <lastmod>2022-11-06T14:47:14-10:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/postgres/</loc>
     <lastmod>2022-11-05T09:42:58-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/sql/</loc>
@@ -20,22 +41,10 @@
     <loc>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</loc>
     <lastmod>2022-11-05T09:42:58-06:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
-    <lastmod>2022-11-05T09:42:58-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/tech/</loc>
-    <lastmod>2022-11-05T09:42:58-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/</loc>
-    <lastmod>2022-11-05T09:42:58-06:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/tags/bugfix/</loc>
     <lastmod>2022-10-06T21:20:45-10:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/securifi-peanut-gotcha/</loc>
-    <lastmod>2022-10-06T21:20:45-10:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/zigbee/</loc>
     <lastmod>2022-10-06T21:20:45-10:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/zigbee2mqtt/</loc>
@@ -111,9 +120,6 @@
     <lastmod>2021-03-14T01:59:26-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/homelab/</loc>
-    <lastmod>2021-03-14T01:59:26-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/iot/</loc>
     <lastmod>2021-03-14T01:59:26-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/security/</loc>

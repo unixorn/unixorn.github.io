@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.101.0" />
 
-  <title>homeassistant &middot; unixorn.github.io</title>
+  <title>zwave &middot; unixorn.github.io</title>
 
     
 
@@ -44,7 +44,7 @@
  
   
   <link rel="alternate" type="application/rss+xml" title="unixorn.github.io"
-    href='https://unixorn.github.io/tags/homeassistant/index.xml' />
+    href='https://unixorn.github.io/tags/zwave/index.xml' />
   
 
   
@@ -123,7 +123,7 @@
 
     
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href='https://unixorn.github.io/tags/homeassistant/index.xml'><i
+      <a class="pure-menu-link" href='https://unixorn.github.io/tags/zwave/index.xml'><i
           class="fas fa-rss fa-fw"></i>RSS</a>
     </li>
     
@@ -231,7 +231,7 @@
 
 
 <div class="header">
-  <h1>homeassistant</h1>
+  <h1>zwave</h1>
 </div>
 
 <div class="content">
@@ -285,63 +285,6 @@
   
   <footer>
     <a href="https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/">Switch Home Assistant to Use PostgreSQL Instead of SQLite</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>Sat, Nov 5, 2022 at 09:42</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/tech">tech</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/hass">hass</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/homeassistant">homeassistant</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/postgres">postgres</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/sql">sql</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  <p>I wanted to switch my new Home Assistant (HA) installation to write its history data to <a href="https://www.postgresql.org/">PostgreSQL</a> instead of SQLite for a variety of reasons. Here&rsquo;s how I did it.</p>
-<p>Here&rsquo;s why I decided to switch:</p>
-<ul>
-<li><strong>Resilience</strong>. If you&rsquo;re running Home Assistant on a Raspberry Pi&rsquo;s SD card, the constant churn of history updates will eventually destroy the card. The more entities you have, the faster HA will grind your SD card to failure. Writing all that to another server that is writing to a real SSD or spinning disk eliminates that problem.</li>
-<li><strong>Convenience</strong>. I can back up the postgres database without having to stop HA. I don&rsquo;t even have to run the backup on the HA server.</li>
-<li><strong>Speed</strong>. Using a real database will speed up history display, especially once you have a large number of entities.</li>
-</ul>
-  </p>
-
-  
-  <footer>
-    <a href="https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

@@ -1,0 +1,290 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.101.0" />
+
+  <title>Zigbee and Zwave Setup Tips &middot; unixorn.github.io</title>
+
+    
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://unixorn.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://unixorn.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://unixorn.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" type="text/css">
+
+  
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/androidstudio.min.css">
+  <script async src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://unixorn.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://unixorn.github.io/">unixorn</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/tags"><i class="sidebar-button-icon fa fa-lg fa-tags"></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/projects/"><i class='fa fa-list fa-fw'></i>Projects</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/contact/"><i class='fa fa-envelope fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/curiousbiped" rel="me" target="_blank"><i class="fab fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/apeseekingknowledge" rel="me" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/unixorn" rel="me" target="_blank"><i class="fab fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>Copyright 2019-2022, Joe Block. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Zigbee and Zwave Setup Tips</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  <p>Some tips about setting up Zigbee or Z-wave mesh networks.</p>
+<p>I&rsquo;ve had a few people new to Home Assistant ask about how to best set up their mesh networks. Here&rsquo;s my take on what works best.</p>
+<h2 id="before-you-start-using-zigbee-make-sure-your-zigbee-and-24ghz-wifi-arent-stepping-on-each-other">Before you start using Zigbee, make sure your Zigbee and 2.4GHz WIFI aren&rsquo;t stepping on each other</h2>
+<p>See <a href="https://www.youtube.com/watch?v=t-gw7kURXCk">https://www.youtube.com/watch?v=t-gw7kURXCk</a> for details, but the TL;DR is that Zigbee uses the same 2.4GHz radio frequency band that 2.4GHz WIFI does, so choose your channels wisely. _Changing the Zigbee channel forces you to re-pair every Zigbee device, which sucks, so plan ahead. Changing the 2.4GHz WIFI channel on your access points is a lot less painful. You don&rsquo;t have to worry about this with Z-Wave since it uses 800-900Mhz depending on the country.</p>
+<h2 id="use-a-usb-extension-cable">Use a USB extension cable</h2>
+<p>Computers can spew out a lot of radio interference, especially if you&rsquo;re using a single-board computer like a Raspberry Pi or ODROID that doesn&rsquo;t have a shielded case. A 15 foot USB extension cable will make a lot of signal issues with your Zigbee or Z-Wave mesh disappear.</p>
+<h2 id="add-your-powered-devices-first">Add your powered devices first</h2>
+<p>Zigbee and Z-Wave both are mesh networks. If you&rsquo;re doing a new setup, start with your powered devices since they can act as routers. Start with the ones closest to your coordinator, then work your way outward. This way, when you start adding your battery devices the mesh will already have routers in place and the battery devices won&rsquo;t all try to connect directly to the coordinator.</p>
+<h2 id="add-devices-where-youre-going-to-use-them-not-while-next-to-your-coordinator">Add devices where you&rsquo;re going to use them, not while next to your coordinator</h2>
+<p>In the past, I&rsquo;ve had new Zigbee and Z-Wave devices sometimes show spotty performance. After some experimentation, the problem seemed to be based on where the new device was when I added it to the mesh. When you add a device when it&rsquo;s right next to the mesh coordinator attached to your Home Assistant machine, it will query all the routers it can see, see that the coordinator is available, and to try to minimize hops to the coordinator it will connect directly. This would be no big deal except that when you move it somewhere else (like when I moved a new smart plug from the basement next to my Home Assistant machine to the second floor), it will still try to talk directly to the coordinator rather than any adjacent routers and have sub-optimal performance.</p>
+<p>Instead, take it to wherever you&rsquo;re going to use it and plug it in there and pair it there. This will let it detect which of your routers have the strongest signals and connect to them instead of trying to connect directly to the coordinator. If you&rsquo;re adding a new router like a smart plug, this will immediately strengthen your mesh.</p>
+<p>It&rsquo;s not a huge deal if you don&rsquo;t do it this way. With Zigbee the coordinator will eventually get around to rebalancing the routing connections. Z-Wave will require you to heal the mesh, it doesn&rsquo;t do it automagically in the background like Zigbee does.</p>
+<p>You should heal your Z-Wave network every time you add a device. When you first add a device to the Z-Wave nework, only the device it initially connects to will know it exists and be able to route messages to the new device. Healing the network makes all the devices in your mesh learn about all the other devices - until they learn about the other devices, you will end up with some wonky message routing paths.</p>
+<p>TL;DR - Add powered devices to your mesh first. Add new devices to your mesh where you&rsquo;re actually going to use them. If you&rsquo;re using Z-Wave, you should periodically heal your Z-Wave mesh so it can re-calculate optimum routing. Heal the Z-Wave mesh even if you haven&rsquo;t added, moved or removed any devices - sometimes even moving furniture around can affect the signal between devices, so give it a chance to recalculate optimum routing.</p>
+</div>
+
+<script type="text/javascript" src="https://unixorn.github.io/js/utterances.js">
+  repo="unixorn/unixorn.github.io"
+  issue-term="title"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+
+
+<center>
+  <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#000000 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/8UuWLA67y"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+</center>
+
+
+</div>
+</div>
+<script src="https://unixorn.github.io/js/ui.js"></script>
+<script src="https://unixorn.github.io/js/menus.js"></script>
+
+
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-100853138-2', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+
+
+
+</body>
+</html>
+
