@@ -7,7 +7,43 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2022, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 06 Nov 2022 14:47:14 -1000</lastBuildDate><atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Nov 2022 08:39:22 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mastodon</title>
+      <link>https://unixorn.github.io/tags/mastodon/</link>
+      <pubDate>Thu, 10 Nov 2022 08:39:22 -0700</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/mastodon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>social media</title>
+      <link>https://unixorn.github.io/tags/social-media/</link>
+      <pubDate>Thu, 10 Nov 2022 08:39:22 -0700</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/social-media/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>tech</title>
+      <link>https://unixorn.github.io/tags/tech/</link>
+      <pubDate>Thu, 10 Nov 2022 08:39:22 -0700</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/tech/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>twitter</title>
+      <link>https://unixorn.github.io/tags/twitter/</link>
+      <pubDate>Thu, 10 Nov 2022 08:39:22 -0700</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/twitter/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>hass</title>
       <link>https://unixorn.github.io/tags/hass/</link>
@@ -32,15 +68,6 @@
       <pubDate>Sun, 06 Nov 2022 14:47:14 -1000</pubDate>
       
       <guid>https://unixorn.github.io/tags/iot/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>tech</title>
-      <link>https://unixorn.github.io/tags/tech/</link>
-      <pubDate>Sun, 06 Nov 2022 14:47:14 -1000</pubDate>
-      
-      <guid>https://unixorn.github.io/tags/tech/</guid>
       <description></description>
     </item>
     

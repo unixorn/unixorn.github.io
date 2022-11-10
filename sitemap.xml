@@ -2,6 +2,30 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/tags/mastodon/</loc>
+    <lastmod>2022-11-10T08:39:22-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/</loc>
+    <lastmod>2022-11-10T08:39:22-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/social-media/</loc>
+    <lastmod>2022-11-10T08:39:22-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/switching-to-mastodon/</loc>
+    <lastmod>2022-11-10T08:39:22-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2022-11-10T08:39:22-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/tech/</loc>
+    <lastmod>2022-11-10T08:39:22-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/twitter/</loc>
+    <lastmod>2022-11-10T08:39:22-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/</loc>
+    <lastmod>2022-11-10T08:39:22-07:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/tags/hass/</loc>
     <lastmod>2022-11-06T14:47:14-10:00</lastmod>
   </url><url>
@@ -9,18 +33,6 @@
     <lastmod>2022-11-06T14:47:14-10:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/iot/</loc>
-    <lastmod>2022-11-06T14:47:14-10:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/post/</loc>
-    <lastmod>2022-11-06T14:47:14-10:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
-    <lastmod>2022-11-06T14:47:14-10:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/tech/</loc>
-    <lastmod>2022-11-06T14:47:14-10:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/</loc>
     <lastmod>2022-11-06T14:47:14-10:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/zigbee/</loc>
