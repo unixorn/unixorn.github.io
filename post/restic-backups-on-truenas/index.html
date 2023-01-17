@@ -301,7 +301,6 @@
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># restic-driver-script</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># License: Apache 2.0</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Copyright 2023 Joe Block &lt;jpb@unixorn.net&gt;</span>
 </span></span><span style="display:flex;"><span>
@@ -399,7 +398,11 @@
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># This is used as the encryption key for your backups. If you lose it,</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># you won&#39;t be able to restore anything. I keep a copy of mine in my</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 1Password vault</span>
 </span></span><span style="display:flex;"><span>export RESTIC_PASSWORD<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;your-encryption-key&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If you want to exclude some directories from your backups, list</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># them in an exclude file and set EXCLUDE_FILE</span>
 </span></span><span style="display:flex;"><span>export EXCLUDE_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;--exclude-file=example-excludes&#34;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># Uncomment if you only want to dry-run and not actually write any data</span>

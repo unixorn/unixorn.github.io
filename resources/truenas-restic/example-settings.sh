@@ -11,10 +11,15 @@ export RESTIC_REPOSITORY='b2:your-restic-backups-bucket:dir-prefix'
 
 # This is used as the encryption key for your backups. If you lose it,
 # you won't be able to restore anything. I keep a copy of mine in my
+# 1Password vault
 export RESTIC_PASSWORD='your-encryption-key'
 
-# Comment this out if you don't need an exclude file
+# If you want to exclude some directories from your backups, list
+# them in an exclude file and set EXCLUDE_FILE
 export EXCLUDE_FILE="--exclude-file=example-excludes"
+
+# Uncomment if you only want to dry-run and not actually write any data
+# to the backup repository
 #export DRYRUN='--dry-run'
 
 # What paths do we want to back up? Remember to use the paths as seen inside
