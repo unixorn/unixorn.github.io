@@ -5,7 +5,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.101.0" />
+  <meta name="generator" content="Hugo 0.105.0">
 
   <title>backups &middot; unixorn.github.io</title>
 
@@ -240,6 +240,60 @@
 </div>
 
 <div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="https://unixorn.github.io/post/restic-backups-on-truenas/">Restic Backups on TrueNAS</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>Fri, Jan 13, 2023 at 11:16</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/backups">backups</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/duplicacy">duplicacy</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/freebsd">freebsd</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/homelab">homelab</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/restic">restic</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/truenas">truenas</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  Restic Backups on TrueNAS I&rsquo;ve been backing my homelab up with duplicacy, but I&rsquo;m fed up with it returning a 0 exit code even if there&rsquo;s a problem with the backup. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to restic.
+In this blog entry, I&rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install restic, and how to use it to back up to Backblaze b2.
+  </p>
+
+  
+  <footer>
+    <a href="https://unixorn.github.io/post/restic-backups-on-truenas/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
   
     <article>
   <header>

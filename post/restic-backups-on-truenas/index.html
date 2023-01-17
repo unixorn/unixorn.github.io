@@ -1,0 +1,499 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="generator" content="Hugo 0.105.0">
+
+  <title>Restic Backups on TrueNAS &middot; unixorn.github.io</title>
+
+    
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://unixorn.github.io/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://unixorn.github.io/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://unixorn.github.io/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" type="text/css">
+
+  
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/androidstudio.min.css">
+  <script async src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://unixorn.github.io/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://unixorn.github.io/">unixorn</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/tags"><i class="sidebar-button-icon fa fa-lg fa-tags"></i>Tags</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/projects/"><i class='fa fa-list fa-fw'></i>Projects</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://unixorn.github.io/contact/"><i class='fa fa-envelope fa-fw'></i>Contact</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/curiousbiped" rel="me" target="_blank"><i class="fab fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://mstdn.social/@unixorn@mstdn.social" rel="me" target="_blank"><i class="fa fa-mastodon fa-fw"></i>Mastodon</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/apeseekingknowledge" rel="me" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/unixorn" rel="me" target="_blank"><i class="fab fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>Copyright 2019-2022, Joe Block. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Restic Backups on TrueNAS</h1>
+  <h2></h2>
+</div>
+<div class="content">
+  <h1 id="restic-backups-on-truenas">Restic Backups on TrueNAS</h1>
+<p>I&rsquo;ve been backing my homelab up with <code>duplicacy</code>, but I&rsquo;m fed up with it returning a <code>0</code> exit code <em>even if there&rsquo;s a problem with the backup</em>. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to <a href="https://restic.net/">restic</a>.</p>
+<p>In this blog entry, I&rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install <a href="https://restic.net/">restic</a>, and how to use it to back up to <a href="https://www.backblaze.com/b2/cloud-storage.html">Backblaze b2</a>.</p>
+<!-- raw HTML omitted -->
+<h2 id="background">Background</h2>
+<p>I&rsquo;m tired of worrying about whether I found all the possible <code>duplicacy</code> error messages, or made a mistake in one of the regexes for the errors I have seen. I want my backups nice and boring so I don&rsquo;t go to do a restore and find out &ldquo;Oops! We had a new failure mode you hadn&rsquo;t seen before, so the backups haven&rsquo;t been working for three months, too bad about your data!&rdquo;</p>
+<p>My work had a holiday shutdown, so I decided it was past time to switch to a better backup system. Of course I&rsquo;m going to keep running the old crappy one for a couple of months in parallel because I don&rsquo;t want to find a problem with the new one after three months of usage when I do my next restore test. You <em>do</em> test your restores periodically, I hope.</p>
+<p>I&rsquo;ve been running <a href="https://www.truenas.com/">TrueNAS Core</a> (formerly FreeNAS) long enough that I&rsquo;ve upgraded to larger drives in the zpool three times. I picked it because FreeNAS fully supported ZFS, I could buy a chassis with 4 hot-swap bays, I could buy it from the company that makes the software, both to support the open source project and to ensure that I had fully supported hardware.</p>
+<p>Can I build a server from parts? Sure, I&rsquo;ve done it before. Do I <em>want</em> to build a server from parts and have to fight with a bunch of different vendors if something goes awry? Oh <em>hell</em> no, especially for the server with all my photos on it. I opted to minimize my hassle factor, support the FreeNAS project, and only have to deal with one vendor in case of any hardware issues. I bought a 4 bay FreeNAS mini, and have been happy with it for 7+ years.</p>
+<p>Anyway, enough background on the server I&rsquo;m backing up.</p>
+<h2 id="why-restic">Why restic?</h2>
+<p><code>restic</code> is:</p>
+<ul>
+<li>Open Source</li>
+<li>Works on macOS, Windows, Linux and (most importantly for TrueNAS) FreeBSD</li>
+<li>Written in <code>go</code>, so it&rsquo;s a single binary blob and we don&rsquo;t have to worry about installing a bunch of dependencies inside the jail</li>
+<li>Does data deduplication and compression on your backups. Since we pay Backblaze based on space usage, this reduces the backup cost</li>
+</ul>
+<h2 id="why-jails">Why Jails?</h2>
+<p>TrueNAS Core is based on FreeBSD, so the native way of running software in an isolated environment are jails (one of the inspirations for docker containers). I <em>could</em> run it in a docker container, but that would burn more resources because I&rsquo;d have to run it in a docker vm.</p>
+<h2 id="why-b2">Why B2?</h2>
+<p>I&rsquo;ve been using <a href="https://www.backblaze.com/b2/cloud-storage.html">Backblaze b2</a> for years. It has a s3-compatible API so a lot of s3-aware applications work with it easily, Backblaze only does storage so I don&rsquo;t have to worry about it going away, and last but definitely not least, it only costs 20% of what the same amount of data would cost to store in S3.</p>
+<p><code>restic</code> supports a lot of other storage back ends (including local disk), but I&rsquo;m only going to discuss b2 here.</p>
+<p>All that said, let&rsquo;s get down to it.</p>
+<h2 id="set-up-b2">Set up B2</h2>
+<p>First, create an account at <a href="https://www.backblaze.com/">Backblaze.com</a>.</p>
+<p>Now that you have an account, you&rsquo;ll need to create a bucket to store your backups in. Log into your account and click <strong>Buckets</strong> in the sidebar on the left, then <strong>Create a Bucket</strong>. Give your new bucket a unique name, make sure it&rsquo;s set to private (which should be set by default), and click create.</p>
+<p>You&rsquo;ll also need an application key that <code>restic</code> can use to connect to b2.</p>
+<p><strong>Do not use your master application key!</strong> You should restrict restic to just the bucket you want it using - don&rsquo;t give it power over your entire backblaze account. Click <strong>App Keys</strong> at the bottom of the sidebar, then <strong>Add a New Application Key</strong>, give it a name (I used <code>restic-key</code>), select the bucket you just created from the <strong>Allow access to buckets</strong> dropdown menu, and create the key. Copy the key into your password manager, it&rsquo;ll only be displayed once. Copy the <code>keyID</code> too, you&rsquo;ll need both of them when we configure <code>restic</code>.</p>
+<h2 id="create-a-jail-for-restic">Create a jail for restic</h2>
+<p>Use the TrueNAS wizard to create your <code>restic</code> jail.</p>
+<ol>
+<li>Log into your TrueNAS webui</li>
+<li>Click <strong>Jails</strong>.</li>
+<li>Click add. You should see something similar to</li>
+<li>Give it a name (make life easy for yourself and don&rsquo;t include spaces or any special characters other than <code>-</code>), leave the jail type as default, select whatever the highest FreeBSD version is showing available in the release drop-down menu, then <strong>next</strong>
+<img src="https://unixorn.github.io/images/truenas-restic/01-make-jail.small.png" alt="Jails"></li>
+<li>It&rsquo;s going to need network access, so click <strong>DHCP Autoconfigure</strong>, and if it doesn&rsquo;t automatically populate the VNET checkbox, enable that too, then next
+<img src="https://unixorn.github.io/images/truenas-restic/02-jail-networking.small.png" alt="Jail Network Setup"></li>
+<li>It&rsquo;ll show you a summary of your settings that should look something like <img src="https://unixorn.github.io/images/truenas-restic/03-jail-summary.small.png" alt="Jail Summary"> click submit to create the new jail.</li>
+</ol>
+<h3 id="add-mount-points">Add Mount Points</h3>
+<p>By default, your jail can&rsquo;t see any directory trees outside itself. That&rsquo;s great for security, but not so great if we want to back up files outside the jail, so we&rsquo;re going to add some mount points.</p>
+<p>Add the mount points before you start the new jail - you can&rsquo;t add them to a running jail. You <em>can</em> stop the jail, add/remove mount points, the restart it, but it&rsquo;s easier to set them up before starting the jail.</p>
+<p>Select your new jail, and select add mountpoint <img src="https://unixorn.github.io/images/truenas-restic/05-add-mountpoint.small.png" alt="Jails">.</p>
+<p>You can either make individual mounts for the directories you want to back up, or you can make one for your whole zpool. Whichever you pick, I recommend setting them read-only so you can&rsquo;t accidentally restore an older version of a file over the current version.</p>
+<p>Make a directory outside the jail to store configuration files and to restore files to, and don&rsquo;t set it read-only. Segregating the config/restore directory to a separate mount point will make it easier to examine restored files before putting them back where they belong.</p>
+<p>Now that you have your mount points added to your jail, go ahead and start your jail. It should take less than a minute to start.</p>
+<h3 id="install-restic">Install restic</h3>
+<p>Now that the jail is running, you&rsquo;ll have to install restic into it.</p>
+<ol>
+<li><code>ssh</code> into your TrueNAS server</li>
+<li>Enter the jail so you can install software by running <code>sudo iocage console YOURJAILNAME</code></li>
+<li><code>pkg install ca_root_nss restic</code></li>
+</ol>
+<h3 id="configure-restic--do-your-first-backup">Configure restic &amp; do your first backup</h3>
+<p>For convenience, I store the various settings as environment variable exports in a shell script that I can source for a couple of reasons:</p>
+<ol>
+<li>This makes it easy to do the backups from cron and also do test backups and restores from within the jail.</li>
+<li>I don&rsquo;t have to write a config file parser and overcomplicate things</li>
+</ol>
+<h4 id="install-the-driver-script-and-config-files">Install the driver script and config files</h4>
+<p><code>ssh</code> into your TrueNAS server and stick the following files in a directory visible inside your backups jail.</p>
+<p>Here&rsquo;s the <a href="https://unixorn.github.io/resources/truenas-restic/restic-driver"><code>restic-driver</code></a> script I use to run restic and trim snapshots once they age out.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># restic-driver-script</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># License: Apache 2.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Copyright 2023 Joe Block &lt;jpb@unixorn.net&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set -o pipefail
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -n <span style="color:#e6db74">&#34;</span>$DEBUG<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  set -x
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> debug<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -n <span style="color:#e6db74">&#34;</span>$DEBUG<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> fail<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  printf <span style="color:#e6db74">&#39;%s\n&#39;</span> <span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span> &gt;&amp;<span style="color:#ae81ff">2</span>  <span style="color:#75715e">## Send message to stderr. Exclude &gt;&amp;2 if you don&#39;t want it that way.</span>
+</span></span><span style="display:flex;"><span>  exit <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">${</span>2-1<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>  <span style="color:#75715e">## Return a code specified by $2 or 1 by default.</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> has<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Check if a command is in $PATH</span>
+</span></span><span style="display:flex;"><span>  which <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span> &gt; /dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> show_params<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  debug <span style="color:#e6db74">&#34;BACKUP_PATHS: </span>$BACKUP_PATHS<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  debug <span style="color:#e6db74">&#34;EXCLUDE_FILE: </span>$EXCLUDE_FILE<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  debug <span style="color:#e6db74">&#34;DRY_RUN: </span>$DRY_RUN<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  debug <span style="color:#e6db74">&#34; &#34;</span>
+</span></span><span style="display:flex;"><span>  debug <span style="color:#e6db74">&#34;Retention settings:&#34;</span>
+</span></span><span style="display:flex;"><span>  debug <span style="color:#e6db74">&#34;Minimum snapshots </span>$MINIMUM_SNAPSHOTS_RETAINED<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  debug <span style="color:#e6db74">&#34;Hourly snapshots: </span>$HOURS_RETAINED<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  debug <span style="color:#e6db74">&#34;Daily snapshots:  </span>$DAYS_RETAINED<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  debug <span style="color:#e6db74">&#34;Weekly snapshots:  </span>$WEEKS_RETAINED<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  debug <span style="color:#e6db74">&#34;Monthly snapshots:  </span>$MONTHS_RETAINED<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  debug <span style="color:#e6db74">&#34;Yearly snapshots:  </span>$YEARS_RETAINED<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> ! has restic; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  fail <span style="color:#e6db74">&#34;Can&#39;t find restic in </span>$PATH<span style="color:#e6db74">!&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Our first argument is the settings file to source to get our backup</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># parameters, so peel it off - we&#39;ll pass all the other arguments directly</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># to restic</span>
+</span></span><span style="display:flex;"><span>PREFS_F<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$1<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>shift
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> ! -r <span style="color:#e6db74">&#34;</span>$PREFS_F<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  fail <span style="color:#e6db74">&#34;Can&#39;t load </span>$PREFS_F<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>source <span style="color:#e6db74">&#34;</span>$PREFS_F<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>show_params
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># If you&#39;re backing up a filesystem that you&#39;re mounting by FUSE, the inode</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># information is misleading at best, so add --ignore-inode.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>restic backup --verbose<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --exclude<span style="color:#f92672">=</span>.duplicacy <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --exclude<span style="color:#f92672">=</span>.DS_Store <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --tag periodic <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -o b2.connections<span style="color:#f92672">=</span><span style="color:#ae81ff">15</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  $EXCLUDE_FILE $DRY_RUN $BACKUP_PATHS $@
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> $? !<span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  fail <span style="color:#e6db74">&#34;restic backup failed&#34;</span> <span style="color:#75715e"># We don&#39;t want to prune any snapshots if this backup failed</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Prune backup snapshots</span>
+</span></span><span style="display:flex;"><span>restic forget --verbose <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --tag periodic <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --group-by <span style="color:#e6db74">&#34;paths,tags&#34;</span> <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --keep-last $MINIMUM_SNAPSHOTS_RETAINED <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --keep-hours $HOURS_RETAINED <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --keep-daily $DAYS_RETAINED <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --keep-weekly $WEEKS_RETAINED <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --keep-monthly $MONTHS_RETAINED <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --keep-yearly $YEARS_RETAINED
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> $? !<span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  fail <span style="color:#e6db74">&#34;restic snapshot cleanup failed&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span></code></pre></div><p>Here&rsquo;s an <a href="https://unixorn.github.io/resources/truenas-restic/example-settings.sh">example settings file</a> for it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Here are our backup settings</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span>export B2_ACCOUNT_ID<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;your_b2_account_id&#39;</span>
+</span></span><span style="display:flex;"><span>export B2_ACCOUNT_KEY<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;your_b2_key&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Use different directory prefixes for each backup repo</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># so they can share a bucket without interference</span>
+</span></span><span style="display:flex;"><span>export RESTIC_REPOSITORY<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;b2:your-restic-backups-bucket:dir-prefix&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># This is used as the encryption key for your backups. If you lose it,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># you won&#39;t be able to restore anything. I keep a copy of mine in my</span>
+</span></span><span style="display:flex;"><span>export RESTIC_PASSWORD<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;your-encryption-key&#39;</span>
+</span></span><span style="display:flex;"><span>export EXCLUDE_FILE<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;--exclude-file=example-excludes&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Uncomment if you only want to dry-run and not actually write any data</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># to the backup repository</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#export DRYRUN=&#39;--dry-run&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># What paths do we want to back up? Remember to use the paths as seen inside</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># the jail, not the paths as seen in your TrueNAS environment</span>
+</span></span><span style="display:flex;"><span>export BACKUP_PATHS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;/mnt/path-inside-jail/share /mnt/path-inside-jail/anothershare&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># How many snapshots do we want to keep around?</span>
+</span></span><span style="display:flex;"><span>export MINIMUM_SNAPSHOTS_RETAINED<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>export HOURS_RETAINED<span style="color:#f92672">=</span><span style="color:#ae81ff">48</span>
+</span></span><span style="display:flex;"><span>export DAYS_RETAINED<span style="color:#f92672">=</span><span style="color:#ae81ff">14</span>
+</span></span><span style="display:flex;"><span>export WEEKS_RETAINED<span style="color:#f92672">=</span><span style="color:#ae81ff">8</span>
+</span></span><span style="display:flex;"><span>export MONTHS_RETAINED<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>
+</span></span><span style="display:flex;"><span>export YEARS_RETAINED<span style="color:#f92672">=</span><span style="color:#ae81ff">5</span>
+</span></span></code></pre></div><p>And here&rsquo;s an example excludes file - it&rsquo;s a list of paths to directories and files we don&rsquo;t want to back up - I don&rsquo;t back up my downloads directory since that&rsquo;s all stuff I can re-download later if necessary, and I&rsquo;m better off getting the current version anyway.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>/mnt/path-inside-jail/Downloads
+</span></span><span style="display:flex;"><span>/mnt/path-inside-jail/Installers/*.dmg
+</span></span></code></pre></div><h3 id="test-your-backups">Test your backups</h3>
+<p>You&rsquo;ll have to do this from inside the backups jail you created. <code>ssh</code> to your server, then run <code>sudo iocage console YOURJAILNAME</code></p>
+<p>I recommend you set <code>BACKUPS_PATH</code> in your settings file to a single small directory to make your testing faster. You can change it to the path to your  full directory tree once you confirm your backups and restores are working as expected.</p>
+<h4 id="initialize-your-backup-repository">Initialize your backup repository</h4>
+<p>Now that you&rsquo;re inside the jail, you&rsquo;re going to have to initialize the repository directory in your B2 bucket. FreeBSD/TrueNAS uses <code>csh</code> as the default root shell, but our settings file is set up for <code>bash</code>, so start by running <code>exec bash</code> to get a decent shell.</p>
+<p>Load the configuration file you created by running <code>source /path/to/yoursettingsfile.sh</code>, then run <code>restic init</code>.</p>
+<p>You&rsquo;re ready to do a backup.</p>
+<h4 id="run-a-backup">Run a backup</h4>
+<p>Now that your repository has been initialized, run <code>/path/to/restic-driver /path/to/yoursettingsfile.sh</code></p>
+<p>It shouldn&rsquo;t take long if you used a small test subdirectory.</p>
+<h4 id="test-a-restore">Test a restore</h4>
+<p>First, let&rsquo;s look at the list of snapshots with <code>restic snapshots</code>.</p>
+<p>Now we can list the files in the snapshot with either <code>restic ls SNAPSHOTID</code> or <code>restic ls latest</code></p>
+<p>Pick a file and restore it.</p>
+<ol>
+<li>Make a directory to restore to - <code>mkdir ./restores</code></li>
+<li>Restore the file. We don&rsquo;t want to restore the entire snapshot, just a specific file/directory, so we&rsquo;ll use <code>--include</code> and run <code>restic restore latest --target ./restores --include /mnt/path/to/file</code></li>
+<li>It put the whole directory path for that file inside <code>./restores</code>, so we&rsquo;ll do a simple md5 check with <code>md5sum /path/to/test/file ./restores/path/to/test/file</code></li>
+</ol>
+<h4 id="run-restic-out-of-cron">Run restic out of cron</h4>
+<p>Great, you&rsquo;re almost done. All we have to do now is add it to cron so it runs at least once a day. You need to add it to the crontab <em>inside</em> the jail though, or TrueNAS won&rsquo;t find your script.</p>
+<p>I stored my restic backup script and configuration in a directory that appears as <code>/mnt/alcatraz</code> inside my backups jail. Change the path to match wherever you stored yours.</p>
+<p>Run <code>crontab -e</code> and add the following:</p>
+<pre tabindex="0"><code># minute	hour	mday	month	wday	command
+13 */4 * * * /mnt/alcatraz/restic-driver /mnt/alcatraz/backup-settings.sh | logger -t backups
+</code></pre><p>I tagged all the log output with <code>backups</code> to make it easier to <code>grep</code> out of <code>/var/log/messages</code>, and I run mine four times a day You may prefer a different cadence, set the hour field accordingly. <code>restic</code> locks the repository when it starts, so you don&rsquo;t have to worry about repository corruption if you accidentally try to run more than one backup at a time.</p>
+
+</div>
+
+<script type="text/javascript" src="https://unixorn.github.io/js/utterances.js">
+  repo="unixorn/unixorn.github.io"
+  issue-term="title"
+  theme="github-light"
+  crossorigin="anonymous"
+  async>
+</script>
+
+
+<center>
+  <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#000000 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/8UuWLA67y"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
+</center>
+
+
+</div>
+</div>
+<script src="https://unixorn.github.io/js/ui.js"></script>
+<script src="https://unixorn.github.io/js/menus.js"></script>
+
+
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-100853138-2', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+
+<script src="https://unixorn.github.io/js/math-code.js"></script>
+  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  
+
+
+</body>
+</html>
+

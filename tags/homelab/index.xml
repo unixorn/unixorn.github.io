@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2022, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 14 Mar 2021 01:59:26 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/homelab/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Jan 2023 11:16:19 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/homelab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Restic Backups on TrueNAS</title>
+      <link>https://unixorn.github.io/post/restic-backups-on-truenas/</link>
+      <pubDate>Fri, 13 Jan 2023 11:16:19 -0700</pubDate>
+      
+      <guid>https://unixorn.github.io/post/restic-backups-on-truenas/</guid>
+      <description>Restic Backups on TrueNAS I&amp;rsquo;ve been backing my homelab up with duplicacy, but I&amp;rsquo;m fed up with it returning a 0 exit code even if there&amp;rsquo;s a problem with the backup. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to restic.
+In this blog entry, I&amp;rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install restic, and how to use it to back up to Backblaze b2.</description>
+    </item>
+    
     <item>
       <title>Setting up Shinobi and a Wyze G2 Camera</title>
       <link>https://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</link>

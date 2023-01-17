@@ -2,10 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://unixorn.github.io/tags/mastodon/</loc>
-    <lastmod>2022-11-10T08:39:22-07:00</lastmod>
+    <loc>https://unixorn.github.io/tags/backups/</loc>
+    <lastmod>2023-01-13T11:16:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/duplicacy/</loc>
+    <lastmod>2023-01-13T11:16:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/freebsd/</loc>
+    <lastmod>2023-01-13T11:16:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/homelab/</loc>
+    <lastmod>2023-01-13T11:16:19-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/</loc>
+    <lastmod>2023-01-13T11:16:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/restic/</loc>
+    <lastmod>2023-01-13T11:16:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/restic-backups-on-truenas/</loc>
+    <lastmod>2023-01-13T11:16:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2023-01-13T11:16:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/truenas/</loc>
+    <lastmod>2023-01-13T11:16:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/</loc>
+    <lastmod>2023-01-13T11:16:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/administrivia/</loc>
+    <lastmod>2022-11-14T19:12:41-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/fix-congo-backticks/</loc>
+    <lastmod>2022-11-14T19:12:41-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/hugo/</loc>
+    <lastmod>2022-11-14T19:12:41-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/mastodon/</loc>
     <lastmod>2022-11-10T08:39:22-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/social-media/</loc>
@@ -14,16 +50,10 @@
     <loc>https://unixorn.github.io/post/switching-to-mastodon/</loc>
     <lastmod>2022-11-10T08:39:22-07:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
-    <lastmod>2022-11-10T08:39:22-07:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/tags/tech/</loc>
     <lastmod>2022-11-10T08:39:22-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/twitter/</loc>
-    <lastmod>2022-11-10T08:39:22-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/</loc>
     <lastmod>2022-11-10T08:39:22-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/hass/</loc>
@@ -131,9 +161,6 @@
     <loc>https://unixorn.github.io/tags/home-automation/</loc>
     <lastmod>2021-03-14T01:59:26-07:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/tags/homelab/</loc>
-    <lastmod>2021-03-14T01:59:26-07:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/tags/security/</loc>
     <lastmod>2021-03-14T01:59:26-07:00</lastmod>
   </url><url>
@@ -221,9 +248,6 @@
     <loc>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</loc>
     <lastmod>2019-09-01T15:47:23-06:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/tags/backups/</loc>
-    <lastmod>2019-09-01T15:47:23-06:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/tags/k8s/</loc>
     <lastmod>2019-09-01T15:47:23-06:00</lastmod>
   </url><url>
@@ -303,6 +327,9 @@
     <priority>0</priority>
   </url><url>
     <loc>https://unixorn.github.io/contact/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>https://unixorn.github.io/jfc/</loc>
     <priority>0</priority>
   </url><url>
     <loc>https://unixorn.github.io/projects/</loc>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo on unixorn.github.io</title>
+    <link>https://unixorn.github.io/tags/hugo/</link>
+    <description>Recent content in hugo on unixorn.github.io</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019-2022, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Mon, 14 Nov 2022 19:12:41 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Fix Congo Backticks</title>
+      <link>https://unixorn.github.io/post/fix-congo-backticks/</link>
+      <pubDate>Mon, 14 Nov 2022 19:12:41 -0700</pubDate>
+      
+      <guid>https://unixorn.github.io/post/fix-congo-backticks/</guid>
+      <description>I switched to the Congo theme for Hugo. The one thing I didn&amp;rsquo;t like in it was the way it handles inline backticks - it displays them, in addition to formatting the enclosed text as code.
+To fix it, create assets/css/custom.css with the following contents:
+.prose code::before { content: &amp;#39;&amp;#39; } .prose code::after { content: &amp;#39;&amp;#39; } </description>
+    </item>
+    
+  </channel>
+</rss>

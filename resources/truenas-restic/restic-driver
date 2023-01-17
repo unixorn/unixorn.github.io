@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+#
+# restic-driver-script
+#
+# License: Apache 2.0
+# Copyright 2023 Joe Block <jpb@unixorn.net>
+
+set -o pipefail
+
+if [[ -n "$DEBUG" ]]; then
+  set -x
+fi
+
+function debug() {
+  if [[ -n "$DEBUG" ]]; then
+    echo "$@"
+  fi
+}
+
+function fail() {
+  printf '%s\n' "$1" >&2  ## Send message to stderr. Exclude >&2 if you don't want it that way.
+  exit "${2-1}"  ## Return a code specified by $2 or 1 by default.
+}
+
+function has() {
+  # Check if a command is in $PATH
+  which "$@" > /dev/null 2>&1
+}
+
+function show_params() {
+  debug "BACKUP_PATHS: $BACKUP_PATHS"
+  debug "EXCLUDE_FILE: $EXCLUDE_FILE"
+  debug "DRY_RUN: $DRY_RUN"
+  debug " "
+  debug "Retention settings:"
+  debug "Minimum snapshots $MINIMUM_SNAPSHOTS_RETAINED"
+  debug "Hourly snapshots: $HOURS_RETAINED"
+  debug "Daily snapshots:  $DAYS_RETAINED"
+  debug "Weekly snapshots:  $WEEKS_RETAINED"
+  debug "Monthly snapshots:  $MONTHS_RETAINED"
+  debug "Yearly snapshots:  $YEARS_RETAINED"
+}
+
+if ! has restic; then
+  fail "Can't find restic in $PATH!"
+fi
+
+# Our first argument is the settings file to source to get our backup
+# parameters, so peel it off - we'll pass all the other arguments directly
+# to restic
+PREFS_F="$1"
+shift
+if [[ ! -r "$PREFS_F" ]]; then
+  fail "Can't load $PREFS_F"
+fi
+
+source "$PREFS_F"
+show_params
+
+# If you're backing up a filesystem that you're mounting by FUSE, the inode
+# information is misleading at best, so add --ignore-inode.
+
+restic backup --verbose=2 \
+  --exclude=.duplicacy \
+  --exclude=.DS_Store \
+  --tag periodic \
+  -o b2.connections=15 \
+  $EXCLUDE_FILE $DRY_RUN $BACKUP_PATHS $@
+
+if [[ $? != 0 ]]; then
+  fail "restic backup failed" # We don't want to prune any snapshots if this backup failed
+fi
+
+# Prune backup snapshots
+restic forget --verbose \
+  --tag periodic \
+  --group-by "paths,tags" \
+  --keep-last $MINIMUM_SNAPSHOTS_RETAINED \
+  --keep-hours $HOURS_RETAINED \
+  --keep-daily $DAYS_RETAINED \
+  --keep-weekly $WEEKS_RETAINED \
+  --keep-monthly $MONTHS_RETAINED \
+  --keep-yearly $YEARS_RETAINED
+
+if [[ $? != 0 ]]; then
+  fail "restic snapshot cleanup failed"
+fi

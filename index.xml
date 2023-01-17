@@ -7,7 +7,28 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2022, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 10 Nov 2022 08:39:22 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Jan 2023 11:16:19 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Restic Backups on TrueNAS</title>
+      <link>https://unixorn.github.io/post/restic-backups-on-truenas/</link>
+      <pubDate>Fri, 13 Jan 2023 11:16:19 -0700</pubDate>
+      
+      <guid>https://unixorn.github.io/post/restic-backups-on-truenas/</guid>
+      <description>Restic Backups on TrueNAS I&amp;rsquo;ve been backing my homelab up with duplicacy, but I&amp;rsquo;m fed up with it returning a 0 exit code even if there&amp;rsquo;s a problem with the backup. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to restic.
+In this blog entry, I&amp;rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install restic, and how to use it to back up to Backblaze b2.</description>
+    </item>
+    
+    <item>
+      <title>Fix Congo Backticks</title>
+      <link>https://unixorn.github.io/post/fix-congo-backticks/</link>
+      <pubDate>Mon, 14 Nov 2022 19:12:41 -0700</pubDate>
+      
+      <guid>https://unixorn.github.io/post/fix-congo-backticks/</guid>
+      <description>I switched to the Congo theme for Hugo. The one thing I didn&amp;rsquo;t like in it was the way it handles inline backticks - it displays them, in addition to formatting the enclosed text as code.
+To fix it, create assets/css/custom.css with the following contents:
+.prose code::before { content: &amp;#39;&amp;#39; } .prose code::after { content: &amp;#39;&amp;#39; } </description>
+    </item>
+    
     <item>
       <title>Switching to Mastodon</title>
       <link>https://unixorn.github.io/post/switching-to-mastodon/</link>
@@ -307,6 +328,15 @@ I have a variety of DevOPS (and DevOOPs) themed swag on redbubble, if you&amp;rs
       <description>Email me at blog @ unixorn.net.
 You can find me around the internet at:
 curiousbiped on Twitter unixorn on GitHub @unixorn@mstdn.social on Mastodon I&amp;rsquo;m unixorn on redbubble apeseekingknowledge on Instagram. </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://unixorn.github.io/jfc/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://unixorn.github.io/jfc/</guid>
+      <description>Ziggy Stardust</description>
     </item>
     
     <item>
