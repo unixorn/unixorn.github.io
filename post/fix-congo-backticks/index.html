@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.105.0">
+  <meta name="generator" content="Hugo 0.110.0">
 
   <title>Fix Congo Backticks &middot; unixorn.github.io</title>
 
@@ -233,7 +233,7 @@
   <h2></h2>
 </div>
 <div class="content">
-  <p>I switched to the <a href="https://hugothemesfree.com/a-simple-lightweight-theme-for-hugo-built-with-tailwind-css/">Congo</a> theme for <a href="https://gohugo.io/">Hugo</a>. The one thing I didn&rsquo;t like in it was the way it handles inline backticks - it displays them, in addition to formatting the enclosed text as code.</p>
+  <p>I considered a switch to the <a href="https://hugothemesfree.com/a-simple-lightweight-theme-for-hugo-built-with-tailwind-css/">Congo</a> theme for <a href="https://gohugo.io/">Hugo</a>. The one thing I didn&rsquo;t like in it was the way it handles inline backticks - it displays them, in addition to formatting the enclosed text as code.</p>
 <p>To fix it, create <code>assets/css/custom.css</code> with the following contents:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span>.<span style="color:#a6e22e">prose</span> <span style="color:#f92672">code</span>::<span style="color:#a6e22e">before</span> {
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">content</span>: <span style="color:#e6db74">&#39;&#39;</span>

@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.105.0">
+  <meta name="generator" content="Hugo 0.110.0">
 
   <title>Home Assistant Printer Power Management &middot; unixorn.github.io</title>
 
@@ -248,168 +248,168 @@
 <h2 id="printer-power-control">Printer Power Control</h2>
 <h3 id="mosquitto-helper-script">mosquitto helper script</h3>
 <p>I don&rsquo;t like to install anything more on my docker hosts than I absolutely have to, so instead of installing mosquitto directly on the printserver machine, I run <code>mosquitto_pub</code> inside a container with the following <code>c-mosquitto_pub</code> helper script. You can download it from github <a href="https://github.com/unixorn/blog-scripts/blob/master/cupsd-hass/c-mosquitto_pub">here</a>. Put this in <code>/usr/local/bin</code>.</p>
-<pre tabindex="0"><code>#!/usr/bin/env bash
-#
-# Use docker to run mosquitto_pub
-#
-# Copyright 2019, Joe Block &lt;jpb@unixorn.net&gt;
-#
-# Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an &#34;AS IS&#34; BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-
-exec docker run -t --rm eclipse-mosquitto mosquitto_pub $@
-</code></pre><h3 id="cupsd-watcher">cupsd Watcher</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Use docker to run mosquitto_pub</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Copyright 2019, Joe Block &lt;jpb@unixorn.net&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Licensed under the Apache License, Version 2.0 (the &#34;License&#34;);</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># you may not use this file except in compliance with the License.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># You may obtain a copy of the License at</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Unless required by applicable law or agreed to in writing, software</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># distributed under the License is distributed on an &#34;AS IS&#34; BASIS,</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># See the License for the specific language governing permissions and</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># limitations under the License.</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>exec docker run -t --rm eclipse-mosquitto mosquitto_pub $@
+</span></span></code></pre></div><h3 id="cupsd-watcher">cupsd Watcher</h3>
 <p>Once I had cupsd configured to share the printer (as Franklin), I wrote a quick script that checks the print queue to see if it is empty or not. If there are jobs in the queue, it writes <strong>ON</strong> to an MQTT topic, <code>hass/printers/franklin</code>. If the queue is empty, it writes <strong>OFF</strong>. The examples here all assume your printer is named Franklin, replace Franklin with your printer&rsquo;s name.</p>
 <p>Actually, I lied. When there are jobs, it writes <strong>OFF</strong> and <em>then</em> <strong>ON</strong>.</p>
 <p>Why? Because I don&rsquo;t want HA to switch the printer off immediately once the queue drains - the printer has enough RAM that there may still be several pages left to print when it has accepted all of the job from the server.</p>
 <p>Instead, I&rsquo;ve configured HA to restart a timer every time it sees the MQTT topic <code>hass/printers/franklin</code> switch from <strong>OFF</strong> to <strong>ON</strong>, and only turn the printer off after the queue has been empty for five continuous minutes.</p>
 <p>Here&rsquo;s the <code>ha-check-for-print-jobs</code> script source - you can download it from github <a href="https://github.com/unixorn/blog-scripts/blob/master/cupsd-hass/ha-check-for-print-jobs">here</a>.</p>
 <p>Put the script in <code>/usr/local/bin</code> on the same server you&rsquo;re running the cupsd container on - it is designed to run a tool inside that container.</p>
-<pre tabindex="0"><code>#!/usr/bin/env bash
-#
-# ha-check-for-print-jobs
-#
-# Check if there are print jobs on $PRINT_Q. If there are, write
-# MQTT messages to a watched topic so HA knows to turn on the power
-# to the printer.
-#
-# Copyright 2021, Joe Block &lt;jpb@unixorn.net&gt;
-#
-# License: Apache 2
-
-set -o pipefail
-
-# Make all these overridable easily in your cron setup
-PRINT_Q=${PRINT_Q:-&#39;Franklin&#39;}
-CONTAINER=${CONTAINER:-&#39;cupsd-server&#39;}
-MQTT_HOST=${MQTT_HOST:-&#39;mqtt.example.com&#39;}
-MQTT_TOPIC=${MQTT_TOPIC:-&#39;hass/printers/franklin&#39;}
-
-# We are run out of cron every minute, but I don&#39;t want it to take an
-# entire minute to turn on the power because I&#39;m impatient and the printer
-# takes a bit to start up. When we print and walk downstairs, I want it
-# to have already started printing by the time I get there. If I was
-# patient, I wouldn&#39;t have bothered to write this tool :-)
-#
-# So, when we get run by cron, we check the queue CHECK_COUNT times, with
-# CHECK_DELAY seconds between each run.
-CHECK_COUNT=${CHECK_COUNT:-&#39;11&#39;}
-CHECK_DELAY=${CHECK_DELAY:-&#39;5&#39;}
-
-export PATH=&#34;$PATH:/usr/local/bin:/usr/local/sbin&#34;
-
-if [[ -f /tmp/printerdebug ]]; then
-  DEBUG=&#39;true&#39;
-fi
-
-# Only spam syslog when DEBUG is set
-debugout() {
-  if [[ -n &#34;$DEBUG&#34; ]]; then
-    echo &#34;$@&#34;
-  fi
-}
-
-validate-settings(){
-  debugout &#34;CONTAINER: $CONTAINER&#34;
-  debugout &#34;PRINT_Q: $PRINT_Q&#34;
-  debugout &#34;MQTT_HOST: $MQTT_HOST&#34;
-  debugout &#34;MQTT_TOPIC: $MQTT_TOPIC&#34;
-
-  valid=&#39;true&#39;
-  if [[ -z &#34;$CONTAINER&#34; ]]; then
-    echo &#34;CONTAINER is unset&#34;
-    valid=&#39;false&#39;
-  fi
-  if [[ -z &#34;$PRINT_Q&#34; ]]; then
-    echo &#34;PRINT_Q is unset&#34;
-    valid=&#39;false&#39;
-  fi
-  if [[ -z &#34;$MQTT_HOST&#34; ]]; then
-    echo &#34;MQTT_HOST is unset&#34;
-    valid=&#39;false&#39;
-  fi
-  if [[ -z &#34;$MQTT_TOPIC&#34; ]]; then
-    echo &#34;MQTT_TOPIC is unset&#34;
-    valid=&#39;false&#39;
-  fi
-  if [[ &#34;$valid&#34; == &#34;false&#34; ]]; then
-    echo &#34;Configure your settings.&#34;
-    exit 1
-  fi
-}
-
-print-job-checker() {
-  printjobs=$(docker exec -t &#34;$CONTAINER&#34; lpq -P &#34;$PRINT_Q&#34; | grep -c &#39;no entries&#39;)
-
-  if [[ &#34;$printjobs&#34; == &#39;1&#39; ]]; then
-    debugout &#34;No jobs in print queue, notifying HA&#34;
-    c-mosquitto_pub -h &#34;$MQTT_HOST&#34; -t &#34;$MQTT_TOPIC&#34; -m OFF
-  else
-    echo &#34;jobs found in print queue, notifying HA&#34;
-
-    docker exec -t &#34;$CONTAINER&#34; lpq -P &#34;$PRINT_Q&#34;
-
-    # Set the status off, then back to on, so that the HA timer restarts
-    # and HA doesn&#39;t turn off the printer in the middle of a job
-    c-mosquitto_pub -h &#34;$MQTT_HOST&#34; -t &#34;$MQTT_TOPIC&#34; -m OFF
-    c-mosquitto_pub -h &#34;$MQTT_HOST&#34; -t &#34;$MQTT_TOPIC&#34; -m ON
-    debugout &#34;re-enabling printer $PRINT_Q...&#34;
-    docker exec -t &#34;$CONTAINER&#34; lpadmin -p &#34;$PRINT_Q&#34; -o printer-error-policy=retry-current-job
-  fi
-}
-
-validate-settings
-
-# We run the print-job-checker every 5 seconds to minimize the UI delay on the
-# macOs end
-
-for i in $(seq $CHECK_COUNT)
-do
-  print-job-checker
-  debugout &#34;waiting...&#34;
-  sleep $CHECK_DELAY
-done
-</code></pre><h3 id="home-assistant-setup">Home Assistant Setup</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ha-check-for-print-jobs</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Check if there are print jobs on $PRINT_Q. If there are, write</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># MQTT messages to a watched topic so HA knows to turn on the power</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># to the printer.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Copyright 2021, Joe Block &lt;jpb@unixorn.net&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># License: Apache 2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>set -o pipefail
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Make all these overridable easily in your cron setup</span>
+</span></span><span style="display:flex;"><span>PRINT_Q<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>PRINT_Q<span style="color:#66d9ef">:-</span><span style="color:#e6db74">&#39;Franklin&#39;</span><span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>CONTAINER<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>CONTAINER<span style="color:#66d9ef">:-</span><span style="color:#e6db74">&#39;cupsd-server&#39;</span><span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>MQTT_HOST<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>MQTT_HOST<span style="color:#66d9ef">:-</span><span style="color:#e6db74">&#39;mqtt.example.com&#39;</span><span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>MQTT_TOPIC<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>MQTT_TOPIC<span style="color:#66d9ef">:-</span><span style="color:#e6db74">&#39;hass/printers/franklin&#39;</span><span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># We are run out of cron every minute, but I don&#39;t want it to take an</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># entire minute to turn on the power because I&#39;m impatient and the printer</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># takes a bit to start up. When we print and walk downstairs, I want it</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># to have already started printing by the time I get there. If I was</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># patient, I wouldn&#39;t have bothered to write this tool :-)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># So, when we get run by cron, we check the queue CHECK_COUNT times, with</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># CHECK_DELAY seconds between each run.</span>
+</span></span><span style="display:flex;"><span>CHECK_COUNT<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>CHECK_COUNT<span style="color:#66d9ef">:-</span><span style="color:#e6db74">&#39;11&#39;</span><span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>CHECK_DELAY<span style="color:#f92672">=</span><span style="color:#e6db74">${</span>CHECK_DELAY<span style="color:#66d9ef">:-</span><span style="color:#e6db74">&#39;5&#39;</span><span style="color:#e6db74">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>export PATH<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;</span>$PATH<span style="color:#e6db74">:/usr/local/bin:/usr/local/sbin&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -f /tmp/printerdebug <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>  DEBUG<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;true&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Only spam syslog when DEBUG is set</span>
+</span></span><span style="display:flex;"><span>debugout<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -n <span style="color:#e6db74">&#34;</span>$DEBUG<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;</span>$@<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>validate-settings<span style="color:#f92672">(){</span>
+</span></span><span style="display:flex;"><span>  debugout <span style="color:#e6db74">&#34;CONTAINER: </span>$CONTAINER<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  debugout <span style="color:#e6db74">&#34;PRINT_Q: </span>$PRINT_Q<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  debugout <span style="color:#e6db74">&#34;MQTT_HOST: </span>$MQTT_HOST<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>  debugout <span style="color:#e6db74">&#34;MQTT_TOPIC: </span>$MQTT_TOPIC<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  valid<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;true&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -z <span style="color:#e6db74">&#34;</span>$CONTAINER<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;CONTAINER is unset&#34;</span>
+</span></span><span style="display:flex;"><span>    valid<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;false&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -z <span style="color:#e6db74">&#34;</span>$PRINT_Q<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;PRINT_Q is unset&#34;</span>
+</span></span><span style="display:flex;"><span>    valid<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;false&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -z <span style="color:#e6db74">&#34;</span>$MQTT_HOST<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;MQTT_HOST is unset&#34;</span>
+</span></span><span style="display:flex;"><span>    valid<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;false&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> -z <span style="color:#e6db74">&#34;</span>$MQTT_TOPIC<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;MQTT_TOPIC is unset&#34;</span>
+</span></span><span style="display:flex;"><span>    valid<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;false&#39;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> <span style="color:#e6db74">&#34;</span>$valid<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;false&#34;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;Configure your settings.&#34;</span>
+</span></span><span style="display:flex;"><span>    exit <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print-job-checker<span style="color:#f92672">()</span> <span style="color:#f92672">{</span>
+</span></span><span style="display:flex;"><span>  printjobs<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>docker exec -t <span style="color:#e6db74">&#34;</span>$CONTAINER<span style="color:#e6db74">&#34;</span> lpq -P <span style="color:#e6db74">&#34;</span>$PRINT_Q<span style="color:#e6db74">&#34;</span> | grep -c <span style="color:#e6db74">&#39;no entries&#39;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> <span style="color:#f92672">[[</span> <span style="color:#e6db74">&#34;</span>$printjobs<span style="color:#e6db74">&#34;</span> <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;1&#39;</span> <span style="color:#f92672">]]</span>; <span style="color:#66d9ef">then</span>
+</span></span><span style="display:flex;"><span>    debugout <span style="color:#e6db74">&#34;No jobs in print queue, notifying HA&#34;</span>
+</span></span><span style="display:flex;"><span>    c-mosquitto_pub -h <span style="color:#e6db74">&#34;</span>$MQTT_HOST<span style="color:#e6db74">&#34;</span> -t <span style="color:#e6db74">&#34;</span>$MQTT_TOPIC<span style="color:#e6db74">&#34;</span> -m OFF
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span>    echo <span style="color:#e6db74">&#34;jobs found in print queue, notifying HA&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    docker exec -t <span style="color:#e6db74">&#34;</span>$CONTAINER<span style="color:#e6db74">&#34;</span> lpq -P <span style="color:#e6db74">&#34;</span>$PRINT_Q<span style="color:#e6db74">&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Set the status off, then back to on, so that the HA timer restarts</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># and HA doesn&#39;t turn off the printer in the middle of a job</span>
+</span></span><span style="display:flex;"><span>    c-mosquitto_pub -h <span style="color:#e6db74">&#34;</span>$MQTT_HOST<span style="color:#e6db74">&#34;</span> -t <span style="color:#e6db74">&#34;</span>$MQTT_TOPIC<span style="color:#e6db74">&#34;</span> -m OFF
+</span></span><span style="display:flex;"><span>    c-mosquitto_pub -h <span style="color:#e6db74">&#34;</span>$MQTT_HOST<span style="color:#e6db74">&#34;</span> -t <span style="color:#e6db74">&#34;</span>$MQTT_TOPIC<span style="color:#e6db74">&#34;</span> -m ON
+</span></span><span style="display:flex;"><span>    debugout <span style="color:#e6db74">&#34;re-enabling printer </span>$PRINT_Q<span style="color:#e6db74">...&#34;</span>
+</span></span><span style="display:flex;"><span>    docker exec -t <span style="color:#e6db74">&#34;</span>$CONTAINER<span style="color:#e6db74">&#34;</span> lpadmin -p <span style="color:#e6db74">&#34;</span>$PRINT_Q<span style="color:#e6db74">&#34;</span> -o printer-error-policy<span style="color:#f92672">=</span>retry-current-job
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">fi</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>validate-settings
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># We run the print-job-checker every 5 seconds to minimize the UI delay on the</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># macOs end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in <span style="color:#66d9ef">$(</span>seq $CHECK_COUNT<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  print-job-checker
+</span></span><span style="display:flex;"><span>  debugout <span style="color:#e6db74">&#34;waiting...&#34;</span>
+</span></span><span style="display:flex;"><span>  sleep $CHECK_DELAY
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><h3 id="home-assistant-setup">Home Assistant Setup</h3>
 <p>I configured my HA to watch a MQTT topic as a binary sensor. You can download this snippet <a href="https://github.com/unixorn/blog-scripts/blob/master/cupsd-hass/printer-binary-sensor.yaml">here</a>.</p>
-<pre tabindex="0"><code>binary_sensor:
-  - platform: mqtt
-    name: &#34;Franklin Print Queue&#34;
-    payload_on: &#34;ON&#34;
-    state_topic: &#34;hass/printers/franklin&#34;
-</code></pre><p>Now, when the watcher writes <strong>ON</strong> and <strong>OFF</strong> to the <code>hass/printers/franklin</code> queue, that binary sensor will change status and we can trigger an automation for it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">binary_sensor</span>:
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">platform</span>: <span style="color:#ae81ff">mqtt</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">name</span>: <span style="color:#e6db74">&#34;Franklin Print Queue&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">payload_on</span>: <span style="color:#e6db74">&#34;ON&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">state_topic</span>: <span style="color:#e6db74">&#34;hass/printers/franklin&#34;</span>
+</span></span></code></pre></div><p>Now, when the watcher writes <strong>ON</strong> and <strong>OFF</strong> to the <code>hass/printers/franklin</code> queue, that binary sensor will change status and we can trigger an automation for it.</p>
 <p>This automation will turn the printer power on every time the binary sensor is turned on, and turn it off five minutes after the last time the binary sensor switched from <strong>ON</strong> to <strong>OFF</strong>.</p>
 <p>The outlet my printer is plugged into is controlled by HA and rather unimaginatively named <code>switch.printerpower</code>.</p>
 <p>Add this stanza to your automations.yaml file. Download it <a href="https://github.com/unixorn/blog-scripts/blob/master/cupsd-hass/printer-automations.yaml">here</a>.</p>
-<pre tabindex="0"><code># Franklin power is controlled by MQTT
-  - alias: &#39;Turn on Franklin when there are jobs in the queue&#39;
-    trigger:
-      platform: state
-      entity_id: binary_sensor.franklin_print_queue
-      to: &#39;on&#39;
-    action:
-      service: homeassistant.turn_on
-      entity_id: switch.printerpower
-
-  - alias: &#39;Turn off printer 5 minutes after print queue drains&#39;
-    trigger:
-      platform: state
-      entity_id: binary_sensor.franklin_print_queue
-      to: &#39;off&#39;
-      for:
-        minutes: 5
-    action:
-      service: homeassistant.turn_off
-      entity_id: switch.printerpower
-</code></pre><h3 id="test-the-pieces">Test the pieces</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#75715e"># Franklin power is controlled by MQTT</span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">alias</span>: <span style="color:#e6db74">&#39;Turn on Franklin when there are jobs in the queue&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">platform</span>: <span style="color:#ae81ff">state</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">entity_id</span>: <span style="color:#ae81ff">binary_sensor.franklin_print_queue</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">to</span>: <span style="color:#e6db74">&#39;on&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">action</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">service</span>: <span style="color:#ae81ff">homeassistant.turn_on</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">entity_id</span>: <span style="color:#ae81ff">switch.printerpower</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">alias</span>: <span style="color:#e6db74">&#39;Turn off printer 5 minutes after print queue drains&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">trigger</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">platform</span>: <span style="color:#ae81ff">state</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">entity_id</span>: <span style="color:#ae81ff">binary_sensor.franklin_print_queue</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">to</span>: <span style="color:#e6db74">&#39;off&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">for</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">minutes</span>: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">action</span>:
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">service</span>: <span style="color:#ae81ff">homeassistant.turn_off</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">entity_id</span>: <span style="color:#ae81ff">switch.printerpower</span>
+</span></span></code></pre></div><h3 id="test-the-pieces">Test the pieces</h3>
 <h4 id="print-server-check">Print server check</h4>
 <p>Confirm that you&rsquo;ve got the print queue configured correctly by running <code>docker exec -it cupsd-server lpq -P Franklin</code>. If there are no jobs, it should print something like</p>
 <pre tabindex="0"><code>Franklin is ready

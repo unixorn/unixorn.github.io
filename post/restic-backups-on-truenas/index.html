@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.105.0">
+  <meta name="generator" content="Hugo 0.110.0">
 
   <title>Restic Backups on TrueNAS &middot; unixorn.github.io</title>
 
@@ -234,7 +234,7 @@
 </div>
 <div class="content">
   <h1 id="restic-backups-on-truenas">Restic Backups on TrueNAS</h1>
-<p>I&rsquo;ve been backing my homelab up with <code>duplicacy</code>, but I&rsquo;m fed up with it returning a <code>0</code> exit code <em>even if there&rsquo;s a problem with the backup</em>. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to <a href="https://restic.net/">restic</a>.</p>
+<p>I&rsquo;ve been backing my homelab up with <code>duplicacy</code> (See <a href="https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/">Backing Up the Clusting Using Duplicacy</a>), but I&rsquo;m fed up with it returning a <code>0</code> exit code <em>even if there&rsquo;s a problem with the backup</em>. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to <a href="https://restic.net/">restic</a>.</p>
 <p>In this blog entry, I&rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install <a href="https://restic.net/">restic</a>, and how to use it to back up to <a href="https://www.backblaze.com/b2/cloud-storage.html">Backblaze b2</a>.</p>
 <!-- raw HTML omitted -->
 <h2 id="background">Background</h2>
@@ -276,13 +276,13 @@
 </ol>
 <h3 id="add-mount-points">Add Mount Points</h3>
 <p>By default, your jail can&rsquo;t see any directory trees outside itself. That&rsquo;s great for security, but not so great if we want to back up files outside the jail, so we&rsquo;re going to add some mount points.</p>
-<p>Add the mount points before you start the new jail - you can&rsquo;t add them to a running jail. You <em>can</em> stop the jail, add/remove mount points, the restart it, but it&rsquo;s easier to set them up before starting the jail.</p>
+<p>Add the mount points before you start the new jail - you can&rsquo;t add them to a running jail. You <em>can</em> stop the jail, add/remove mount points, then restart it, but it&rsquo;s easier to set them up before starting the jail.</p>
 <p>Select your new jail, and select add mountpoint <img src="https://unixorn.github.io/images/truenas-restic/05-add-mountpoint.small.png" alt="Jails">.</p>
 <p>You can either make individual mounts for the directories you want to back up, or you can make one for your whole zpool. Whichever you pick, I recommend setting them read-only so you can&rsquo;t accidentally restore an older version of a file over the current version.</p>
 <p>Make a directory outside the jail to store configuration files and to restore files to, and don&rsquo;t set it read-only. Segregating the config/restore directory to a separate mount point will make it easier to examine restored files before putting them back where they belong.</p>
 <p>Now that you have your mount points added to your jail, go ahead and start your jail. It should take less than a minute to start.</p>
 <h3 id="install-restic">Install restic</h3>
-<p>Now that the jail is running, you&rsquo;ll have to install restic into it.</p>
+<p>Now that the jail is running, you&rsquo;ll have to install <code>restic</code> into it.</p>
 <ol>
 <li><code>ssh</code> into your TrueNAS server</li>
 <li>Enter the jail so you can install software by running <code>sudo iocage console YOURJAILNAME</code></li>
@@ -291,12 +291,12 @@
 <h3 id="configure-restic--do-your-first-backup">Configure restic &amp; do your first backup</h3>
 <p>For convenience, I store the various settings as environment variable exports in a shell script that I can source for a couple of reasons:</p>
 <ol>
-<li>This makes it easy to do the backups from cron and also do test backups and restores from within the jail.</li>
+<li>This makes it easy to do the backups via <code>cron</code> and also to do test backups and restores from within the jail.</li>
 <li>I don&rsquo;t have to write a config file parser and overcomplicate things</li>
 </ol>
 <h4 id="install-the-driver-script-and-config-files">Install the driver script and config files</h4>
 <p><code>ssh</code> into your TrueNAS server and stick the following files in a directory visible inside your backups jail.</p>
-<p>Here&rsquo;s the <a href="https://unixorn.github.io/resources/truenas-restic/restic-driver"><code>restic-driver</code></a> script I use to run restic and trim snapshots once they age out.</p>
+<p>Here&rsquo;s the <a href="https://unixorn.github.io/resources/truenas-restic/restic-driver"><code>restic-driver</code></a> script I use to run <code>restic</code> and trim snapshots once they age out.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e">#!/usr/bin/env bash
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e"># restic-driver-script</span>
@@ -444,12 +444,12 @@
 <li>It put the whole directory path for that file inside <code>./restores</code>, so we&rsquo;ll do a simple md5 check with <code>md5sum /path/to/test/file ./restores/path/to/test/file</code></li>
 </ol>
 <h4 id="run-restic-out-of-cron">Run restic out of cron</h4>
-<p>Great, you&rsquo;re almost done. All we have to do now is add it to cron so it runs at least once a day. You need to add it to the crontab <em>inside</em> the jail though, or TrueNAS won&rsquo;t find your script.</p>
-<p>I stored my restic backup script and configuration in a directory that appears as <code>/mnt/alcatraz</code> inside my backups jail. Change the path to match wherever you stored yours.</p>
+<p>Great, you&rsquo;re almost done. All we have to do now is add it to <code>cron</code> so it runs at least once a day. You need to add it to the crontab <em>inside</em> the jail though, or TrueNAS won&rsquo;t find your script.</p>
+<p>I stored my <code>restic</code> backup script and configuration in a directory that appears as <code>/mnt/alcatraz</code> inside my backups jail. Change the path to match wherever you stored yours.</p>
 <p>Run <code>crontab -e</code> and add the following:</p>
-<pre tabindex="0"><code># minute	hour	mday	month	wday	command
-13 */4 * * * /mnt/alcatraz/restic-driver /mnt/alcatraz/backup-settings.sh | logger -t backups
-</code></pre><p>I tagged all the log output with <code>backups</code> to make it easier to <code>grep</code> out of <code>/var/log/messages</code>, and I run mine four times a day You may prefer a different cadence, set the hour field accordingly. <code>restic</code> locks the repository when it starts, so you don&rsquo;t have to worry about repository corruption if you accidentally try to run more than one backup at a time.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># minute	hour	mday	month	wday	command</span>
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">13</span> */4 * * * /mnt/alcatraz/restic-driver /mnt/alcatraz/backup-settings.sh | logger -t backups
+</span></span></code></pre></div><p>I tagged all the log output with <code>backups</code> to make it easier to <code>grep</code> out of <code>/var/log/messages</code>, and I run mine four times a day. You may prefer a different cadence, if so set the hour field accordingly. <code>restic</code> locks the repository when it starts, so you don&rsquo;t have to worry about repository corruption if you accidentally try to run more than one backup at a time.</p>
 
 </div>
 

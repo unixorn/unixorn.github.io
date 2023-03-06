@@ -14,7 +14,7 @@
       <pubDate>Fri, 13 Jan 2023 11:16:19 -0700</pubDate>
       
       <guid>https://unixorn.github.io/post/restic-backups-on-truenas/</guid>
-      <description>Restic Backups on TrueNAS I&amp;rsquo;ve been backing my homelab up with duplicacy, but I&amp;rsquo;m fed up with it returning a 0 exit code even if there&amp;rsquo;s a problem with the backup. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to restic.
+      <description>Restic Backups on TrueNAS I&amp;rsquo;ve been backing my homelab up with duplicacy (See Backing Up the Clusting Using Duplicacy), but I&amp;rsquo;m fed up with it returning a 0 exit code even if there&amp;rsquo;s a problem with the backup. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to restic.
 In this blog entry, I&amp;rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install restic, and how to use it to back up to Backblaze b2.</description>
     </item>
     
@@ -24,7 +24,7 @@ In this blog entry, I&amp;rsquo;m going to explain how to create a jail in TrueN
       <pubDate>Mon, 14 Nov 2022 19:12:41 -0700</pubDate>
       
       <guid>https://unixorn.github.io/post/fix-congo-backticks/</guid>
-      <description>I switched to the Congo theme for Hugo. The one thing I didn&amp;rsquo;t like in it was the way it handles inline backticks - it displays them, in addition to formatting the enclosed text as code.
+      <description>I considered a switch to the Congo theme for Hugo. The one thing I didn&amp;rsquo;t like in it was the way it handles inline backticks - it displays them, in addition to formatting the enclosed text as code.
 To fix it, create assets/css/custom.css with the following contents:
 .prose code::before { content: &amp;#39;&amp;#39; } .prose code::after { content: &amp;#39;&amp;#39; } </description>
     </item>
@@ -218,7 +218,8 @@ In no particular order, the attempts to roll back rights for LGBTQ+ citizens, th
       
       <guid>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
-&lt;p&gt;I wanted to ensure any data I put into my &lt;a href=&#34;https://unixorn.github.io/post/k3s-on-arm/&#34;&gt;ARM k3s cluster&lt;/a&gt; is backed up to prevent data loss.&lt;/p&gt;</description>
+&lt;p&gt;I wanted to ensure any data I put into my &lt;a href=&#34;https://unixorn.github.io/post/k3s-on-arm/&#34;&gt;ARM k3s cluster&lt;/a&gt; is backed up to prevent data loss.&lt;/p&gt;
+&lt;p&gt;I no longer recommend duplicacy. Instead, read my article on &lt;a href=&#34;https://unixorn.github.io/post/restic-backups-on-truenas/&#34;&gt;restic backups on TrueNas&lt;/a&gt; instead.&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -316,7 +317,7 @@ I have a variety of DevOps (and DevOOPs) themed swag on redbubble, if you&amp;rs
 I like cooking, photography, home automation and working on distributed infrastructure.
 You can find me online at:
 Mastodon: @unixorn@mstdn.social Twitter (deprecated) - @curiousbiped I&amp;rsquo;m the organizer for the Denver CoffeeOps meetup, which currently meets online - the meetup link details are posted in the Colorado channels of both the hangops and coffeeops slacks.
-I have a variety of DevOPS (and DevOOPs) themed swag on redbubble, if you&amp;rsquo;d like to buy something and contribute to me buying new hardware to write about, or you can contribute at https://www.</description>
+I have a variety of DevOPS (and DevOOPs) themed swag on redbubble, if you&amp;rsquo;d like to buy something and contribute to me buying new hardware to write about.</description>
     </item>
     
     <item>

@@ -6,7 +6,7 @@
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.105.0">
+  <meta name="generator" content="Hugo 0.110.0">
 
   <title>Run a CUPSD print server on Raspberry Pi &middot; unixorn.github.io</title>
 
@@ -236,7 +236,7 @@
   <p>I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here&rsquo;s how I set that up.</p>
 <h2 id="prerequisites">Prerequisites</h2>
 <ul>
-<li>A Raspberry Pi (or honestly any linux box) running docker. I like the Raspberry Pi and Odroid HC2 for this sort of thing because they are very low power.</li>
+<li>A Raspberry Pi (or honestly any linux box) running docker. I like the Raspberry Pi and Odroid HC2 for this sort of thing because they have very low power requirements.</li>
 <li>A printer supported by the <a href="https://cups.org">CUPS</a> project.</li>
 </ul>
 <h2 id="setup">Setup</h2>
@@ -250,14 +250,14 @@
 <li><code>touch $CUPSD_DIR/printers.conf</code></li>
 <li>Run the <code>cupsd</code> server with</li>
 </ol>
-<pre tabindex="0"><code>sudo docker run -d --restart unless-stopped \
-  -p 631:631 \
-  --privileged \
-  -v /var/run/dbus:/var/run/dbus \
-  -v /dev/bus/usb:/dev/bus/usb \
-  -v $CUPSD_DIR/printers.conf:/etc/cups/printers.conf \
-  unixorn/cupsd
-</code></pre><p>You can now connect to http://SERVER:631 and add printers using the web UI.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo docker run -d --restart unless-stopped <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -p 631:631 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  --privileged <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -v /var/run/dbus:/var/run/dbus <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -v /dev/bus/usb:/dev/bus/usb <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  -v $CUPSD_DIR/printers.conf:/etc/cups/printers.conf <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>  unixorn/cupsd
+</span></span></code></pre></div><p>You can now connect to http://SERVER:631 and add printers using the web UI.</p>
 <p>When adding the printers to your Mac, select Internet Printing Protocol and put in the IP or DNS name of your print server machine.</p>
 <p>The queues are <code>printers/printername</code>, not <code>printername</code>.</p>
 </div>

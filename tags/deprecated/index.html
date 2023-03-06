@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.110.0">
 
-  <title>tech zfs raid server &middot; unixorn.github.io</title>
+  <title>deprecated &middot; unixorn.github.io</title>
 
     
 
@@ -44,7 +44,7 @@
  
   
   <link rel="alternate" type="application/rss+xml" title="unixorn.github.io"
-    href='https://unixorn.github.io/tags/tech-zfs-raid-server/index.xml' />
+    href='https://unixorn.github.io/tags/deprecated/index.xml' />
   
 
   
@@ -123,7 +123,7 @@
 
     
     <li class="pure-menu-item">
-      <a class="pure-menu-link" href='https://unixorn.github.io/tags/tech-zfs-raid-server/index.xml'><i
+      <a class="pure-menu-link" href='https://unixorn.github.io/tags/deprecated/index.xml'><i
           class="fas fa-rss fa-fw"></i>RSS</a>
     </li>
     
@@ -236,20 +236,20 @@
 
 
 <div class="header">
-  <h1>tech zfs raid server</h1>
+  <h1>deprecated</h1>
 </div>
 
 <div class="content">
   
     <article>
   <header>
-    <h2><a href="https://unixorn.github.io/post/western-digital-red-smr-fiasco/">Western Digital Red drive SMR Fiasco</a></h2>
+    <h2><a href="https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/">Backing Up the Cluster with Duplicacy</a></h2>
 
     <div class="post-meta">
 
   <div>
     <i class="fa fa-calendar fa-fw"></i>
-    <time>Sat, Jan 15, 2022 at 07:32</time>
+    <time>Sun, Sep 1, 2019 at 15:47</time>
   </div>
 
   
@@ -262,7 +262,25 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/tech-zfs-raid-server">tech zfs raid server</a>
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/arm">arm</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/arm7">arm7</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/b2">b2</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/backups">backups</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/deprecated">deprecated</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/docker">docker</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/k3s">k3s</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/k8s">k8s</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/kubernetes">kubernetes</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/tech">tech</a>
     
   </div>
   
@@ -273,13 +291,14 @@
   </header>
 
   <p>
-  TL;DR - SMR drives can take thirteen to sixteen times as long to resilver in your ZFS raid than CMR drives. If they even succeed. This wouldn&rsquo;t be a big deal, except that Western Digital started using SMR technology in their WD-Red drives that are marketed toward SOHO and small business raid, without any warnings about the RAID performance implications.
-I got lucky when I bought my last batch of Reds, they were all CMR, but it was pure luck - I bought them based on Western Digital&rsquo;s reputation and because I&rsquo;ve seen multiple NAS vendors recommend WD-REDs in the past.
+  <h2 id="motivation">Motivation</h2>
+<p>I wanted to ensure any data I put into my <a href="https://unixorn.github.io/post/k3s-on-arm/">ARM k3s cluster</a> is backed up to prevent data loss.</p>
+<p>I no longer recommend duplicacy. Instead, read my article on <a href="https://unixorn.github.io/post/restic-backups-on-truenas/">restic backups on TrueNas</a> instead.</p>
   </p>
 
   
   <footer>
-    <a href="https://unixorn.github.io/post/western-digital-red-smr-fiasco/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+    <a href="https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>
