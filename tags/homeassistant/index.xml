@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2022, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 06 Nov 2022 14:47:14 -1000</lastBuildDate><atom:link href="https://unixorn.github.io/tags/homeassistant/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 11 Mar 2023 16:39:38 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/homeassistant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Released ha-mqtt-discoverable 0.8.0</title>
+      <link>https://unixorn.github.io/post/ha-mqtt-discoverable-0.8.0/</link>
+      <pubDate>Sat, 11 Mar 2023 16:39:38 -0700</pubDate>
+      
+      <guid>https://unixorn.github.io/post/ha-mqtt-discoverable-0.8.0/</guid>
+      <description>&lt;p&gt;Released version 0.8.0 of ha-mqtt-discoverable and version 0.2.0 of ha-mqtt-discoverable-cli today.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Zigbee and Zwave Setup Tips</title>
       <link>https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/</link>
@@ -16,21 +25,6 @@
       <guid>https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/</guid>
       <description>&lt;p&gt;Some tips about setting up Zigbee or Z-wave mesh networks.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve had a few people new to Home Assistant ask about how to best set up their mesh networks. Here&amp;rsquo;s my take on what works best.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Switch Home Assistant to Use PostgreSQL Instead of SQLite</title>
-      <link>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</link>
-      <pubDate>Sat, 05 Nov 2022 09:42:58 -0600</pubDate>
-      
-      <guid>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</guid>
-      <description>&lt;p&gt;I wanted to switch my new Home Assistant (HA) installation to write its history data to &lt;a href=&#34;https://www.postgresql.org/&#34;&gt;PostgreSQL&lt;/a&gt; instead of SQLite for a variety of reasons. Here&amp;rsquo;s how I did it.&lt;/p&gt;
-&lt;p&gt;Here&amp;rsquo;s why I decided to switch:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Resilience&lt;/strong&gt;. If you&amp;rsquo;re running Home Assistant on a Raspberry Pi&amp;rsquo;s SD card, the constant churn of history updates will eventually destroy the card. The more entities you have, the faster HA will grind your SD card to failure. Writing all that to another server that is writing to a real SSD or spinning disk eliminates that problem.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Convenience&lt;/strong&gt;. I can back up the postgres database without having to stop HA. I don&amp;rsquo;t even have to run the backup on the HA server.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Speed&lt;/strong&gt;. Using a real database will speed up history display, especially once you have a large number of entities.&lt;/li&gt;
-&lt;/ul&gt;</description>
     </item>
     
   </channel>

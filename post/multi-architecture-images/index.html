@@ -233,7 +233,7 @@
   <h2></h2>
 </div>
 <div class="content">
-  <p>I&rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are arm7, some Raspberry Pi 4s that are arm64, and am soon going to add an Intel node as well. It&rsquo;s more hassle than it&rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.</p>
+  <p>I&rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are <code>arm7</code>, some Raspberry Pi 4s that are <code>arm64</code>, and am soon going to add an Intel node as well. It&rsquo;s more hassle than it&rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.</p>
 <p>This turned out to be a lot easier than I was expecting - recent stable builds (2.0.4.0 (33772) or higher) of Docker Desktop can build for other architectures by running virtual machines in QEMU, so I can do the whole build on my MacBook Pro instead of baking each architecture separately and stitching them together with a manifest file.</p>
 <ol>
 <li>Install the latest Docker Desktop for macOS</li>

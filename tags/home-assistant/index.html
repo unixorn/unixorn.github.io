@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="generator" content="Hugo 0.110.0">
 
-  <title>home assistant &middot; unixorn.github.io</title>
+  <title>home-assistant &middot; unixorn.github.io</title>
 
     
 
@@ -236,10 +236,67 @@
 
 
 <div class="header">
-  <h1>home assistant</h1>
+  <h1>home-assistant</h1>
 </div>
 
 <div class="content">
+  
+    <article>
+  <header>
+    <h2><a href="https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/">Switch Home Assistant to Use PostgreSQL Instead of SQLite</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>Sat, Nov 5, 2022 at 09:42</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/hass">hass</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/home-assistant">home-assistant</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/postgres">postgres</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/sql">sql</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/tech">tech</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  <p>I wanted to switch my new Home Assistant (HA) installation to write its history data to <a href="https://www.postgresql.org/">PostgreSQL</a> instead of SQLite for a variety of reasons. Here&rsquo;s how I did it.</p>
+<p>Here&rsquo;s why I decided to switch:</p>
+<ul>
+<li><strong>Resilience</strong>. If you&rsquo;re running Home Assistant on a Raspberry Pi&rsquo;s SD card, the constant churn of history updates will eventually destroy the card. The more entities you have, the faster HA will grind your SD card to failure. Writing all that to another server that is writing to a real SSD or spinning disk eliminates that problem.</li>
+<li><strong>Convenience</strong>. I can back up the postgres database without having to stop HA. I don&rsquo;t even have to run the backup on the HA server.</li>
+<li><strong>Speed</strong>. Using a real database will speed up history display, especially once you have a large number of entities.</li>
+</ul>
+  </p>
+
+  
+  <footer>
+    <a href="https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
+  </footer>
+  
+</article>
+
   
     <article>
   <header>
@@ -317,19 +374,19 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/home-assistant">Home Assistant</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/raspberry-pi">Raspberry PI</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/cupsd">cupsd</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/hass">hass</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/home-assistant">home-assistant</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/homelab">homelab</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/printer">printer</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/rpi">rpi</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/raspberry-pi">Raspberry PI</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/tech">tech</a>
     
@@ -375,17 +432,17 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/alerting">alerting</a>&nbsp;&#47;
+    
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/hass">hass</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/home-assistant">home assistant</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/home-assistant">home-assistant</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/homelab">homelab</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/sms">sms</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/tech">tech</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/alerting">alerting</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/twilio">twilio</a>
     
@@ -430,7 +487,7 @@ Update: I wrote another article, Use PagerDuty with Home Assistant this time for
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/tech">tech</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/home-assistant">home assistant</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/home-assistant">home-assistant</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/plex">plex</a>
     

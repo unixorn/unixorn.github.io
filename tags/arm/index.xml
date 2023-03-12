@@ -14,7 +14,7 @@
       <pubDate>Sat, 13 Jun 2020 09:07:49 -0600</pubDate>
       
       <guid>https://unixorn.github.io/post/multi-architecture-images/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are arm7, some Raspberry Pi 4s that are arm64, and am soon going to add an Intel node as well. It&amp;rsquo;s more hassle than it&amp;rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are &lt;code&gt;arm7&lt;/code&gt;, some Raspberry Pi 4s that are &lt;code&gt;arm64&lt;/code&gt;, and am soon going to add an Intel node as well. It&amp;rsquo;s more hassle than it&amp;rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.&lt;/p&gt;</description>
     </item>
     
     <item>

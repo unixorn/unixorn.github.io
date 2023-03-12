@@ -244,6 +244,54 @@
   
     <article>
   <header>
+    <h2><a href="https://unixorn.github.io/post/sysadvent-2021-article/">Sysadvent 2021 Articles</a></h2>
+
+    <div class="post-meta">
+
+  <div>
+    <i class="fa fa-calendar fa-fw"></i>
+    <time>Tue, Dec 7, 2021 at 11:13</time>
+  </div>
+
+  
+
+  
+
+  
+  
+  
+  <div>
+    <i class="fa fa-tags fa-fw"></i>
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/docker">docker</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/containerd">containerd</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/k3s">k3s</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/sysadvent">sysadvent</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/tech">tech</a>
+    
+  </div>
+  
+  
+
+</div>
+
+  </header>
+
+  <p>
+  I wrote two articles in sysadvent 2021
+Baking Multi-Architecture Docker Images Setting up k3s in your home lab 
+  </p>
+
+  
+</article>
+
+  
+    <article>
+  <header>
     <h2><a href="https://unixorn.github.io/post/iam-self-tagging/">AWS IAM Self Tagging EC2 Instances</a></h2>
 
     <div class="post-meta">
@@ -339,7 +387,7 @@
   </header>
 
   <p>
-  <p>I wanted to set up a security camera outside, but I didn&rsquo;t want to be dependent on an outside cloud service - if my internet goes out, I don&rsquo;t want to lose my ability to record footage.</p>
+  <p>I wanted to set up a security camera outside, but I didn&rsquo;t want to be dependent on an outside cloud service - if my internet goes out, I don&rsquo;t want to lose my ability to record video.</p>
 <p>Wyze cameras are nice and cheap, and you can reflash them to support RTSP in addition to streaming to the Wyze cloud.</p>
   </p>
 
@@ -372,19 +420,19 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/home-assistant">Home Assistant</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/raspberry-pi">Raspberry PI</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/cupsd">cupsd</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/hass">hass</a>&nbsp;&#47;
+    
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/home-assistant">home-assistant</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/homelab">homelab</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/printer">printer</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/rpi">rpi</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/raspberry-pi">Raspberry PI</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/tech">tech</a>
     
@@ -485,17 +533,17 @@
   <div>
     <i class="fa fa-tags fa-fw"></i>
     
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/alerting">alerting</a>&nbsp;&#47;
+    
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/hass">hass</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/home-assistant">home assistant</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/home-assistant">home-assistant</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/homelab">homelab</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/sms">sms</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/tech">tech</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/alerting">alerting</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/twilio">twilio</a>
     
@@ -588,7 +636,7 @@ TOS - https://secure.actblue.com/donate/ga-tos TNG - https://secure.actblue.com/
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/tech">tech</a>&nbsp;&#47;
     
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/home-assistant">home assistant</a>&nbsp;&#47;
+      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/home-assistant">home-assistant</a>&nbsp;&#47;
     
       <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/plex">plex</a>
     
@@ -699,61 +747,12 @@ In no particular order, the attempts to roll back rights for LGBTQ+ citizens, th
   </header>
 
   <p>
-  <p>I&rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are arm7, some Raspberry Pi 4s that are arm64, and am soon going to add an Intel node as well. It&rsquo;s more hassle than it&rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.</p>
+  <p>I&rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are <code>arm7</code>, some Raspberry Pi 4s that are <code>arm64</code>, and am soon going to add an Intel node as well. It&rsquo;s more hassle than it&rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.</p>
   </p>
 
   
   <footer>
     <a href="https://unixorn.github.io/post/multi-architecture-images/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
-  </footer>
-  
-</article>
-
-  
-    <article>
-  <header>
-    <h2><a href="https://unixorn.github.io/post/setting-up-an-n2/">Setting up an ODROID N2</a></h2>
-
-    <div class="post-meta">
-
-  <div>
-    <i class="fa fa-calendar fa-fw"></i>
-    <time>Sun, Mar 29, 2020 at 15:37</time>
-  </div>
-
-  
-
-  
-
-  
-  
-  
-  <div>
-    <i class="fa fa-tags fa-fw"></i>
-    
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/arm">arm</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/arm64">arm64</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/homelab">homelab</a>&nbsp;&#47;
-    
-      <a class="post-taxonomy-tag" href="https://unixorn.github.io/tags/odroid">odroid</a>
-    
-  </div>
-  
-  
-
-</div>
-
-  </header>
-
-  <p>
-  <p>I wanted a machine with more memory to be the master node for my ARM k3s cluster. I had an Odroid N2 with 4GB of RAM, sitting around, so here&rsquo;s the log of getting it installed and running.</p>
-  </p>
-
-  
-  <footer>
-    <a href="https://unixorn.github.io/post/setting-up-an-n2/">Read more<i class="fa fa-angle-double-right fa-fw"></i></a>
   </footer>
   
 </article>

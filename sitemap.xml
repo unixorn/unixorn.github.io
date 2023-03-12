@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/tags/homeassistant/</loc>
+    <lastmod>2023-03-11T16:39:38-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/mqtt/</loc>
+    <lastmod>2023-03-11T16:39:38-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/</loc>
+    <lastmod>2023-03-11T16:39:38-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/python/</loc>
+    <lastmod>2023-03-11T16:39:38-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/ha-mqtt-discoverable-0.8.0/</loc>
+    <lastmod>2023-03-11T16:39:38-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2023-03-11T16:39:38-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/</loc>
+    <lastmod>2023-03-11T16:39:38-07:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/tags/backups/</loc>
     <lastmod>2023-01-13T11:16:19-07:00</lastmod>
   </url><url>
@@ -14,22 +35,13 @@
     <loc>https://unixorn.github.io/tags/homelab/</loc>
     <lastmod>2023-01-13T11:16:19-07:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/post/</loc>
-    <lastmod>2023-01-13T11:16:19-07:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/tags/restic/</loc>
     <lastmod>2023-01-13T11:16:19-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/restic-backups-on-truenas/</loc>
     <lastmod>2023-01-13T11:16:19-07:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
-    <lastmod>2023-01-13T11:16:19-07:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/tags/truenas/</loc>
-    <lastmod>2023-01-13T11:16:19-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/</loc>
     <lastmod>2023-01-13T11:16:19-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/administrivia/</loc>
@@ -59,9 +71,6 @@
     <loc>https://unixorn.github.io/tags/hass/</loc>
     <lastmod>2022-11-06T14:47:14-10:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/tags/homeassistant/</loc>
-    <lastmod>2022-11-06T14:47:14-10:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/tags/iot/</loc>
     <lastmod>2022-11-06T14:47:14-10:00</lastmod>
   </url><url>
@@ -73,6 +82,9 @@
   </url><url>
     <loc>https://unixorn.github.io/tags/zwave/</loc>
     <lastmod>2022-11-06T14:47:14-10:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/home-assistant/</loc>
+    <lastmod>2022-11-05T09:42:58-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/postgres/</loc>
     <lastmod>2022-11-05T09:42:58-06:00</lastmod>
@@ -96,9 +108,6 @@
     <lastmod>2022-09-17T15:38:01-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/home/</loc>
-    <lastmod>2022-09-17T15:38:01-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/home-assistant/</loc>
     <lastmod>2022-09-17T15:38:01-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/monitoring/</loc>
