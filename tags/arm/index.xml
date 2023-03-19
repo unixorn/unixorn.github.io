@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>arm on unixorn.github.io</title>
     <link>https://unixorn.github.io/tags/arm/</link>
     <description>Recent content in arm on unixorn.github.io</description>
+    <image>
+      <title>unixorn.github.io</title>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Copyright 2019-2022, Joe Block. All rights reserved.</copyright>
+    <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sat, 13 Jun 2020 09:07:49 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/tags/arm/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Building Multi Architecture Docker Images with buildx</title>
@@ -62,7 +67,7 @@
       <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
       
       <guid>https://unixorn.github.io/post/arm_cluster_parts_list/</guid>
-      <description>&lt;p&gt;I realized I forgot to include a parts list for the cluster in my &lt;a href=&#34;https://unixorn.github.io/blog/in_the_beginning_there_was_bare_metal/&#34;&gt;ARM cluster post&lt;/a&gt; (all prices are as of March 3rd, 2019), so here we go.&lt;/p&gt;</description>
+      <description>ARM cluster parts list</description>
     </item>
     
     <item>
@@ -71,7 +76,7 @@
       <pubDate>Sun, 17 Feb 2019 16:00:05 -0700</pubDate>
       
       <guid>https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</guid>
-      <description>&lt;p&gt;I recently decided to set up a Kubernetes cluster in my basement, partly because I&amp;rsquo;d never set a cluster up from scratch by myself, and partly because my existing NAS was beginning to run out of headroom.&lt;/p&gt;</description>
+      <description>In the beginning, there was bare metal</description>
     </item>
     
   </channel>

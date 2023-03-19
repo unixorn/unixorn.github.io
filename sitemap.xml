@@ -2,25 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/post/add-smarts-to-ikea-vindriktning-air-sensors/</loc>
+    <lastmod>2023-03-18T13:46:13-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/diy/</loc>
+    <lastmod>2023-03-18T13:46:13-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/esp32/</loc>
+    <lastmod>2023-03-18T13:46:13-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/esp8266/</loc>
+    <lastmod>2023-03-18T13:46:13-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/esphome/</loc>
+    <lastmod>2023-03-18T13:46:13-06:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/tags/homeassistant/</loc>
-    <lastmod>2023-03-11T16:39:38-07:00</lastmod>
+    <lastmod>2023-03-18T13:46:13-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/mqtt/</loc>
-    <lastmod>2023-03-11T16:39:38-07:00</lastmod>
+    <lastmod>2023-03-18T13:46:13-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/</loc>
-    <lastmod>2023-03-11T16:39:38-07:00</lastmod>
+    <lastmod>2023-03-18T13:46:13-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/sensor/</loc>
+    <lastmod>2023-03-18T13:46:13-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2023-03-18T13:46:13-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/tasmota/</loc>
+    <lastmod>2023-03-18T13:46:13-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/tech/</loc>
+    <lastmod>2023-03-18T13:46:13-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/</loc>
+    <lastmod>2023-03-18T13:46:13-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/python/</loc>
     <lastmod>2023-03-11T16:39:38-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/ha-mqtt-discoverable-0.8.0/</loc>
-    <lastmod>2023-03-11T16:39:38-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
-    <lastmod>2023-03-11T16:39:38-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/</loc>
     <lastmod>2023-03-11T16:39:38-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/backups/</loc>
@@ -60,9 +84,6 @@
     <lastmod>2022-11-10T08:39:22-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/switching-to-mastodon/</loc>
-    <lastmod>2022-11-10T08:39:22-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/tech/</loc>
     <lastmod>2022-11-10T08:39:22-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/twitter/</loc>
@@ -347,6 +368,10 @@
     <loc>https://unixorn.github.io/projects/</loc>
     <priority>0</priority>
   </url><url>
+    <loc>https://unixorn.github.io/archives/</loc>
+  </url><url>
     <loc>https://unixorn.github.io/categories/</loc>
+  </url><url>
+    <loc>https://unixorn.github.io/search/</loc>
   </url>
 </urlset>

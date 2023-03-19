@@ -1,442 +1,56 @@
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="In the beginning, there was bare metal">
-  <meta name="generator" content="Hugo 0.110.0">
-
-  <title>Getting an ARM kubernetes cluster up and running &middot; unixorn.github.io</title>
-
-    
-
-  
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
-
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
-  <!--<![endif]-->
-
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="https://unixorn.github.io/css/side-menu-old-ie.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="https://unixorn.github.io/css/side-menu.css">
-  <!--<![endif]-->
-
-  <link rel="stylesheet" href="https://unixorn.github.io/css/blackburn.css">
-
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-
-  
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" type="text/css">
-
-  
-  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
- 
-  
-
-  
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/androidstudio.min.css">
-  <script async src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
-  
-  <script>hljs.initHighlightingOnLoad();</script>
-  
-
-  <link rel="shortcut icon" href="https://unixorn.github.io/img/favicon.ico" type="image/x-icon" />
-
-  
-  
-
-</head>
-
-
-<body>
-<div id="layout">
-
-  
-<a href="#menu" id="menuLink" class="menu-link">
-  
-  <span></span>
-</a>
-<div id="menu">
-
-  
-  <a class="pure-menu-heading brand" href="https://unixorn.github.io/">unixorn</a>
-
-
-  <div class="pure-menu">
-    <ul class="pure-menu-list">
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://unixorn.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://unixorn.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://unixorn.github.io/tags"><i class="sidebar-button-icon fa fa-lg fa-tags"></i>Tags</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://unixorn.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://unixorn.github.io/projects/"><i class='fa fa-list fa-fw'></i>Projects</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://unixorn.github.io/contact/"><i class='fa fa-envelope fa-fw'></i>Contact</a>
-      
-        </li>
-      
-    </ul>
-  </div>
-
-  <div class="pure-menu social">
-  <ul class="pure-menu-list">
-
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://twitter.com/curiousbiped" rel="me" target="_blank"><i class="fab fa-twitter-square fa-fw"></i>Twitter</a>
-    </li>
-    
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://mstdn.social/@unixorn@mstdn.social" rel="me" target="_blank"><i class="fa fa-mastodon fa-fw"></i>Mastodon</a>
-    </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://instagram.com/apeseekingknowledge" rel="me" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
-    </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://github.com/unixorn" rel="me" target="_blank"><i class="fab fa-github-square fa-fw"></i>GitHub</a>
-    </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-  </ul>
-</div>
-
-
-  <div>
-  <div class="small-print">
-    <small>Copyright 2019-2022, Joe Block. All rights reserved.</small>
-  </div>
-  <div class="small-print">
-    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
-    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
-  </div>
-</div>
-
-</div>
-
-
-  <div id="main">
-
-
-<div class="header">
-  <h1>Getting an ARM kubernetes cluster up and running</h1>
-  <h2>In the beginning, there was bare metal</h2>
-</div>
-<div class="content">
-  <p>I recently decided to set up a Kubernetes cluster in my basement, partly because I&rsquo;d never set a cluster up from scratch by myself, and partly because my existing NAS was beginning to run out of headroom.</p>
-<p>For a variety of reasons, I decided to use ODROID HC2 boards. They&rsquo;ve got gigabit ethernet, eight CPU cores, 2 GB RAM and a SATA-3 port for directly connecting a hard drive, which I wanted so I could use them as file server bricks. In a future post I will detail how I set up a distributed filesystem across the cluster.</p>
-<p>EDIT - Added a link to the <a href="https://unixorn.github.io/blog/arm_cluster_parts_list/">parts list</a>, and added instructions for finding the new machine on your network.</p>
-<h1 id="setting-up-an-odroid-hc2-cluster">Setting up an ODROID HC2 cluster</h1>
-<p>These notes should also work on an Odroid HC1 or XU4.</p>
-<h1 id="install-debian-stretch">Install Debian Stretch</h1>
-<p>I used meveric&rsquo;s debian-stretch ISO from <a href="https://oph.mdrjr.net/meveric/images/Stretch/">https://oph.mdrjr.net/meveric/images/Stretch/</a>.</p>
-<p>I used <a href="https://etcher.io/">Etcher</a> to burn the debian-stretch ISO to an microSD card.</p>
-<p>Flash your microSD card, plug it into the HC2 and attach a SATA drive to your HC2 if you&rsquo;re going to use one, then connect it to your switch and power up. It will get an IP address with DHCP. Since they don&rsquo;t have a video connector, you&rsquo;ll have to scan your network to figure out what IP it got.</p>
-<h2 id="find-the-odroid-on-your-network">Find the Odroid on your network</h2>
-<h3 id="nmap">nmap</h3>
-<p>You can use <code>nmap</code> to find the Odroid machines. Assuming your network is 10.0.0.1-254, you can scan the network with <code>nmap -sP -n 10.0.0.0/24 | grep -v Host</code>. Look for systems that show <code>Wibrain</code> in their MAC Address line.</p>
-<h3 id="angry-ip-scanner">Angry IP Scanner</h3>
-<p>If you&rsquo;re not comfortable with <code>nmap</code>, I recommend <a href="https://angryip.org/">Angry IP Scanner</a> to find the new machine on your network because you can configure (select Fetchers in the Angry IP Scanner Menu on macOS, then add MAC Vendor to the selected fetchers) it to show the MAC vendor of your ethernet card - the ODroids show will show up as <strong>WIBRAIN</strong>.</p>
-<p>Login as <code>root</code>, password <code>odroid</code>.</p>
-<h2 id="change-your-root-password">Change your root password!</h2>
-<p>Don&rsquo;t skip this just because you&rsquo;re running this on an internal-only network.  The default root password for the image is well known, so run <code>passwd root</code> to change it so you&rsquo;re not vulnerable if you accidentally open up your WIFI.</p>
-<h2 id="install-your-updates">Install your updates</h2>
-<p>Install ISOs are inevitably out of date, but that&rsquo;s ok, we&rsquo;ll begin by updating all the installed packages.</p>
-<p><code>apt-get update &amp;&amp; apt-get upgrade &amp;&amp; apt-get dist-upgrade</code></p>
-<h3 id="install-useful-tooling">Install useful tooling</h3>
-<p>Let&rsquo;s also add some useful tools to the machine.</p>
-<p><code>apt-get install -y dnsutils git htop lshw man net-tools rsync sudo</code></p>
-<p>Now we&rsquo;re ready to install Docker and Kubernetes.</p>
-<h2 id="install-docker-ce">Install docker-ce</h2>
-<h3 id="install-the-docker-ce-pre-requisites">Install the docker-ce pre-requisites</h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>    apt-get install <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>         apt-transport-https <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>         ca-certificates <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>         curl <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>         gnupg2 <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>         software-properties-common</span></span></code></pre></div>
-<h2 id="partition--format-the-drive">Partition &amp; Format the drive</h2>
-<h3 id="install-pre-requisites">Install pre-requisites</h3>
-<p>Check what&rsquo;s on your drive with <code>lshw -C disk</code></p>
-<p>For the sake of these examples, we&rsquo;ll assume the SATA drive is <code>/dev/sda</code></p>
-<h3 id="format-the-drive">Format the drive</h3>
-<p>If you didn&rsquo;t add a SATA drive to your Odroid, you can skip this section.</p>
-<h4 id="first-partition-it">First partition it</h4>
-<ol>
-<li><code>fdisk /dev/sda</code></li>
-<li>list all the existing partitions with the <code>p</code> command</li>
-<li>Remove any existing partitions with the <code>d</code> command</li>
-<li>Create a new partition with the <code>n</code> command</li>
-<li>Write the new partition table to disk with the <code>w</code> command</li>
-</ol>
-<h4 id="now-format-it">Now format it</h4>
-<ol>
-<li><code>mkfs.ext4 /dev/sda1</code></li>
-</ol>
-<h3 id="configure-the-system-to-automatically-mount-the-drive">Configure the system to automatically mount the drive</h3>
-<ol>
-<li>Get the UUID with <code>blkid | grep /dev/sda</code>. You&rsquo;ll see something like <code>/dev/sda1: UUID=&quot;abcdabcd-abcd-11bb-9343-9089b93bbb72&quot; TYPE=&quot;ext4&quot; PARTUUID=&quot;13371337-abcd-1234-aa00-abcd1234abcd1234&quot;</code></li>
-<li>Create a mount point to mount your filesystem. I picked <code>/mnt/sata</code> and created it with <code>mkdir -p /mnt/sata</code></li>
-<li>Add an entry to <code>/etc/fstab</code>. Use your editor of choice to add a line <code>UUID=&quot;abcdabcd-abcd-11bb-9343-9089b93bbb72&quot;     /mnt/sata ext4  defaults                                0       2</code>. Use the UUID from step 1, not the example one here.</li>
-</ol>
-<p>You should now be able to mount the drive with <code>mount /mnt/sata</code>. If it succesfully mounts, it should show up after a reboot.</p>
-<h3 id="force-a-static-ip-for-the-node">Force a static IP for the node</h3>
-<p>First, back up the current network config with <code>cp /etc/network/interfaces /etc/network/interfaces-original</code></p>
-<p>Now edit <code>/etc/network/interfaces</code> and put in:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># Ethernet adapter 0</span>
-</span></span><span style="display:flex;"><span>auto eth0
-</span></span><span style="display:flex;"><span>allow-hotplug eth0
-</span></span><span style="display:flex;"><span><span style="color:#75715e">#no-auto-down eth0</span>
-</span></span><span style="display:flex;"><span>iface eth0 inet static
-</span></span><span style="display:flex;"><span>address 192.168.1.100
-</span></span><span style="display:flex;"><span>netmask 255.255.255.0
-</span></span><span style="display:flex;"><span>gateway 192.168.1.1
-</span></span><span style="display:flex;"><span>dns-nameservers 8.8.8.8 8.8.4.4
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># Or use your own by uncommenting below</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># dns-nameservers 192.168.1.1</span>
-</span></span></code></pre></div><h3 id="disable-swap">Disable swap</h3>
-<p>Kubernetes doesn&rsquo;t like swap, so disable it with <code>swapoff -a</code>.</p>
-<h2 id="install-docker-and-kubernetes">Install Docker and Kubernetes</h2>
-<h3 id="docker">Docker</h3>
-<h4 id="install-the-docker-apt-signing-gpg-key">Install the docker apt signing GPG key</h4>
-<p><code>curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -</code></p>
-<p><code>echo &quot;deb [arch=armhf] https://download.docker.com/linux/debian $(lsb_release -cs) stable&quot; &gt; /etc/apt/sources.list.d/docker.list</code></p>
-<h4 id="install-pip--docker-compose">Install pip &amp; docker-compose</h4>
-<p><code>apt-get update &amp;&amp; apt-get install -y python3-pip &amp;&amp; pip3 install setuptools docker-compose</code></p>
-<h4 id="install-docker">Install docker</h4>
-<p><code>apt-get install -y docker-ce --no-install-recommends</code></p>
-<h4 id="confirm-docker-is-working">Confirm Docker is working</h4>
-<p><code>docker run hello-world</code></p>
-<p>You should see something similar to this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>root@rodan:~# docker run hello-world
-</span></span><span style="display:flex;"><span>Unable to find image <span style="color:#e6db74">&#39;hello-world:latest&#39;</span> locally
-</span></span><span style="display:flex;"><span>latest: Pulling from library/hello-world
-</span></span><span style="display:flex;"><span>c1eda109e4da: Pull complete
-</span></span><span style="display:flex;"><span>Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586f744621577a99efb77324b0fe535
-</span></span><span style="display:flex;"><span>Status: Downloaded newer image <span style="color:#66d9ef">for</span> hello-world:latest
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Hello from Docker!
-</span></span><span style="display:flex;"><span>This message shows that your installation appears to be working correctly.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>To generate this message, Docker took the following steps:
-</span></span><span style="display:flex;"><span> 1. The Docker client contacted the Docker daemon.
-</span></span><span style="display:flex;"><span> 2. The Docker daemon pulled the <span style="color:#e6db74">&#34;hello-world&#34;</span> image from the Docker Hub.
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">(</span>arm32v7<span style="color:#f92672">)</span>
-</span></span><span style="display:flex;"><span> 3. The Docker daemon created a new container from that image which runs the
-</span></span><span style="display:flex;"><span>    executable that produces the output you are currently reading.
-</span></span><span style="display:flex;"><span> 4. The Docker daemon streamed that output to the Docker client, which sent it
-</span></span><span style="display:flex;"><span>    to your terminal.
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>To try something more ambitious, you can run an Ubuntu container with:
-</span></span><span style="display:flex;"><span> $ docker run -it ubuntu bash
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>Share images, automate workflows, and more with a free Docker ID:
-</span></span><span style="display:flex;"><span> https://hub.docker.com/
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>For more examples and ideas, visit:
-</span></span><span style="display:flex;"><span> https://docs.docker.com/get-started/
-</span></span></code></pre></div><h3 id="install-kubernetes">Install Kubernetes</h3>
-<h4 id="install-the-k8s-repository-key">Install the k8s repository key</h4>
-<p><code>curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -</code></p>
-<h4 id="add-the-k8s-apt-repo">Add the k8s apt repo</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cat <span style="color:#e6db74">&lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">deb https://apt.kubernetes.io/ kubernetes-xenial main
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">EOF</span>
-</span></span></code></pre></div><h4 id="install-kubernetes-1">Install kubernetes</h4>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>apt-get update
-</span></span><span style="display:flex;"><span>apt-get install -y kubelet kubeadm kubectl
-</span></span><span style="display:flex;"><span>apt-mark hold kubelet kubeadm kubectl
-</span></span></code></pre></div><p>Uptodate at <a href="https://kubernetes.io/docs/setup/independent/">https://kubernetes.io/docs/setup/independent/</a></p>
-<h2 id="this-is-pretty-tedious-is-there-an-easier-way">This is pretty tedious, is there an easier way?</h2>
-<p>All this is tedious and prone to mistyping, especially if you&rsquo;ve got multiple nodes to make into a cluster, so I&rsquo;ve put everything except the network setup and disk formatting/mounting into a handy helper script, <a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k8s/borg-odroid">borg-odroid</a>.</p>
-<p>You can copy <code>borg-odroid</code> to a new machine after the first boot and it will bring the machine&rsquo;s debian install up to date, then install docker &amp; kubernetes and some other handy support tools.</p>
-<h2 id="configure-your-kubernetes-cluster">Configure your Kubernetes Cluster</h2>
-<p>First - did you configure your kubernetes nodes to use static addresses? You will have issues if you didn&rsquo;t.</p>
-<h3 id="initialize-the-cluster-on-your-master-node">Initialize the cluster on your master node</h3>
-<p>By default, Flannel <em>requires</em> we use 10.244.0.0/16 for our CIDR when initializing the cluster, because the flannel configuration we&rsquo;re going to install later expects that CIDR - sure, we could change all the references to it, but that is just going to give us chances to break it.</p>
-<p><code>kubeadm init --pod-network-cidr=10.244.0.0/16</code></p>
-<p><strong>Note:</strong> It is normal to see your master node as <code>NotReady</code> if you run <code>kubectl get nodes</code> before setting up networking.</p>
-<h3 id="setup-your-config">Setup your config</h3>
-<p><code>rm -rf ~/.kube/ &amp;&amp; mkdir ~/.kube &amp;&amp; cp /etc/kubernetes/admin.conf $HOME/.kube/config</code></p>
-<h3 id="set-up-networking">Set up Networking</h3>
-<ol>
-<li>Set <code>/proc/sys/net/bridge/bridge-nf-call-iptables</code> to 1 by running <code>sysctl net.bridge.bridge-nf-call-iptables=1</code> to pass bridged IPv4 traffic to iptables’ chains.</li>
-<li>Flannel supports the ARM architecture, so <code>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml</code></li>
-</ol>
-<h3 id="allow-pods-to-run-on-master-node">Allow pods to run on master node</h3>
-<p>If you only have one node in the cluster, k8s won&rsquo;t run pods on the master node. Disable tainting with
-<code>kubectl taint nodes --all node-role.kubernetes.io/master-</code></p>
-<h3 id="add-worker-nodes">Add worker nodes</h3>
-<p>On the master, run <code>kubeadm token create --print-join-command</code> to generate an add command, then run that on the worker. It will look something like:</p>
-<pre tabindex="0"><code>kubeadm join --token SUPERSECRET 10.9.8.7:6443 --discovery-token-ca-cert-hash sha256:1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF
-</code></pre><h3 id="install-helm">Install helm</h3>
-<p><code>helm init --tiller-image=jessestuart/tiller:v2.9.1 --upgrade</code></p>
-<h3 id="set-up-the-dashboard">Set up the dashboard</h3>
-<ol>
-<li><code>DASHSRC=https://raw.githubusercontent.com/kubernetes/dashboard/master</code></li>
-<li><code>curl -sSL $DASHSRC/src/deploy/recommended/kubernetes-dashboard-arm-head.yaml | kubectl apply -f -</code></li>
-</ol>
-<h1 id="updates">Updates</h1>
-<ul>
-<li>Updated the docker install to use <code>--no-install-recommends</code> - this keeps it from attempting to install the <strong>aufs-dkms</strong> package, which causes error messages (but <code>docker</code> still works) on my Raspberry Pi 4 because the necessary kernel module isn&rsquo;t provided.</li>
-<li>Added instructions for adding new worker nodes and disabling swap</li>
-</ul>
-</div>
-
-<script type="text/javascript" src="https://unixorn.github.io/js/utterances.js">
-  repo="unixorn/unixorn.github.io"
-  issue-term="title"
-  theme="github-light"
-  crossorigin="anonymous"
-  async>
-</script>
-
-
-<center>
-  <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#000000 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/8UuWLA67y"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
-</center>
-
-
-</div>
-</div>
-<script src="https://unixorn.github.io/js/ui.js"></script>
-<script src="https://unixorn.github.io/js/menus.js"></script>
-
-
-
-
-<script>
-  
-  if (window.location.hostname != "localhost") {
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-100853138-2', 'auto');
-    ga('send', 'pageview');
-  }
-</script>
-
-
-
-
-
-<script src="https://unixorn.github.io/js/math-code.js"></script>
-  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-  
-
-
-</body>
-</html>
-
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Getting an ARM kubernetes cluster up and running | unixorn.github.io</title><meta name=keywords content="ARM,ARM7,homelab,k8s,kubernetes,odroid,tech"><meta name=description content="In the beginning, there was bare metal"><meta name=author content="Me"><link rel=canonical href=https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/><meta name=google-site-verification content="UA-100853138-2"><link crossorigin=anonymous href=https://unixorn.github.io/assets/css/stylesheet.6a98292fb8fa8cf0f3ba4042d4b75515c04267550f3ad49ff6271b5af9562443.css integrity="sha256-apgpL7j6jPDzukBC1LdVFcBCZ1UPOtSf9icbWvlWJEM=" rel="preload stylesheet" as=style><script defer crossorigin=anonymous src=https://unixorn.github.io/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG+9vmJ0cTS+ovo0FeA=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://unixorn.github.io/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=16x16 href=https://unixorn.github.io/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=32x32 href=https://unixorn.github.io/%3Clink%20/%20abs%20url%3E><link rel=apple-touch-icon href=https://unixorn.github.io/%3Clink%20/%20abs%20url%3E><link rel=mask-icon href=https://unixorn.github.io/%3Clink%20/%20abs%20url%3E><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="Getting an ARM kubernetes cluster up and running"><meta property="og:description" content="In the beginning, there was bare metal"><meta property="og:type" content="article"><meta property="og:url" content="https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/"><meta property="og:image" content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="post"><meta property="article:published_time" content="2019-02-17T16:00:05-07:00"><meta property="article:modified_time" content="2019-02-17T16:00:05-07:00"><meta property="og:site_name" content="The Plural of SRE is an Outage"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="Getting an ARM kubernetes cluster up and running"><meta name=twitter:description content="In the beginning, there was bare metal"><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://unixorn.github.io/post/"},{"@type":"ListItem","position":2,"name":"Getting an ARM kubernetes cluster up and running","item":"https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Getting an ARM kubernetes cluster up and running","name":"Getting an ARM kubernetes cluster up and running","description":"In the beginning, there was bare metal","keywords":["ARM","ARM7","homelab","k8s","kubernetes","odroid","tech"],"articleBody":"I recently decided to set up a Kubernetes cluster in my basement, partly because I’d never set a cluster up from scratch by myself, and partly because my existing NAS was beginning to run out of headroom.\nFor a variety of reasons, I decided to use ODROID HC2 boards. They’ve got gigabit ethernet, eight CPU cores, 2 GB RAM and a SATA-3 port for directly connecting a hard drive, which I wanted so I could use them as file server bricks. In a future post I will detail how I set up a distributed filesystem across the cluster.\nEDIT - Added a link to the parts list, and added instructions for finding the new machine on your network.\nSetting up an ODROID HC2 cluster These notes should also work on an Odroid HC1 or XU4.\nInstall Debian Stretch I used meveric’s debian-stretch ISO from https://oph.mdrjr.net/meveric/images/Stretch/.\nI used Etcher to burn the debian-stretch ISO to an microSD card.\nFlash your microSD card, plug it into the HC2 and attach a SATA drive to your HC2 if you’re going to use one, then connect it to your switch and power up. It will get an IP address with DHCP. Since they don’t have a video connector, you’ll have to scan your network to figure out what IP it got.\nFind the Odroid on your network nmap You can use nmap to find the Odroid machines. Assuming your network is 10.0.0.1-254, you can scan the network with nmap -sP -n 10.0.0.0/24 | grep -v Host. Look for systems that show Wibrain in their MAC Address line.\nAngry IP Scanner If you’re not comfortable with nmap, I recommend Angry IP Scanner to find the new machine on your network because you can configure (select Fetchers in the Angry IP Scanner Menu on macOS, then add MAC Vendor to the selected fetchers) it to show the MAC vendor of your ethernet card - the ODroids show will show up as WIBRAIN.\nLogin as root, password odroid.\nChange your root password! Don’t skip this just because you’re running this on an internal-only network. The default root password for the image is well known, so run passwd root to change it so you’re not vulnerable if you accidentally open up your WIFI.\nInstall your updates Install ISOs are inevitably out of date, but that’s ok, we’ll begin by updating all the installed packages.\napt-get update \u0026\u0026 apt-get upgrade \u0026\u0026 apt-get dist-upgrade\nInstall useful tooling Let’s also add some useful tools to the machine.\napt-get install -y dnsutils git htop lshw man net-tools rsync sudo\nNow we’re ready to install Docker and Kubernetes.\nInstall docker-ce Install the docker-ce pre-requisites apt-get install \\ apt-transport-https \\ ca-certificates \\ curl \\ gnupg2 \\ software-properties-common Partition \u0026 Format the drive Install pre-requisites Check what’s on your drive with lshw -C disk\nFor the sake of these examples, we’ll assume the SATA drive is /dev/sda\nFormat the drive If you didn’t add a SATA drive to your Odroid, you can skip this section.\nFirst partition it fdisk /dev/sda list all the existing partitions with the p command Remove any existing partitions with the d command Create a new partition with the n command Write the new partition table to disk with the w command Now format it mkfs.ext4 /dev/sda1 Configure the system to automatically mount the drive Get the UUID with blkid | grep /dev/sda. You’ll see something like /dev/sda1: UUID=\"abcdabcd-abcd-11bb-9343-9089b93bbb72\" TYPE=\"ext4\" PARTUUID=\"13371337-abcd-1234-aa00-abcd1234abcd1234\" Create a mount point to mount your filesystem. I picked /mnt/sata and created it with mkdir -p /mnt/sata Add an entry to /etc/fstab. Use your editor of choice to add a line UUID=\"abcdabcd-abcd-11bb-9343-9089b93bbb72\" /mnt/sata ext4 defaults 0 2. Use the UUID from step 1, not the example one here. You should now be able to mount the drive with mount /mnt/sata. If it succesfully mounts, it should show up after a reboot.\nForce a static IP for the node First, back up the current network config with cp /etc/network/interfaces /etc/network/interfaces-original\nNow edit /etc/network/interfaces and put in:\n# Ethernet adapter 0 auto eth0 allow-hotplug eth0 #no-auto-down eth0 iface eth0 inet static address 192.168.1.100 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 8.8.8.8 8.8.4.4 # Or use your own by uncommenting below # dns-nameservers 192.168.1.1 Disable swap Kubernetes doesn’t like swap, so disable it with swapoff -a.\nInstall Docker and Kubernetes Docker Install the docker apt signing GPG key curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -\necho \"deb [arch=armhf] https://download.docker.com/linux/debian $(lsb_release -cs) stable\" \u003e /etc/apt/sources.list.d/docker.list\nInstall pip \u0026 docker-compose apt-get update \u0026\u0026 apt-get install -y python3-pip \u0026\u0026 pip3 install setuptools docker-compose\nInstall docker apt-get install -y docker-ce --no-install-recommends\nConfirm Docker is working docker run hello-world\nYou should see something similar to this:\nroot@rodan:~# docker run hello-world Unable to find image 'hello-world:latest' locally latest: Pulling from library/hello-world c1eda109e4da: Pull complete Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586f744621577a99efb77324b0fe535 Status: Downloaded newer image for hello-world:latest Hello from Docker! This message shows that your installation appears to be working correctly. To generate this message, Docker took the following steps: 1. The Docker client contacted the Docker daemon. 2. The Docker daemon pulled the \"hello-world\" image from the Docker Hub. (arm32v7) 3. The Docker daemon created a new container from that image which runs the executable that produces the output you are currently reading. 4. The Docker daemon streamed that output to the Docker client, which sent it to your terminal. To try something more ambitious, you can run an Ubuntu container with: $ docker run -it ubuntu bash Share images, automate workflows, and more with a free Docker ID: https://hub.docker.com/ For more examples and ideas, visit: https://docs.docker.com/get-started/ Install Kubernetes Install the k8s repository key curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -\nAdd the k8s apt repo cat \u003c/etc/apt/sources.list.d/kubernetes.list deb https://apt.kubernetes.io/ kubernetes-xenial main EOF Install kubernetes apt-get update apt-get install -y kubelet kubeadm kubectl apt-mark hold kubelet kubeadm kubectl Uptodate at https://kubernetes.io/docs/setup/independent/\nThis is pretty tedious, is there an easier way? All this is tedious and prone to mistyping, especially if you’ve got multiple nodes to make into a cluster, so I’ve put everything except the network setup and disk formatting/mounting into a handy helper script, borg-odroid.\nYou can copy borg-odroid to a new machine after the first boot and it will bring the machine’s debian install up to date, then install docker \u0026 kubernetes and some other handy support tools.\nConfigure your Kubernetes Cluster First - did you configure your kubernetes nodes to use static addresses? You will have issues if you didn’t.\nInitialize the cluster on your master node By default, Flannel requires we use 10.244.0.0/16 for our CIDR when initializing the cluster, because the flannel configuration we’re going to install later expects that CIDR - sure, we could change all the references to it, but that is just going to give us chances to break it.\nkubeadm init --pod-network-cidr=10.244.0.0/16\nNote: It is normal to see your master node as NotReady if you run kubectl get nodes before setting up networking.\nSetup your config rm -rf ~/.kube/ \u0026\u0026 mkdir ~/.kube \u0026\u0026 cp /etc/kubernetes/admin.conf $HOME/.kube/config\nSet up Networking Set /proc/sys/net/bridge/bridge-nf-call-iptables to 1 by running sysctl net.bridge.bridge-nf-call-iptables=1 to pass bridged IPv4 traffic to iptables’ chains. Flannel supports the ARM architecture, so kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml Allow pods to run on master node If you only have one node in the cluster, k8s won’t run pods on the master node. Disable tainting with kubectl taint nodes --all node-role.kubernetes.io/master-\nAdd worker nodes On the master, run kubeadm token create --print-join-command to generate an add command, then run that on the worker. It will look something like:\nkubeadm join --token SUPERSECRET 10.9.8.7:6443 --discovery-token-ca-cert-hash sha256:1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF Install helm helm init --tiller-image=jessestuart/tiller:v2.9.1 --upgrade\nSet up the dashboard DASHSRC=https://raw.githubusercontent.com/kubernetes/dashboard/master curl -sSL $DASHSRC/src/deploy/recommended/kubernetes-dashboard-arm-head.yaml | kubectl apply -f - Updates Updated the docker install to use --no-install-recommends - this keeps it from attempting to install the aufs-dkms package, which causes error messages (but docker still works) on my Raspberry Pi 4 because the necessary kernel module isn’t provided. Added instructions for adding new worker nodes and disabling swap ","wordCount":"1325","inLanguage":"en","datePublished":"2019-02-17T16:00:05-07:00","dateModified":"2019-02-17T16:00:05-07:00","author":{"@type":"Person","name":"Me"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/"},"publisher":{"@type":"Organization","name":"unixorn.github.io","logo":{"@type":"ImageObject","url":"https://unixorn.github.io/%3Clink%20/%20abs%20url%3E"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://unixorn.github.io/ accesskey=h title="Home (Alt + H)"><img src=https://unixorn.github.io/apple-touch-icon.png alt aria-label=logo height=35>Home</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://unixorn.github.io/archives/ title=archives><span>archives</span></a></li><li><a href=https://unixorn.github.io/search/ title="search (Alt + /)" accesskey=/><span>search</span></a></li><li><a href=https://unixorn.github.io/about/ title=about><span>about</span></a></li><li><a href=https://unixorn.github.io/projects/ title=projects><span>projects</span></a></li><li><a href=https://unixorn.github.io/tags/ title=tags><span>tags</span></a></li><li><a href=https://hachyderm.io/@unixorn title=hachyderm.io/@unixorn><span>hachyderm.io/@unixorn</span>&nbsp;<svg fill="none" shape-rendering="geometricPrecision" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://unixorn.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://unixorn.github.io/post/>Posts</a></div><h1 class=post-title>Getting an ARM kubernetes cluster up and running</h1><div class=post-description>In the beginning, there was bare metal</div><div class=post-meta><span title='2019-02-17 16:00:05 -0700 MST'>February 17, 2019</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1325 words&nbsp;·&nbsp;Me</div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><nav id=TableOfContents><ul><li><a href=#find-the-odroid-on-your-network>Find the Odroid on your network</a><ul><li><a href=#nmap>nmap</a></li><li><a href=#angry-ip-scanner>Angry IP Scanner</a></li></ul></li><li><a href=#change-your-root-password>Change your root password!</a></li><li><a href=#install-your-updates>Install your updates</a><ul><li><a href=#install-useful-tooling>Install useful tooling</a></li></ul></li><li><a href=#install-docker-ce>Install docker-ce</a><ul><li><a href=#install-the-docker-ce-pre-requisites>Install the docker-ce pre-requisites</a></li></ul></li><li><a href=#partition--format-the-drive>Partition & Format the drive</a><ul><li><a href=#install-pre-requisites>Install pre-requisites</a></li><li><a href=#format-the-drive>Format the drive</a></li><li><a href=#configure-the-system-to-automatically-mount-the-drive>Configure the system to automatically mount the drive</a></li><li><a href=#force-a-static-ip-for-the-node>Force a static IP for the node</a></li><li><a href=#disable-swap>Disable swap</a></li></ul></li><li><a href=#install-docker-and-kubernetes>Install Docker and Kubernetes</a><ul><li><a href=#docker>Docker</a></li><li><a href=#install-kubernetes>Install Kubernetes</a></li></ul></li><li><a href=#this-is-pretty-tedious-is-there-an-easier-way>This is pretty tedious, is there an easier way?</a></li><li><a href=#configure-your-kubernetes-cluster>Configure your Kubernetes Cluster</a><ul><li><a href=#initialize-the-cluster-on-your-master-node>Initialize the cluster on your master node</a></li><li><a href=#setup-your-config>Setup your config</a></li><li><a href=#set-up-networking>Set up Networking</a></li><li><a href=#allow-pods-to-run-on-master-node>Allow pods to run on master node</a></li><li><a href=#add-worker-nodes>Add worker nodes</a></li><li><a href=#install-helm>Install helm</a></li><li><a href=#set-up-the-dashboard>Set up the dashboard</a></li></ul></li></ul></nav></div></details></div><div class=post-content><p>I recently decided to set up a Kubernetes cluster in my basement, partly because I&rsquo;d never set a cluster up from scratch by myself, and partly because my existing NAS was beginning to run out of headroom.</p><p>For a variety of reasons, I decided to use ODROID HC2 boards. They&rsquo;ve got gigabit ethernet, eight CPU cores, 2 GB RAM and a SATA-3 port for directly connecting a hard drive, which I wanted so I could use them as file server bricks. In a future post I will detail how I set up a distributed filesystem across the cluster.</p><p>EDIT - Added a link to the <a href=https://unixorn.github.io/blog/arm_cluster_parts_list/>parts list</a>, and added instructions for finding the new machine on your network.</p><h1 id=setting-up-an-odroid-hc2-cluster>Setting up an ODROID HC2 cluster<a hidden class=anchor aria-hidden=true href=#setting-up-an-odroid-hc2-cluster>#</a></h1><p>These notes should also work on an Odroid HC1 or XU4.</p><h1 id=install-debian-stretch>Install Debian Stretch<a hidden class=anchor aria-hidden=true href=#install-debian-stretch>#</a></h1><p>I used meveric&rsquo;s debian-stretch ISO from <a href=https://oph.mdrjr.net/meveric/images/Stretch/>https://oph.mdrjr.net/meveric/images/Stretch/</a>.</p><p>I used <a href=https://etcher.io/>Etcher</a> to burn the debian-stretch ISO to an microSD card.</p><p>Flash your microSD card, plug it into the HC2 and attach a SATA drive to your HC2 if you&rsquo;re going to use one, then connect it to your switch and power up. It will get an IP address with DHCP. Since they don&rsquo;t have a video connector, you&rsquo;ll have to scan your network to figure out what IP it got.</p><h2 id=find-the-odroid-on-your-network>Find the Odroid on your network<a hidden class=anchor aria-hidden=true href=#find-the-odroid-on-your-network>#</a></h2><h3 id=nmap>nmap<a hidden class=anchor aria-hidden=true href=#nmap>#</a></h3><p>You can use <code>nmap</code> to find the Odroid machines. Assuming your network is 10.0.0.1-254, you can scan the network with <code>nmap -sP -n 10.0.0.0/24 | grep -v Host</code>. Look for systems that show <code>Wibrain</code> in their MAC Address line.</p><h3 id=angry-ip-scanner>Angry IP Scanner<a hidden class=anchor aria-hidden=true href=#angry-ip-scanner>#</a></h3><p>If you&rsquo;re not comfortable with <code>nmap</code>, I recommend <a href=https://angryip.org/>Angry IP Scanner</a> to find the new machine on your network because you can configure (select Fetchers in the Angry IP Scanner Menu on macOS, then add MAC Vendor to the selected fetchers) it to show the MAC vendor of your ethernet card - the ODroids show will show up as <strong>WIBRAIN</strong>.</p><p>Login as <code>root</code>, password <code>odroid</code>.</p><h2 id=change-your-root-password>Change your root password!<a hidden class=anchor aria-hidden=true href=#change-your-root-password>#</a></h2><p>Don&rsquo;t skip this just because you&rsquo;re running this on an internal-only network. The default root password for the image is well known, so run <code>passwd root</code> to change it so you&rsquo;re not vulnerable if you accidentally open up your WIFI.</p><h2 id=install-your-updates>Install your updates<a hidden class=anchor aria-hidden=true href=#install-your-updates>#</a></h2><p>Install ISOs are inevitably out of date, but that&rsquo;s ok, we&rsquo;ll begin by updating all the installed packages.</p><p><code>apt-get update && apt-get upgrade && apt-get dist-upgrade</code></p><h3 id=install-useful-tooling>Install useful tooling<a hidden class=anchor aria-hidden=true href=#install-useful-tooling>#</a></h3><p>Let&rsquo;s also add some useful tools to the machine.</p><p><code>apt-get install -y dnsutils git htop lshw man net-tools rsync sudo</code></p><p>Now we&rsquo;re ready to install Docker and Kubernetes.</p><h2 id=install-docker-ce>Install docker-ce<a hidden class=anchor aria-hidden=true href=#install-docker-ce>#</a></h2><h3 id=install-the-docker-ce-pre-requisites>Install the docker-ce pre-requisites<a hidden class=anchor aria-hidden=true href=#install-the-docker-ce-pre-requisites>#</a></h3><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>    apt-get install <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>         apt-transport-https <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>         ca-certificates <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>         curl <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>         gnupg2 <span class=se>\
+</span></span></span><span class=line><span class=cl><span class=se></span>         software-properties-common</span></span></code></pre></div><h2 id=partition--format-the-drive>Partition & Format the drive<a hidden class=anchor aria-hidden=true href=#partition--format-the-drive>#</a></h2><h3 id=install-pre-requisites>Install pre-requisites<a hidden class=anchor aria-hidden=true href=#install-pre-requisites>#</a></h3><p>Check what&rsquo;s on your drive with <code>lshw -C disk</code></p><p>For the sake of these examples, we&rsquo;ll assume the SATA drive is <code>/dev/sda</code></p><h3 id=format-the-drive>Format the drive<a hidden class=anchor aria-hidden=true href=#format-the-drive>#</a></h3><p>If you didn&rsquo;t add a SATA drive to your Odroid, you can skip this section.</p><h4 id=first-partition-it>First partition it<a hidden class=anchor aria-hidden=true href=#first-partition-it>#</a></h4><ol><li><code>fdisk /dev/sda</code></li><li>list all the existing partitions with the <code>p</code> command</li><li>Remove any existing partitions with the <code>d</code> command</li><li>Create a new partition with the <code>n</code> command</li><li>Write the new partition table to disk with the <code>w</code> command</li></ol><h4 id=now-format-it>Now format it<a hidden class=anchor aria-hidden=true href=#now-format-it>#</a></h4><ol><li><code>mkfs.ext4 /dev/sda1</code></li></ol><h3 id=configure-the-system-to-automatically-mount-the-drive>Configure the system to automatically mount the drive<a hidden class=anchor aria-hidden=true href=#configure-the-system-to-automatically-mount-the-drive>#</a></h3><ol><li>Get the UUID with <code>blkid | grep /dev/sda</code>. You&rsquo;ll see something like <code>/dev/sda1: UUID="abcdabcd-abcd-11bb-9343-9089b93bbb72" TYPE="ext4" PARTUUID="13371337-abcd-1234-aa00-abcd1234abcd1234"</code></li><li>Create a mount point to mount your filesystem. I picked <code>/mnt/sata</code> and created it with <code>mkdir -p /mnt/sata</code></li><li>Add an entry to <code>/etc/fstab</code>. Use your editor of choice to add a line <code>UUID="abcdabcd-abcd-11bb-9343-9089b93bbb72" /mnt/sata ext4 defaults 0 2</code>. Use the UUID from step 1, not the example one here.</li></ol><p>You should now be able to mount the drive with <code>mount /mnt/sata</code>. If it succesfully mounts, it should show up after a reboot.</p><h3 id=force-a-static-ip-for-the-node>Force a static IP for the node<a hidden class=anchor aria-hidden=true href=#force-a-static-ip-for-the-node>#</a></h3><p>First, back up the current network config with <code>cp /etc/network/interfaces /etc/network/interfaces-original</code></p><p>Now edit <code>/etc/network/interfaces</code> and put in:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl><span class=c1># Ethernet adapter 0</span>
+</span></span><span class=line><span class=cl>auto eth0
+</span></span><span class=line><span class=cl>allow-hotplug eth0
+</span></span><span class=line><span class=cl><span class=c1>#no-auto-down eth0</span>
+</span></span><span class=line><span class=cl>iface eth0 inet static
+</span></span><span class=line><span class=cl>address 192.168.1.100
+</span></span><span class=line><span class=cl>netmask 255.255.255.0
+</span></span><span class=line><span class=cl>gateway 192.168.1.1
+</span></span><span class=line><span class=cl>dns-nameservers 8.8.8.8 8.8.4.4
+</span></span><span class=line><span class=cl><span class=c1># Or use your own by uncommenting below</span>
+</span></span><span class=line><span class=cl><span class=c1># dns-nameservers 192.168.1.1</span>
+</span></span></code></pre></div><h3 id=disable-swap>Disable swap<a hidden class=anchor aria-hidden=true href=#disable-swap>#</a></h3><p>Kubernetes doesn&rsquo;t like swap, so disable it with <code>swapoff -a</code>.</p><h2 id=install-docker-and-kubernetes>Install Docker and Kubernetes<a hidden class=anchor aria-hidden=true href=#install-docker-and-kubernetes>#</a></h2><h3 id=docker>Docker<a hidden class=anchor aria-hidden=true href=#docker>#</a></h3><h4 id=install-the-docker-apt-signing-gpg-key>Install the docker apt signing GPG key<a hidden class=anchor aria-hidden=true href=#install-the-docker-apt-signing-gpg-key>#</a></h4><p><code>curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -</code></p><p><code>echo "deb [arch=armhf] https://download.docker.com/linux/debian $(lsb_release -cs) stable" > /etc/apt/sources.list.d/docker.list</code></p><h4 id=install-pip--docker-compose>Install pip & docker-compose<a hidden class=anchor aria-hidden=true href=#install-pip--docker-compose>#</a></h4><p><code>apt-get update && apt-get install -y python3-pip && pip3 install setuptools docker-compose</code></p><h4 id=install-docker>Install docker<a hidden class=anchor aria-hidden=true href=#install-docker>#</a></h4><p><code>apt-get install -y docker-ce --no-install-recommends</code></p><h4 id=confirm-docker-is-working>Confirm Docker is working<a hidden class=anchor aria-hidden=true href=#confirm-docker-is-working>#</a></h4><p><code>docker run hello-world</code></p><p>You should see something similar to this:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>root@rodan:~# docker run hello-world
+</span></span><span class=line><span class=cl>Unable to find image <span class=s1>&#39;hello-world:latest&#39;</span> locally
+</span></span><span class=line><span class=cl>latest: Pulling from library/hello-world
+</span></span><span class=line><span class=cl>c1eda109e4da: Pull <span class=nb>complete</span>
+</span></span><span class=line><span class=cl>Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586f744621577a99efb77324b0fe535
+</span></span><span class=line><span class=cl>Status: Downloaded newer image <span class=k>for</span> hello-world:latest
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Hello from Docker!
+</span></span><span class=line><span class=cl>This message shows that your installation appears to be working correctly.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>To generate this message, Docker took the following steps:
+</span></span><span class=line><span class=cl> 1. The Docker client contacted the Docker daemon.
+</span></span><span class=line><span class=cl> 2. The Docker daemon pulled the <span class=s2>&#34;hello-world&#34;</span> image from the Docker Hub.
+</span></span><span class=line><span class=cl>    <span class=o>(</span>arm32v7<span class=o>)</span>
+</span></span><span class=line><span class=cl> 3. The Docker daemon created a new container from that image which runs the
+</span></span><span class=line><span class=cl>    executable that produces the output you are currently reading.
+</span></span><span class=line><span class=cl> 4. The Docker daemon streamed that output to the Docker client, which sent it
+</span></span><span class=line><span class=cl>    to your terminal.
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>To try something more ambitious, you can run an Ubuntu container with:
+</span></span><span class=line><span class=cl> $ docker run -it ubuntu bash
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Share images, automate workflows, and more with a free Docker ID:
+</span></span><span class=line><span class=cl> https://hub.docker.com/
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>For more examples and ideas, visit:
+</span></span><span class=line><span class=cl> https://docs.docker.com/get-started/
+</span></span></code></pre></div><h3 id=install-kubernetes>Install Kubernetes<a hidden class=anchor aria-hidden=true href=#install-kubernetes>#</a></h3><h4 id=install-the-k8s-repository-key>Install the k8s repository key<a hidden class=anchor aria-hidden=true href=#install-the-k8s-repository-key>#</a></h4><p><code>curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -</code></p><h4 id=add-the-k8s-apt-repo>Add the k8s apt repo<a hidden class=anchor aria-hidden=true href=#add-the-k8s-apt-repo>#</a></h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>cat <span class=s>&lt;&lt;EOF &gt;/etc/apt/sources.list.d/kubernetes.list
+</span></span></span><span class=line><span class=cl><span class=s>deb https://apt.kubernetes.io/ kubernetes-xenial main
+</span></span></span><span class=line><span class=cl><span class=s>EOF</span>
+</span></span></code></pre></div><h4 id=install-kubernetes-1>Install kubernetes<a hidden class=anchor aria-hidden=true href=#install-kubernetes-1>#</a></h4><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>apt-get update
+</span></span><span class=line><span class=cl>apt-get install -y kubelet kubeadm kubectl
+</span></span><span class=line><span class=cl>apt-mark hold kubelet kubeadm kubectl
+</span></span></code></pre></div><p>Uptodate at <a href=https://kubernetes.io/docs/setup/independent/>https://kubernetes.io/docs/setup/independent/</a></p><h2 id=this-is-pretty-tedious-is-there-an-easier-way>This is pretty tedious, is there an easier way?<a hidden class=anchor aria-hidden=true href=#this-is-pretty-tedious-is-there-an-easier-way>#</a></h2><p>All this is tedious and prone to mistyping, especially if you&rsquo;ve got multiple nodes to make into a cluster, so I&rsquo;ve put everything except the network setup and disk formatting/mounting into a handy helper script, <a href=https://github.com/unixorn/blog-scripts/blob/master/arm-k8s/borg-odroid>borg-odroid</a>.</p><p>You can copy <code>borg-odroid</code> to a new machine after the first boot and it will bring the machine&rsquo;s debian install up to date, then install docker & kubernetes and some other handy support tools.</p><h2 id=configure-your-kubernetes-cluster>Configure your Kubernetes Cluster<a hidden class=anchor aria-hidden=true href=#configure-your-kubernetes-cluster>#</a></h2><p>First - did you configure your kubernetes nodes to use static addresses? You will have issues if you didn&rsquo;t.</p><h3 id=initialize-the-cluster-on-your-master-node>Initialize the cluster on your master node<a hidden class=anchor aria-hidden=true href=#initialize-the-cluster-on-your-master-node>#</a></h3><p>By default, Flannel <em>requires</em> we use 10.244.0.0/16 for our CIDR when initializing the cluster, because the flannel configuration we&rsquo;re going to install later expects that CIDR - sure, we could change all the references to it, but that is just going to give us chances to break it.</p><p><code>kubeadm init --pod-network-cidr=10.244.0.0/16</code></p><p><strong>Note:</strong> It is normal to see your master node as <code>NotReady</code> if you run <code>kubectl get nodes</code> before setting up networking.</p><h3 id=setup-your-config>Setup your config<a hidden class=anchor aria-hidden=true href=#setup-your-config>#</a></h3><p><code>rm -rf ~/.kube/ && mkdir ~/.kube && cp /etc/kubernetes/admin.conf $HOME/.kube/config</code></p><h3 id=set-up-networking>Set up Networking<a hidden class=anchor aria-hidden=true href=#set-up-networking>#</a></h3><ol><li>Set <code>/proc/sys/net/bridge/bridge-nf-call-iptables</code> to 1 by running <code>sysctl net.bridge.bridge-nf-call-iptables=1</code> to pass bridged IPv4 traffic to iptables’ chains.</li><li>Flannel supports the ARM architecture, so <code>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml</code></li></ol><h3 id=allow-pods-to-run-on-master-node>Allow pods to run on master node<a hidden class=anchor aria-hidden=true href=#allow-pods-to-run-on-master-node>#</a></h3><p>If you only have one node in the cluster, k8s won&rsquo;t run pods on the master node. Disable tainting with
+<code>kubectl taint nodes --all node-role.kubernetes.io/master-</code></p><h3 id=add-worker-nodes>Add worker nodes<a hidden class=anchor aria-hidden=true href=#add-worker-nodes>#</a></h3><p>On the master, run <code>kubeadm token create --print-join-command</code> to generate an add command, then run that on the worker. It will look something like:</p><pre tabindex=0><code>kubeadm join --token SUPERSECRET 10.9.8.7:6443 --discovery-token-ca-cert-hash sha256:1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF
+</code></pre><h3 id=install-helm>Install helm<a hidden class=anchor aria-hidden=true href=#install-helm>#</a></h3><p><code>helm init --tiller-image=jessestuart/tiller:v2.9.1 --upgrade</code></p><h3 id=set-up-the-dashboard>Set up the dashboard<a hidden class=anchor aria-hidden=true href=#set-up-the-dashboard>#</a></h3><ol><li><code>DASHSRC=https://raw.githubusercontent.com/kubernetes/dashboard/master</code></li><li><code>curl -sSL $DASHSRC/src/deploy/recommended/kubernetes-dashboard-arm-head.yaml | kubectl apply -f -</code></li></ol><h1 id=updates>Updates<a hidden class=anchor aria-hidden=true href=#updates>#</a></h1><ul><li>Updated the docker install to use <code>--no-install-recommends</code> - this keeps it from attempting to install the <strong>aufs-dkms</strong> package, which causes error messages (but <code>docker</code> still works) on my Raspberry Pi 4 because the necessary kernel module isn&rsquo;t provided.</li><li>Added instructions for adding new worker nodes and disabling swap</li></ul></div><footer class=post-footer><ul class=post-tags><li><a href=https://unixorn.github.io/tags/arm/>arm</a></li><li><a href=https://unixorn.github.io/tags/arm7/>arm7</a></li><li><a href=https://unixorn.github.io/tags/homelab/>homelab</a></li><li><a href=https://unixorn.github.io/tags/k8s/>k8s</a></li><li><a href=https://unixorn.github.io/tags/kubernetes/>kubernetes</a></li><li><a href=https://unixorn.github.io/tags/odroid/>odroid</a></li><li><a href=https://unixorn.github.io/tags/tech/>tech</a></li></ul><nav class=paginav><a class=prev href=https://unixorn.github.io/post/arm_cluster_parts_list/><span class=title>« Prev</span><br><span>Parts list for the ARM cluster</span></a></nav><div class=share-buttons><a target=_blank rel="noopener noreferrer" aria-label="share Getting an ARM kubernetes cluster up and running on twitter" href="https://twitter.com/intent/tweet/?text=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running&url=https%3a%2f%2funixorn.github.io%2fpost%2fin_the_beginning_there_was_bare_metal%2f&hashtags=ARM%2cARM7%2chomelab%2ck8s%2ckubernetes%2codroid%2ctech"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Getting an ARM kubernetes cluster up and running on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2funixorn.github.io%2fpost%2fin_the_beginning_there_was_bare_metal%2f&title=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running&summary=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running&source=https%3a%2f%2funixorn.github.io%2fpost%2fin_the_beginning_there_was_bare_metal%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Getting an ARM kubernetes cluster up and running on reddit" href="https://reddit.com/submit?url=https%3a%2f%2funixorn.github.io%2fpost%2fin_the_beginning_there_was_bare_metal%2f&title=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Getting an ARM kubernetes cluster up and running on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2funixorn.github.io%2fpost%2fin_the_beginning_there_was_bare_metal%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Getting an ARM kubernetes cluster up and running on whatsapp" href="https://api.whatsapp.com/send?text=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running%20-%20https%3a%2f%2funixorn.github.io%2fpost%2fin_the_beginning_there_was_bare_metal%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Getting an ARM kubernetes cluster up and running on telegram" href="https://telegram.me/share/url?text=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running&url=https%3a%2f%2funixorn.github.io%2fpost%2fin_the_beginning_there_was_bare_metal%2f"><svg viewBox="2 2 28 28" height="30" width="30" fill="currentcolor"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></div></footer></article></main><footer class=footer><span>Copyright 2019-2023, Joe Block. All rights reserved.</span>
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>

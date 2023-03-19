@@ -1,345 +1,38 @@
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="generator" content="Hugo 0.110.0">
-
-  <title>Use Pagerduty With Home Assistant &middot; unixorn.github.io</title>
-
-    
-
-  
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
-
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
-  <!--<![endif]-->
-
-  <!--[if lte IE 8]>
-  <link rel="stylesheet" href="https://unixorn.github.io/css/side-menu-old-ie.css">
-  <![endif]-->
-  <!--[if gt IE 8]><!-->
-  <link rel="stylesheet" href="https://unixorn.github.io/css/side-menu.css">
-  <!--<![endif]-->
-
-  <link rel="stylesheet" href="https://unixorn.github.io/css/blackburn.css">
-
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
-
-  
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet" type="text/css">
-
-  
-  <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
- 
-  
-
-  
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/styles/androidstudio.min.css">
-  <script async src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.6.0/highlight.min.js"></script>
-  
-  <script>hljs.initHighlightingOnLoad();</script>
-  
-
-  <link rel="shortcut icon" href="https://unixorn.github.io/img/favicon.ico" type="image/x-icon" />
-
-  
-  
-
-</head>
-
-
-<body>
-<div id="layout">
-
-  
-<a href="#menu" id="menuLink" class="menu-link">
-  
-  <span></span>
-</a>
-<div id="menu">
-
-  
-  <a class="pure-menu-heading brand" href="https://unixorn.github.io/">unixorn</a>
-
-
-  <div class="pure-menu">
-    <ul class="pure-menu-list">
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://unixorn.github.io/"><i class='fa fa-home fa-fw'></i>Home</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://unixorn.github.io/post/"><i class='fa fa-list fa-fw'></i>Posts</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://unixorn.github.io/tags"><i class="sidebar-button-icon fa fa-lg fa-tags"></i>Tags</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://unixorn.github.io/about/"><i class='fa fa-user fa-fw'></i>About</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://unixorn.github.io/projects/"><i class='fa fa-list fa-fw'></i>Projects</a>
-      
-        </li>
-      
-      
-        <li class="pure-menu-item">
-          <a class="pure-menu-link" href="https://unixorn.github.io/contact/"><i class='fa fa-envelope fa-fw'></i>Contact</a>
-      
-        </li>
-      
-    </ul>
-  </div>
-
-  <div class="pure-menu social">
-  <ul class="pure-menu-list">
-
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://twitter.com/curiousbiped" rel="me" target="_blank"><i class="fab fa-twitter-square fa-fw"></i>Twitter</a>
-    </li>
-    
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://mstdn.social/@unixorn@mstdn.social" rel="me" target="_blank"><i class="fa fa-mastodon fa-fw"></i>Mastodon</a>
-    </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://instagram.com/apeseekingknowledge" rel="me" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
-    </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <li class="pure-menu-item">
-      <a class="pure-menu-link" href="https://github.com/unixorn" rel="me" target="_blank"><i class="fab fa-github-square fa-fw"></i>GitHub</a>
-    </li>
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-  </ul>
-</div>
-
-
-  <div>
-  <div class="small-print">
-    <small>Copyright 2019-2022, Joe Block. All rights reserved.</small>
-  </div>
-  <div class="small-print">
-    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
-    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
-  </div>
-</div>
-
-</div>
-
-
-  <div id="main">
-
-
-<div class="header">
-  <h1>Use Pagerduty With Home Assistant</h1>
-  <h2></h2>
-</div>
-<div class="content">
-  <p>I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I&rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal <a href="https://www.pagerduty.com/">PagerDuty</a> account and connect it to my Home Assistant.</p>
-<p>Why PagerDuty and not Twilio SMS? When I was working at Twilio I wrote the blog post on their site about using their API with Home Assistant. The down side of using Twilio to notify is that their API doesn&rsquo;t have a simple way to mark messages as potential duplicates, so if you have an automation that triggers for some potentially flappy state like motion in the yard you might get 20 messages for the same problem, which is not awesome in the middle of the night.</p>
-<p>With PagerDuty, you can specify a <code>dedupe_key</code> and it will automatically ignore new alerts on that key until you resolve the incident, without you having to add any complicated logic to your automations or notify service.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<ol>
-<li>A working Home Assistant installation. Initial set up of Home Assistant is out of scope for this post - presumably you&rsquo;re reading this because you already have Home Assistant running and want to enable it to send you notifications</li>
-<li>A <a href="https://www.pagerduty.com">PagerDuty</a> account. They have a free tier that is probably more than adequate for most people&rsquo;s needs.</li>
-</ol>
-<h2 id="setup">Setup</h2>
-<h3 id="pagerduty">PagerDuty</h3>
-<p>Create your PagerDuty account at <a href="https://www.pagerduty.com">PagerDuty.com</a> and create a new service. I unimaginatively named mine &ldquo;Home Assistant&rdquo;. You&rsquo;ll also need to configure your notification settings in your profile. If you don&rsquo;t have their app installed, you can install it now, but PagerDuty can send you SMS messages and you can interact with it that way if you prefer.</p>
-<p>In the new service, click the <strong>Integrations</strong> tab. We&rsquo;re going to want to use v2 of the Events API to create alerts, so click on the down arrow to the right of <strong>Events API V2</strong> to reveal details. We&rsquo;re going to need both the <code>Integration Key</code> and the <code>Integration URL (Alert Events)</code>, so copy them into a scratch file for later.</p>
-<h4 id="schedules">Schedules</h4>
-<p>PagerDuty will have created a default schedule for your service, which is great. What&rsquo;s <em>not</em> great is that it defaults to alerting 24 hours a day - I don&rsquo;t want to get woken up because of something minor like a network issue, especially on weekends, so I edited my schedule to only be active between 10 am and 10 pm.</p>
-<h3 id="home-assistant">Home Assistant</h3>
-<p>Now we&rsquo;ll connect PagerDuty to Home Assistant. I didn&rsquo;t want to install a helper script into my HA system, and conveniently enough you can create alerts using PagerDuty&rsquo;s API directly, so we&rsquo;re going to create a <code>rest_command</code> to make the API calls for us.</p>
-<p>To keep our <code>configuration.yaml</code> easier to share, we want to use <code>!secret</code>, so first, edit your <code>secrets.yaml</code> file and add a <code>pd_integration_key</code> entry with the integration key you copied from your service&rsquo;s <strong>Integrations</strong> tab.</p>
-<p>Annoyingly, you can&rsquo;t directly embed a <code>!secret xyz</code> call inside the <code>rest_command</code>&rsquo;s payload, so we&rsquo;re going to have to work around it by creating a sensor (where we <em>can</em> use <code>!secret</code>) and then read that value into the <code>rest_command</code>&rsquo;s payload template. This is ugly but it works.</p>
-<p>Add a <code>pd_routing_key</code> sensor to your <code>configuration.yaml</code> file</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">sensor</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">platform</span>: <span style="color:#ae81ff">template</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">sensors</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">pd_routing_key</span>:
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">value_template</span>: !<span style="color:#ae81ff">secret pd_integration_key</span>
-</span></span></code></pre></div><p>Now that we&rsquo;ve defined our sensor, we can refer to its value inside of the payload template in our <code>rest_command</code>, so define a <code>pagerduty_message</code> command by adding the following yaml snippet to your <code>configuration.yaml</code>. I created the payload in this snippet from the examples in PagerDuty&rsquo;s <a href="https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTY0-incident-creation-api">Incident API documentation</a>.</p>
-<p>If the URL you copied for <code>Integration URL (Alert Events)</code> is different than the <code>url</code> key in the snippet, change the url value accordingly.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">rest_command</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">pagerduty_message</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">url</span>: <span style="color:#ae81ff">https://events.pagerduty.com/v2/enqueue</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">method</span>: <span style="color:#ae81ff">POST</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">payload</span>: &gt;-<span style="color:#e6db74">
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      {
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;routing_key&#34;:&#34;{{ states(&#39;sensor.pd_routing_key&#39;) }}&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;dedup_key&#34;:&#34;{{ dedup_key }}&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;event_action&#34;:&#34;trigger&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        &#34;payload&#34;:
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        {
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;summary&#34;:&#34;{{ message }}&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;source&#34;:&#34;{{ source }}&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;severity&#34;:&#34;{{ severity }}&#34;,
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">          &#34;custom_details&#34;: {
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">             &#34;{{custom_title}}&#34;: &#34;{{ custom_details }}&#34;
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">           }
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        }
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">      }</span>      
-</span></span></code></pre></div><p>Confirm that you don&rsquo;t have any typos and your configuration is valid by going to <a href="http://yourHA:8123/developer-tools/yaml">http://yourHA:8123/developer-tools/yaml</a> and clicking <code>CHECK CONFIGURATION</code>. If it reports it valid, you can safely restart HA.</p>
-<h2 id="testing">Testing</h2>
-<p>Click on the <code>services</code> tab on your HA&rsquo;s developer tools page. Select <code>RESTful Command: pagerduty_message</code>, and then paste the following snippet in.</p>
-<ul>
-<li><code>message</code> value is the subject of the alert.</li>
-<li><code>dedup_key</code> is used to prevent you from getting spammed with multiple alerts for the same problem. Until you mark an incident as resolved, any new alerts with the same <code>dedup_key</code> value will not generate new alerts. I have a different unique <code>dedup_key</code> for each of my water sensor automations so that if water is detected under one of my sinks, I&rsquo;ll only get one alert per sink instead of getting a new alert every five minutes for the same problem.</li>
-<li><code>severity</code>- must be <code>critical</code>, <code>error</code>, <code>warning</code>, or <code>info</code></li>
-<li><code>custom_title</code> - This will be displayed in the <strong>Details</strong> section of alerts.</li>
-<li><code>custom_details</code> - This will be in the <strong>Details</strong> section of alerts.</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#f92672">service</span>: <span style="color:#ae81ff">rest_command.pagerduty_message</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">data</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">message</span>: <span style="color:#ae81ff">This is the subject line</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dedup_key</span>: <span style="color:#ae81ff">a_unique_string</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">severity</span>: <span style="color:#ae81ff">info</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">source</span>: <span style="color:#ae81ff">Test Source</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">custom_title</span>: <span style="color:#ae81ff">Issue</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">custom_details</span>: <span style="color:#ae81ff">Test alert to PagerDuty</span>
-</span></span></code></pre></div><p>Click the <code>CALL SERVICE</code> button. You should get an alert almost immediately, depending on your personal notification settings. Once that&rsquo;s working, you can use your new <code>pagerduty_message</code> service in your scripts and automations.</p>
-</div>
-
-<script type="text/javascript" src="https://unixorn.github.io/js/utterances.js">
-  repo="unixorn/unixorn.github.io"
-  issue-term="title"
-  theme="github-light"
-  crossorigin="anonymous"
-  async>
-</script>
-
-
-<center>
-  <style>.bmc-button img{width: 27px !important;margin-bottom: 1px !important;box-shadow: none !important;border: none !important;vertical-align: middle !important;}.bmc-button{line-height: 36px !important;height:37px !important;text-decoration: none !important;display:inline-flex !important;color:#ffffff !important;background-color:#000000 !important;border-radius: 3px !important;border: 1px solid transparent !important;padding: 1px 9px !important;font-size: 22px !important;letter-spacing: 0.6px !important;box-shadow: 0px 1px 2px rgba(190, 190, 190, 0.5) !important;-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;margin: 0 auto !important;font-family:'Cookie', cursive !important;-webkit-box-sizing: border-box !important;box-sizing: border-box !important;-o-transition: 0.3s all linear !important;-webkit-transition: 0.3s all linear !important;-moz-transition: 0.3s all linear !important;-ms-transition: 0.3s all linear !important;transition: 0.3s all linear !important;}.bmc-button:hover, .bmc-button:active, .bmc-button:focus {-webkit-box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;text-decoration: none !important;box-shadow: 0px 1px 2px 2px rgba(190, 190, 190, 0.5) !important;opacity: 0.85 !important;color:#ffffff !important;}</style><link href="https://fonts.googleapis.com/css?family=Cookie" rel="stylesheet"><a class="bmc-button" target="_blank" href="https://www.buymeacoffee.com/8UuWLA67y"><img src="https://bmc-cdn.nyc3.digitaloceanspaces.com/BMC-button-images/BMC-btn-logo.svg" alt="Buy me a coffee"><span style="margin-left:5px">Buy me a coffee</span></a>
-</center>
-
-
-</div>
-</div>
-<script src="https://unixorn.github.io/js/ui.js"></script>
-<script src="https://unixorn.github.io/js/menus.js"></script>
-
-
-
-
-<script>
-  
-  if (window.location.hostname != "localhost") {
-    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-    ga('create', 'UA-100853138-2', 'auto');
-    ga('send', 'pageview');
-  }
-</script>
-
-
-
-
-
-
-
-</body>
-</html>
-
+<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><meta name=robots content="index, follow"><title>Use Pagerduty With Home Assistant | unixorn.github.io</title><meta name=keywords content="tech,hass,home-assistant,home,pagerduty,monitoring,alerting"><meta name=description content="I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I&rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal PagerDuty account and connect it to my Home Assistant."><meta name=author content="Me"><link rel=canonical href=https://unixorn.github.io/post/use-pagerduty-with-home-assistant/><meta name=google-site-verification content="UA-100853138-2"><link crossorigin=anonymous href=https://unixorn.github.io/assets/css/stylesheet.6a98292fb8fa8cf0f3ba4042d4b75515c04267550f3ad49ff6271b5af9562443.css integrity="sha256-apgpL7j6jPDzukBC1LdVFcBCZ1UPOtSf9icbWvlWJEM=" rel="preload stylesheet" as=style><script defer crossorigin=anonymous src=https://unixorn.github.io/assets/js/highlight.f413e19d0714851f6474e7ee9632408e58ac146fbdbe62747134bea2fa3415e0.js integrity="sha256-9BPhnQcUhR9kdOfuljJAjlisFG+9vmJ0cTS+ovo0FeA=" onload=hljs.initHighlightingOnLoad()></script>
+<link rel=icon href=https://unixorn.github.io/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=16x16 href=https://unixorn.github.io/%3Clink%20/%20abs%20url%3E><link rel=icon type=image/png sizes=32x32 href=https://unixorn.github.io/%3Clink%20/%20abs%20url%3E><link rel=apple-touch-icon href=https://unixorn.github.io/%3Clink%20/%20abs%20url%3E><link rel=mask-icon href=https://unixorn.github.io/%3Clink%20/%20abs%20url%3E><meta name=theme-color content="#2e2e33"><meta name=msapplication-TileColor content="#2e2e33"><noscript><style>#theme-toggle,.top-link{display:none}</style><style>@media(prefers-color-scheme:dark){:root{--theme:rgb(29, 30, 32);--entry:rgb(46, 46, 51);--primary:rgb(218, 218, 219);--secondary:rgb(155, 156, 157);--tertiary:rgb(65, 66, 68);--content:rgb(196, 196, 197);--hljs-bg:rgb(46, 46, 51);--code-bg:rgb(55, 56, 62);--border:rgb(51, 51, 51)}.list{background:var(--theme)}.list:not(.dark)::-webkit-scrollbar-track{background:0 0}.list:not(.dark)::-webkit-scrollbar-thumb{border-color:var(--theme)}}</style></noscript><meta property="og:title" content="Use Pagerduty With Home Assistant"><meta property="og:description" content="I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I&rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal PagerDuty account and connect it to my Home Assistant."><meta property="og:type" content="article"><meta property="og:url" content="https://unixorn.github.io/post/use-pagerduty-with-home-assistant/"><meta property="og:image" content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta property="article:section" content="post"><meta property="article:published_time" content="2022-09-17T15:38:01-06:00"><meta property="article:modified_time" content="2022-09-17T15:38:01-06:00"><meta property="og:site_name" content="The Plural of SRE is an Outage"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E"><meta name=twitter:title content="Use Pagerduty With Home Assistant"><meta name=twitter:description content="I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I&rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal PagerDuty account and connect it to my Home Assistant."><script type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Posts","item":"https://unixorn.github.io/post/"},{"@type":"ListItem","position":2,"name":"Use Pagerduty With Home Assistant","item":"https://unixorn.github.io/post/use-pagerduty-with-home-assistant/"}]}</script><script type=application/ld+json>{"@context":"https://schema.org","@type":"BlogPosting","headline":"Use Pagerduty With Home Assistant","name":"Use Pagerduty With Home Assistant","description":"I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I\u0026rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal PagerDuty account and connect it to my Home Assistant.\n","keywords":["tech","hass","home-assistant","home","pagerduty","monitoring","alerting"],"articleBody":"I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I’m an SRE, and have been using PagerDuty for years, so I decided to set up a personal PagerDuty account and connect it to my Home Assistant.\nWhy PagerDuty and not Twilio SMS? When I was working at Twilio I wrote the blog post on their site about using their API with Home Assistant. The down side of using Twilio to notify is that their API doesn’t have a simple way to mark messages as potential duplicates, so if you have an automation that triggers for some potentially flappy state like motion in the yard you might get 20 messages for the same problem, which is not awesome in the middle of the night.\nWith PagerDuty, you can specify a dedupe_key and it will automatically ignore new alerts on that key until you resolve the incident, without you having to add any complicated logic to your automations or notify service.\nPrerequisites A working Home Assistant installation. Initial set up of Home Assistant is out of scope for this post - presumably you’re reading this because you already have Home Assistant running and want to enable it to send you notifications A PagerDuty account. They have a free tier that is probably more than adequate for most people’s needs. Setup PagerDuty Create your PagerDuty account at PagerDuty.com and create a new service. I unimaginatively named mine “Home Assistant”. You’ll also need to configure your notification settings in your profile. If you don’t have their app installed, you can install it now, but PagerDuty can send you SMS messages and you can interact with it that way if you prefer.\nIn the new service, click the Integrations tab. We’re going to want to use v2 of the Events API to create alerts, so click on the down arrow to the right of Events API V2 to reveal details. We’re going to need both the Integration Key and the Integration URL (Alert Events), so copy them into a scratch file for later.\nSchedules PagerDuty will have created a default schedule for your service, which is great. What’s not great is that it defaults to alerting 24 hours a day - I don’t want to get woken up because of something minor like a network issue, especially on weekends, so I edited my schedule to only be active between 10 am and 10 pm.\nHome Assistant Now we’ll connect PagerDuty to Home Assistant. I didn’t want to install a helper script into my HA system, and conveniently enough you can create alerts using PagerDuty’s API directly, so we’re going to create a rest_command to make the API calls for us.\nTo keep our configuration.yaml easier to share, we want to use !secret, so first, edit your secrets.yaml file and add a pd_integration_key entry with the integration key you copied from your service’s Integrations tab.\nAnnoyingly, you can’t directly embed a !secret xyz call inside the rest_command’s payload, so we’re going to have to work around it by creating a sensor (where we can use !secret) and then read that value into the rest_command’s payload template. This is ugly but it works.\nAdd a pd_routing_key sensor to your configuration.yaml file\nsensor: - platform: template sensors: pd_routing_key: value_template: !secret pd_integration_key Now that we’ve defined our sensor, we can refer to its value inside of the payload template in our rest_command, so define a pagerduty_message command by adding the following yaml snippet to your configuration.yaml. I created the payload in this snippet from the examples in PagerDuty’s Incident API documentation.\nIf the URL you copied for Integration URL (Alert Events) is different than the url key in the snippet, change the url value accordingly.\nrest_command: pagerduty_message: url: https://events.pagerduty.com/v2/enqueue method: POST payload: \u003e- { \"routing_key\":\"{{ states('sensor.pd_routing_key') }}\", \"dedup_key\":\"{{ dedup_key }}\", \"event_action\":\"trigger\", \"payload\": { \"summary\":\"{{ message }}\", \"source\":\"{{ source }}\", \"severity\":\"{{ severity }}\", \"custom_details\": { \"{{custom_title}}\": \"{{ custom_details }}\" } } } Confirm that you don’t have any typos and your configuration is valid by going to http://yourHA:8123/developer-tools/yaml and clicking CHECK CONFIGURATION. If it reports it valid, you can safely restart HA.\nTesting Click on the services tab on your HA’s developer tools page. Select RESTful Command: pagerduty_message, and then paste the following snippet in.\nmessage value is the subject of the alert. dedup_key is used to prevent you from getting spammed with multiple alerts for the same problem. Until you mark an incident as resolved, any new alerts with the same dedup_key value will not generate new alerts. I have a different unique dedup_key for each of my water sensor automations so that if water is detected under one of my sinks, I’ll only get one alert per sink instead of getting a new alert every five minutes for the same problem. severity- must be critical, error, warning, or info custom_title - This will be displayed in the Details section of alerts. custom_details - This will be in the Details section of alerts. service: rest_command.pagerduty_message data: message: This is the subject line dedup_key: a_unique_string severity: info source: Test Source custom_title: Issue custom_details: Test alert to PagerDuty Click the CALL SERVICE button. You should get an alert almost immediately, depending on your personal notification settings. Once that’s working, you can use your new pagerduty_message service in your scripts and automations.\n","wordCount":"894","inLanguage":"en","datePublished":"2022-09-17T15:38:01-06:00","dateModified":"2022-09-17T15:38:01-06:00","author":{"@type":"Person","name":"Me"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://unixorn.github.io/post/use-pagerduty-with-home-assistant/"},"publisher":{"@type":"Organization","name":"unixorn.github.io","logo":{"@type":"ImageObject","url":"https://unixorn.github.io/%3Clink%20/%20abs%20url%3E"}}}</script></head><body id=top><script>localStorage.getItem("pref-theme")==="dark"?document.body.classList.add("dark"):localStorage.getItem("pref-theme")==="light"?document.body.classList.remove("dark"):window.matchMedia("(prefers-color-scheme: dark)").matches&&document.body.classList.add("dark")</script><header class=header><nav class=nav><div class=logo><a href=https://unixorn.github.io/ accesskey=h title="Home (Alt + H)"><img src=https://unixorn.github.io/apple-touch-icon.png alt aria-label=logo height=35>Home</a><div class=logo-switches><button id=theme-toggle accesskey=t title="(Alt + T)"><svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg><svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://unixorn.github.io/archives/ title=archives><span>archives</span></a></li><li><a href=https://unixorn.github.io/search/ title="search (Alt + /)" accesskey=/><span>search</span></a></li><li><a href=https://unixorn.github.io/about/ title=about><span>about</span></a></li><li><a href=https://unixorn.github.io/projects/ title=projects><span>projects</span></a></li><li><a href=https://unixorn.github.io/tags/ title=tags><span>tags</span></a></li><li><a href=https://hachyderm.io/@unixorn title=hachyderm.io/@unixorn><span>hachyderm.io/@unixorn</span>&nbsp;<svg fill="none" shape-rendering="geometricPrecision" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><path d="M15 3h6v6"/><path d="M10 14 21 3"/></svg></a></li></ul></nav></header><main class=main><article class=post-single><header class=post-header><div class=breadcrumbs><a href=https://unixorn.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://unixorn.github.io/post/>Posts</a></div><h1 class=post-title>Use Pagerduty With Home Assistant</h1><div class=post-meta><span title='2022-09-17 15:38:01 -0600 MDT'>September 17, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;894 words&nbsp;·&nbsp;Me</div></header><div class=toc><details><summary accesskey=c title="(Alt + C)"><span class=details>Table of Contents</span></summary><div class=inner><nav id=TableOfContents><ul><li><a href=#prerequisites>Prerequisites</a></li><li><a href=#setup>Setup</a><ul><li><a href=#pagerduty>PagerDuty</a></li><li><a href=#home-assistant>Home Assistant</a></li></ul></li><li><a href=#testing>Testing</a></li></ul></nav></div></details></div><div class=post-content><p>I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I&rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal <a href=https://www.pagerduty.com/>PagerDuty</a> account and connect it to my Home Assistant.</p><p>Why PagerDuty and not Twilio SMS? When I was working at Twilio I wrote the blog post on their site about using their API with Home Assistant. The down side of using Twilio to notify is that their API doesn&rsquo;t have a simple way to mark messages as potential duplicates, so if you have an automation that triggers for some potentially flappy state like motion in the yard you might get 20 messages for the same problem, which is not awesome in the middle of the night.</p><p>With PagerDuty, you can specify a <code>dedupe_key</code> and it will automatically ignore new alerts on that key until you resolve the incident, without you having to add any complicated logic to your automations or notify service.</p><h2 id=prerequisites>Prerequisites<a hidden class=anchor aria-hidden=true href=#prerequisites>#</a></h2><ol><li>A working Home Assistant installation. Initial set up of Home Assistant is out of scope for this post - presumably you&rsquo;re reading this because you already have Home Assistant running and want to enable it to send you notifications</li><li>A <a href=https://www.pagerduty.com>PagerDuty</a> account. They have a free tier that is probably more than adequate for most people&rsquo;s needs.</li></ol><h2 id=setup>Setup<a hidden class=anchor aria-hidden=true href=#setup>#</a></h2><h3 id=pagerduty>PagerDuty<a hidden class=anchor aria-hidden=true href=#pagerduty>#</a></h3><p>Create your PagerDuty account at <a href=https://www.pagerduty.com>PagerDuty.com</a> and create a new service. I unimaginatively named mine &ldquo;Home Assistant&rdquo;. You&rsquo;ll also need to configure your notification settings in your profile. If you don&rsquo;t have their app installed, you can install it now, but PagerDuty can send you SMS messages and you can interact with it that way if you prefer.</p><p>In the new service, click the <strong>Integrations</strong> tab. We&rsquo;re going to want to use v2 of the Events API to create alerts, so click on the down arrow to the right of <strong>Events API V2</strong> to reveal details. We&rsquo;re going to need both the <code>Integration Key</code> and the <code>Integration URL (Alert Events)</code>, so copy them into a scratch file for later.</p><h4 id=schedules>Schedules<a hidden class=anchor aria-hidden=true href=#schedules>#</a></h4><p>PagerDuty will have created a default schedule for your service, which is great. What&rsquo;s <em>not</em> great is that it defaults to alerting 24 hours a day - I don&rsquo;t want to get woken up because of something minor like a network issue, especially on weekends, so I edited my schedule to only be active between 10 am and 10 pm.</p><h3 id=home-assistant>Home Assistant<a hidden class=anchor aria-hidden=true href=#home-assistant>#</a></h3><p>Now we&rsquo;ll connect PagerDuty to Home Assistant. I didn&rsquo;t want to install a helper script into my HA system, and conveniently enough you can create alerts using PagerDuty&rsquo;s API directly, so we&rsquo;re going to create a <code>rest_command</code> to make the API calls for us.</p><p>To keep our <code>configuration.yaml</code> easier to share, we want to use <code>!secret</code>, so first, edit your <code>secrets.yaml</code> file and add a <code>pd_integration_key</code> entry with the integration key you copied from your service&rsquo;s <strong>Integrations</strong> tab.</p><p>Annoyingly, you can&rsquo;t directly embed a <code>!secret xyz</code> call inside the <code>rest_command</code>&rsquo;s payload, so we&rsquo;re going to have to work around it by creating a sensor (where we <em>can</em> use <code>!secret</code>) and then read that value into the <code>rest_command</code>&rsquo;s payload template. This is ugly but it works.</p><p>Add a <code>pd_routing_key</code> sensor to your <code>configuration.yaml</code> file</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>sensor</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span>- <span class=nt>platform</span><span class=p>:</span><span class=w> </span><span class=l>template</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>sensors</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>      </span><span class=nt>pd_routing_key</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=nt>value_template</span><span class=p>:</span><span class=w> </span>!<span class=l>secret pd_integration_key</span><span class=w>
+</span></span></span></code></pre></div><p>Now that we&rsquo;ve defined our sensor, we can refer to its value inside of the payload template in our <code>rest_command</code>, so define a <code>pagerduty_message</code> command by adding the following yaml snippet to your <code>configuration.yaml</code>. I created the payload in this snippet from the examples in PagerDuty&rsquo;s <a href=https://developer.pagerduty.com/docs/ZG9jOjExMDI5NTY0-incident-creation-api>Incident API documentation</a>.</p><p>If the URL you copied for <code>Integration URL (Alert Events)</code> is different than the <code>url</code> key in the snippet, change the url value accordingly.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>rest_command</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>pagerduty_message</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=l>https://events.pagerduty.com/v2/enqueue</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>method</span><span class=p>:</span><span class=w> </span><span class=l>POST</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=nt>payload</span><span class=p>:</span><span class=w> </span><span class=p>&gt;-</span><span class=sd>
+</span></span></span><span class=line><span class=cl><span class=sd>      {
+</span></span></span><span class=line><span class=cl><span class=sd>        &#34;routing_key&#34;:&#34;{{ states(&#39;sensor.pd_routing_key&#39;) }}&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>        &#34;dedup_key&#34;:&#34;{{ dedup_key }}&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>        &#34;event_action&#34;:&#34;trigger&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>        &#34;payload&#34;:
+</span></span></span><span class=line><span class=cl><span class=sd>        {
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;summary&#34;:&#34;{{ message }}&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;source&#34;:&#34;{{ source }}&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;severity&#34;:&#34;{{ severity }}&#34;,
+</span></span></span><span class=line><span class=cl><span class=sd>          &#34;custom_details&#34;: {
+</span></span></span><span class=line><span class=cl><span class=sd>             &#34;{{custom_title}}&#34;: &#34;{{ custom_details }}&#34;
+</span></span></span><span class=line><span class=cl><span class=sd>           }
+</span></span></span><span class=line><span class=cl><span class=sd>        }
+</span></span></span><span class=line><span class=cl><span class=sd>      }</span><span class=w>      
+</span></span></span></code></pre></div><p>Confirm that you don&rsquo;t have any typos and your configuration is valid by going to <a href=http://yourHA:8123/developer-tools/yaml>http://yourHA:8123/developer-tools/yaml</a> and clicking <code>CHECK CONFIGURATION</code>. If it reports it valid, you can safely restart HA.</p><h2 id=testing>Testing<a hidden class=anchor aria-hidden=true href=#testing>#</a></h2><p>Click on the <code>services</code> tab on your HA&rsquo;s developer tools page. Select <code>RESTful Command: pagerduty_message</code>, and then paste the following snippet in.</p><ul><li><code>message</code> value is the subject of the alert.</li><li><code>dedup_key</code> is used to prevent you from getting spammed with multiple alerts for the same problem. Until you mark an incident as resolved, any new alerts with the same <code>dedup_key</code> value will not generate new alerts. I have a different unique <code>dedup_key</code> for each of my water sensor automations so that if water is detected under one of my sinks, I&rsquo;ll only get one alert per sink instead of getting a new alert every five minutes for the same problem.</li><li><code>severity</code>- must be <code>critical</code>, <code>error</code>, <code>warning</code>, or <code>info</code></li><li><code>custom_title</code> - This will be displayed in the <strong>Details</strong> section of alerts.</li><li><code>custom_details</code> - This will be in the <strong>Details</strong> section of alerts.</li></ul><div class=highlight><pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=line><span class=cl><span class=nt>service</span><span class=p>:</span><span class=w> </span><span class=l>rest_command.pagerduty_message</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w></span><span class=nt>data</span><span class=p>:</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>message</span><span class=p>:</span><span class=w> </span><span class=l>This is the subject line</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>dedup_key</span><span class=p>:</span><span class=w> </span><span class=l>a_unique_string</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>severity</span><span class=p>:</span><span class=w> </span><span class=l>info</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>source</span><span class=p>:</span><span class=w> </span><span class=l>Test Source</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>custom_title</span><span class=p>:</span><span class=w> </span><span class=l>Issue</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>  </span><span class=nt>custom_details</span><span class=p>:</span><span class=w> </span><span class=l>Test alert to PagerDuty</span><span class=w>
+</span></span></span></code></pre></div><p>Click the <code>CALL SERVICE</code> button. You should get an alert almost immediately, depending on your personal notification settings. Once that&rsquo;s working, you can use your new <code>pagerduty_message</code> service in your scripts and automations.</p></div><footer class=post-footer><ul class=post-tags><li><a href=https://unixorn.github.io/tags/tech/>tech</a></li><li><a href=https://unixorn.github.io/tags/hass/>hass</a></li><li><a href=https://unixorn.github.io/tags/home-assistant/>home-assistant</a></li><li><a href=https://unixorn.github.io/tags/home/>home</a></li><li><a href=https://unixorn.github.io/tags/pagerduty/>pagerduty</a></li><li><a href=https://unixorn.github.io/tags/monitoring/>monitoring</a></li><li><a href=https://unixorn.github.io/tags/alerting/>alerting</a></li></ul><nav class=paginav><a class=prev href=https://unixorn.github.io/post/securifi-peanut-gotcha/><span class=title>« Prev</span><br><span>Fix Securifi Peanut issue with zigbee2mqtt</span></a>
+<a class=next href=https://unixorn.github.io/post/autodesk-fusion-signup/><span class=title>Next »</span><br><span>Fixing Autodesk Fusion 360 First Time Launch on macOS Problems</span></a></nav><div class=share-buttons><a target=_blank rel="noopener noreferrer" aria-label="share Use Pagerduty With Home Assistant on twitter" href="https://twitter.com/intent/tweet/?text=Use%20Pagerduty%20With%20Home%20Assistant&url=https%3a%2f%2funixorn.github.io%2fpost%2fuse-pagerduty-with-home-assistant%2f&hashtags=tech%2chass%2chome-assistant%2chome%2cpagerduty%2cmonitoring%2calerting"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM195.519 424.544c135.939.0 210.268-112.643 210.268-210.268.0-3.218.0-6.437-.153-9.502 14.406-10.421 26.973-23.448 36.935-38.314-13.18 5.824-27.433 9.809-42.452 11.648 15.326-9.196 26.973-23.602 32.49-40.92-14.252 8.429-30.038 14.56-46.896 17.931-13.487-14.406-32.644-23.295-53.946-23.295-40.767.0-73.87 33.104-73.87 73.87.0 5.824.613 11.494 1.992 16.858-61.456-3.065-115.862-32.49-152.337-77.241-6.284 10.881-9.962 23.601-9.962 37.088.0 25.594 13.027 48.276 32.95 61.456-12.107-.307-23.448-3.678-33.41-9.196v.92c0 35.862 25.441 65.594 59.311 72.49-6.13 1.686-12.72 2.606-19.464 2.606-4.751.0-9.348-.46-13.946-1.38 9.349 29.426 36.628 50.728 68.965 51.341-25.287 19.771-57.164 31.571-91.8 31.571-5.977.0-11.801-.306-17.625-1.073 32.337 21.15 71.264 33.41 112.95 33.41z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Use Pagerduty With Home Assistant on linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2funixorn.github.io%2fpost%2fuse-pagerduty-with-home-assistant%2f&title=Use%20Pagerduty%20With%20Home%20Assistant&summary=Use%20Pagerduty%20With%20Home%20Assistant&source=https%3a%2f%2funixorn.github.io%2fpost%2fuse-pagerduty-with-home-assistant%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM160.461 423.278V197.561h-75.04v225.717h75.04zm270.539.0V293.839c0-69.333-37.018-101.586-86.381-101.586-39.804.0-57.634 21.891-67.617 37.266v-31.958h-75.021c.995 21.181.0 225.717.0 225.717h75.02V297.222c0-6.748.486-13.492 2.474-18.315 5.414-13.475 17.767-27.434 38.494-27.434 27.135.0 38.007 20.707 38.007 51.037v120.768H431zM123.448 88.722C97.774 88.722 81 105.601 81 127.724c0 21.658 16.264 39.002 41.455 39.002h.484c26.165.0 42.452-17.344 42.452-39.002-.485-22.092-16.241-38.954-41.943-39.002z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Use Pagerduty With Home Assistant on reddit" href="https://reddit.com/submit?url=https%3a%2f%2funixorn.github.io%2fpost%2fuse-pagerduty-with-home-assistant%2f&title=Use%20Pagerduty%20With%20Home%20Assistant"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zM446 265.638c0-22.964-18.616-41.58-41.58-41.58-11.211.0-21.361 4.457-28.841 11.666-28.424-20.508-67.586-33.757-111.204-35.278l18.941-89.121 61.884 13.157c.756 15.734 13.642 28.29 29.56 28.29 16.407.0 29.706-13.299 29.706-29.701.0-16.403-13.299-29.702-29.706-29.702-11.666.0-21.657 6.792-26.515 16.578l-69.105-14.69c-1.922-.418-3.939-.042-5.585 1.036-1.658 1.073-2.811 2.761-3.224 4.686l-21.152 99.438c-44.258 1.228-84.046 14.494-112.837 35.232-7.468-7.164-17.589-11.591-28.757-11.591-22.965.0-41.585 18.616-41.585 41.58.0 16.896 10.095 31.41 24.568 37.918-.639 4.135-.99 8.328-.99 12.576.0 63.977 74.469 115.836 166.33 115.836s166.334-51.859 166.334-115.836c0-4.218-.347-8.387-.977-12.493 14.564-6.47 24.735-21.034 24.735-38.001zM326.526 373.831c-20.27 20.241-59.115 21.816-70.534 21.816-11.428.0-50.277-1.575-70.522-21.82-3.007-3.008-3.007-7.882.0-10.889 3.003-2.999 7.882-3.003 10.885.0 12.777 12.781 40.11 17.317 59.637 17.317 19.522.0 46.86-4.536 59.657-17.321 3.016-2.999 7.886-2.995 10.885.008 3.008 3.011 3.003 7.882-.008 10.889zm-5.23-48.781c-16.373.0-29.701-13.324-29.701-29.698.0-16.381 13.328-29.714 29.701-29.714 16.378.0 29.706 13.333 29.706 29.714.0 16.374-13.328 29.698-29.706 29.698zM160.91 295.348c0-16.381 13.328-29.71 29.714-29.71 16.369.0 29.689 13.329 29.689 29.71.0 16.373-13.32 29.693-29.689 29.693-16.386.0-29.714-13.32-29.714-29.693z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Use Pagerduty With Home Assistant on facebook" href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2funixorn.github.io%2fpost%2fuse-pagerduty-with-home-assistant%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H342.978V319.085h66.6l12.672-82.621h-79.272v-53.617c0-22.603 11.073-44.636 46.58-44.636H425.6v-70.34s-32.71-5.582-63.982-5.582c-65.288.0-107.96 39.569-107.96 111.204v62.971h-72.573v82.621h72.573V512h-191.104c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Use Pagerduty With Home Assistant on whatsapp" href="https://api.whatsapp.com/send?text=Use%20Pagerduty%20With%20Home%20Assistant%20-%20https%3a%2f%2funixorn.github.io%2fpost%2fuse-pagerduty-with-home-assistant%2f"><svg viewBox="0 0 512 512" height="30" width="30" fill="currentcolor"><path d="M449.446.0C483.971.0 512 28.03 512 62.554v386.892C512 483.97 483.97 512 449.446 512H62.554c-34.524.0-62.554-28.03-62.554-62.554V62.554c0-34.524 28.029-62.554 62.554-62.554h386.892zm-58.673 127.703c-33.842-33.881-78.847-52.548-126.798-52.568-98.799.0-179.21 80.405-179.249 179.234-.013 31.593 8.241 62.428 23.927 89.612l-25.429 92.884 95.021-24.925c26.181 14.28 55.659 21.807 85.658 21.816h.074c98.789.0 179.206-80.413 179.247-179.243.018-47.895-18.61-92.93-52.451-126.81zM263.976 403.485h-.06c-26.734-.01-52.954-7.193-75.828-20.767l-5.441-3.229-56.386 14.792 15.05-54.977-3.542-5.637c-14.913-23.72-22.791-51.136-22.779-79.287.033-82.142 66.867-148.971 149.046-148.971 39.793.014 77.199 15.531 105.329 43.692 28.128 28.16 43.609 65.592 43.594 105.4-.034 82.149-66.866 148.983-148.983 148.984zm81.721-111.581c-4.479-2.242-26.499-13.075-30.604-14.571-4.105-1.495-7.091-2.241-10.077 2.241-2.986 4.483-11.569 14.572-14.182 17.562-2.612 2.988-5.225 3.364-9.703 1.12-4.479-2.241-18.91-6.97-36.017-22.23C231.8 264.15 222.81 249.484 220.198 245s-.279-6.908 1.963-9.14c2.016-2.007 4.48-5.232 6.719-7.847 2.24-2.615 2.986-4.484 4.479-7.472 1.493-2.99.747-5.604-.374-7.846-1.119-2.241-10.077-24.288-13.809-33.256-3.635-8.733-7.327-7.55-10.077-7.688-2.609-.13-5.598-.158-8.583-.158-2.986.0-7.839 1.121-11.944 5.604-4.105 4.484-15.675 15.32-15.675 37.364.0 22.046 16.048 43.342 18.287 46.332 2.24 2.99 31.582 48.227 76.511 67.627 10.685 4.615 19.028 7.371 25.533 9.434 10.728 3.41 20.492 2.929 28.209 1.775 8.605-1.285 26.499-10.833 30.231-21.295 3.732-10.464 3.732-19.431 2.612-21.298-1.119-1.869-4.105-2.99-8.583-5.232z"/></svg></a><a target=_blank rel="noopener noreferrer" aria-label="share Use Pagerduty With Home Assistant on telegram" href="https://telegram.me/share/url?text=Use%20Pagerduty%20With%20Home%20Assistant&url=https%3a%2f%2funixorn.github.io%2fpost%2fuse-pagerduty-with-home-assistant%2f"><svg viewBox="2 2 28 28" height="30" width="30" fill="currentcolor"><path d="M26.49 29.86H5.5a3.37 3.37.0 01-2.47-1 3.35 3.35.0 01-1-2.47V5.48A3.36 3.36.0 013 3 3.37 3.37.0 015.5 2h21A3.38 3.38.0 0129 3a3.36 3.36.0 011 2.46V26.37a3.35 3.35.0 01-1 2.47 3.38 3.38.0 01-2.51 1.02zm-5.38-6.71a.79.79.0 00.85-.66L24.73 9.24a.55.55.0 00-.18-.46.62.62.0 00-.41-.17q-.08.0-16.53 6.11a.59.59.0 00-.41.59.57.57.0 00.43.52l4 1.24 1.61 4.83a.62.62.0 00.63.43.56.56.0 00.4-.17L16.54 20l4.09 3A.9.9.0 0021.11 23.15zM13.8 20.71l-1.21-4q8.72-5.55 8.78-5.55c.15.0.23.0.23.16a.18.18.0 010 .06s-2.51 2.3-7.52 6.8z"/></svg></a></div></footer></article></main><footer class=footer><span>Copyright 2019-2023, Joe Block. All rights reserved.</span>
+<span>Powered by
+<a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
+        <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></a><script>let menu=document.getElementById("menu");menu&&(menu.scrollLeft=localStorage.getItem("menu-scroll-position"),menu.onscroll=function(){localStorage.setItem("menu-scroll-position",menu.scrollLeft)}),document.querySelectorAll('a[href^="#"]').forEach(e=>{e.addEventListener("click",function(e){e.preventDefault();var t=this.getAttribute("href").substr(1);window.matchMedia("(prefers-reduced-motion: reduce)").matches?document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView():document.querySelector(`[id='${decodeURIComponent(t)}']`).scrollIntoView({behavior:"smooth"}),t==="top"?history.replaceState(null,null," "):history.pushState(null,null,`#${t}`)})})</script><script>var mybutton=document.getElementById("top-link");window.onscroll=function(){document.body.scrollTop>800||document.documentElement.scrollTop>800?(mybutton.style.visibility="visible",mybutton.style.opacity="1"):(mybutton.style.visibility="hidden",mybutton.style.opacity="0")}</script><script>document.getElementById("theme-toggle").addEventListener("click",()=>{document.body.className.includes("dark")?(document.body.classList.remove("dark"),localStorage.setItem("pref-theme","light")):(document.body.classList.add("dark"),localStorage.setItem("pref-theme","dark"))})</script><script>document.querySelectorAll("pre > code").forEach(e=>{const n=e.parentNode.parentNode,t=document.createElement("button");t.classList.add("copy-code"),t.innerHTML="copy";function s(){t.innerHTML="copied!",setTimeout(()=>{t.innerHTML="copy"},2e3)}t.addEventListener("click",t=>{if("clipboard"in navigator){navigator.clipboard.writeText(e.textContent),s();return}const n=document.createRange();n.selectNodeContents(e);const o=window.getSelection();o.removeAllRanges(),o.addRange(n);try{document.execCommand("copy"),s()}catch{}o.removeRange(n)}),n.classList.contains("highlight")?n.appendChild(t):n.parentNode.firstChild==n||(e.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName=="TABLE"?e.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(t):e.parentNode.appendChild(t))})</script></body></html>
