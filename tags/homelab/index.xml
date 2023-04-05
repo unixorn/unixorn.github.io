@@ -28,7 +28,7 @@
       <pubDate>Fri, 13 Jan 2023 11:16:19 -0700</pubDate>
       
       <guid>https://unixorn.github.io/post/restic-backups-on-truenas/</guid>
-      <description>I&amp;rsquo;ve been backing my homelab up with duplicacy (See Backing Up the Clusting Using Duplicacy), but I&amp;rsquo;m fed up with it returning a 0 exit code even if there&amp;rsquo;s a problem with the backup. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to restic.
+      <description>I&amp;rsquo;ve been backing my homelab up with duplicacy (See Backing Up the Cluster Using Duplicacy), but I&amp;rsquo;m fed up with it returning a 0 exit code even if there&amp;rsquo;s a problem with the backup. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to restic.
 In this blog entry, I&amp;rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install restic, and how to use it to back up to Backblaze b2.</description>
     </item>
     
