@@ -1,0 +1,28 @@
+.mastodon-comment {
+    background-color: var(--body-background);
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    margin-bottom: 1rem;
+    display: flex;
+    .content {
+        flex-grow: 2;
+    }
+    .avatar img {
+        margin-right: 1rem;
+        min-width: 60px;
+    }
+    .author {
+        padding-top: 0;
+        display: flex;
+        .date {
+            margin-left: auto;
+        }
+    }
+    .disabled {
+        color: var(--accent-color)
+    }
+}
+
+.mastodon-comment-content p:first-child {
+    margin-top: 0;
+}
