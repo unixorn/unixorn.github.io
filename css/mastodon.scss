@@ -1,3 +1,17 @@
+.mastodon-wrapper {
+  display: flex;
+  gap: 3rem;
+  flex-direction: row;
+}
+
+.comment-level {
+  max-width: 3rem;
+  min-width: 3rem;
+}
+
+.reply-original {
+  display: none;
+}
 
 .mastodon-comment {
     background-color: #e9e5e5;
