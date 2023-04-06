@@ -12,7 +12,52 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 31 Mar 2023 11:08:42 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Apr 2023 15:45:03 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>administrivia</title>
+      <link>https://unixorn.github.io/tags/administrivia/</link>
+      <pubDate>Wed, 05 Apr 2023 15:45:03 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/administrivia/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>blog</title>
+      <link>https://unixorn.github.io/tags/blog/</link>
+      <pubDate>Wed, 05 Apr 2023 15:45:03 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fediverse</title>
+      <link>https://unixorn.github.io/tags/fediverse/</link>
+      <pubDate>Wed, 05 Apr 2023 15:45:03 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/fediverse/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://unixorn.github.io/tags/hugo/</link>
+      <pubDate>Wed, 05 Apr 2023 15:45:03 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mastodon</title>
+      <link>https://unixorn.github.io/tags/mastodon/</link>
+      <pubDate>Wed, 05 Apr 2023 15:45:03 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/mastodon/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>benchmarking</title>
       <link>https://unixorn.github.io/tags/benchmarking/</link>
@@ -199,33 +244,6 @@
       <pubDate>Fri, 13 Jan 2023 11:16:19 -0700</pubDate>
       
       <guid>https://unixorn.github.io/tags/truenas/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>administrivia</title>
-      <link>https://unixorn.github.io/tags/administrivia/</link>
-      <pubDate>Mon, 14 Nov 2022 19:12:41 -0700</pubDate>
-      
-      <guid>https://unixorn.github.io/tags/administrivia/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>hugo</title>
-      <link>https://unixorn.github.io/tags/hugo/</link>
-      <pubDate>Mon, 14 Nov 2022 19:12:41 -0700</pubDate>
-      
-      <guid>https://unixorn.github.io/tags/hugo/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>mastodon</title>
-      <link>https://unixorn.github.io/tags/mastodon/</link>
-      <pubDate>Thu, 10 Nov 2022 08:39:22 -0700</pubDate>
-      
-      <guid>https://unixorn.github.io/tags/mastodon/</guid>
       <description></description>
     </item>
     
