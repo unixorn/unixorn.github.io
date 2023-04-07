@@ -10,6 +10,17 @@
 .reply-original {
   display: none;
 }
+
+#article-comments div.reply-original {
+  display: none;
+}
+
+#article-comments div.reply-child {
+  display: block;
+  flex: 0 0 1.75rem;
+  text-align: right;
+}
+
 .mastodon-comment {
   background-color: #e9e5e5;
   border-radius: 10px;
