@@ -96,7 +96,7 @@ To fix it, create assets/css/custom.css with the following contents:
       <pubDate>Sat, 05 Nov 2022 09:42:58 -0600</pubDate>
       
       <guid>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</guid>
-      <description>&lt;p&gt;I wanted to switch my new Home Assistant (HA) installation to write its history data to &lt;a href=&#34;https://www.postgresql.org/&#34;&gt;PostgreSQL&lt;/a&gt; instead of SQLite for a variety of reasons. Here&amp;rsquo;s how I did it.&lt;/p&gt;
+      <description>&lt;p&gt;I wanted to switch my new Home Assistant (HA) installation to write data to &lt;a href=&#34;https://www.postgresql.org/&#34;&gt;PostgreSQL&lt;/a&gt; instead of SQLite for a variety of reasons. Here&amp;rsquo;s how I did it.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s why I decided to switch:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Resilience&lt;/strong&gt;. If you&amp;rsquo;re running Home Assistant on a Raspberry Pi&amp;rsquo;s SD card, the constant churn of history updates will eventually destroy the card. The more entities you have, the faster HA will grind your SD card to failure. Writing all that to another server that is writing to a real SSD or spinning disk eliminates that problem.&lt;/li&gt;
