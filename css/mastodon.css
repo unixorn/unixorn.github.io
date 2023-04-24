@@ -114,3 +114,10 @@
 .copypaste .button:hover {
   background-color: #16181e;
 }
+
+.dark .mastodon-comment {
+  background-color: #36383d;
+}
+.dark .mastodon-comment .disabled {
+  color: #ad55fd;
+}
