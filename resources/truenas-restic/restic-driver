@@ -76,7 +76,7 @@ restic forget --verbose \
   --tag periodic \
   --group-by "paths,tags" \
   --keep-last $MINIMUM_SNAPSHOTS_RETAINED \
-  --keep-hours $HOURS_RETAINED \
+  --keep-hourly $HOURS_RETAINED \
   --keep-daily $DAYS_RETAINED \
   --keep-weekly $WEEKS_RETAINED \
   --keep-monthly $MONTHS_RETAINED \
