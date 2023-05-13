@@ -31,5 +31,15 @@
       <description>&lt;p&gt;Released version 0.8.0 of ha-mqtt-discoverable and version 0.2.0 of ha-mqtt-discoverable-cli today.&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>Zigbee and Zwave Setup Tips</title>
+      <link>https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/</link>
+      <pubDate>Sun, 06 Nov 2022 14:47:14 -1000</pubDate>
+      
+      <guid>https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/</guid>
+      <description>&lt;p&gt;Some tips about setting up Zigbee or Z-wave mesh networks.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ve had a few people new to Home Assistant ask about how to best set up their mesh networks. Here&amp;rsquo;s my take on what works best.&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>
