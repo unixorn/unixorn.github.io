@@ -12,7 +12,61 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 05 Apr 2023 15:45:03 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 May 2023 10:32:34 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>docker</title>
+      <link>https://unixorn.github.io/tags/docker/</link>
+      <pubDate>Mon, 22 May 2023 10:32:34 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>docker-compose</title>
+      <link>https://unixorn.github.io/tags/docker-compose/</link>
+      <pubDate>Mon, 22 May 2023 10:32:34 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/docker-compose/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>esphome</title>
+      <link>https://unixorn.github.io/tags/esphome/</link>
+      <pubDate>Mon, 22 May 2023 10:32:34 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/esphome/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homelab</title>
+      <link>https://unixorn.github.io/tags/homelab/</link>
+      <pubDate>Mon, 22 May 2023 10:32:34 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/homelab/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>howto</title>
+      <link>https://unixorn.github.io/tags/howto/</link>
+      <pubDate>Mon, 22 May 2023 10:32:34 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/howto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>iot</title>
+      <link>https://unixorn.github.io/tags/iot/</link>
+      <pubDate>Mon, 22 May 2023 10:32:34 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/iot/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>administrivia</title>
       <link>https://unixorn.github.io/tags/administrivia/</link>
@@ -64,15 +118,6 @@
       <pubDate>Fri, 31 Mar 2023 11:08:42 -0600</pubDate>
       
       <guid>https://unixorn.github.io/tags/benchmarking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>homelab</title>
-      <link>https://unixorn.github.io/tags/homelab/</link>
-      <pubDate>Fri, 31 Mar 2023 11:08:42 -0600</pubDate>
-      
-      <guid>https://unixorn.github.io/tags/homelab/</guid>
       <description></description>
     </item>
     
@@ -136,15 +181,6 @@
       <pubDate>Sat, 18 Mar 2023 13:46:13 -0600</pubDate>
       
       <guid>https://unixorn.github.io/tags/esp8266/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>esphome</title>
-      <link>https://unixorn.github.io/tags/esphome/</link>
-      <pubDate>Sat, 18 Mar 2023 13:46:13 -0600</pubDate>
-      
-      <guid>https://unixorn.github.io/tags/esphome/</guid>
       <description></description>
     </item>
     
@@ -271,15 +307,6 @@
       <pubDate>Sun, 06 Nov 2022 14:47:14 -1000</pubDate>
       
       <guid>https://unixorn.github.io/tags/hass/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>iot</title>
-      <link>https://unixorn.github.io/tags/iot/</link>
-      <pubDate>Sun, 06 Nov 2022 14:47:14 -1000</pubDate>
-      
-      <guid>https://unixorn.github.io/tags/iot/</guid>
       <description></description>
     </item>
     
@@ -433,15 +460,6 @@
       <pubDate>Tue, 07 Dec 2021 11:13:39 -0700</pubDate>
       
       <guid>https://unixorn.github.io/tags/containerd/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>docker</title>
-      <link>https://unixorn.github.io/tags/docker/</link>
-      <pubDate>Tue, 07 Dec 2021 11:13:39 -0700</pubDate>
-      
-      <guid>https://unixorn.github.io/tags/docker/</guid>
       <description></description>
     </item>
     

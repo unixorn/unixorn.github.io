@@ -169,6 +169,19 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2>Restic Backups on TrueNAS
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>I’ve been backing my homelab up with duplicacy (See Backing Up the Cluster Using Duplicacy), but I’m fed up with it returning a 0 exit code even if there’s a problem with the backup. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to restic.
+In this blog entry, I’m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install restic, and how to use it to back up to Backblaze b2....</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-01-13 11:16:19 -0700 MST'>January 13, 2023</span>&nbsp;·&nbsp;11 min&nbsp;·&nbsp;2237 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Restic Backups on TrueNAS" href="https://unixorn.github.io/post/restic-backups-on-truenas/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2>Fix Congo Backticks
     </h2>
   </header>
@@ -220,20 +233,6 @@ Resilience. If you’re running Home Assistant on a Raspberry Pi’s SD card, th
   </div>
   <footer class="entry-footer"><span title='2022-11-05 09:42:58 -0600 MDT'>November 5, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;853 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Switch Home Assistant to Use PostgreSQL Instead of SQLite" href="https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2>Fix Securifi Peanut issue with zigbee2mqtt
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Securifi Peanut plugs have issues with zigbee2mqtt.
-I have several Securifi Peanut Zigbee switches. Overall, they’re nice little smart plugs and make good Zigbee routers to strengthen your Zigbee mesh, but they have one annoying issue - zigbee2mqtt doesn’t recognize them perfectly, though there’s a simple fix that I’m going to document here.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-10-06 21:20:45 -1000 -1000'>October 6, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;238 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to Fix Securifi Peanut issue with zigbee2mqtt" href="https://unixorn.github.io/post/securifi-peanut-gotcha/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

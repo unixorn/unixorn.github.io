@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>esphome on unixorn.github.io</title>
-    <link>https://unixorn.github.io/tags/esphome/</link>
-    <description>Recent content in esphome on unixorn.github.io</description>
+    <title>docker-compose on unixorn.github.io</title>
+    <link>https://unixorn.github.io/tags/docker-compose/</link>
+    <description>Recent content in docker-compose on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
       <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
@@ -12,7 +12,7 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 22 May 2023 10:32:34 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/tags/esphome/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 22 May 2023 10:32:34 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Installing ESPHome</title>
       <link>https://unixorn.github.io/post/hass/2023-05-21-install-esphome/</link>
@@ -20,15 +20,6 @@
       
       <guid>https://unixorn.github.io/post/hass/2023-05-21-install-esphome/</guid>
       <description>&lt;p&gt;Some of my posts assume that the user already has &lt;a href=&#34;https://esphome.io/&#34;&gt;ESPHome&lt;/a&gt; installed, so I&amp;rsquo;m documenting how to install it here so I don&amp;rsquo;t have to repeat it everywhere.&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>Add Smarts to IKEA Vindriktning Sensors</title>
-      <link>https://unixorn.github.io/post/add-smarts-to-ikea-vindriktning-air-sensors/</link>
-      <pubDate>Sat, 18 Mar 2023 13:46:13 -0600</pubDate>
-      
-      <guid>https://unixorn.github.io/post/add-smarts-to-ikea-vindriktning-air-sensors/</guid>
-      <description>&lt;p&gt;We&amp;rsquo;re doing a kitchen &amp;amp; bathrooms renovation, and the construction is generating a lot of dust, to the point that I was changing the HVAC filter twice a week. I wanted to see just how much garbage is in the air, so I started looking around for air quality sensors. Naturally I wanted one that I could integrate into my Home Assistant so I could generate notifications if the air was extra filthy.&lt;/p&gt;</description>
     </item>
     
   </channel>
