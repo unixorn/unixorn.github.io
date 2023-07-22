@@ -101,8 +101,8 @@
   "keywords": [
     "ec2", "iam"
   ],
-  "articleBody": "For a variety of reasons, I needed to enable some EC2 instances to write/update a single EC2 tag, but the instaces needed to only be able to tag themselves.\nThis was more annoying than I expected, so I’m documenting the IAM policy here.\n{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Effect\": \"Allow\", \"Action\": [ \"ec2:DeleteTags\", \"ec2:CreateTags\", \"ec2:DescribeInstances\" ], \"Resource\": \"*\", \"Condition\": { \"StringEquals\": { \"aws:ARN\": \"${ec2:SourceInstanceARN}\" }, \"ForAllValues:StringEquals\": { \"aws:TagKeys\": \"THAT_ONE_ALLOWED_TAG\" } } } ] } Some notes:\nThe AWS IAM editor in the webui will complain about SourceInstanceARN. Ignore it and click next Then it will complain that the policy doesn’t add any permissions. It lies. Ignore it and save the policy. You can attach this policy to an IAM role and the instances will then be able to tag themselves, but only with the THAT_ONE_ALLOWED_TAG tag.\n",
-  "wordCount" : "137",
+  "articleBody": "For a variety of reasons, I needed to enable some EC2 instances to write/update a single EC2 tag, but the instaces needed to only be able to tag themselves.\nThis was more annoying than I expected, so I’m documenting the IAM policy here.\n{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Effect\": \"Allow\", \"Action\": [ \"ec2:DeleteTags\", \"ec2:CreateTags\", \"ec2:DescribeInstances\" ], \"Resource\": \"*\", \"Condition\": { \"StringEquals\": { \"aws:ARN\": \"${ec2:SourceInstanceARN}\" }, \"ForAllValues:StringEquals\": { \"aws:TagKeys\": \"THAT_ONE_ALLOWED_TAG\" } } } ] } Some notes:\nThe AWS IAM editor in the webui will (as of June 2021) complain about SourceInstanceARN. Ignore it and click next. Then it will complain that the policy doesn’t add any permissions. It lies. Ignore it and save the policy. You can attach this policy to an IAM role and the instances will then be able to tag themselves, but only with the THAT_ONE_ALLOWED_TAG tag.\n",
+  "wordCount" : "141",
   "inLanguage": "en",
   "datePublished": "2021-06-13T15:21:03-06:00",
   "dateModified": "2021-06-13T15:21:03-06:00",
@@ -215,7 +215,7 @@
     <h1 class="post-title">
       AWS IAM Self Tagging EC2 Instances
     </h1>
-    <div class="post-meta"><span title='2021-06-13 15:21:03 -0600 MDT'>June 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;137 words&nbsp;·&nbsp;Me
+    <div class="post-meta"><span title='2021-06-13 15:21:03 -0600 MDT'>June 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;141 words&nbsp;·&nbsp;Me
 
 </div>
   </header> 
@@ -246,7 +246,7 @@
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>Some notes:</p>
 <ol>
-<li>The AWS IAM editor in the webui will complain about SourceInstanceARN. Ignore it and click next</li>
+<li>The AWS IAM editor in the webui will (as of June 2021) complain about <code>SourceInstanceARN</code>. Ignore it and click next.</li>
 <li>Then it will complain that the policy doesn&rsquo;t add any permissions. It lies. Ignore it and save the policy.</li>
 </ol>
 <p>You can attach this policy to an IAM role and the instances will then be able to tag themselves, but only with the <code>THAT_ONE_ALLOWED_TAG</code> tag.</p>

@@ -3,7 +3,46 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://unixorn.github.io/tags/docker/</loc>
-    <lastmod>2023-05-22T10:32:34-06:00</lastmod>
+    <lastmod>2023-07-22T08:19:38-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/homeassitant/</loc>
+    <lastmod>2023-07-22T08:19:38-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/homelab/</loc>
+    <lastmod>2023-07-22T08:19:38-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/howto/</loc>
+    <lastmod>2023-07-22T08:19:38-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/letsencrypt/</loc>
+    <lastmod>2023-07-22T08:19:38-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/linux/</loc>
+    <lastmod>2023-07-22T08:19:38-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/networking/</loc>
+    <lastmod>2023-07-22T08:19:38-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/nginx/</loc>
+    <lastmod>2023-07-22T08:19:38-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/</loc>
+    <lastmod>2023-07-22T08:19:38-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/proxy/</loc>
+    <lastmod>2023-07-22T08:19:38-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/</loc>
+    <lastmod>2023-07-22T08:19:38-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/ssl/</loc>
+    <lastmod>2023-07-22T08:19:38-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2023-07-22T08:19:38-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/</loc>
+    <lastmod>2023-07-22T08:19:38-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/docker-compose/</loc>
     <lastmod>2023-05-22T10:32:34-06:00</lastmod>
@@ -11,25 +50,10 @@
     <loc>https://unixorn.github.io/tags/esphome/</loc>
     <lastmod>2023-05-22T10:32:34-06:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/tags/homelab/</loc>
-    <lastmod>2023-05-22T10:32:34-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/howto/</loc>
-    <lastmod>2023-05-22T10:32:34-06:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/post/hass/2023-05-21-install-esphome/</loc>
     <lastmod>2023-05-22T10:32:34-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/iot/</loc>
-    <lastmod>2023-05-22T10:32:34-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/post/</loc>
-    <lastmod>2023-05-22T10:32:34-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
-    <lastmod>2023-05-22T10:32:34-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/</loc>
     <lastmod>2023-05-22T10:32:34-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/administrivia/</loc>

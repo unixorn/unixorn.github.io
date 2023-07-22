@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  nginx-proxy-manager:
+    # image: 'jc21/nginx-proxy-manager:latest'
+    image: jc21/nginx-proxy-manager:github-pr-2971
+    restart: unless-stopped
+    container_name: nginxproxymanager
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    volumes:
+      - ./nginx/data:/data
+      - ./nginx/letsencrypt:/etc/letsencrypt
+      - /etc/hostname:/etc/hostname:ro
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/machine-id:/etc/machine-id:ro
+      - /etc/timezone:/etc/timezone:ro
+    # environment:
+    #   DISABLE_IPV6: 'true'
+
+networks:
+  default:
+    external:
+      name: ssl_proxy_network
