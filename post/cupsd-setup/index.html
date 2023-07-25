@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Run a CUPSD print server on Raspberry Pi | unixorn.github.io</title>
-<meta name="keywords" content="Raspberry PI, cupsd, docker, homelab, printer, rpi, tech">
+<meta name="keywords" content="cupsd, docker, homelab, printer, rpi, tech">
 <meta name="description" content="I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here&rsquo;s how I set that up.">
 <meta name="author" content="Me">
 <link rel="canonical" href="https://unixorn.github.io/post/cupsd-setup/">
@@ -99,7 +99,7 @@
   "name": "Run a CUPSD print server on Raspberry Pi",
   "description": "I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here\u0026rsquo;s how I set that up.\n",
   "keywords": [
-    "Raspberry PI", "cupsd", "docker", "homelab", "printer", "rpi", "tech"
+    "cupsd", "docker", "homelab", "printer", "rpi", "tech"
   ],
   "articleBody": "I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here’s how I set that up.\nPrerequisites A Raspberry Pi (or honestly any linux box) running docker. I like the Raspberry Pi and Odroid HC2 for this sort of thing because they have very low power requirements. A printer supported by the CUPS project. Setup Setup is easy. There are several docker images out there you can use, I made one (the source is on github at unixorn/docker-cupsd) because I wanted one that was multi-architecture - my image has AMD64, ARM7 and ARM64 artchitectures all baked into the same image so you don’t have to change the image label based on what system you’re running it on. It works fine on (at least) Raspberry Pi, Odroids and Intel servers.\nThe unixorn/cupsd docker image is a bit on the large side because I crammed a lot of printer drivers into it, you may want to look for images that only support single printer families.\nWe’re going to store printers.conf in a directory outside the container so that we don’t lose our printer configuration every time we upgrade our container.\nI run the cupsd server on an Odroid HC2 because I have /var/lib/docker on the 2TB drive attached to it. I could have put it on one of the Raspberry Pis in the cluster, but didn’t want it spooling print jobs and causing excessive wear on the rPi’s microSD card.\nMake a directory to store your printer configuration. We’ll use /docker/cupsd/etc export CUPSD_DIR='/docker/cupsd/etc' touch $CUPSD_DIR/printers.conf Run the cupsd server with sudo docker run -d --restart unless-stopped \\ -p 631:631 \\ --privileged \\ -v /var/run/dbus:/var/run/dbus \\ -v /dev/bus/usb:/dev/bus/usb \\ -v $CUPSD_DIR/printers.conf:/etc/cups/printers.conf \\ unixorn/cupsd You can now connect to http://SERVER:631 and add printers using the web UI.\nWhen adding the printers to your Mac, select Internet Printing Protocol and put in the IP or DNS name of your print server machine.\nThe queues are printers/printername, not printername.\n",
   "wordCount" : "342",
@@ -269,7 +269,6 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://unixorn.github.io/tags/raspberry-pi/">Raspberry PI</a></li>
       <li><a href="https://unixorn.github.io/tags/cupsd/">cupsd</a></li>
       <li><a href="https://unixorn.github.io/tags/docker/">docker</a></li>
       <li><a href="https://unixorn.github.io/tags/homelab/">homelab</a></li>
@@ -293,7 +292,7 @@
 
 <div class="share-buttons">
     <a target="_blank" rel="noopener noreferrer" aria-label="share Run a CUPSD print server on Raspberry Pi on twitter"
-        href="https://twitter.com/intent/tweet/?text=Run%20a%20CUPSD%20print%20server%20on%20Raspberry%20Pi&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fcupsd-setup%2f&amp;hashtags=RaspberryPI%2ccupsd%2cdocker%2chomelab%2cprinter%2crpi%2ctech">
+        href="https://twitter.com/intent/tweet/?text=Run%20a%20CUPSD%20print%20server%20on%20Raspberry%20Pi&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fcupsd-setup%2f&amp;hashtags=cupsd%2cdocker%2chomelab%2cprinter%2crpi%2ctech">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />

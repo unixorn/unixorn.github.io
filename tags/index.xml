@@ -518,11 +518,20 @@
     </item>
     
     <item>
-      <title>tech zfs raid server</title>
-      <link>https://unixorn.github.io/tags/tech-zfs-raid-server/</link>
+      <title>raid</title>
+      <link>https://unixorn.github.io/tags/raid/</link>
       <pubDate>Sat, 15 Jan 2022 07:32:37 -0700</pubDate>
       
-      <guid>https://unixorn.github.io/tags/tech-zfs-raid-server/</guid>
+      <guid>https://unixorn.github.io/tags/raid/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>zfs</title>
+      <link>https://unixorn.github.io/tags/zfs/</link>
+      <pubDate>Sat, 15 Jan 2022 07:32:37 -0700</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/zfs/</guid>
       <description></description>
     </item>
     
@@ -649,15 +658,6 @@
       <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
       
       <guid>https://unixorn.github.io/tags/printer/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Raspberry PI</title>
-      <link>https://unixorn.github.io/tags/raspberry-pi/</link>
-      <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
-      
-      <guid>https://unixorn.github.io/tags/raspberry-pi/</guid>
       <description></description>
     </item>
     
@@ -878,7 +878,7 @@
     </item>
     
     <item>
-      <title>Apple</title>
+      <title>apple</title>
       <link>https://unixorn.github.io/tags/apple/</link>
       <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
       

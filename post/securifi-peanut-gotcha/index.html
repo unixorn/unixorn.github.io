@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Fix Securifi Peanut issue with zigbee2mqtt | unixorn.github.io</title>
-<meta name="keywords" content="bugfix, hass, tech, zigbee, zigbee2mqtt">
+<meta name="keywords" content="bugfix, hass, iot, tech, zigbee, zigbee2mqtt">
 <meta name="description" content="Securifi Peanut plugs have issues with zigbee2mqtt.
 I have several Securifi Peanut Zigbee switches. Overall, they&rsquo;re nice little smart plugs and make good Zigbee routers to strengthen your Zigbee mesh, but they have one annoying issue - zigbee2mqtt doesn&rsquo;t recognize them perfectly, though there&rsquo;s a simple fix that I&rsquo;m going to document here.">
 <meta name="author" content="Me">
@@ -102,7 +102,7 @@ I have several Securifi Peanut Zigbee switches. Overall, they&rsquo;re nice litt
   "name": "Fix Securifi Peanut issue with zigbee2mqtt",
   "description": "Securifi Peanut plugs have issues with zigbee2mqtt.\nI have several Securifi Peanut Zigbee switches. Overall, they\u0026rsquo;re nice little smart plugs and make good Zigbee routers to strengthen your Zigbee mesh, but they have one annoying issue - zigbee2mqtt doesn\u0026rsquo;t recognize them perfectly, though there\u0026rsquo;s a simple fix that I\u0026rsquo;m going to document here.\n",
   "keywords": [
-    "bugfix", "hass", "tech", "zigbee", "zigbee2mqtt"
+    "bugfix", "hass", "iot", "tech", "zigbee", "zigbee2mqtt"
   ],
   "articleBody": "Securifi Peanut plugs have issues with zigbee2mqtt.\nI have several Securifi Peanut Zigbee switches. Overall, they’re nice little smart plugs and make good Zigbee routers to strengthen your Zigbee mesh, but they have one annoying issue - zigbee2mqtt doesn’t recognize them perfectly, though there’s a simple fix that I’m going to document here.\nAdding Peanut Smart Plugs to zigbee2mqtt The Peanut Smart Plug does not provide a modelId in its database entry, so zigbee2mqtt can’t identify it to know how to handle it. Fortunately, it’s an easy fix, though you’ll have to do it every time you add a new Peanut plug.\nPair your new Peanut(s) to your zigbee2mqtt instance Once you’ve added all the peanut plugs, stop zigbee2mqtt. We’re going to need to do some surgery on its database.db file and that can’t be done with the service running. Backup your database.db file. If you mess up the edit, you’ll want to be able to revert and try again easily. Edit your database.db file. Add a \"modelId\":\"PP-WHT-US\" to each of your Peanut entries. For example, change \"\"manufId\":4098, to \"manufId\":4098,\"modelId\":\"PP-WHT-US\", Once you’ve finished editing database.db, restart the zigbee2mqtt service. You should now see proper entries with capabilities in zigbee2mqtt and be able to turn the switches on and off, both from zigbee2mqtt and from Home Assistant. Now would be a good time to go to zigbee2mqtt’s OTA tab and check if your Peanut plug(s) have any firmware updates.\n",
   "wordCount" : "238",
@@ -258,6 +258,7 @@ I have several Securifi Peanut Zigbee switches. Overall, they&rsquo;re nice litt
     <ul class="post-tags">
       <li><a href="https://unixorn.github.io/tags/bugfix/">bugfix</a></li>
       <li><a href="https://unixorn.github.io/tags/hass/">hass</a></li>
+      <li><a href="https://unixorn.github.io/tags/iot/">iot</a></li>
       <li><a href="https://unixorn.github.io/tags/tech/">tech</a></li>
       <li><a href="https://unixorn.github.io/tags/zigbee/">zigbee</a></li>
       <li><a href="https://unixorn.github.io/tags/zigbee2mqtt/">zigbee2mqtt</a></li>
@@ -278,7 +279,7 @@ I have several Securifi Peanut Zigbee switches. Overall, they&rsquo;re nice litt
 
 <div class="share-buttons">
     <a target="_blank" rel="noopener noreferrer" aria-label="share Fix Securifi Peanut issue with zigbee2mqtt on twitter"
-        href="https://twitter.com/intent/tweet/?text=Fix%20Securifi%20Peanut%20issue%20with%20zigbee2mqtt&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fsecurifi-peanut-gotcha%2f&amp;hashtags=bugfix%2chass%2ctech%2czigbee%2czigbee2mqtt">
+        href="https://twitter.com/intent/tweet/?text=Fix%20Securifi%20Peanut%20issue%20with%20zigbee2mqtt&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fsecurifi-peanut-gotcha%2f&amp;hashtags=bugfix%2chass%2ciot%2ctech%2czigbee%2czigbee2mqtt">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
