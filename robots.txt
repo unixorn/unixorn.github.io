@@ -1,3 +1,6 @@
 User-agent: *
 Disallow:
 Sitemap: https://unixorn.github.io/sitemap.xml
+
+User-agent: GPTBot
+Disallow: /
