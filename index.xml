@@ -12,7 +12,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 22 Jul 2023 08:19:38 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 26 Aug 2023 13:30:26 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Homelab Upgrade from USG-Pro to UDM-Pro</title>
+      <link>https://unixorn.github.io/post/2023-08-homelab-upgrade/</link>
+      <pubDate>Sat, 26 Aug 2023 13:30:26 -0600</pubDate>
+      
+      <guid>https://unixorn.github.io/post/2023-08-homelab-upgrade/</guid>
+      <description>&lt;p&gt;Last Tuesday night, my USG Pro died. I got it secondhand and I got almost five years use out of it, so it was past time for a more performant replacement.&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>Set up nginx-proxy-manager with LetsEncrypt SSL certificates</title>
       <link>https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/</link>
