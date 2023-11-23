@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/tags/bugfix/</loc>
+    <lastmod>2023-11-22T15:55:25-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/homeassistant/</loc>
+    <lastmod>2023-11-22T15:55:25-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/</loc>
+    <lastmod>2023-11-22T15:55:25-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/scripts/</loc>
+    <lastmod>2023-11-22T15:55:25-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2023-11-22T15:55:25-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/</loc>
+    <lastmod>2023-11-22T15:55:25-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/hass/2023-11-weird-ha-scripts-bug/</loc>
+    <lastmod>2023-11-22T15:55:25-07:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/tags/armbian/</loc>
     <lastmod>2023-08-26T13:30:26-06:00</lastmod>
   </url><url>
@@ -14,16 +35,7 @@
     <loc>https://unixorn.github.io/tags/networking/</loc>
     <lastmod>2023-08-26T13:30:26-06:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/post/</loc>
-    <lastmod>2023-08-26T13:30:26-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
-    <lastmod>2023-08-26T13:30:26-06:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/tags/unifi/</loc>
-    <lastmod>2023-08-26T13:30:26-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/</loc>
     <lastmod>2023-08-26T13:30:26-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/docker/</loc>
@@ -113,9 +125,6 @@
     <loc>https://unixorn.github.io/tags/esp8266/</loc>
     <lastmod>2023-03-18T13:46:13-06:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/tags/homeassistant/</loc>
-    <lastmod>2023-03-18T13:46:13-06:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/tags/i2c/</loc>
     <lastmod>2023-03-18T13:46:13-06:00</lastmod>
   </url><url>
@@ -193,9 +202,6 @@
   </url><url>
     <loc>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</loc>
     <lastmod>2022-11-05T09:42:58-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/bugfix/</loc>
-    <lastmod>2022-10-06T21:20:45-10:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/securifi-peanut-gotcha/</loc>
     <lastmod>2022-10-06T21:20:45-10:00</lastmod>
@@ -432,6 +438,8 @@
     <loc>https://unixorn.github.io/contact/</loc>
   </url><url>
     <loc>https://unixorn.github.io/jfc/</loc>
+  </url><url>
+    <loc>https://unixorn.github.io/post/2023-10-16-samba-and-moosefs/</loc>
   </url><url>
     <loc>https://unixorn.github.io/projects/</loc>
   </url><url>

@@ -12,7 +12,34 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 26 Aug 2023 13:30:26 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Nov 2023 15:55:25 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>bugfix</title>
+      <link>https://unixorn.github.io/tags/bugfix/</link>
+      <pubDate>Wed, 22 Nov 2023 15:55:25 -0700</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/bugfix/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>homeassistant</title>
+      <link>https://unixorn.github.io/tags/homeassistant/</link>
+      <pubDate>Wed, 22 Nov 2023 15:55:25 -0700</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/homeassistant/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>scripts</title>
+      <link>https://unixorn.github.io/tags/scripts/</link>
+      <pubDate>Wed, 22 Nov 2023 15:55:25 -0700</pubDate>
+      
+      <guid>https://unixorn.github.io/tags/scripts/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>armbian</title>
       <link>https://unixorn.github.io/tags/armbian/</link>
@@ -266,15 +293,6 @@
     </item>
     
     <item>
-      <title>homeassistant</title>
-      <link>https://unixorn.github.io/tags/homeassistant/</link>
-      <pubDate>Sat, 18 Mar 2023 13:46:13 -0600</pubDate>
-      
-      <guid>https://unixorn.github.io/tags/homeassistant/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>i2c</title>
       <link>https://unixorn.github.io/tags/i2c/</link>
       <pubDate>Sat, 18 Mar 2023 13:46:13 -0600</pubDate>
@@ -451,15 +469,6 @@
       <pubDate>Sat, 05 Nov 2022 09:42:58 -0600</pubDate>
       
       <guid>https://unixorn.github.io/tags/sql/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>bugfix</title>
-      <link>https://unixorn.github.io/tags/bugfix/</link>
-      <pubDate>Thu, 06 Oct 2022 21:20:45 -1000</pubDate>
-      
-      <guid>https://unixorn.github.io/tags/bugfix/</guid>
       <description></description>
     </item>
     

@@ -12,7 +12,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 18 Mar 2023 13:46:13 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/tags/homeassistant/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Nov 2023 15:55:25 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/homeassistant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Weird Home Assistant Scripts Bug</title>
+      <link>https://unixorn.github.io/post/hass/2023-11-weird-ha-scripts-bug/</link>
+      <pubDate>Wed, 22 Nov 2023 15:55:25 -0700</pubDate>
+      
+      <guid>https://unixorn.github.io/post/hass/2023-11-weird-ha-scripts-bug/</guid>
+      <description>I ran into a weird Home Assistant scripts issue when I upgraded to 2023.11 from 2023.06 (I know, but I didn’t need the new features and had higher priority stuff to deal with) last week.
+After the update, when I went to add or edit a script, I started seeing 500s.
+After some messing around, I eventually moved the couple scripts I had from scripts.yaml as inline scripts in configuration.yaml, restarted, and when I went to edit them, HA offered to migrate them into scripts.</description>
+    </item>
+    
     <item>
       <title>Add Smarts to IKEA Vindriktning Sensors</title>
       <link>https://unixorn.github.io/post/add-smarts-to-ikea-vindriktning-air-sensors/</link>
