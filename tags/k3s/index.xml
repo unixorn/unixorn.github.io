@@ -12,46 +12,39 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 07 Dec 2021 11:13:39 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/k3s/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Dec 2021 11:13:39 -0700</lastBuildDate>
+    <atom:link href="https://unixorn.github.io/tags/k3s/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sysadvent 2021 Articles</title>
       <link>https://unixorn.github.io/post/sysadvent-2021-article/</link>
       <pubDate>Tue, 07 Dec 2021 11:13:39 -0700</pubDate>
-      
       <guid>https://unixorn.github.io/post/sysadvent-2021-article/</guid>
       <description>I wrote two articles in sysadvent 2021
 Baking Multi-Architecture Docker Images Setting up k3s in your home lab </description>
     </item>
-    
     <item>
       <title>Backing Up the Cluster with Duplicacy</title>
       <link>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</link>
       <pubDate>Sun, 01 Sep 2019 15:47:23 -0600</pubDate>
-      
       <guid>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;I wanted to ensure any data I put into my &lt;a href=&#34;https://unixorn.github.io/post/k3s-on-arm/&#34;&gt;ARM k3s cluster&lt;/a&gt; is backed up to prevent data loss.&lt;/p&gt;
 &lt;p&gt;I no longer recommend duplicacy. Instead, read my article on &lt;a href=&#34;https://unixorn.github.io/post/restic-backups-on-truenas/&#34;&gt;restic backups on TrueNas&lt;/a&gt; instead.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Trying K3s on ARM, Part 1</title>
       <link>https://unixorn.github.io/post/k3s-on-arm/</link>
       <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
-      
       <guid>https://unixorn.github.io/post/k3s-on-arm/</guid>
       <description>&lt;h2 id=&#34;why-k3s-and-not-stick-with-k8s&#34;&gt;Why k3s and not stick with k8s?&lt;/h2&gt;
 &lt;p&gt;I wanted to experiment with &lt;a href=&#34;https://k3s.io&#34;&gt;k3s&lt;/a&gt;. They package everything you need in a single binary, don&amp;rsquo;t package in deprecated parts of k8s, and it works on Intel, ARMv7 and ARM64. It seemed like it&amp;rsquo;d be a less painful way to runn Kubernetes on my ARM cluster.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Parts list for the ARM cluster</title>
       <link>https://unixorn.github.io/post/arm_cluster_parts_list/</link>
       <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
-      
       <guid>https://unixorn.github.io/post/arm_cluster_parts_list/</guid>
       <description>ARM cluster parts list</description>
     </item>
-    
   </channel>
 </rss>

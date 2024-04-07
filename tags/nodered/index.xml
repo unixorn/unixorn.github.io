@@ -12,23 +12,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 22 Nov 2023 18:18:54 -0600</lastBuildDate><atom:link href="http://localhost:1313/tags/nodered/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 22 Nov 2023 18:18:54 -0600</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/nodered/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Home Assistant Install Guide</title>
       <link>http://localhost:1313/post/ha-quickstart/01-install-home-assistant/</link>
       <pubDate>Wed, 22 Nov 2023 18:18:54 -0600</pubDate>
-      
       <guid>http://localhost:1313/post/ha-quickstart/01-install-home-assistant/</guid>
       <description>In this tutorial, we&amp;rsquo;re going to set up Node-Red and use our SSL proxy to protect its webUI.
 Pre-requisites In the post, I&amp;rsquo;m going to assume you already have:
 A server running docker nginx-proxy-manager installed on that server, and have already configured it with an SSL wildcard certificate. If you haven&amp;rsquo;t, go read my Set up nginx-proxy-manager post and set it up. Installation We&amp;rsquo;re going to use docker-compose to run homeassistant.</description>
     </item>
-    
     <item>
       <title>Node Red Setup Guide</title>
       <link>http://localhost:1313/post/ha-quickstart/set-up-node-red/</link>
       <pubDate>Wed, 22 Nov 2023 18:18:54 -0600</pubDate>
-      
       <guid>http://localhost:1313/post/ha-quickstart/set-up-node-red/</guid>
       <description>In this tutorial, we&amp;rsquo;re going to set up Node-Red and use our SSL proxy to protect its webUI.
 Go to palette, add the node-red-contrib-home-assistant-websocket palette
@@ -36,6 +34,5 @@ Create Hass token Create user in hass. Make it an admin. Log in as user, click u
 Add events:state from the HA palette double click, pick add server
 https://jordanrounds.com/installing-node-red-in-docker-for-home-assistant/</description>
     </item>
-    
   </channel>
 </rss>

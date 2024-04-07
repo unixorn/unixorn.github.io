@@ -12,27 +12,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 13 Jan 2023 11:16:19 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/backups/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 13 Jan 2023 11:16:19 -0700</lastBuildDate>
+    <atom:link href="https://unixorn.github.io/tags/backups/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Restic Backups on TrueNAS</title>
       <link>https://unixorn.github.io/post/restic-backups-on-truenas/</link>
       <pubDate>Fri, 13 Jan 2023 11:16:19 -0700</pubDate>
-      
       <guid>https://unixorn.github.io/post/restic-backups-on-truenas/</guid>
       <description>I&amp;rsquo;ve been backing my homelab up with duplicacy (See Backing Up the Cluster Using Duplicacy), but I&amp;rsquo;m fed up with it returning a 0 exit code even if there&amp;rsquo;s a problem with the backup. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to restic.
 In this blog entry, I&amp;rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install restic, and how to use it to back up to Backblaze b2.</description>
     </item>
-    
     <item>
       <title>Backing Up the Cluster with Duplicacy</title>
       <link>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</link>
       <pubDate>Sun, 01 Sep 2019 15:47:23 -0600</pubDate>
-      
       <guid>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;I wanted to ensure any data I put into my &lt;a href=&#34;https://unixorn.github.io/post/k3s-on-arm/&#34;&gt;ARM k3s cluster&lt;/a&gt; is backed up to prevent data loss.&lt;/p&gt;
 &lt;p&gt;I no longer recommend duplicacy. Instead, read my article on &lt;a href=&#34;https://unixorn.github.io/post/restic-backups-on-truenas/&#34;&gt;restic backups on TrueNas&lt;/a&gt; instead.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -12,15 +12,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 29 Nov 2019 15:37:45 -0700</lastBuildDate><atom:link href="http://localhost:1313/tags/voice-recognition/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Nov 2019 15:37:45 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/voice-recognition/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Rhasspy Setup</title>
       <link>http://localhost:1313/post/setting-up-rhasspy/</link>
       <pubDate>Fri, 29 Nov 2019 15:37:45 -0700</pubDate>
-      
       <guid>http://localhost:1313/post/setting-up-rhasspy/</guid>
       <description>&lt;p&gt;Setting up Rhasspy for voice recognition on a Raspberry Pi 4&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

@@ -12,16 +12,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 08 Nov 2020 21:10:48 -0700</lastBuildDate><atom:link href="https://unixorn.github.io/tags/plex/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Nov 2020 21:10:48 -0700</lastBuildDate>
+    <atom:link href="https://unixorn.github.io/tags/plex/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Add Plex to Home Assistant</title>
       <link>https://unixorn.github.io/post/add-plex-to-hass/</link>
       <pubDate>Sun, 08 Nov 2020 21:10:48 -0700</pubDate>
-      
       <guid>https://unixorn.github.io/post/add-plex-to-hass/</guid>
       <description>Adding the Plex integration to Home Assistant is pretty straightforward with the exception of finding your Plex token.
 Find Your Plex token: Sign into your Plex.tv account Browse to one of the media files (TV episode, movie) on your connected server. You&amp;rsquo;ll need a Plex pass for this. Select Get info Click View XML Ignore the XML. Look in the URL to the XML page - you&amp;rsquo;ll see Plex-Token\=XYZZY. That&amp;rsquo;s the token you&amp;rsquo;ll need.</description>
     </item>
-    
   </channel>
 </rss>

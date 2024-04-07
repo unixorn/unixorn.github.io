@@ -12,16 +12,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 13 Oct 2019 18:36:59 -0700</lastBuildDate><atom:link href="http://localhost:1313/tags/utilities/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 13 Oct 2019 18:36:59 -0700</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/utilities/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setting Up Pihole</title>
       <link>http://localhost:1313/post/setting-up-pihole/</link>
       <pubDate>Sun, 13 Oct 2019 18:36:59 -0700</pubDate>
-      
       <guid>http://localhost:1313/post/setting-up-pihole/</guid>
       <description>&lt;h2 id=&#34;why-pihole&#34;&gt;Why PiHole?&lt;/h2&gt;
 &lt;p&gt;Frankly, I got sick of annoying ads, especially the ones that popped up the &amp;ldquo;your mac is infected with a virus&amp;rdquo; bullshit, so I decided to put a couple of PiHoles in my cluster and stop them at the network level.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

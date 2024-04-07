@@ -12,12 +12,12 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 05 Nov 2022 09:42:58 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/tags/postgres/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 05 Nov 2022 09:42:58 -0600</lastBuildDate>
+    <atom:link href="https://unixorn.github.io/tags/postgres/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Switch Home Assistant to Use PostgreSQL Instead of SQLite</title>
       <link>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</link>
       <pubDate>Sat, 05 Nov 2022 09:42:58 -0600</pubDate>
-      
       <guid>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</guid>
       <description>&lt;p&gt;I wanted to switch my new Home Assistant (HA) installation to write data to &lt;a href=&#34;https://www.postgresql.org/&#34;&gt;PostgreSQL&lt;/a&gt; instead of SQLite for a variety of reasons. Here&amp;rsquo;s how I did it.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s why I decided to switch:&lt;/p&gt;
@@ -27,6 +27,5 @@
 &lt;li&gt;&lt;strong&gt;Speed&lt;/strong&gt;. Using a real database will speed up history display, especially once you have a large number of entities.&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
-    
   </channel>
 </rss>

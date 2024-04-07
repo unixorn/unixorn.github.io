@@ -12,27 +12,24 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 05 Apr 2023 15:45:03 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 05 Apr 2023 15:45:03 -0600</lastBuildDate>
+    <atom:link href="https://unixorn.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blog Comments via Mastodon</title>
       <link>https://unixorn.github.io/post/2023-03-blog-comments-via-mastodon/</link>
       <pubDate>Wed, 05 Apr 2023 15:45:03 -0600</pubDate>
-      
       <guid>https://unixorn.github.io/post/2023-03-blog-comments-via-mastodon/</guid>
       <description>&lt;p&gt;As part of moving from Twitter to Mastodon I decided to add comments to the blog using Fediverse posts. Fortunately, Carl Schwan showed how he does it on his blog &lt;a href=&#34;https://carlschwan.eu/2020/12/29/adding-comments-to-your-static-blog-with-mastodon/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Here are the exact tweaks to his post I did to get it working with the &lt;a href=&#34;https://github.com/adityatelange/hugo-PaperMod&#34;&gt;papermod&lt;/a&gt; theme I&amp;rsquo;m using on this blog.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Fix Congo Backticks</title>
       <link>https://unixorn.github.io/post/fix-congo-backticks/</link>
       <pubDate>Mon, 14 Nov 2022 19:12:41 -0700</pubDate>
-      
       <guid>https://unixorn.github.io/post/fix-congo-backticks/</guid>
       <description>I considered a switch to the Congo theme for Hugo. The one thing I didn&amp;rsquo;t like in it was the way it handles inline backticks - it displays them, in addition to formatting the enclosed text as code.
 To fix it, create assets/css/custom.css with the following contents:
 .prose code::before { content: &amp;#39;&amp;#39; } .prose code::after { content: &amp;#39;&amp;#39; } </description>
     </item>
-    
   </channel>
 </rss>

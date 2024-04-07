@@ -12,24 +12,21 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 24 Nov 2023 10:49:57 +0200</lastBuildDate><atom:link href="http://localhost:1313/tags/mosquitto/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Nov 2023 10:49:57 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/mosquitto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Set Up MQTT</title>
       <link>http://localhost:1313/post/ha-quickstart/02-set-up-mqtt/</link>
       <pubDate>Fri, 24 Nov 2023 10:49:57 +0200</pubDate>
-      
       <guid>http://localhost:1313/post/ha-quickstart/02-set-up-mqtt/</guid>
       <description>&lt;p&gt;In this article, I&amp;rsquo;m going to show how to set up &lt;a href=&#34;https://mosquitto.org/&#34;&gt;mosquitto&lt;/a&gt; as an MQTT broker to use with Home Assistant. We&amp;rsquo;re going to run it in docker via &lt;code&gt;docker-compose&lt;/code&gt;, so we can use it to support services we want to use with Home Assistant.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Home Assistant Setup Guide</title>
       <link>http://localhost:1313/post/ha-quickstart/homeassistant-quickstart/</link>
       <pubDate>Wed, 22 Nov 2023 18:18:54 -0600</pubDate>
-      
       <guid>http://localhost:1313/post/ha-quickstart/homeassistant-quickstart/</guid>
       <description>&lt;p&gt;This is the first in a series of posts detailing how to do a basic install of &lt;a href=&#34;https://www.home-assistant.io/&#34;&gt;Home Assistant&lt;/a&gt; with &lt;code&gt;docker&lt;/code&gt; and &lt;code&gt;docker-compose&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

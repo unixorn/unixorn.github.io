@@ -12,94 +12,77 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 06 Apr 2024 16:27:06 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 06 Apr 2024 16:27:06 -0600</lastBuildDate>
+    <atom:link href="https://unixorn.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Set up nut-upsd and peanut in your homelab</title>
       <link>https://unixorn.github.io/post/homelab/homelab-nut-upsd/</link>
       <pubDate>Sat, 06 Apr 2024 16:27:06 -0600</pubDate>
-      
       <guid>https://unixorn.github.io/post/homelab/homelab-nut-upsd/</guid>
       <description>&lt;h1 id=&#34;set-up-nut-upsd-and-peanut-in-your-homelab&#34;&gt;Set up nut-upsd and peanut in your homelab&lt;/h1&gt;
 &lt;p&gt;I run my Synology server and network switches off a couple of UPS. I decided I wanted a dashboard for the UPS, here&amp;rsquo;s how I did set up &lt;a href=&#34;https://networkupstools.org/&#34;&gt;Network UPS Tools&lt;/a&gt;, aka NUT, and the &lt;a href=&#34;https://github.com/Brandawg93/PeaNUT&#34;&gt;Peanut&lt;/a&gt; dashboard.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Set up nginx-proxy-manager with LetsEncrypt SSL certificates</title>
       <link>https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/</link>
       <pubDate>Sat, 22 Jul 2023 08:19:38 -0600</pubDate>
-      
       <guid>https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/</guid>
       <description>&lt;p&gt;In the next few posts, I&amp;rsquo;m going to document how to set up Home Assistant (HA) from scratch. We&amp;rsquo;re going to want to protect the admin UI interfaces for HA and its support services with SSL, and add authentication to services that don&amp;rsquo;t provide it themselves.&lt;/p&gt;
 &lt;p&gt;We&amp;rsquo;re going to do this with &lt;a href=&#34;https://nginxproxymanager.com/&#34;&gt;Nginx Proxy Manager&lt;/a&gt; because it has built in support for using &lt;a href=&#34;https://letsencrypt.org&#34;&gt;LetsEncrypt&lt;/a&gt; to obtain free SSL certificates, supports adding authentication to services that don&amp;rsquo;t do it themselves, and is overall easy to use.&lt;/p&gt;
 &lt;p&gt;Before I start writing more Home Assitant articles, let&amp;rsquo;s set up a SSL proxy server to keep everything secure.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Installing ESPHome</title>
       <link>https://unixorn.github.io/post/hass/2023-05-21-install-esphome/</link>
       <pubDate>Mon, 22 May 2023 10:32:34 -0600</pubDate>
-      
       <guid>https://unixorn.github.io/post/hass/2023-05-21-install-esphome/</guid>
       <description>&lt;p&gt;Some of my posts assume that the user already has &lt;a href=&#34;https://esphome.io/&#34;&gt;ESPHome&lt;/a&gt; installed, so I&amp;rsquo;m documenting how to install it here so I don&amp;rsquo;t have to repeat it everywhere.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Sysadvent 2021 Articles</title>
       <link>https://unixorn.github.io/post/sysadvent-2021-article/</link>
       <pubDate>Tue, 07 Dec 2021 11:13:39 -0700</pubDate>
-      
       <guid>https://unixorn.github.io/post/sysadvent-2021-article/</guid>
       <description>I wrote two articles in sysadvent 2021
 Baking Multi-Architecture Docker Images Setting up k3s in your home lab </description>
     </item>
-    
     <item>
       <title>Setting up Shinobi and a Wyze G2 Camera</title>
       <link>https://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</link>
       <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
-      
       <guid>https://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</guid>
       <description>&lt;p&gt;I wanted to set up a security camera outside, but I didn&amp;rsquo;t want to be dependent on an outside cloud service - if my internet goes out, I don&amp;rsquo;t want to lose my ability to record video.&lt;/p&gt;
 &lt;p&gt;Wyze cameras are nice and cheap, and you can reflash them to support RTSP in addition to streaming to the Wyze cloud.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Run a CUPSD print server on Raspberry Pi</title>
       <link>https://unixorn.github.io/post/cupsd-setup/</link>
       <pubDate>Mon, 08 Feb 2021 12:11:24 -0700</pubDate>
-      
       <guid>https://unixorn.github.io/post/cupsd-setup/</guid>
       <description>&lt;p&gt;I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here&amp;rsquo;s how I set that up.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Building Multi Architecture Docker Images with buildx</title>
       <link>https://unixorn.github.io/post/multi-architecture-images/</link>
       <pubDate>Sat, 13 Jun 2020 09:07:49 -0600</pubDate>
-      
       <guid>https://unixorn.github.io/post/multi-architecture-images/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are &lt;code&gt;arm7&lt;/code&gt;, some Raspberry Pi 4s that are &lt;code&gt;arm64&lt;/code&gt;, and am soon going to add an Intel node as well. It&amp;rsquo;s more hassle than it&amp;rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Backing Up the Cluster with Duplicacy</title>
       <link>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</link>
       <pubDate>Sun, 01 Sep 2019 15:47:23 -0600</pubDate>
-      
       <guid>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;I wanted to ensure any data I put into my &lt;a href=&#34;https://unixorn.github.io/post/k3s-on-arm/&#34;&gt;ARM k3s cluster&lt;/a&gt; is backed up to prevent data loss.&lt;/p&gt;
 &lt;p&gt;I no longer recommend duplicacy. Instead, read my article on &lt;a href=&#34;https://unixorn.github.io/post/restic-backups-on-truenas/&#34;&gt;restic backups on TrueNas&lt;/a&gt; instead.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Things I Learned About Docker Mac</title>
       <link>https://unixorn.github.io/post/til-about-docker-mac/</link>
       <pubDate>Wed, 08 May 2019 09:11:31 -0600</pubDate>
-      
       <guid>https://unixorn.github.io/post/til-about-docker-mac/</guid>
       <description>I had a bunch of cruft in start scripts that would determine the IP of my laptop and set it as an environment variable to pass to docker-compose and it turns out that with Docker for Mac you don&amp;rsquo;t have to do all that work - just use docker.for.mac.localhost as a hostname.</description>
     </item>
-    
   </channel>
 </rss>

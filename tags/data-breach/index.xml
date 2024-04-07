@@ -12,15 +12,14 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 27 Jul 2019 07:09:10 -0600</lastBuildDate><atom:link href="https://unixorn.github.io/tags/data-breach/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 27 Jul 2019 07:09:10 -0600</lastBuildDate>
+    <atom:link href="https://unixorn.github.io/tags/data-breach/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Equifax 2017 Breach Settlement Information</title>
       <link>https://unixorn.github.io/post/equifax-2017-breach-settlement/</link>
       <pubDate>Sat, 27 Jul 2019 07:09:10 -0600</pubDate>
-      
       <guid>https://unixorn.github.io/post/equifax-2017-breach-settlement/</guid>
       <description>&lt;p&gt;Get your money from the Equifax settlement regarding the 2017 security breach.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
