@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>VPN on unixorn.github.io</title>
+    <link>http://localhost:1313/tags/vpn/</link>
+    <description>Recent content in VPN on unixorn.github.io</description>
+    <image>
+      <title>unixorn.github.io</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 21 Jul 2019 08:58:07 -0600</lastBuildDate><atom:link href="http://localhost:1313/tags/vpn/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting up a VPN on a Unifi USG</title>
+      <link>http://localhost:1313/post/setting-up-unifi-vpn/</link>
+      <pubDate>Sun, 21 Jul 2019 08:58:07 -0600</pubDate>
+      
+      <guid>http://localhost:1313/post/setting-up-unifi-vpn/</guid>
+      <description>Needed to set up a VPN on my Unifi
+Enable the radius service Settings -&amp;gt; Radius -&amp;gt; Server Set a good secret
+Create a network Set the type to Remote User VPN Specify a network for it
+Create a User You can specify a VLAN for them here Set tunnel type to L2TP Set tunnel medium type to IPv4</description>
+    </item>
+    
+  </channel>
+</rss>

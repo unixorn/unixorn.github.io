@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Nodered on unixorn.github.io</title>
+    <link>http://localhost:1313/tags/nodered/</link>
+    <description>Recent content in Nodered on unixorn.github.io</description>
+    <image>
+      <title>unixorn.github.io</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Wed, 22 Nov 2023 18:18:54 -0600</lastBuildDate><atom:link href="http://localhost:1313/tags/nodered/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Home Assistant Install Guide</title>
+      <link>http://localhost:1313/post/ha-quickstart/01-install-home-assistant/</link>
+      <pubDate>Wed, 22 Nov 2023 18:18:54 -0600</pubDate>
+      
+      <guid>http://localhost:1313/post/ha-quickstart/01-install-home-assistant/</guid>
+      <description>In this tutorial, we&amp;rsquo;re going to set up Node-Red and use our SSL proxy to protect its webUI.
+Pre-requisites In the post, I&amp;rsquo;m going to assume you already have:
+A server running docker nginx-proxy-manager installed on that server, and have already configured it with an SSL wildcard certificate. If you haven&amp;rsquo;t, go read my Set up nginx-proxy-manager post and set it up. Installation We&amp;rsquo;re going to use docker-compose to run homeassistant.</description>
+    </item>
+    
+    <item>
+      <title>Node Red Setup Guide</title>
+      <link>http://localhost:1313/post/ha-quickstart/set-up-node-red/</link>
+      <pubDate>Wed, 22 Nov 2023 18:18:54 -0600</pubDate>
+      
+      <guid>http://localhost:1313/post/ha-quickstart/set-up-node-red/</guid>
+      <description>In this tutorial, we&amp;rsquo;re going to set up Node-Red and use our SSL proxy to protect its webUI.
+Go to palette, add the node-red-contrib-home-assistant-websocket palette
+Create Hass token Create user in hass. Make it an admin. Log in as user, click user icon in bottom left, scroll to bottom, create a long lived token eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiMTI3NzI4NDI3NTA0NzE1YTE0ZTlkN2U2NzkxY2ZmZCIsImlhdCI6MTcwMTExNzUzMCwiZXhwIjoyMDE2NDc3NTMwfQ.EzJecoQURFv5M690KbA6D9GeQCpw8FKZyOR7DyTiZ28
+Add events:state from the HA palette double click, pick add server
+https://jordanrounds.com/installing-node-red-in-docker-for-home-assistant/</description>
+    </item>
+    
+  </channel>
+</rss>

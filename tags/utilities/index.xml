@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Utilities on unixorn.github.io</title>
+    <link>http://localhost:1313/tags/utilities/</link>
+    <description>Recent content in Utilities on unixorn.github.io</description>
+    <image>
+      <title>unixorn.github.io</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Sun, 13 Oct 2019 18:36:59 -0700</lastBuildDate><atom:link href="http://localhost:1313/tags/utilities/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setting Up Pihole</title>
+      <link>http://localhost:1313/post/setting-up-pihole/</link>
+      <pubDate>Sun, 13 Oct 2019 18:36:59 -0700</pubDate>
+      
+      <guid>http://localhost:1313/post/setting-up-pihole/</guid>
+      <description>&lt;h2 id=&#34;why-pihole&#34;&gt;Why PiHole?&lt;/h2&gt;
+&lt;p&gt;Frankly, I got sick of annoying ads, especially the ones that popped up the &amp;ldquo;your mac is infected with a virus&amp;rdquo; bullshit, so I decided to put a couple of PiHoles in my cluster and stop them at the network level.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

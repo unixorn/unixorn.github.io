@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>FreeNAS on unixorn.github.io</title>
+    <link>http://localhost:1313/tags/freenas/</link>
+    <description>Recent content in FreeNAS on unixorn.github.io</description>
+    <image>
+      <title>unixorn.github.io</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 17 Apr 2020 19:25:47 -0600</lastBuildDate><atom:link href="http://localhost:1313/tags/freenas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Installing Docker on FreeNAS 11.2</title>
+      <link>http://localhost:1313/post/installing-docker-on-freenas-11.2/</link>
+      <pubDate>Fri, 17 Apr 2020 19:25:47 -0600</pubDate>
+      
+      <guid>http://localhost:1313/post/installing-docker-on-freenas-11.2/</guid>
+      <description>Docker on FreeNAS 11 It isn&amp;rsquo;t as simple as just clicking on for a docker service in the UI. You&amp;rsquo;re going to have to set up a VM yourself.
+Create Rancher VM Create a VM in the new UI, select Docker Host. This will create a Rancher VM that already has docker installed inside so you don&amp;rsquo;t have to hassle with installing. Go into the classic webui, select the VM you just created, then devices, and edit Pick the RAW item, select edit, then set a password.</description>
+    </item>
+    
+  </channel>
+</rss>
