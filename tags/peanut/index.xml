@@ -20,7 +20,7 @@
       <pubDate>Sat, 06 Apr 2024 16:27:06 -0600</pubDate>
       <guid>https://unixorn.github.io/post/homelab/homelab-nut-upsd/</guid>
       <description>&lt;h1 id=&#34;set-up-nut-upsd-and-peanut-in-your-homelab&#34;&gt;Set up nut-upsd and peanut in your homelab&lt;/h1&gt;
-&lt;p&gt;I run my Synology server and network switches off a couple of UPS. I decided I wanted a dashboard for the UPS, here&amp;rsquo;s how I did set up &lt;a href=&#34;https://networkupstools.org/&#34;&gt;Network UPS Tools&lt;/a&gt;, aka NUT, and the &lt;a href=&#34;https://github.com/Brandawg93/PeaNUT&#34;&gt;Peanut&lt;/a&gt; dashboard.&lt;/p&gt;</description>
+&lt;p&gt;I run my Synology server and network switches off a UPS. I decided I wanted a dashboard for the UPS, here&amp;rsquo;s how I did set up &lt;a href=&#34;https://networkupstools.org/&#34;&gt;Network UPS Tools&lt;/a&gt;, aka NUT, and the &lt;a href=&#34;https://github.com/Brandawg93/PeaNUT&#34;&gt;Peanut&lt;/a&gt; dashboard.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
