@@ -2,11 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/tags/cadvisor/</loc>
+    <lastmod>2024-04-13T14:19:26-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/containerd/</loc>
+    <lastmod>2024-04-13T14:19:26-06:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/tags/docker/</loc>
-    <lastmod>2024-04-06T16:27:06-06:00</lastmod>
+    <lastmod>2024-04-13T14:19:26-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/grafana/</loc>
+    <lastmod>2024-04-13T14:19:26-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/homelab/</loc>
-    <lastmod>2024-04-06T16:27:06-06:00</lastmod>
+    <lastmod>2024-04-13T14:19:26-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/</loc>
+    <lastmod>2024-04-13T14:19:26-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/prometheus/</loc>
+    <lastmod>2024-04-13T14:19:26-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/homelab/homelab-setup-prometheus-and-grafana/</loc>
+    <lastmod>2024-04-13T14:19:26-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2024-04-13T14:19:26-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/</loc>
+    <lastmod>2024-04-13T14:19:26-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/linux/</loc>
     <lastmod>2024-04-06T16:27:06-06:00</lastmod>
@@ -20,16 +44,7 @@
     <loc>https://unixorn.github.io/tags/peanut/</loc>
     <lastmod>2024-04-06T16:27:06-06:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/post/</loc>
-    <lastmod>2024-04-06T16:27:06-06:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/post/homelab/homelab-nut-upsd/</loc>
-    <lastmod>2024-04-06T16:27:06-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
-    <lastmod>2024-04-06T16:27:06-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/</loc>
     <lastmod>2024-04-06T16:27:06-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/ups/</loc>
@@ -262,9 +277,6 @@
   </url><url>
     <loc>https://unixorn.github.io/tags/zfs/</loc>
     <lastmod>2022-01-15T07:32:37-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/containerd/</loc>
-    <lastmod>2021-12-07T11:13:39-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/k3s/</loc>
     <lastmod>2021-12-07T11:13:39-07:00</lastmod>

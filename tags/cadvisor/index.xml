@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Cadvisor on unixorn.github.io</title>
+    <link>https://unixorn.github.io/tags/cadvisor/</link>
+    <description>Recent content in Cadvisor on unixorn.github.io</description>
+    <image>
+      <title>unixorn.github.io</title>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 13 Apr 2024 14:19:26 -0600</lastBuildDate>
+    <atom:link href="https://unixorn.github.io/tags/cadvisor/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Setup Prometheus and Grafana in Your Homelab</title>
+      <link>https://unixorn.github.io/post/homelab/homelab-setup-prometheus-and-grafana/</link>
+      <pubDate>Sat, 13 Apr 2024 14:19:26 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/homelab/homelab-setup-prometheus-and-grafana/</guid>
+      <description>&lt;p&gt;I wanted nice graphs for the various metrics I collect in my homelab and from my Home Assistant server.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s how I installed Prometheus and Grafana in my homelab to get them.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
