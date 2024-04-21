@@ -12,8 +12,15 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 13 Apr 2024 14:19:26 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 21 Apr 2024 13:27:16 -0600</lastBuildDate>
     <atom:link href="https://unixorn.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Store NUT metrics in Prometheus so we can display them with Grafana</title>
+      <link>https://unixorn.github.io/post/homelab/homelab-nut-prometheus-grafana/</link>
+      <pubDate>Sun, 21 Apr 2024 13:27:16 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/homelab/homelab-nut-prometheus-grafana/</guid>
+      <description>&lt;p&gt;I ordered a second UPS because thanks to &lt;a href=&#34;https://github.com/Brandawg93/PeaNUT&#34;&gt;PeaNUT&lt;/a&gt;, I saw that my current UPS is only providing 20 minutes of uptime. Unfortunately, as of this post, PeaNUT will only read one UPS&amp;rsquo; metrics from &lt;a href=&#34;https://networkupstools.org/&#34;&gt;Network UPS Tools&lt;/a&gt; per PeaNUT instance, so I&amp;rsquo;m going to start scraping the metrics into Prometheus and displaying them with Grafana. Here&amp;rsquo;s how I did it.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Setup Prometheus and Grafana in Your Homelab</title>
       <link>https://unixorn.github.io/post/homelab/homelab-setup-prometheus-and-grafana/</link>
