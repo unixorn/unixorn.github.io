@@ -12,8 +12,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2023, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Wed, 22 Nov 2023 19:08:25 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 19 May 2024 07:34:51 -0600</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/homeassistant/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Released ha-mqtt-discoverable v0.14.0</title>
+      <link>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.14.0/</link>
+      <pubDate>Sun, 19 May 2024 07:34:51 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.14.0/</guid>
+      <description>Released ha-mqtt-discoverable v0.14.0.
+New Contributors @dianlight made their first contribution in https://github.com/unixorn/ha-mqtt-discoverable/pull/167 @mmaeusezahl made their first contribution in https://github.com/unixorn/ha-mqtt-discoverable/pull/178 @chripede made their first contribution in https://github.com/unixorn/ha-mqtt-discoverable/pull/182 @meowmeowahr made their first contribution in https://github.com/unixorn/ha-mqtt-discoverable/pull/197 What&amp;rsquo;s Changed Features Add via_device property to DeviceInfo by @dianlight in https://github.com/unixorn/ha-mqtt-discoverable/pull/167 Fixing a typo in README.md by @mmaeusezahl in https://github.com/unixorn/ha-mqtt-discoverable/pull/178 Fix closed -&amp;gt; opening by @chripede in https://github.com/unixorn/ha-mqtt-discoverable/pull/182 Un-private Binary Sensor update_state by @meowmeowahr in https://github.com/unixorn/ha-mqtt-discoverable/pull/197 Dependency updates build(deps): Bump gitlike-commands from 0.</description>
+    </item>
     <item>
       <title>Released ha-mqtt-discoverable 0.12.0</title>
       <link>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.12.0/</link>
