@@ -2,6 +2,24 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/tags/aquarium/</loc>
+    <lastmod>2024-08-03T11:13:46-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/aquarium/plant/</loc>
+    <lastmod>2024-08-03T11:13:46-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/</loc>
+    <lastmod>2024-08-03T11:13:46-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2024-08-03T11:13:46-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/</loc>
+    <lastmod>2024-08-03T11:13:46-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/aquarium/plant-question/</loc>
+    <lastmod>2024-08-03T11:13:46-06:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/post/hail-mary-podcast/</loc>
     <lastmod>2024-07-30T10:21:15-06:00</lastmod>
   </url><url>
@@ -11,16 +29,7 @@
     <loc>https://unixorn.github.io/tags/podcast/</loc>
     <lastmod>2024-07-30T10:21:15-06:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/post/</loc>
-    <lastmod>2024-07-30T10:21:15-06:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/tags/scifi/</loc>
-    <lastmod>2024-07-30T10:21:15-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
-    <lastmod>2024-07-30T10:21:15-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/</loc>
     <lastmod>2024-07-30T10:21:15-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/ha-mqtt-discoverable/</loc>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Aquarium on unixorn.github.io</title>
+    <link>https://unixorn.github.io/tags/aquarium/</link>
+    <description>Recent content in Aquarium on unixorn.github.io</description>
+    <image>
+      <title>unixorn.github.io</title>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 03 Aug 2024 11:13:46 -0600</lastBuildDate>
+    <atom:link href="https://unixorn.github.io/tags/aquarium/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>What are these plants?</title>
+      <link>https://unixorn.github.io/post/aquarium/plant-question/</link>
+      <pubDate>Sat, 03 Aug 2024 11:13:46 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/aquarium/plant-question/</guid>
+      <description>&lt;p&gt;Just started a new 5 gallon tank. Haven&amp;rsquo;t had fish tanks in years, and someone local generously gave me some plant trimmings when cleaning his tanks, and I forgot what species they are.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>What are these plants?</title>
+      <link>https://unixorn.github.io/post/aquarium/plant-question/</link>
+      <pubDate>Sat, 03 Aug 2024 11:13:46 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/aquarium/plant-question/</guid>
+      <description>&lt;p&gt;Just started a new 5 gallon tank. Haven&amp;rsquo;t had fish tanks in years, and someone local generously gave me some plant trimmings when cleaning his tanks, and I forgot what species they are.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
