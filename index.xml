@@ -12,8 +12,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 03 Aug 2024 11:13:46 -0600</lastBuildDate>
+    <lastBuildDate>Sat, 24 Aug 2024 11:44:57 -0600</lastBuildDate>
     <atom:link href="https://unixorn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First Neos</title>
+      <link>https://unixorn.github.io/post/aquarium/first-neos/</link>
+      <pubDate>Sat, 24 Aug 2024 11:44:57 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/aquarium/first-neos/</guid>
+      <description>Got my first neocaridinas yesterday!
+Decided on Yellow Golden Backs from LVexoticfish.com. Have to give them props - as advertised, all the shrimp arrived alive.
+They were very well packaged - they had a regular fish bag with the shrimp and a bit of mesh for them to hold on to, inside a heat-sealed outer clear bag to contain any leaks (there weren&amp;rsquo;t any though) from the inner bag, and that bag was inside the silver thermal bag here.</description>
+    </item>
     <item>
       <title>What are these plants?</title>
       <link>https://unixorn.github.io/post/aquarium/plant-question/</link>
@@ -383,7 +392,7 @@ Mastodon: @unixorn@hachyderm.io I&amp;rsquo;m the organizer for the Denver Coffe
       <guid>https://unixorn.github.io/contact/</guid>
       <description>Email me at blog @ unixorn.net.
 You can find me around the internet at:
-unixorn on GitHub @unixorn@mstdn.social on Mastodon I&amp;rsquo;m unixorn on redbubble apeseekingknowledge on Instagram. curiousbiped ~on Twitter~ deprecated, use Mastodon instead </description>
+unixorn on GitHub @unixorn@mstdn.social on Mastodon I&amp;rsquo;m unixorn on redbubble apeseekingknowledge on Instagram. curiousbiped on Twitter deprecated, use Mastodon instead </description>
     </item>
     <item>
       <title></title>
