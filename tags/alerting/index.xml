@@ -26,9 +26,10 @@
       <link>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</link>
       <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
       <guid>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</guid>
-      <description>Sending notifications from Home Assistant via Twilio SMS I got a post published at work about How to Receive Alerts from Home Assistant with Twilio SMS, so I won&amp;rsquo;t replicate it here.
-TL;DR - It is super easy to send SMS messages via Twilio SMS with curl.
-Update: I wrote another article, Use PagerDuty with Home Assistant this time for using PagerDuty which allows automatically de-duping notifications.</description>
+      <description>&lt;h2 id=&#34;sending-notifications-from-home-assistant-via-twilio-sms&#34;&gt;Sending notifications from Home Assistant via Twilio SMS&lt;/h2&gt;
+&lt;p&gt;I got a post published at work about &lt;a href=&#34;https://www.twilio.com/blog/home-assistant-twilio-sms-alerts&#34;&gt;How to Receive Alerts from Home Assistant with Twilio SMS&lt;/a&gt;, so I won&amp;rsquo;t replicate it here.&lt;/p&gt;
+&lt;p&gt;TL;DR - It is super easy to send SMS messages via Twilio SMS with &lt;code&gt;curl&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Update: I wrote another article, &lt;a href=&#34;https://unixorn.github.io/post/use-pagerduty-with-home-assistant/&#34;&gt;Use PagerDuty with Home Assistant&lt;/a&gt; this time for using PagerDuty which allows automatically de-duping notifications.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

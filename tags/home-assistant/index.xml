@@ -47,17 +47,27 @@
       <link>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</link>
       <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
       <guid>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</guid>
-      <description>Sending notifications from Home Assistant via Twilio SMS I got a post published at work about How to Receive Alerts from Home Assistant with Twilio SMS, so I won&amp;rsquo;t replicate it here.
-TL;DR - It is super easy to send SMS messages via Twilio SMS with curl.
-Update: I wrote another article, Use PagerDuty with Home Assistant this time for using PagerDuty which allows automatically de-duping notifications.</description>
+      <description>&lt;h2 id=&#34;sending-notifications-from-home-assistant-via-twilio-sms&#34;&gt;Sending notifications from Home Assistant via Twilio SMS&lt;/h2&gt;
+&lt;p&gt;I got a post published at work about &lt;a href=&#34;https://www.twilio.com/blog/home-assistant-twilio-sms-alerts&#34;&gt;How to Receive Alerts from Home Assistant with Twilio SMS&lt;/a&gt;, so I won&amp;rsquo;t replicate it here.&lt;/p&gt;
+&lt;p&gt;TL;DR - It is super easy to send SMS messages via Twilio SMS with &lt;code&gt;curl&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Update: I wrote another article, &lt;a href=&#34;https://unixorn.github.io/post/use-pagerduty-with-home-assistant/&#34;&gt;Use PagerDuty with Home Assistant&lt;/a&gt; this time for using PagerDuty which allows automatically de-duping notifications.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Add Plex to Home Assistant</title>
       <link>https://unixorn.github.io/post/add-plex-to-hass/</link>
       <pubDate>Sun, 08 Nov 2020 21:10:48 -0700</pubDate>
       <guid>https://unixorn.github.io/post/add-plex-to-hass/</guid>
-      <description>Adding the Plex integration to Home Assistant is pretty straightforward with the exception of finding your Plex token.
-Find Your Plex token: Sign into your Plex.tv account Browse to one of the media files (TV episode, movie) on your connected server. You&amp;rsquo;ll need a Plex pass for this. Select Get info Click View XML Ignore the XML. Look in the URL to the XML page - you&amp;rsquo;ll see Plex-Token\=XYZZY. That&amp;rsquo;s the token you&amp;rsquo;ll need.</description>
+      <description>&lt;p&gt;Adding the Plex integration to Home Assistant is pretty straightforward with the exception of finding your Plex token.&lt;/p&gt;
+&lt;h2 id=&#34;find-your-plex-token&#34;&gt;Find Your Plex token:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Sign into your &lt;a href=&#34;https://plex.tv&#34;&gt;Plex.tv&lt;/a&gt; account&lt;/li&gt;
+&lt;li&gt;Browse to one of the media files (TV episode, movie) on your connected server. You&amp;rsquo;ll need a Plex pass for this.&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Get info&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;View XML&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Ignore the XML.&lt;/em&gt; Look in the URL to the XML page - you&amp;rsquo;ll see &lt;code&gt;Plex-Token\=XYZZY&lt;/code&gt;. That&amp;rsquo;s the token you&amp;rsquo;ll need.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;set-up-the-plex-home-assistant-integration&#34;&gt;Set up the Plex Home Assistant Integration&lt;/h2&gt;
+&lt;p&gt;Once you have the token,&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

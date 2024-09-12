@@ -19,8 +19,11 @@
       <link>https://unixorn.github.io/post/sysadvent-2021-article/</link>
       <pubDate>Tue, 07 Dec 2021 11:13:39 -0700</pubDate>
       <guid>https://unixorn.github.io/post/sysadvent-2021-article/</guid>
-      <description>I wrote two articles in sysadvent 2021
-Baking Multi-Architecture Docker Images Setting up k3s in your home lab </description>
+      <description>&lt;p&gt;I wrote two articles in sysadvent 2021&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sysadvent.blogspot.com/2021/12/day-7-baking-multi-architecture-docker.html&#34;&gt;Baking Multi-Architecture Docker Images&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sysadvent.blogspot.com/2021/12/day-16-setting-up-k3s-in-your-home-lab.html&#34;&gt;Setting up k3s in your home lab&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

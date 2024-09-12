@@ -19,8 +19,8 @@
       <link>https://unixorn.github.io/post/western-digital-red-smr-fiasco/</link>
       <pubDate>Sat, 15 Jan 2022 07:32:37 -0700</pubDate>
       <guid>https://unixorn.github.io/post/western-digital-red-smr-fiasco/</guid>
-      <description>TL;DR - SMR drives can take thirteen to sixteen times as long to resilver in your ZFS raid than CMR drives. If they even succeed. This wouldn&amp;rsquo;t be a big deal, except that Western Digital started using SMR technology in their WD-Red drives that are marketed toward SOHO and small business raid, without any warnings about the RAID performance implications.
-I got lucky when I bought my last batch of Reds, they were all CMR, but it was pure luck - I bought them based on Western Digital&amp;rsquo;s reputation and because I&amp;rsquo;ve seen multiple NAS vendors recommend WD-REDs in the past.</description>
+      <description>&lt;p&gt;TL;DR - SMR drives can take thirteen to sixteen times as long to resilver in your ZFS raid than CMR drives. If they even succeed. This wouldn&amp;rsquo;t be a big deal, except that Western Digital started using SMR technology in their WD-Red drives that are marketed toward SOHO and small business raid, without any warnings about the RAID performance implications.&lt;/p&gt;
+&lt;p&gt;I got lucky when I bought my last batch of Reds, they were all CMR, but it was pure luck - I bought them based on Western Digital&amp;rsquo;s reputation and because I&amp;rsquo;ve seen multiple NAS vendors recommend WD-REDs in the past.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
