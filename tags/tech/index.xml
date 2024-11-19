@@ -69,24 +69,27 @@
       <link>https://unixorn.github.io/post/autodesk-fusion-signup/</link>
       <pubDate>Sun, 01 May 2022 18:06:38 -0600</pubDate>
       <guid>https://unixorn.github.io/post/autodesk-fusion-signup/</guid>
-      <description>I signed up for the free personal edition of Autodesk Fusion 360 to get started with 3d printing, and the first time I tried to launch it on macOS, it wouldn&amp;rsquo;t let me in because it refused to create a new team for me to join.
-The solution ended up being to quit Fusion 360, open the Fusion Team Signup page in a browser, create a team there, then restart Fusion 360.</description>
+      <description>&lt;p&gt;I signed up for the free personal edition of Autodesk Fusion 360 to get started with 3d printing, and the first time I tried to launch it on macOS, it wouldn&amp;rsquo;t let me in because it refused to create a new team for me to join.&lt;/p&gt;
+&lt;p&gt;The solution ended up being to quit Fusion 360, open the &lt;a href=&#34;http://login.autodesk360.com/login/signup?product=fusion&amp;amp;edition=business&#34;&gt;Fusion Team Signup&lt;/a&gt; page in a browser, create a team there, then restart Fusion 360.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Western Digital Red drive SMR Fiasco</title>
       <link>https://unixorn.github.io/post/western-digital-red-smr-fiasco/</link>
       <pubDate>Sat, 15 Jan 2022 07:32:37 -0700</pubDate>
       <guid>https://unixorn.github.io/post/western-digital-red-smr-fiasco/</guid>
-      <description>TL;DR - SMR drives can take thirteen to sixteen times as long to resilver in your ZFS raid than CMR drives. If they even succeed. This wouldn&amp;rsquo;t be a big deal, except that Western Digital started using SMR technology in their WD-Red drives that are marketed toward SOHO and small business raid, without any warnings about the RAID performance implications.
-I got lucky when I bought my last batch of Reds, they were all CMR, but it was pure luck - I bought them based on Western Digital&amp;rsquo;s reputation and because I&amp;rsquo;ve seen multiple NAS vendors recommend WD-REDs in the past.</description>
+      <description>&lt;p&gt;TL;DR - SMR drives can take thirteen to sixteen times as long to resilver in your ZFS raid than CMR drives. If they even succeed. This wouldn&amp;rsquo;t be a big deal, except that Western Digital started using SMR technology in their WD-Red drives that are marketed toward SOHO and small business raid, without any warnings about the RAID performance implications.&lt;/p&gt;
+&lt;p&gt;I got lucky when I bought my last batch of Reds, they were all CMR, but it was pure luck - I bought them based on Western Digital&amp;rsquo;s reputation and because I&amp;rsquo;ve seen multiple NAS vendors recommend WD-REDs in the past.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sysadvent 2021 Articles</title>
       <link>https://unixorn.github.io/post/sysadvent-2021-article/</link>
       <pubDate>Tue, 07 Dec 2021 11:13:39 -0700</pubDate>
       <guid>https://unixorn.github.io/post/sysadvent-2021-article/</guid>
-      <description>I wrote two articles in sysadvent 2021
-Baking Multi-Architecture Docker Images Setting up k3s in your home lab </description>
+      <description>&lt;p&gt;I wrote two articles in sysadvent 2021&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sysadvent.blogspot.com/2021/12/day-7-baking-multi-architecture-docker.html&#34;&gt;Baking Multi-Architecture Docker Images&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sysadvent.blogspot.com/2021/12/day-16-setting-up-k3s-in-your-home-lab.html&#34;&gt;Setting up k3s in your home lab&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     <item>
       <title>Setting up Shinobi and a Wyze G2 Camera</title>
@@ -116,17 +119,27 @@ Baking Multi-Architecture Docker Images Setting up k3s in your home lab </descri
       <link>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</link>
       <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
       <guid>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</guid>
-      <description>Sending notifications from Home Assistant via Twilio SMS I got a post published at work about How to Receive Alerts from Home Assistant with Twilio SMS, so I won&amp;rsquo;t replicate it here.
-TL;DR - It is super easy to send SMS messages via Twilio SMS with curl.
-Update: I wrote another article, Use PagerDuty with Home Assistant this time for using PagerDuty which allows automatically de-duping notifications.</description>
+      <description>&lt;h2 id=&#34;sending-notifications-from-home-assistant-via-twilio-sms&#34;&gt;Sending notifications from Home Assistant via Twilio SMS&lt;/h2&gt;
+&lt;p&gt;I got a post published at work about &lt;a href=&#34;https://www.twilio.com/blog/home-assistant-twilio-sms-alerts&#34;&gt;How to Receive Alerts from Home Assistant with Twilio SMS&lt;/a&gt;, so I won&amp;rsquo;t replicate it here.&lt;/p&gt;
+&lt;p&gt;TL;DR - It is super easy to send SMS messages via Twilio SMS with &lt;code&gt;curl&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Update: I wrote another article, &lt;a href=&#34;https://unixorn.github.io/post/use-pagerduty-with-home-assistant/&#34;&gt;Use PagerDuty with Home Assistant&lt;/a&gt; this time for using PagerDuty which allows automatically de-duping notifications.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Add Plex to Home Assistant</title>
       <link>https://unixorn.github.io/post/add-plex-to-hass/</link>
       <pubDate>Sun, 08 Nov 2020 21:10:48 -0700</pubDate>
       <guid>https://unixorn.github.io/post/add-plex-to-hass/</guid>
-      <description>Adding the Plex integration to Home Assistant is pretty straightforward with the exception of finding your Plex token.
-Find Your Plex token: Sign into your Plex.tv account Browse to one of the media files (TV episode, movie) on your connected server. You&amp;rsquo;ll need a Plex pass for this. Select Get info Click View XML Ignore the XML. Look in the URL to the XML page - you&amp;rsquo;ll see Plex-Token\=XYZZY. That&amp;rsquo;s the token you&amp;rsquo;ll need.</description>
+      <description>&lt;p&gt;Adding the Plex integration to Home Assistant is pretty straightforward with the exception of finding your Plex token.&lt;/p&gt;
+&lt;h2 id=&#34;find-your-plex-token&#34;&gt;Find Your Plex token:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Sign into your &lt;a href=&#34;https://plex.tv&#34;&gt;Plex.tv&lt;/a&gt; account&lt;/li&gt;
+&lt;li&gt;Browse to one of the media files (TV episode, movie) on your connected server. You&amp;rsquo;ll need a Plex pass for this.&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Get info&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;View XML&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Ignore the XML.&lt;/em&gt; Look in the URL to the XML page - you&amp;rsquo;ll see &lt;code&gt;Plex-Token\=XYZZY&lt;/code&gt;. That&amp;rsquo;s the token you&amp;rsquo;ll need.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;set-up-the-plex-home-assistant-integration&#34;&gt;Set up the Plex Home Assistant Integration&lt;/h2&gt;
+&lt;p&gt;Once you have the token,&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building Multi Architecture Docker Images with buildx</title>
@@ -178,7 +191,7 @@ Find Your Plex token: Sign into your Plex.tv account Browse to one of the media 
       <link>https://unixorn.github.io/post/til-about-docker-mac/</link>
       <pubDate>Wed, 08 May 2019 09:11:31 -0600</pubDate>
       <guid>https://unixorn.github.io/post/til-about-docker-mac/</guid>
-      <description>I had a bunch of cruft in start scripts that would determine the IP of my laptop and set it as an environment variable to pass to docker-compose and it turns out that with Docker for Mac you don&amp;rsquo;t have to do all that work - just use docker.for.mac.localhost as a hostname.</description>
+      <description>&lt;p&gt;I had a bunch of cruft in start scripts that would determine the IP of my laptop and set it as an environment variable to pass to &lt;code&gt;docker-compose&lt;/code&gt; and it turns out that with Docker for Mac you don&amp;rsquo;t have to do all that work - just use &lt;code&gt;docker.for.mac.localhost&lt;/code&gt; as a hostname.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fix macOS Captive WIFI Portal Issue</title>

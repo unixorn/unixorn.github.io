@@ -184,6 +184,32 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Adding a Distributed Filesystem to the Cluster
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>One of the reasons I set up my cluster was that I’m running out of space on my NAS. I don’t want to buy a whole new chassis, and while I could have put individual file shares on each cluster node, that would be both inconvenient and not provide any data redundancy without a lot of brittle home-rolled hacks to rsync data from node to node. And since distributed file systems are a thing, I’d rather not resort to hacks.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-06-23 17:22:47 -0700 -0700'>June 23, 2019</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;1025 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Adding a Distributed Filesystem to the Cluster" href="http://localhost:1313/post/adding-a-distributed-filesystem-to-cluster/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Things I Learned About Docker Mac
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>I had a bunch of cruft in start scripts that would determine the IP of my laptop and set it as an environment variable to pass to docker-compose and it turns out that with Docker for Mac you don’t have to do all that work - just use docker.for.mac.localhost as a hostname.
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-05-08 09:11:31 -0600 MDT'>May 8, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;52 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Things I Learned About Docker Mac" href="http://localhost:1313/post/til-about-docker-mac/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Fix macOS Captive WIFI Portal Issue
     </h2>
   </header>
@@ -220,43 +246,12 @@
   <footer class="entry-footer"><span title='2019-02-17 16:00:05 -0700 MST'>February 17, 2019</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1419 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Getting an ARM kubernetes cluster up and running" href="http://localhost:1313/post/in_the_beginning_there_was_bare_metal/"></a>
 </article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>title: “Set up samba access to moosefs” date: 2023-05-21T18:15:48-06:00 draft: true tags:
-samba homelab moosefs howto Here’s how I set up samba access to my moosefs distributed filesystem
-...</p>
-  </div>
-  <footer class="entry-footer">1 min&nbsp;·&nbsp;29 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to " href="http://localhost:1313/post/2023-10-16-samba-and-moosefs/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">k3s with k3sup and helm
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Installing k3s on the ARM cluster using k3sup
-...</p>
-  </div>
-  <footer class="entry-footer">2 min&nbsp;·&nbsp;215 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to k3s with k3sup and helm" href="http://localhost:1313/post/k3s-and-k3sup/"></a>
-</article>
 <footer class="page-footer">
   <nav class="pagination">
     <a class="prev" href="http://localhost:1313/post/page/11/">
       «&nbsp;Prev&nbsp;
+    </a>
+    <a class="next" href="http://localhost:1313/post/page/13/">Next&nbsp;&nbsp;»
     </a>
   </nav>
 </footer>

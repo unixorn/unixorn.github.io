@@ -12,8 +12,18 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 03 Aug 2024 11:13:46 -0600</lastBuildDate>
+    <lastBuildDate>Sat, 24 Aug 2024 11:44:57 -0600</lastBuildDate>
     <atom:link href="https://unixorn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>First Neos</title>
+      <link>https://unixorn.github.io/post/aquarium/first-neos/</link>
+      <pubDate>Sat, 24 Aug 2024 11:44:57 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/aquarium/first-neos/</guid>
+      <description>&lt;p&gt;Got my first neocaridinas yesterday!&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;The new tank has been cycling for six weeks and the water parameters have been good for the last three weeks, so I decided it was past time to add more livestock to the tank so the Nerite doesn&amp;rsquo;t get lonely.&lt;/p&gt;
+&lt;p&gt;I decided on Yellow Golden Backs because I thought they&amp;rsquo;d stand out in my tank, and ordered 20 from &lt;a href=&#34;https://LVexoticfish.com&#34;&gt;LVexoticfish.com&lt;/a&gt;. I have to give them props - as advertised, all the shrimp arrived alive.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>What are these plants?</title>
       <link>https://unixorn.github.io/post/aquarium/plant-question/</link>
@@ -26,15 +36,46 @@
       <link>https://unixorn.github.io/post/hail-mary-podcast/</link>
       <pubDate>Tue, 30 Jul 2024 10:21:15 -0600</pubDate>
       <guid>https://unixorn.github.io/post/hail-mary-podcast/</guid>
-      <description>I was a guest on Pagerduty&amp;rsquo;s Page it to the Limit podcast in the July 2024 podcast book club episode about Andy Weir&amp;rsquo;s novel, Project Hail Mary.. You can find the episode here.</description>
+      <description>&lt;p&gt;I was a guest on Pagerduty&amp;rsquo;s Page it to the Limit podcast in the July 2024 podcast book club episode about Andy Weir&amp;rsquo;s novel, &lt;a href=&#34;https://andyweirauthor.com/&#34;&gt;Project Hail Mary.&lt;/a&gt;. You can find the episode &lt;a href=&#34;https://www.pageittothelimit.com/project-hail-mary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Released ha-mqtt-discoverable v0.14.0</title>
       <link>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.14.0/</link>
       <pubDate>Sun, 19 May 2024 07:34:51 -0600</pubDate>
       <guid>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.14.0/</guid>
-      <description>Released ha-mqtt-discoverable v0.14.0.
-New Contributors @dianlight made their first contribution in https://github.com/unixorn/ha-mqtt-discoverable/pull/167 @mmaeusezahl made their first contribution in https://github.com/unixorn/ha-mqtt-discoverable/pull/178 @chripede made their first contribution in https://github.com/unixorn/ha-mqtt-discoverable/pull/182 @meowmeowahr made their first contribution in https://github.com/unixorn/ha-mqtt-discoverable/pull/197 What&amp;rsquo;s Changed Features Add via_device property to DeviceInfo by @dianlight in https://github.com/unixorn/ha-mqtt-discoverable/pull/167 Fixing a typo in README.md by @mmaeusezahl in https://github.com/unixorn/ha-mqtt-discoverable/pull/178 Fix closed -&amp;gt; opening by @chripede in https://github.com/unixorn/ha-mqtt-discoverable/pull/182 Un-private Binary Sensor update_state by @meowmeowahr in https://github.com/unixorn/ha-mqtt-discoverable/pull/197 Dependency updates build(deps): Bump gitlike-commands from 0.</description>
+      <description>&lt;p&gt;Released &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/releases/tag/v0.14.0&#34;&gt;ha-mqtt-discoverable v0.14.0&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;new-contributors&#34;&gt;New Contributors&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;@dianlight made their first contribution in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/167&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/167&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;@mmaeusezahl made their first contribution in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/178&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/178&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;@chripede made their first contribution in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/182&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/182&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;@meowmeowahr made their first contribution in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/197&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/197&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;whats-changed&#34;&gt;What&amp;rsquo;s Changed&lt;/h2&gt;
+&lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Add via_device property to DeviceInfo by @dianlight in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/167&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/167&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fixing a typo in README.md by @mmaeusezahl in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/178&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/178&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix closed -&amp;gt; opening by @chripede in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/182&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/182&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Un-private Binary Sensor update_state by @meowmeowahr in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/197&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/197&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;dependency-updates&#34;&gt;Dependency updates&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;build(deps): Bump gitlike-commands from 0.2.1 to 0.3.0 by @dependabot in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/173&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/173&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;build(deps-dev): Bump pytest from 7.4.4 to 8.0.0 by @dependabot in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/171&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/171&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;build(deps-dev): Bump flake8 from 6.1.0 to 7.0.0 by @dependabot in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/168&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/168&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;build(deps-dev): Bump pre-commit from 3.6.0 to 3.6.1 by @dependabot in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/180&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/180&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;build(deps-dev): Bump pre-commit from 3.6.1 to 3.6.2 by @dependabot in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/184&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/184&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;build(deps-dev): Bump black from 23.12.1 to 24.2.0 by @dependabot in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/183&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/183&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;build(deps-dev): Bump black from 24.2.0 to 24.3.0 by @dependabot in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/192&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/192&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;build(deps-dev): Bump pytest from 8.0.0 to 8.1.1 by @dependabot in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/190&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/190&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;build(deps-dev): Bump pre-commit from 3.6.2 to 3.7.0 by @dependabot in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/195&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/195&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;build(deps-dev): Bump black from 24.3.0 to 24.4.0 by @dependabot in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/198&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/198&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;build(deps-dev): Bump black from 24.4.0 to 24.4.2 by @dependabot in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/200&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/200&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Bump pydantic version to ^2.0.0 by @mmaeusezahl in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/191&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/191&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Fix poetry lock by @unixorn in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/206&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/206&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Full Changelog&lt;/strong&gt;: &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/compare/v0.13.1...v0.14.0&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/compare/v0.13.1...v0.14.0&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Store NUT metrics in Prometheus so we can display them with Grafana</title>
@@ -71,9 +112,9 @@ New Contributors @dianlight made their first contribution in https://github.com/
       <link>https://unixorn.github.io/post/hass/2023-11-weird-ha-scripts-bug/</link>
       <pubDate>Wed, 22 Nov 2023 15:55:25 -0700</pubDate>
       <guid>https://unixorn.github.io/post/hass/2023-11-weird-ha-scripts-bug/</guid>
-      <description>I ran into a weird Home Assistant scripts issue when I upgraded to 2023.11 from 2023.06 (I know, but I didn’t need the new features and had higher priority stuff to deal with) last week.
-After the update, when I went to add or edit a script, I started seeing 500s.
-After some messing around, I eventually moved the couple scripts I had from scripts.yaml as inline scripts in configuration.yaml, restarted, and when I went to edit them, HA offered to migrate them into scripts.</description>
+      <description>&lt;p&gt;I ran into a weird Home Assistant scripts issue when I upgraded to 2023.11 from 2023.06 (I know, but I didn’t need the new features and had higher priority stuff to deal with) last week.&lt;/p&gt;
+&lt;p&gt;After the update, when I went to add or edit a script, I started seeing 500s.&lt;/p&gt;
+&lt;p&gt;After some messing around, I eventually moved the couple scripts I had from &lt;code&gt;scripts.yaml&lt;/code&gt; as inline scripts in &lt;code&gt;configuration.yaml&lt;/code&gt;, restarted, and when I went to edit them, HA offered to migrate them into &lt;code&gt;scripts.yaml&lt;/code&gt;. Annoyingly, &lt;em&gt;then&lt;/em&gt; when I went to create a new script, HA didn’t return 500s, but the new script didn’t show up in the script list either. I could see it in &lt;code&gt;scripts.yaml&lt;/code&gt;, though, and &lt;code&gt;configuration.yaml&lt;/code&gt; had the expected &lt;code&gt;script: !include scripts.yaml&lt;/code&gt; line in it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Homelab Upgrade from USG-Pro to UDM-Pro</title>
@@ -132,17 +173,25 @@ After some messing around, I eventually moved the couple scripts I had from scri
       <link>https://unixorn.github.io/post/restic-backups-on-truenas/</link>
       <pubDate>Fri, 13 Jan 2023 11:16:19 -0700</pubDate>
       <guid>https://unixorn.github.io/post/restic-backups-on-truenas/</guid>
-      <description>I&amp;rsquo;ve been backing my homelab up with duplicacy (See Backing Up the Cluster Using Duplicacy), but I&amp;rsquo;m fed up with it returning a 0 exit code even if there&amp;rsquo;s a problem with the backup. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to restic.
-In this blog entry, I&amp;rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install restic, and how to use it to back up to Backblaze b2.</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve been backing my homelab up with &lt;code&gt;duplicacy&lt;/code&gt; (See &lt;a href=&#34;https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/&#34;&gt;Backing Up the Cluster Using Duplicacy&lt;/a&gt;), but I&amp;rsquo;m fed up with it returning a &lt;code&gt;0&lt;/code&gt; exit code &lt;em&gt;even if there&amp;rsquo;s a problem with the backup&lt;/em&gt;. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to &lt;a href=&#34;https://restic.net/&#34;&gt;restic&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;In this blog entry, I&amp;rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install &lt;a href=&#34;https://restic.net/&#34;&gt;restic&lt;/a&gt;, and how to use it to back up to &lt;a href=&#34;https://www.backblaze.com/b2/cloud-storage.html&#34;&gt;Backblaze b2&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fix Congo Backticks</title>
       <link>https://unixorn.github.io/post/fix-congo-backticks/</link>
       <pubDate>Mon, 14 Nov 2022 19:12:41 -0700</pubDate>
       <guid>https://unixorn.github.io/post/fix-congo-backticks/</guid>
-      <description>I considered a switch to the Congo theme for Hugo. The one thing I didn&amp;rsquo;t like in it was the way it handles inline backticks - it displays them, in addition to formatting the enclosed text as code.
-To fix it, create assets/css/custom.css with the following contents:
-.prose code::before { content: &amp;#39;&amp;#39; } .prose code::after { content: &amp;#39;&amp;#39; } </description>
+      <description>&lt;p&gt;I considered a switch to the &lt;a href=&#34;https://hugothemesfree.com/a-simple-lightweight-theme-for-hugo-built-with-tailwind-css/&#34;&gt;Congo&lt;/a&gt; theme for &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;. The one thing I didn&amp;rsquo;t like in it was the way it handles inline backticks - it displays them, in addition to formatting the enclosed text as code.&lt;/p&gt;
+&lt;p&gt;To fix it, create &lt;code&gt;assets/css/custom.css&lt;/code&gt; with the following contents:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;prose&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;code&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;before&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;content&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;prose&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;code&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;after&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;    &lt;span class=&#34;k&#34;&gt;content&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;:&lt;/span&gt; &lt;span class=&#34;s1&#34;&gt;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
     </item>
     <item>
       <title>Switching to Mastodon</title>
@@ -192,24 +241,27 @@ To fix it, create assets/css/custom.css with the following contents:
       <link>https://unixorn.github.io/post/autodesk-fusion-signup/</link>
       <pubDate>Sun, 01 May 2022 18:06:38 -0600</pubDate>
       <guid>https://unixorn.github.io/post/autodesk-fusion-signup/</guid>
-      <description>I signed up for the free personal edition of Autodesk Fusion 360 to get started with 3d printing, and the first time I tried to launch it on macOS, it wouldn&amp;rsquo;t let me in because it refused to create a new team for me to join.
-The solution ended up being to quit Fusion 360, open the Fusion Team Signup page in a browser, create a team there, then restart Fusion 360.</description>
+      <description>&lt;p&gt;I signed up for the free personal edition of Autodesk Fusion 360 to get started with 3d printing, and the first time I tried to launch it on macOS, it wouldn&amp;rsquo;t let me in because it refused to create a new team for me to join.&lt;/p&gt;
+&lt;p&gt;The solution ended up being to quit Fusion 360, open the &lt;a href=&#34;http://login.autodesk360.com/login/signup?product=fusion&amp;amp;edition=business&#34;&gt;Fusion Team Signup&lt;/a&gt; page in a browser, create a team there, then restart Fusion 360.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Western Digital Red drive SMR Fiasco</title>
       <link>https://unixorn.github.io/post/western-digital-red-smr-fiasco/</link>
       <pubDate>Sat, 15 Jan 2022 07:32:37 -0700</pubDate>
       <guid>https://unixorn.github.io/post/western-digital-red-smr-fiasco/</guid>
-      <description>TL;DR - SMR drives can take thirteen to sixteen times as long to resilver in your ZFS raid than CMR drives. If they even succeed. This wouldn&amp;rsquo;t be a big deal, except that Western Digital started using SMR technology in their WD-Red drives that are marketed toward SOHO and small business raid, without any warnings about the RAID performance implications.
-I got lucky when I bought my last batch of Reds, they were all CMR, but it was pure luck - I bought them based on Western Digital&amp;rsquo;s reputation and because I&amp;rsquo;ve seen multiple NAS vendors recommend WD-REDs in the past.</description>
+      <description>&lt;p&gt;TL;DR - SMR drives can take thirteen to sixteen times as long to resilver in your ZFS raid than CMR drives. If they even succeed. This wouldn&amp;rsquo;t be a big deal, except that Western Digital started using SMR technology in their WD-Red drives that are marketed toward SOHO and small business raid, without any warnings about the RAID performance implications.&lt;/p&gt;
+&lt;p&gt;I got lucky when I bought my last batch of Reds, they were all CMR, but it was pure luck - I bought them based on Western Digital&amp;rsquo;s reputation and because I&amp;rsquo;ve seen multiple NAS vendors recommend WD-REDs in the past.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sysadvent 2021 Articles</title>
       <link>https://unixorn.github.io/post/sysadvent-2021-article/</link>
       <pubDate>Tue, 07 Dec 2021 11:13:39 -0700</pubDate>
       <guid>https://unixorn.github.io/post/sysadvent-2021-article/</guid>
-      <description>I wrote two articles in sysadvent 2021
-Baking Multi-Architecture Docker Images Setting up k3s in your home lab </description>
+      <description>&lt;p&gt;I wrote two articles in sysadvent 2021&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://sysadvent.blogspot.com/2021/12/day-7-baking-multi-architecture-docker.html&#34;&gt;Baking Multi-Architecture Docker Images&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://sysadvent.blogspot.com/2021/12/day-16-setting-up-k3s-in-your-home-lab.html&#34;&gt;Setting up k3s in your home lab&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     <item>
       <title>AWS IAM Self Tagging EC2 Instances</title>
@@ -246,35 +298,54 @@ Baking Multi-Architecture Docker Images Setting up k3s in your home lab </descri
       <link>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</link>
       <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
       <guid>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</guid>
-      <description>Sending notifications from Home Assistant via Twilio SMS I got a post published at work about How to Receive Alerts from Home Assistant with Twilio SMS, so I won&amp;rsquo;t replicate it here.
-TL;DR - It is super easy to send SMS messages via Twilio SMS with curl.
-Update: I wrote another article, Use PagerDuty with Home Assistant this time for using PagerDuty which allows automatically de-duping notifications.</description>
+      <description>&lt;h2 id=&#34;sending-notifications-from-home-assistant-via-twilio-sms&#34;&gt;Sending notifications from Home Assistant via Twilio SMS&lt;/h2&gt;
+&lt;p&gt;I got a post published at work about &lt;a href=&#34;https://www.twilio.com/blog/home-assistant-twilio-sms-alerts&#34;&gt;How to Receive Alerts from Home Assistant with Twilio SMS&lt;/a&gt;, so I won&amp;rsquo;t replicate it here.&lt;/p&gt;
+&lt;p&gt;TL;DR - It is super easy to send SMS messages via Twilio SMS with &lt;code&gt;curl&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Update: I wrote another article, &lt;a href=&#34;https://unixorn.github.io/post/use-pagerduty-with-home-assistant/&#34;&gt;Use PagerDuty with Home Assistant&lt;/a&gt; this time for using PagerDuty which allows automatically de-duping notifications.&lt;/p&gt;</description>
     </item>
     <item>
       <title>2021 Georgia Runoff Elections</title>
       <link>https://unixorn.github.io/post/2021-runoff-election/</link>
       <pubDate>Thu, 12 Nov 2020 11:30:33 -0700</pubDate>
       <guid>https://unixorn.github.io/post/2021-runoff-election/</guid>
-      <description>Biden won! Awesome! The fight isn&amp;rsquo;t over though.
-Time to donate to the Georgia Runoff Senate Elections. I&amp;rsquo;ve set up identical fundraisers, this time for all the different Star Trek Series.
-Donate to your favorite series link and we&amp;rsquo;ll see which series has the most fan support.
-TOS - https://secure.actblue.com/donate/ga-tos TNG - https://secure.actblue.com/donate/ga-tng DS9 - https://secure.actblue.com/donate/ga-ds9 Enterprise - https://secure.actblue.com/donate/ga-enterprise Voyager - https://secure.actblue.com/donate/ga-voyager Discovery - https://secure.actblue.com/donate/ga-discovery Lower Decks - https://secure.actblue.com/donate/ga-lowerdecks Picard - https://secure.</description>
+      <description>&lt;p&gt;Biden won! Awesome! The fight isn&amp;rsquo;t over though.&lt;/p&gt;
+&lt;p&gt;Time to donate to the Georgia Runoff Senate Elections. I&amp;rsquo;ve set up identical fundraisers, this time for all the different Star Trek Series.&lt;/p&gt;
+&lt;p&gt;Donate to your favorite series link and we&amp;rsquo;ll see which series has the most fan support.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;TOS - &lt;a href=&#34;https://secure.actblue.com/donate/ga-tos&#34;&gt;https://secure.actblue.com/donate/ga-tos&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;TNG - &lt;a href=&#34;https://secure.actblue.com/donate/ga-tng&#34;&gt;https://secure.actblue.com/donate/ga-tng&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;DS9 - &lt;a href=&#34;https://secure.actblue.com/donate/ga-ds9&#34;&gt;https://secure.actblue.com/donate/ga-ds9&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Enterprise - &lt;a href=&#34;https://secure.actblue.com/donate/ga-enterprise&#34;&gt;https://secure.actblue.com/donate/ga-enterprise&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Voyager - &lt;a href=&#34;https://secure.actblue.com/donate/ga-voyager&#34;&gt;https://secure.actblue.com/donate/ga-voyager&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Discovery - &lt;a href=&#34;https://secure.actblue.com/donate/ga-discovery&#34;&gt;https://secure.actblue.com/donate/ga-discovery&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Lower Decks - &lt;a href=&#34;https://secure.actblue.com/donate/ga-lowerdecks&#34;&gt;https://secure.actblue.com/donate/ga-lowerdecks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Picard - &lt;a href=&#34;https://secure.actblue.com/donate/ga-picard&#34;&gt;https://secure.actblue.com/donate/ga-picard&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     <item>
       <title>Add Plex to Home Assistant</title>
       <link>https://unixorn.github.io/post/add-plex-to-hass/</link>
       <pubDate>Sun, 08 Nov 2020 21:10:48 -0700</pubDate>
       <guid>https://unixorn.github.io/post/add-plex-to-hass/</guid>
-      <description>Adding the Plex integration to Home Assistant is pretty straightforward with the exception of finding your Plex token.
-Find Your Plex token: Sign into your Plex.tv account Browse to one of the media files (TV episode, movie) on your connected server. You&amp;rsquo;ll need a Plex pass for this. Select Get info Click View XML Ignore the XML. Look in the URL to the XML page - you&amp;rsquo;ll see Plex-Token\=XYZZY. That&amp;rsquo;s the token you&amp;rsquo;ll need.</description>
+      <description>&lt;p&gt;Adding the Plex integration to Home Assistant is pretty straightforward with the exception of finding your Plex token.&lt;/p&gt;
+&lt;h2 id=&#34;find-your-plex-token&#34;&gt;Find Your Plex token:&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Sign into your &lt;a href=&#34;https://plex.tv&#34;&gt;Plex.tv&lt;/a&gt; account&lt;/li&gt;
+&lt;li&gt;Browse to one of the media files (TV episode, movie) on your connected server. You&amp;rsquo;ll need a Plex pass for this.&lt;/li&gt;
+&lt;li&gt;Select &lt;strong&gt;Get info&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Click &lt;strong&gt;View XML&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;Ignore the XML.&lt;/em&gt; Look in the URL to the XML page - you&amp;rsquo;ll see &lt;code&gt;Plex-Token\=XYZZY&lt;/code&gt;. That&amp;rsquo;s the token you&amp;rsquo;ll need.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;set-up-the-plex-home-assistant-integration&#34;&gt;Set up the Plex Home Assistant Integration&lt;/h2&gt;
+&lt;p&gt;Once you have the token,&lt;/p&gt;</description>
     </item>
     <item>
       <title>2020 Politics</title>
       <link>https://unixorn.github.io/post/2020-elections/</link>
       <pubDate>Mon, 12 Oct 2020 08:03:55 -0600</pubDate>
       <guid>https://unixorn.github.io/post/2020-elections/</guid>
-      <description>Before anyone complains about me getting political on what was mainly a tch site, remember that not being political is a luxury that only people not getting screwed by the current political landscape can afford.
-In no particular order, the attempts to roll back rights for LGBTQ+ citizens, the assaults on womens&amp;rsquo; rights, the handling of the COVID-19 crisis, packing the Supreme Court with a hypocritical last second Justice, putting kids in cages, the ongoing destruction of the political norms that have existed for decades, the ignoring scientific facts, etc, etc all have focused my efforts on supporting one party.</description>
+      <description>&lt;p&gt;Before anyone complains about me getting political on what was mainly a tch site, remember that &lt;em&gt;not&lt;/em&gt; being political is a luxury that only people not getting screwed by the current political landscape can afford.&lt;/p&gt;
+&lt;p&gt;In no particular order, the attempts to roll back rights for LGBTQ+ citizens, the assaults on womens&amp;rsquo; rights, the handling of the COVID-19 crisis, packing the Supreme Court with a hypocritical last second Justice, putting kids in cages, the ongoing destruction of the political norms that have existed for decades, the ignoring scientific facts, etc, etc all have focused my efforts on supporting one party.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building Multi Architecture Docker Images with buildx</title>
@@ -333,7 +404,7 @@ In no particular order, the attempts to roll back rights for LGBTQ+ citizens, th
       <link>https://unixorn.github.io/post/til-about-docker-mac/</link>
       <pubDate>Wed, 08 May 2019 09:11:31 -0600</pubDate>
       <guid>https://unixorn.github.io/post/til-about-docker-mac/</guid>
-      <description>I had a bunch of cruft in start scripts that would determine the IP of my laptop and set it as an environment variable to pass to docker-compose and it turns out that with Docker for Mac you don&amp;rsquo;t have to do all that work - just use docker.for.mac.localhost as a hostname.</description>
+      <description>&lt;p&gt;I had a bunch of cruft in start scripts that would determine the IP of my laptop and set it as an environment variable to pass to &lt;code&gt;docker-compose&lt;/code&gt; and it turns out that with Docker for Mac you don&amp;rsquo;t have to do all that work - just use &lt;code&gt;docker.for.mac.localhost&lt;/code&gt; as a hostname.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fix macOS Captive WIFI Portal Issue</title>
@@ -361,36 +432,50 @@ In no particular order, the attempts to roll back rights for LGBTQ+ citizens, th
       <link>https://unixorn.github.io/about-orig/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://unixorn.github.io/about-orig/</guid>
-      <description>I&amp;rsquo;m an SRE in Denver for Twilio.
-I like cooking, photography, and working on distributed infrastructure.
-I&amp;rsquo;m the organizer for Denver CoffeeOps, which currently meets online - the meetup link has the Google Meet details.
-I have a variety of DevOps (and DevOOPs) themed swag on redbubble, if you&amp;rsquo;d like to buy something and contribute to my hardware habit, or you can contribute at https://www.patreon.com/unixorn.</description>
+      <description>&lt;p&gt;I&amp;rsquo;m an SRE in Denver for Twilio.&lt;/p&gt;
+&lt;p&gt;I like cooking, photography, and working on distributed infrastructure.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m the organizer for Denver &lt;a href=&#34;https://www.meetup.com/Denver-CoffeeOps/&#34;&gt;CoffeeOps&lt;/a&gt;, which currently meets online - the meetup link has the Google Meet details.&lt;/p&gt;
+&lt;p&gt;I have a variety of DevOps (and DevOOPs) themed swag on &lt;a href=&#34;https://www.redbubble.com/people/unixorn/collections/1069603-devoops?asc=u&#34;&gt;redbubble&lt;/a&gt;, if you&amp;rsquo;d like to buy something and contribute to my hardware habit, or you can contribute at &lt;a href=&#34;https://www.patreon.com/unixorn&#34;&gt;https://www.patreon.com/unixorn&lt;/a&gt;.&lt;/p&gt;
+&lt;script type=&#34;text/javascript&#34; src=&#34;http://www.redbubble.com/assets/external_portfolio.js&#34;&gt;&lt;/script&gt;
+&lt;script id=&#34;rb-xzfcxvzx&#34; type=&#34;text/javascript&#34;&gt;new RBExternalPortfolio(&#39;www.redbubble.com&#39;, &#39;unixorn&#39;, 3, 3).renderIframe();&lt;/script&gt;</description>
     </item>
     <item>
       <title></title>
       <link>https://unixorn.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://unixorn.github.io/about/</guid>
-      <description>About Me I&amp;rsquo;m an SRE in Denver for ZScaler. Please don&amp;rsquo;t contact me about jobs involving blockchain, especially any of the griftcoins.
-I like cooking, photography, aquariums, home automation and working on distributed infrastructure.
-You can find me online at:
-Mastodon: @unixorn@hachyderm.io I&amp;rsquo;m the organizer for the Denver CoffeeOps meetup, which currently meets online - the meetup link details are posted in the Colorado channels of both the hangops and coffeeops slacks.</description>
+      <description>&lt;h1 id=&#34;about-me&#34;&gt;About Me&lt;/h1&gt;
+&lt;p&gt;I&amp;rsquo;m an SRE in Denver for ZScaler. Please don&amp;rsquo;t contact me about jobs involving blockchain, especially any of the griftcoins.&lt;/p&gt;
+&lt;p&gt;I like cooking, photography, aquariums, home automation and working on distributed infrastructure.&lt;/p&gt;
+&lt;p&gt;You can find me online at:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mastodon: &lt;a href=&#34;https://hachyderm.io/@unixorn&#34;&gt;@unixorn@hachyderm.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I&amp;rsquo;m the organizer for the Denver &lt;a href=&#34;https://www.meetup.com/Denver-CoffeeOps/&#34;&gt;CoffeeOps&lt;/a&gt; meetup, which currently meets online - the meetup link details are posted in the Colorado channels of both the &lt;a href=&#34;https://hangops.slack.com&#34;&gt;hangops&lt;/a&gt; and &lt;a href=&#34;https://coffeeops.slack.com&#34;&gt;coffeeops&lt;/a&gt; slacks.&lt;/p&gt;
+&lt;p&gt;I have a variety of DevOPS (and DevOOPs) themed swag on &lt;a href=&#34;https://www.redbubble.com/people/unixorn/collections/1069603-devoops?asc=u&#34;&gt;redbubble&lt;/a&gt; and &lt;a href=&#34;https://www.spreadshirt.com/shop/user/unixorn/?srEdit=pa#?affiliateId=11625&#34;&gt;spreadshirt&lt;/a&gt;, if you&amp;rsquo;d like to buy something and contribute to me buying new hardware to write about.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
       <link>https://unixorn.github.io/contact/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://unixorn.github.io/contact/</guid>
-      <description>Email me at blog @ unixorn.net.
-You can find me around the internet at:
-unixorn on GitHub @unixorn@mstdn.social on Mastodon I&amp;rsquo;m unixorn on redbubble apeseekingknowledge on Instagram. curiousbiped ~on Twitter~ deprecated, use Mastodon instead </description>
+      <description>&lt;p&gt;Email me at blog @ unixorn.net.&lt;/p&gt;
+&lt;p&gt;You can find me around the internet at:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn&#34;&gt;unixorn&lt;/a&gt; on GitHub&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://mstdn.social/@unixorn&#34;&gt;@unixorn@mstdn.social&lt;/a&gt; on Mastodon&lt;/li&gt;
+&lt;li&gt;I&amp;rsquo;m unixorn on &lt;a href=&#34;https://www.redbubble.com/people/unixorn?utm_campaign=external-portfolio&amp;amp;utm_medium=embedded&amp;amp;utm_source=unixorn&amp;amp;asc=u&#34;&gt;redbubble&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.instagram.com/apeseekingknowledge/&#34;&gt;apeseekingknowledge&lt;/a&gt; on Instagram.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://twitter.com/curiousbiped&#34;&gt;curiousbiped&lt;/a&gt; &lt;del&gt;on Twitter&lt;/del&gt; deprecated, use Mastodon instead&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
     <item>
       <title></title>
       <link>https://unixorn.github.io/jfc/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://unixorn.github.io/jfc/</guid>
-      <description>Ziggy Stardust</description>
+      <description>&lt;h1 id=&#34;ziggy&#34;&gt;Ziggy&lt;/h1&gt;
+&lt;p&gt;Stardust&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
@@ -415,7 +500,19 @@ tags:&lt;/p&gt;
       <link>https://unixorn.github.io/projects/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://unixorn.github.io/projects/</guid>
-      <description>Some projects I maintain and/or created apgar - Apgar is a quick and dirty health-check driver written in Go to prevent dependency conflicts. It is explicitly designed to be simple and not interfere with anything else running on your servers. awesome-zsh-plugins - A list of ZSH frameworks, plugins, themes, tab-completions and tutorials. dotfiles.github.io - The unofficial guide to dotfiles on GitHub. online-devops-meetups - A list of free online devops meetups. git-extra-commands - A collection of useful extra git scripts I&amp;rsquo;ve discovered or written, packaged for ease of use with shell frameworks.</description>
+      <description>&lt;h1 id=&#34;some-projects-i-maintain-andor-created&#34;&gt;Some projects I maintain and/or created&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/apgar&#34;&gt;apgar&lt;/a&gt; - Apgar is a quick and dirty health-check driver written in Go to prevent dependency conflicts. It is explicitly designed to be simple and not interfere with anything else running on your servers.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/awesome-zsh-plugins&#34;&gt;awesome-zsh-plugins&lt;/a&gt; - A list of ZSH frameworks, plugins, themes, tab-completions and tutorials.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://dotfiles.github.io&#34;&gt;dotfiles.github.io&lt;/a&gt; - The unofficial guide to dotfiles on GitHub.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/online-devops-meetups&#34;&gt;online-devops-meetups&lt;/a&gt; - A list of free online devops meetups.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/git-extra-commands&#34;&gt;git-extra-commands&lt;/a&gt; - A collection of useful extra &lt;code&gt;git&lt;/code&gt; scripts I&amp;rsquo;ve discovered or written, packaged for ease of use with shell frameworks.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable&#34;&gt;ha-mqtt-discoverable&lt;/a&gt; - A python module that lets you create sensor and device MQTT topics that will automatically be detected by &lt;a href=&#34;https://home-assistant.io&#34;&gt;Home Asssistant&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/sysadmin-reading-list&#34;&gt;sysadmin-reading-list&lt;/a&gt; - A reading/viewing list for larval stage SRE/DevOps people.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/tumult.plugin.zsh&#34;&gt;tumult&lt;/a&gt; - Tumult is a collection of macOS-specific functions and scripts for your command-line environment. It is packaged as a ZSH plugin, but can be used in &lt;code&gt;bash&lt;/code&gt;, &lt;code&gt;fish&lt;/code&gt; or other shells as well.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/works-with-home-assistant&#34;&gt;Works With Home Assistant&lt;/a&gt; - Not all IOT devices that claim to work with HA actually work well. This is a list of stuff that has been vouched to work well with &lt;a href=&#34;https://www.home-assistant.io&#34;&gt;Home Assistant&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/zsh-quickstart-kit&#34;&gt;zsh-quickstart-kit&lt;/a&gt; - A simple quick start for switching to ZSH. Includes a curated list of plugins that&amp;rsquo;s easily overridden if you want to change it, is easily customizable without needing to maintain a fork, and tweaks the setup to allow history de-duplication, history sharing across shells on the same machine, and on macOS will load a bunch of command line tools for manipulating your Mac.&lt;/li&gt;
+&lt;/ul&gt;</description>
     </item>
   </channel>
 </rss>

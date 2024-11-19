@@ -8,6 +8,7 @@
 <title>Restic Backups on TrueNAS | unixorn.github.io</title>
 <meta name="keywords" content="backups, duplicacy, freebsd, homelab, restic, truenas">
 <meta name="description" content="I&rsquo;ve been backing my homelab up with duplicacy (See Backing Up the Cluster Using Duplicacy), but I&rsquo;m fed up with it returning a 0 exit code even if there&rsquo;s a problem with the backup. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to restic.
+
 In this blog entry, I&rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install restic, and how to use it to back up to Backblaze b2.">
 <meta name="author" content="Me">
 <link rel="canonical" href="https://unixorn.github.io/post/restic-backups-on-truenas/">
@@ -59,6 +60,7 @@ In this blog entry, I&rsquo;m going to explain how to create a jail in TrueNAS, 
     </style>
 </noscript><meta property="og:title" content="Restic Backups on TrueNAS" />
 <meta property="og:description" content="I&rsquo;ve been backing my homelab up with duplicacy (See Backing Up the Cluster Using Duplicacy), but I&rsquo;m fed up with it returning a 0 exit code even if there&rsquo;s a problem with the backup. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to restic.
+
 In this blog entry, I&rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install restic, and how to use it to back up to Backblaze b2." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://unixorn.github.io/post/restic-backups-on-truenas/" />
@@ -67,11 +69,6 @@ In this blog entry, I&rsquo;m going to explain how to create a jail in TrueNAS, 
 <meta property="article:published_time" content="2023-01-13T11:16:19-07:00" />
 <meta property="article:modified_time" content="2023-01-13T11:16:19-07:00" /><meta property="og:site_name" content="The Plural of SRE is an Outage" />
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E" />
-<meta name="twitter:title" content="Restic Backups on TrueNAS"/>
-<meta name="twitter:description" content="I&rsquo;ve been backing my homelab up with duplicacy (See Backing Up the Cluster Using Duplicacy), but I&rsquo;m fed up with it returning a 0 exit code even if there&rsquo;s a problem with the backup. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to restic.
-In this blog entry, I&rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install restic, and how to use it to back up to Backblaze b2."/>
 
 
 <script type="application/ld+json">
@@ -100,7 +97,7 @@ In this blog entry, I&rsquo;m going to explain how to create a jail in TrueNAS, 
   "@type": "BlogPosting",
   "headline": "Restic Backups on TrueNAS",
   "name": "Restic Backups on TrueNAS",
-  "description": "I\u0026rsquo;ve been backing my homelab up with duplicacy (See Backing Up the Cluster Using Duplicacy), but I\u0026rsquo;m fed up with it returning a 0 exit code even if there\u0026rsquo;s a problem with the backup. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to restic.\nIn this blog entry, I\u0026rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install restic, and how to use it to back up to Backblaze b2.",
+  "description": "I\u0026rsquo;ve been backing my homelab up with duplicacy (See Backing Up the Cluster Using Duplicacy), but I\u0026rsquo;m fed up with it returning a 0 exit code even if there\u0026rsquo;s a problem with the backup. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to restic.\nIn this blog entry, I\u0026rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install restic, and how to use it to back up to Backblaze b2.\n",
   "keywords": [
     "backups", "duplicacy", "freebsd", "homelab", "restic", "truenas"
   ],

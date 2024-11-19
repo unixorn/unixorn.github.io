@@ -7,7 +7,16 @@
 <meta name="robots" content="index, follow">
 <title>Beginning Home Assistant | unixorn.github.io</title>
 <meta name="keywords" content="tech, hass, home assistant">
-<meta name="description" content="Parts List Home Assistant Open source software that prioritizes local control and privacy. I&rsquo;m using the arm build, homeassistant/armhf-homeassistant in docker. Odroid HC2 - I run Home Assistant on one of the HC2s in my existing cluster. GoControl CECOMINOD016164 HUSBZB-1 USB Hub - This provides both Zigbee and Z-Wave interfaces for Home Assistant Securifi Peanut Smart Plug - This is a Zigbee HA 1.2 switched plug - plug a device into it to add control.">
+<meta name="description" content="Parts List
+
+Home Assistant Open source software that prioritizes local control and privacy. I&rsquo;m using the arm build, homeassistant/armhf-homeassistant in docker.
+Odroid HC2 - I run Home Assistant on one of the HC2s in my existing cluster.
+GoControl CECOMINOD016164 HUSBZB-1 USB Hub - This provides both Zigbee and Z-Wave interfaces for Home Assistant
+Securifi Peanut Smart Plug - This is a Zigbee HA 1.2 switched plug - plug a device into it to add control. It has a manual on-off switch as well.
+
+Getting Started
+Set up a ZWave key
+tr -dc &#39;0-9A-F&#39; &lt; /dev/urandom | fold -w 32 | head -n 1 | sed -e &#39;s/\(..\)/0x\1, /g&#39;">
 <meta name="author" content="Me">
 <link rel="canonical" href="http://localhost:1313/post/beginning-home-assistant/">
 <meta name="google-site-verification" content="UA-100853138-2">
@@ -57,7 +66,16 @@
 
     </style>
 </noscript><meta property="og:title" content="Beginning Home Assistant" />
-<meta property="og:description" content="Parts List Home Assistant Open source software that prioritizes local control and privacy. I&rsquo;m using the arm build, homeassistant/armhf-homeassistant in docker. Odroid HC2 - I run Home Assistant on one of the HC2s in my existing cluster. GoControl CECOMINOD016164 HUSBZB-1 USB Hub - This provides both Zigbee and Z-Wave interfaces for Home Assistant Securifi Peanut Smart Plug - This is a Zigbee HA 1.2 switched plug - plug a device into it to add control." />
+<meta property="og:description" content="Parts List
+
+Home Assistant Open source software that prioritizes local control and privacy. I&rsquo;m using the arm build, homeassistant/armhf-homeassistant in docker.
+Odroid HC2 - I run Home Assistant on one of the HC2s in my existing cluster.
+GoControl CECOMINOD016164 HUSBZB-1 USB Hub - This provides both Zigbee and Z-Wave interfaces for Home Assistant
+Securifi Peanut Smart Plug - This is a Zigbee HA 1.2 switched plug - plug a device into it to add control. It has a manual on-off switch as well.
+
+Getting Started
+Set up a ZWave key
+tr -dc &#39;0-9A-F&#39; &lt; /dev/urandom | fold -w 32 | head -n 1 | sed -e &#39;s/\(..\)/0x\1, /g&#39;" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/post/beginning-home-assistant/" />
 <meta property="og:image" content="http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E" />
@@ -65,10 +83,6 @@
 <meta property="article:published_time" content="2019-07-21T08:58:07-06:00" />
 <meta property="article:modified_time" content="2019-07-21T08:58:07-06:00" /><meta property="og:site_name" content="The Plural of SRE is an Outage" />
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E" />
-<meta name="twitter:title" content="Beginning Home Assistant"/>
-<meta name="twitter:description" content="Parts List Home Assistant Open source software that prioritizes local control and privacy. I&rsquo;m using the arm build, homeassistant/armhf-homeassistant in docker. Odroid HC2 - I run Home Assistant on one of the HC2s in my existing cluster. GoControl CECOMINOD016164 HUSBZB-1 USB Hub - This provides both Zigbee and Z-Wave interfaces for Home Assistant Securifi Peanut Smart Plug - This is a Zigbee HA 1.2 switched plug - plug a device into it to add control."/>
 
 
 <script type="application/ld+json">
@@ -97,7 +111,7 @@
   "@type": "BlogPosting",
   "headline": "Beginning Home Assistant",
   "name": "Beginning Home Assistant",
-  "description": "Parts List Home Assistant Open source software that prioritizes local control and privacy. I\u0026rsquo;m using the arm build, homeassistant/armhf-homeassistant in docker. Odroid HC2 - I run Home Assistant on one of the HC2s in my existing cluster. GoControl CECOMINOD016164 HUSBZB-1 USB Hub - This provides both Zigbee and Z-Wave interfaces for Home Assistant Securifi Peanut Smart Plug - This is a Zigbee HA 1.2 switched plug - plug a device into it to add control.",
+  "description": "Parts List Home Assistant Open source software that prioritizes local control and privacy. I\u0026rsquo;m using the arm build, homeassistant/armhf-homeassistant in docker. Odroid HC2 - I run Home Assistant on one of the HC2s in my existing cluster. GoControl CECOMINOD016164 HUSBZB-1 USB Hub - This provides both Zigbee and Z-Wave interfaces for Home Assistant Securifi Peanut Smart Plug - This is a Zigbee HA 1.2 switched plug - plug a device into it to add control. It has a manual on-off switch as well. Getting Started Set up a ZWave key tr -dc '0-9A-F' \u0026lt; /dev/urandom | fold -w 32 | head -n 1 | sed -e 's/\\(..\\)/0x\\1, /g'\n",
   "keywords": [
     "tech", "hass", "home assistant"
   ],

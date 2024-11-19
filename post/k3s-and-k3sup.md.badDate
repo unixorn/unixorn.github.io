@@ -1,0 +1,70 @@
+---
+title: "k3s with k3sup and helm"
+date: 2020-05-201T21:55:18-07:00
+draft: true
+tags:
+  - arm
+  - arm7
+  - homelab
+  - tech
+---
+
+Installing k3s on the ARM cluster using k3sup
+<!--more-->
+# k3s, take 2
+
+# Install 
+
+k3sup install --ip 10.0.1.211 --local --k3s-extra-args '--no-deploy traefik --docker'
+
+nope
+kubectl apply -f "https://raw.githubusercontent.com/danderson/metallb/master/manifests/metallb.yaml"
+
+nope
+helm install metallb stable/metallb --namespace kube-system \
+  --set configInline.address-pools[0].name=default \
+  --set configInline.address-pools[0].protocol=layer2 \
+  --set configInline.address-pools[0].addresses[0]=10.0.1.16-10.0.1.32
+
+`kubectl create namespace metallb-system`
+`kubectl apply -f https://raw.githubusercontent.com/metallb/metallb/main/manifests/metallb.yaml`
+`kubectl create secret generic -n metallb-system memberlist --from-literal=secretkey="$(openssl rand -base64 128)" # First time only`
+
+
+
+Copy `/etc/rancher/k3s/k3s.yaml` from your master to your `~/.kube/config`. Alternately call it `~/.kube/config-ARM-cluster`, and `export KUBECONFIG=~/.kube/config-ARM-cluster` so that `kubectl` uses it.
+
+`kubectl get nodes` to confirm it's working.
+
+## Install Helm
+
+Get the latest helm from https://github.com/helm/helm/releases
+
+Get helm - https://get.helm.sh/helm-v3.2.0-linux-arm64.tar.gz
+Copy `helm` to `/usr/local/bin`
+
+Run `helm version`
+
+Install stable helm charts - `helm repo add stable https://kubernetes-charts.storage.googleapis.com`
+
+## Install Traefik
+
+Install the traefik helm repo - the stable helm charts collection is still installing 1.7
+
+`helm repo add traefik https://containous.github.io/traefik-helm-chart`
+
+
+--- 
+NO
+## Cert Manager
+
+1. Install the CRD (Custom Resource Definitions) - `kubectl apply --validate=false -f https://github.com/jetstack/cert-manager/releases/download/v0.14.3/cert-manager.crds.yaml`
+2. Cert manager expects to run in its own namespace. Create it with `kubectl create namespace cert-manager`
+3. The cert-manager version in the helm stable repository is deprecated, so add the jetstack helm repo with `helm repo add jetstack https://charts.jetstack.io`
+4. Update your helm cache with `helm repo update`
+5. Innstall cert-manager with `helm install \
+  cert-manager jetstack/cert-manager \
+  --namespace cert-manager \
+  --version v0.14.3`
+6.
+

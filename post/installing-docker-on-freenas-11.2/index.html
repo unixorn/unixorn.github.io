@@ -7,8 +7,17 @@
 <meta name="robots" content="index, follow">
 <title>Installing Docker on FreeNAS 11.2 | unixorn.github.io</title>
 <meta name="keywords" content="tech, FreeNAS, rancher">
-<meta name="description" content="Docker on FreeNAS 11 It isn&rsquo;t as simple as just clicking on for a docker service in the UI. You&rsquo;re going to have to set up a VM yourself.
-Create Rancher VM Create a VM in the new UI, select Docker Host. This will create a Rancher VM that already has docker installed inside so you don&rsquo;t have to hassle with installing. Go into the classic webui, select the VM you just created, then devices, and edit Pick the RAW item, select edit, then set a password.">
+<meta name="description" content="Docker on FreeNAS 11
+It isn&rsquo;t as simple as just clicking on for a docker service in the UI. You&rsquo;re going to have to set up a VM yourself.
+Create Rancher VM
+
+Create a VM in the new UI, select Docker Host. This will create a Rancher VM that already has docker installed inside so you don&rsquo;t have to hassle with installing.
+Go into the classic webui, select the VM you just created, then devices, and edit
+Pick the RAW item, select edit, then set a password. This will be the rancher user&rsquo;s password.
+Back in the new UI, go into VM, select the Rancher VM, hit the &hellip; and select serial to see the serial console. At the end of the boot messages, it will print something like docker-sys: 172.18.42.1 eth0: 10.9.8.7 lo: 127.0.0.1 before it presents a login prompt. The username is rancher, and the password is what you set in step 3.
+
+Setup Network on the Rancher VM
+I chose to set the static address for my Rancher VM on my DHCP server. This makes it easier to change later without having to hand-configure the VM, I can just update it on the Unifi controller and reboot the VM.">
 <meta name="author" content="Me">
 <link rel="canonical" href="http://localhost:1313/post/installing-docker-on-freenas-11.2/">
 <meta name="google-site-verification" content="UA-100853138-2">
@@ -58,8 +67,17 @@ Create Rancher VM Create a VM in the new UI, select Docker Host. This will creat
 
     </style>
 </noscript><meta property="og:title" content="Installing Docker on FreeNAS 11.2" />
-<meta property="og:description" content="Docker on FreeNAS 11 It isn&rsquo;t as simple as just clicking on for a docker service in the UI. You&rsquo;re going to have to set up a VM yourself.
-Create Rancher VM Create a VM in the new UI, select Docker Host. This will create a Rancher VM that already has docker installed inside so you don&rsquo;t have to hassle with installing. Go into the classic webui, select the VM you just created, then devices, and edit Pick the RAW item, select edit, then set a password." />
+<meta property="og:description" content="Docker on FreeNAS 11
+It isn&rsquo;t as simple as just clicking on for a docker service in the UI. You&rsquo;re going to have to set up a VM yourself.
+Create Rancher VM
+
+Create a VM in the new UI, select Docker Host. This will create a Rancher VM that already has docker installed inside so you don&rsquo;t have to hassle with installing.
+Go into the classic webui, select the VM you just created, then devices, and edit
+Pick the RAW item, select edit, then set a password. This will be the rancher user&rsquo;s password.
+Back in the new UI, go into VM, select the Rancher VM, hit the &hellip; and select serial to see the serial console. At the end of the boot messages, it will print something like docker-sys: 172.18.42.1 eth0: 10.9.8.7 lo: 127.0.0.1 before it presents a login prompt. The username is rancher, and the password is what you set in step 3.
+
+Setup Network on the Rancher VM
+I chose to set the static address for my Rancher VM on my DHCP server. This makes it easier to change later without having to hand-configure the VM, I can just update it on the Unifi controller and reboot the VM." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="http://localhost:1313/post/installing-docker-on-freenas-11.2/" />
 <meta property="og:image" content="http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E" />
@@ -67,11 +85,6 @@ Create Rancher VM Create a VM in the new UI, select Docker Host. This will creat
 <meta property="article:published_time" content="2020-04-17T19:25:47-06:00" />
 <meta property="article:modified_time" content="2020-04-17T19:25:47-06:00" /><meta property="og:site_name" content="The Plural of SRE is an Outage" />
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E" />
-<meta name="twitter:title" content="Installing Docker on FreeNAS 11.2"/>
-<meta name="twitter:description" content="Docker on FreeNAS 11 It isn&rsquo;t as simple as just clicking on for a docker service in the UI. You&rsquo;re going to have to set up a VM yourself.
-Create Rancher VM Create a VM in the new UI, select Docker Host. This will create a Rancher VM that already has docker installed inside so you don&rsquo;t have to hassle with installing. Go into the classic webui, select the VM you just created, then devices, and edit Pick the RAW item, select edit, then set a password."/>
 
 
 <script type="application/ld+json">
@@ -100,7 +113,7 @@ Create Rancher VM Create a VM in the new UI, select Docker Host. This will creat
   "@type": "BlogPosting",
   "headline": "Installing Docker on FreeNAS 11.2",
   "name": "Installing Docker on FreeNAS 11.2",
-  "description": "Docker on FreeNAS 11 It isn\u0026rsquo;t as simple as just clicking on for a docker service in the UI. You\u0026rsquo;re going to have to set up a VM yourself.\nCreate Rancher VM Create a VM in the new UI, select Docker Host. This will create a Rancher VM that already has docker installed inside so you don\u0026rsquo;t have to hassle with installing. Go into the classic webui, select the VM you just created, then devices, and edit Pick the RAW item, select edit, then set a password.",
+  "description": "Docker on FreeNAS 11 It isn\u0026rsquo;t as simple as just clicking on for a docker service in the UI. You\u0026rsquo;re going to have to set up a VM yourself.\nCreate Rancher VM Create a VM in the new UI, select Docker Host. This will create a Rancher VM that already has docker installed inside so you don\u0026rsquo;t have to hassle with installing. Go into the classic webui, select the VM you just created, then devices, and edit Pick the RAW item, select edit, then set a password. This will be the rancher user\u0026rsquo;s password. Back in the new UI, go into VM, select the Rancher VM, hit the \u0026hellip; and select serial to see the serial console. At the end of the boot messages, it will print something like docker-sys: 172.18.42.1 eth0: 10.9.8.7 lo: 127.0.0.1 before it presents a login prompt. The username is rancher, and the password is what you set in step 3. Setup Network on the Rancher VM I chose to set the static address for my Rancher VM on my DHCP server. This makes it easier to change later without having to hand-configure the VM, I can just update it on the Unifi controller and reboot the VM.\n",
   "keywords": [
     "tech", "FreeNAS", "rancher"
   ],
@@ -387,10 +400,10 @@ mounts:
       <li><a href="http://localhost:1313/tags/rancher/">Rancher</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/post/multi-architecture-images/">
+  <a class="prev" href="http://localhost:1313/post/k3s-and-k3sup/">
     <span class="title">« Prev</span>
     <br>
-    <span>Building Multi Architecture Docker Images with buildx</span>
+    <span>k3s with k3sup and helm</span>
   </a>
   <a class="next" href="http://localhost:1313/post/setting-up-an-n2/">
     <span class="title">Next »</span>

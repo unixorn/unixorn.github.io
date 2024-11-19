@@ -77,16 +77,6 @@ Speed. Using a real database will speed up history display, especially once you 
 <meta property="article:published_time" content="2022-11-05T09:42:58-06:00" />
 <meta property="article:modified_time" content="2022-11-05T09:42:58-06:00" /><meta property="og:site_name" content="The Plural of SRE is an Outage" />
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E" />
-<meta name="twitter:title" content="Switch Home Assistant to Use PostgreSQL Instead of SQLite"/>
-<meta name="twitter:description" content="I wanted to switch my new Home Assistant (HA) installation to write data to PostgreSQL instead of SQLite for a variety of reasons. Here&rsquo;s how I did it.
-Here&rsquo;s why I decided to switch:
-
-Resilience. If you&rsquo;re running Home Assistant on a Raspberry Pi&rsquo;s SD card, the constant churn of history updates will eventually destroy the card. The more entities you have, the faster HA will grind your SD card to failure. Writing all that to another server that is writing to a real SSD or spinning disk eliminates that problem.
-Convenience. I can back up the postgres database without having to stop HA. I don&rsquo;t even have to run the backup on the HA server.
-Speed. Using a real database will speed up history display, especially once you have a large number of entities.
-"/>
 
 
 <script type="application/ld+json">

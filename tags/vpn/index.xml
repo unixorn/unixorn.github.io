@@ -19,10 +19,17 @@
       <link>http://localhost:1313/post/setting-up-unifi-vpn/</link>
       <pubDate>Sun, 21 Jul 2019 08:58:07 -0600</pubDate>
       <guid>http://localhost:1313/post/setting-up-unifi-vpn/</guid>
-      <description>Needed to set up a VPN on my Unifi
-Enable the radius service Settings -&amp;gt; Radius -&amp;gt; Server Set a good secret
-Create a network Set the type to Remote User VPN Specify a network for it
-Create a User You can specify a VLAN for them here Set tunnel type to L2TP Set tunnel medium type to IPv4</description>
+      <description>&lt;p&gt;Needed to set up a VPN on my Unifi&lt;/p&gt;
+&lt;h2 id=&#34;enable-the-radius-service&#34;&gt;Enable the radius service&lt;/h2&gt;
+&lt;p&gt;Settings -&amp;gt; Radius -&amp;gt; Server
+Set a good secret&lt;/p&gt;
+&lt;h2 id=&#34;create-a-network&#34;&gt;Create a network&lt;/h2&gt;
+&lt;p&gt;Set the type to Remote User VPN
+Specify a network for it&lt;/p&gt;
+&lt;h2 id=&#34;create-a-user&#34;&gt;Create a User&lt;/h2&gt;
+&lt;p&gt;You can specify a VLAN for them here
+Set tunnel type to L2TP
+Set tunnel medium type to IPv4&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -64,10 +64,6 @@
 <meta property="og:image" content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E" />
 <meta property="og:site_name" content="The Plural of SRE is an Outage" />
 
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E" />
-<meta name="twitter:title" content="Posts"/>
-<meta name="twitter:description" content="Unixorn&#39;s Blog"/>
 
 
 <script type="application/ld+json">
@@ -184,68 +180,138 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Installing ESPHome
+    <h2 class="entry-hint-parent">Switch Home Assistant to Use PostgreSQL Instead of SQLite
     </h2>
   </header>
   <div class="entry-content">
-    <p>Some of my posts assume that the user already has ESPHome installed, so I’m documenting how to install it here so I don’t have to repeat it everywhere.
-...</p>
+    <p>I wanted to switch my new Home Assistant (HA) installation to write data to PostgreSQL instead of SQLite for a variety of reasons. Here’s how I did it.
+Here’s why I decided to switch:
+Resilience. If you’re running Home Assistant on a Raspberry Pi’s SD card, the constant churn of history updates will eventually destroy the card. The more entities you have, the faster HA will grind your SD card to failure. Writing all that to another server that is writing to a real SSD or spinning disk eliminates that problem. Convenience. I can back up the postgres database without having to stop HA. I don’t even have to run the backup on the HA server. Speed. Using a real database will speed up history display, especially once you have a large number of entities. ...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-05-22 10:32:34 -0600 MDT'>May 22, 2023</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;334 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to Installing ESPHome" href="https://unixorn.github.io/post/hass/2023-05-21-install-esphome/"></a>
+  <footer class="entry-footer"><span title='2022-11-05 09:42:58 -0600 MDT'>November 5, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;864 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Switch Home Assistant to Use PostgreSQL Instead of SQLite" href="https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Blog Comments via Mastodon
+    <h2 class="entry-hint-parent">Fix Securifi Peanut issue with zigbee2mqtt
     </h2>
   </header>
   <div class="entry-content">
-    <p>As part of moving from Twitter to Mastodon I decided to add comments to the blog using Fediverse posts. Fortunately, Carl Schwan showed how he does it on his blog here.
-Here are the exact tweaks to his post I did to get it working with the papermod theme I’m using on this blog.
+    <p>Securifi Peanut plugs have issues with zigbee2mqtt.
+I have several Securifi Peanut Zigbee switches. Overall, they’re nice little smart plugs and make good Zigbee routers to strengthen your Zigbee mesh, but they have one annoying issue - zigbee2mqtt doesn’t recognize them perfectly, though there’s a simple fix that I’m going to document here.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-04-05 15:45:03 -0600 MDT'>April 5, 2023</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1551 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to Blog Comments via Mastodon" href="https://unixorn.github.io/post/2023-03-blog-comments-via-mastodon/"></a>
+  <footer class="entry-footer"><span title='2022-10-06 21:20:45 -1000 -1000'>October 6, 2022</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;238 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Fix Securifi Peanut issue with zigbee2mqtt" href="https://unixorn.github.io/post/securifi-peanut-gotcha/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Booting an Orange Pi 5 from NVMe
+    <h2 class="entry-hint-parent">Use Pagerduty With Home Assistant
     </h2>
   </header>
   <div class="entry-content">
-    <p>Just got an Orange Pi 5. I couldn’t find a simple set of instructions on how to boot it off the M.2 NVMe slot, so I’m documenting it here.
+    <p>I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I’m an SRE, and have been using PagerDuty for years, so I decided to set up a personal PagerDuty account and connect it to my Home Assistant.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-03-31 11:08:42 -0600 MDT'>March 31, 2023</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;581 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to Booting an Orange Pi 5 from NVMe" href="https://unixorn.github.io/post/2023-03-boot-orange-pi-5-from-nvme/"></a>
+  <footer class="entry-footer"><span title='2022-09-17 15:38:01 -0600 MDT'>September 17, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;894 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Use Pagerduty With Home Assistant" href="https://unixorn.github.io/post/use-pagerduty-with-home-assistant/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Add Smarts to IKEA Vindriktning Sensors
+    <h2 class="entry-hint-parent">Fixing Autodesk Fusion 360 First Time Launch on macOS Problems
     </h2>
   </header>
   <div class="entry-content">
-    <p>We’re doing a kitchen &amp; bathrooms renovation, and the construction is generating a lot of dust, to the point that I was changing the HVAC filter twice a week. I wanted to see just how much garbage is in the air, so I started looking around for air quality sensors. Naturally I wanted one that I could integrate into my Home Assistant so I could generate notifications if the air was extra filthy.
+    <p>I signed up for the free personal edition of Autodesk Fusion 360 to get started with 3d printing, and the first time I tried to launch it on macOS, it wouldn’t let me in because it refused to create a new team for me to join.
+The solution ended up being to quit Fusion 360, open the Fusion Team Signup page in a browser, create a team there, then restart Fusion 360.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-03-18 13:46:13 -0600 MDT'>March 18, 2023</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;997 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to Add Smarts to IKEA Vindriktning Sensors" href="https://unixorn.github.io/post/add-smarts-to-ikea-vindriktning-air-sensors/"></a>
+  <footer class="entry-footer"><span title='2022-05-01 18:06:38 -0600 MDT'>May 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;94 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Fixing Autodesk Fusion 360 First Time Launch on macOS Problems" href="https://unixorn.github.io/post/autodesk-fusion-signup/"></a>
 </article>
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Released ha-mqtt-discoverable 0.8.0
+    <h2 class="entry-hint-parent">Western Digital Red drive SMR Fiasco
     </h2>
   </header>
   <div class="entry-content">
-    <p>Released version 0.8.0 of ha-mqtt-discoverable and version 0.2.0 of ha-mqtt-discoverable-cli today.
+    <p>TL;DR - SMR drives can take thirteen to sixteen times as long to resilver in your ZFS raid than CMR drives. If they even succeed. This wouldn’t be a big deal, except that Western Digital started using SMR technology in their WD-Red drives that are marketed toward SOHO and small business raid, without any warnings about the RAID performance implications.
+I got lucky when I bought my last batch of Reds, they were all CMR, but it was pure luck - I bought them based on Western Digital’s reputation and because I’ve seen multiple NAS vendors recommend WD-REDs in the past.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2023-03-11 16:39:38 -0700 MST'>March 11, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;61 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to Released ha-mqtt-discoverable 0.8.0" href="https://unixorn.github.io/post/ha-mqtt-discoverable-0.8.0/"></a>
+  <footer class="entry-footer"><span title='2022-01-15 07:32:37 -0700 MST'>January 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;177 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Western Digital Red drive SMR Fiasco" href="https://unixorn.github.io/post/western-digital-red-smr-fiasco/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Sysadvent 2021 Articles
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>I wrote two articles in sysadvent 2021
+Baking Multi-Architecture Docker Images Setting up k3s in your home lab </p>
+  </div>
+  <footer class="entry-footer"><span title='2021-12-07 11:13:39 -0700 MST'>December 7, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;18 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Sysadvent 2021 Articles" href="https://unixorn.github.io/post/sysadvent-2021-article/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">AWS IAM Self Tagging EC2 Instances
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>For a variety of reasons, I needed to enable some EC2 instances to write/update a single EC2 tag, but the instaces needed to only be able to tag themselves.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-06-13 15:21:03 -0600 MDT'>June 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;141 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to AWS IAM Self Tagging EC2 Instances" href="https://unixorn.github.io/post/iam-self-tagging/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Setting up Shinobi and a Wyze G2 Camera
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>I wanted to set up a security camera outside, but I didn’t want to be dependent on an outside cloud service - if my internet goes out, I don’t want to lose my ability to record video.
+Wyze cameras are nice and cheap, and you can reflash them to support RTSP in addition to streaming to the Wyze cloud.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-03-14 01:59:26 -0700 MST'>March 14, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;785 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Setting up Shinobi and a Wyze G2 Camera" href="https://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Home Assistant Printer Power Management
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>I’ve got an old HP laser printer in my basement. We barely print 10 pages a month between the two of us, so we only turn it on when we’re going to print. That’s a hassle though, because inevitably we forget to shut it off sometimes and it stays on overnight or even for days, and while it has a powersave mode, the 4050N is so old that even that burns a good amount of power.
+Enter Home Assistant.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-13 12:08:24 -0700 MST'>February 13, 2021</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1461 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Home Assistant Printer Power Management" href="https://unixorn.github.io/post/home-assistant-printer-power-management/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Run a CUPSD print server on Raspberry Pi
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here’s how I set that up.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2021-02-08 12:11:24 -0700 MST'>February 8, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;354 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Run a CUPSD print server on Raspberry Pi" href="https://unixorn.github.io/post/cupsd-setup/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

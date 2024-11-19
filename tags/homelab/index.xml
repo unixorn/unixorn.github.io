@@ -72,16 +72,17 @@
       <link>https://unixorn.github.io/post/restic-backups-on-truenas/</link>
       <pubDate>Fri, 13 Jan 2023 11:16:19 -0700</pubDate>
       <guid>https://unixorn.github.io/post/restic-backups-on-truenas/</guid>
-      <description>I&amp;rsquo;ve been backing my homelab up with duplicacy (See Backing Up the Cluster Using Duplicacy), but I&amp;rsquo;m fed up with it returning a 0 exit code even if there&amp;rsquo;s a problem with the backup. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to restic.
-In this blog entry, I&amp;rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install restic, and how to use it to back up to Backblaze b2.</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve been backing my homelab up with &lt;code&gt;duplicacy&lt;/code&gt; (See &lt;a href=&#34;https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/&#34;&gt;Backing Up the Cluster Using Duplicacy&lt;/a&gt;), but I&amp;rsquo;m fed up with it returning a &lt;code&gt;0&lt;/code&gt; exit code &lt;em&gt;even if there&amp;rsquo;s a problem with the backup&lt;/em&gt;. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to &lt;a href=&#34;https://restic.net/&#34;&gt;restic&lt;/a&gt;.&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;In this blog entry, I&amp;rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install &lt;a href=&#34;https://restic.net/&#34;&gt;restic&lt;/a&gt;, and how to use it to back up to &lt;a href=&#34;https://www.backblaze.com/b2/cloud-storage.html&#34;&gt;Backblaze b2&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Western Digital Red drive SMR Fiasco</title>
       <link>https://unixorn.github.io/post/western-digital-red-smr-fiasco/</link>
       <pubDate>Sat, 15 Jan 2022 07:32:37 -0700</pubDate>
       <guid>https://unixorn.github.io/post/western-digital-red-smr-fiasco/</guid>
-      <description>TL;DR - SMR drives can take thirteen to sixteen times as long to resilver in your ZFS raid than CMR drives. If they even succeed. This wouldn&amp;rsquo;t be a big deal, except that Western Digital started using SMR technology in their WD-Red drives that are marketed toward SOHO and small business raid, without any warnings about the RAID performance implications.
-I got lucky when I bought my last batch of Reds, they were all CMR, but it was pure luck - I bought them based on Western Digital&amp;rsquo;s reputation and because I&amp;rsquo;ve seen multiple NAS vendors recommend WD-REDs in the past.</description>
+      <description>&lt;p&gt;TL;DR - SMR drives can take thirteen to sixteen times as long to resilver in your ZFS raid than CMR drives. If they even succeed. This wouldn&amp;rsquo;t be a big deal, except that Western Digital started using SMR technology in their WD-Red drives that are marketed toward SOHO and small business raid, without any warnings about the RAID performance implications.&lt;/p&gt;
+&lt;p&gt;I got lucky when I bought my last batch of Reds, they were all CMR, but it was pure luck - I bought them based on Western Digital&amp;rsquo;s reputation and because I&amp;rsquo;ve seen multiple NAS vendors recommend WD-REDs in the past.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Setting up Shinobi and a Wyze G2 Camera</title>
@@ -111,9 +112,10 @@ I got lucky when I bought my last batch of Reds, they were all CMR, but it was p
       <link>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</link>
       <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
       <guid>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</guid>
-      <description>Sending notifications from Home Assistant via Twilio SMS I got a post published at work about How to Receive Alerts from Home Assistant with Twilio SMS, so I won&amp;rsquo;t replicate it here.
-TL;DR - It is super easy to send SMS messages via Twilio SMS with curl.
-Update: I wrote another article, Use PagerDuty with Home Assistant this time for using PagerDuty which allows automatically de-duping notifications.</description>
+      <description>&lt;h2 id=&#34;sending-notifications-from-home-assistant-via-twilio-sms&#34;&gt;Sending notifications from Home Assistant via Twilio SMS&lt;/h2&gt;
+&lt;p&gt;I got a post published at work about &lt;a href=&#34;https://www.twilio.com/blog/home-assistant-twilio-sms-alerts&#34;&gt;How to Receive Alerts from Home Assistant with Twilio SMS&lt;/a&gt;, so I won&amp;rsquo;t replicate it here.&lt;/p&gt;
+&lt;p&gt;TL;DR - It is super easy to send SMS messages via Twilio SMS with &lt;code&gt;curl&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Update: I wrote another article, &lt;a href=&#34;https://unixorn.github.io/post/use-pagerduty-with-home-assistant/&#34;&gt;Use PagerDuty with Home Assistant&lt;/a&gt; this time for using PagerDuty which allows automatically de-duping notifications.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Setting up an ODROID N2</title>

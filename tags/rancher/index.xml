@@ -19,8 +19,17 @@
       <link>http://localhost:1313/post/installing-docker-on-freenas-11.2/</link>
       <pubDate>Fri, 17 Apr 2020 19:25:47 -0600</pubDate>
       <guid>http://localhost:1313/post/installing-docker-on-freenas-11.2/</guid>
-      <description>Docker on FreeNAS 11 It isn&amp;rsquo;t as simple as just clicking on for a docker service in the UI. You&amp;rsquo;re going to have to set up a VM yourself.
-Create Rancher VM Create a VM in the new UI, select Docker Host. This will create a Rancher VM that already has docker installed inside so you don&amp;rsquo;t have to hassle with installing. Go into the classic webui, select the VM you just created, then devices, and edit Pick the RAW item, select edit, then set a password.</description>
+      <description>&lt;h1 id=&#34;docker-on-freenas-11&#34;&gt;Docker on FreeNAS 11&lt;/h1&gt;
+&lt;p&gt;It isn&amp;rsquo;t as simple as just clicking on for a docker service in the UI. You&amp;rsquo;re going to have to set up a VM yourself.&lt;/p&gt;
+&lt;h2 id=&#34;create-rancher-vm&#34;&gt;Create Rancher VM&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a VM in the new UI, select Docker Host. This will create a Rancher VM that already has docker installed inside so you don&amp;rsquo;t have to hassle with installing.&lt;/li&gt;
+&lt;li&gt;Go into the classic webui, select the VM you just created, then devices, and edit&lt;/li&gt;
+&lt;li&gt;Pick the &lt;strong&gt;RAW&lt;/strong&gt; item, select edit, then set a password. This will be the rancher user&amp;rsquo;s password.&lt;/li&gt;
+&lt;li&gt;Back in the new UI, go into VM, select the Rancher VM, hit the &lt;strong&gt;&amp;hellip;&lt;/strong&gt; and select &lt;strong&gt;serial&lt;/strong&gt; to see the serial console. At the end of the boot messages, it will print something like &lt;code&gt;docker-sys: 172.18.42.1 eth0: 10.9.8.7 lo: 127.0.0.1&lt;/code&gt; before it presents a login prompt. The username is rancher, and the password is what you set in step 3.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;setup-network-on-the-rancher-vm&#34;&gt;Setup Network on the Rancher VM&lt;/h2&gt;
+&lt;p&gt;I chose to set the static address for my Rancher VM on my DHCP server. This makes it easier to change later without having to hand-configure the VM, I can just update it on the Unifi controller and reboot the VM.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
