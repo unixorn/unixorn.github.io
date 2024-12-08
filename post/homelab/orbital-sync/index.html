@@ -99,8 +99,8 @@ Enter orbital-sync." />
   "keywords": [
     "docker", "homelab", "pihole", "dns"
   ],
-  "articleBody": "I run PiHole for ad-blocking on my home network. I’m an SRE in my day job, so of course I’m not running a single instance of something as important as DNS. I also don’t want to have to update things like local DNS entries or blocklists in multiple places, that will cause weird and annoying inconsistencies in my DNS.\nEnter orbital-sync.\nInstallation docker-compose I’m running orbital-sync via docker-compose with this docker-compose.yaml file.\n# docker-compose.yaml version: '3' services: orbital-sync: image: mattwebbio/orbital-sync:1 environment: PRIMARY_HOST_BASE_URL: $PRIMARY_HOST_BASE_URL PRIMARY_HOST_PASSWORD: $PRIMARY_HOST_PASSWORD SECONDARY_HOSTS_1_BASE_URL: $SECONDARY_HOSTS_1_BASE_URL SECONDARY_HOSTS_1_PASSWORD: $SECONDARY_HOSTS_1_PASSWORD SECONDARY_HOSTS_2_BASE_URL: $SECONDARY_HOSTS_2_BASE_URL SECONDARY_HOSTS_2_PASSWORD: $SECONDARY_HOSTS_2_PASSWORD # I only have two secondary hosts, but you could sync a third one # SECONDARY_HOSTS_3_BASE_URL: 'http://server:8080' # SECONDARY_HOSTS_3_PASSWORD: 'your_password4' # SECONDARY_HOSTS_3_PATH: '/apps/pi-hole' INTERVAL_MINUTES: $INTERVAL_MINUTES # Run it in the same docker network I run the master pihole in for simplicity. # You can comment this stanza out if you're not using a ssl proxy. networks: default: external: name: ssl_proxy_network I have a .env file in the same directory as docker-compose.yaml where I set the configuration variables.\n# I run orbital-sync on the same host as the master pihole in the same # docker network I use for my SSL nginx proxy, so I can refer to it here # by container name. PRIMARY_HOST_BASE_URL=http://pihole PRIMARY_HOST_PASSWORD=YOUR_MASTER_PIHOLE_ADMIN_PASSWORD SECONDARY_HOSTS_1_BASE_URL=https://dns-secondary-one.example.com SECONDARY_HOSTS_1_PASSWORD=SECONDARY_ONE_PIHOLE_ADMIN_PASSWORD SECONDARY_HOSTS_2_BASE_URL=https://dns-secondary-two.example.com SECONDARY_HOSTS_2_PASSWORD=SECONDARY_TWO_PIHOLE_ADMIN_PASSWORD # I sync the primary to the secondaries every ten minutes. INTERVAL_MINUTES=10 # I only run two secondaries, but I could sync a third if I wanted #SECONDARY_HOSTS_3_BASE_URL=https://dns-secondary-three.example.com #SECONDARY_HOSTS_3_PASSWORD=SECONDARY_THREE_PIHOLE_ADMIN_PASSWORD The SSL proxy setup is documented at Set up nginx-proxy-manager with LetsEncrypt SSL certificates\nRunning Now you can run docker-compose up -d and your settings will be synced from your master pihole to its secondaries.\nHere’s a sanitized example docker log:\n$ docker-compose logs Attaching to orbital-sync_orbital-sync_1 orbital-sync_1 | 12/6/2024, 4:30:48 PM: ➡️ Signing in to http://pihole/admin... orbital-sync_1 | 12/6/2024, 4:30:48 PM: ✔️ Successfully signed in to http://pihole/admin! orbital-sync_1 | 12/6/2024, 4:30:48 PM: ➡️ Downloading backup from http://pihole/admin... orbital-sync_1 | 12/6/2024, 4:30:48 PM: ✔️ Backup from http://pihole/admin completed! orbital-sync_1 | 12/6/2024, 4:30:48 PM: ➡️ Signing in to https://dns-s1.example.com/admin... orbital-sync_1 | 12/6/2024, 4:30:48 PM: ✔️ Successfully signed in to https://dns-s1.example.com/admin! orbital-sync_1 | 12/6/2024, 4:30:48 PM: ➡️ Signing in to https://dns-s1.example.com/admin... orbital-sync_1 | 12/6/2024, 4:30:48 PM: ✔️ Successfully signed in to https://dns-s1.example.com/orbital-sync_1 | 12/6/2024, 4:30:48 PM: ➡️ Uploading backup to https://dns-s1.example.com/admin... ",
-  "wordCount" : "380",
+  "articleBody": "I run PiHole for ad-blocking on my home network. I’m an SRE in my day job, so of course I’m not running a single instance of something as important as DNS. I also don’t want to have to update things like local DNS entries or blocklists in multiple places, that will cause weird and annoying inconsistencies in my DNS.\nEnter orbital-sync.\nInstallation docker-compose I’m running orbital-sync via docker-compose with this docker-compose.yaml file.\n# docker-compose.yaml version: '3' services: orbital-sync: image: mattwebbio/orbital-sync:1 environment: PRIMARY_HOST_BASE_URL: $PRIMARY_HOST_BASE_URL PRIMARY_HOST_PASSWORD: $PRIMARY_HOST_PASSWORD SECONDARY_HOSTS_1_BASE_URL: $SECONDARY_HOSTS_1_BASE_URL SECONDARY_HOSTS_1_PASSWORD: $SECONDARY_HOSTS_1_PASSWORD SECONDARY_HOSTS_2_BASE_URL: $SECONDARY_HOSTS_2_BASE_URL SECONDARY_HOSTS_2_PASSWORD: $SECONDARY_HOSTS_2_PASSWORD # I only have two secondary hosts, but you could sync a third one # SECONDARY_HOSTS_3_BASE_URL: 'http://server:8080' # SECONDARY_HOSTS_3_PASSWORD: 'your_password4' # SECONDARY_HOSTS_3_PATH: '/apps/pi-hole' INTERVAL_MINUTES: $INTERVAL_MINUTES # Run it in the same docker network I run the master pihole in for simplicity. # You can comment this stanza out if you're not using a ssl proxy. networks: default: external: name: ssl_proxy_network Configuration I have a .env file in the same directory as docker-compose.yaml where I set the configuration variables.\n# I run orbital-sync on the same host as the master pihole in the same # docker network I use for my SSL nginx proxy, so I can refer to it here # by container name. PRIMARY_HOST_BASE_URL=http://pihole PRIMARY_HOST_PASSWORD=YOUR_MASTER_PIHOLE_ADMIN_PASSWORD SECONDARY_HOSTS_1_BASE_URL=https://dns-secondary-one.example.com SECONDARY_HOSTS_1_PASSWORD=SECONDARY_ONE_PIHOLE_ADMIN_PASSWORD SECONDARY_HOSTS_2_BASE_URL=https://dns-secondary-two.example.com SECONDARY_HOSTS_2_PASSWORD=SECONDARY_TWO_PIHOLE_ADMIN_PASSWORD # I sync the primary to the secondaries every ten minutes. INTERVAL_MINUTES=10 # I only run two secondaries, but I could sync a third if I wanted #SECONDARY_HOSTS_3_BASE_URL=https://dns-secondary-three.example.com #SECONDARY_HOSTS_3_PASSWORD=SECONDARY_THREE_PIHOLE_ADMIN_PASSWORD The SSL proxy setup is documented at Set up nginx-proxy-manager with LetsEncrypt SSL certificates\nRunning Now you can run docker-compose up -d and your settings will be synced from your master pihole to its secondaries.\nHere’s a sanitized example docker log:\n$ docker-compose logs orbital-sync_1 | 12/6/2024, 4:44:28 PM: ➡️ Signing in to http://pihole/admin... orbital-sync_1 | 12/6/2024, 4:44:28 PM: ✔️ Successfully signed in to http://pihole/admin! orbital-sync_1 | 12/6/2024, 4:44:28 PM: ➡️ Downloading backup from http://pihole/admin... orbital-sync_1 | 12/6/2024, 4:44:28 PM: ✔️ Backup from http://pihole/admin completed! orbital-sync_1 | 12/6/2024, 4:44:28 PM: ➡️ Signing in to https://dns-s1.example.com/admin... orbital-sync_1 | 12/6/2024, 4:44:28 PM: ✔️ Successfully signed in to https://dns-s1.example.com/admin! orbital-sync_1 | 12/6/2024, 4:44:28 PM: ➡️ Uploading backup to https://dns-s1.example.com/admin... orbital-sync_1 | 12/6/2024, 4:44:46 PM: ✔️ Backup uploaded to https://dns-s1.example.com/admin! orbital-sync_1 | 12/6/2024, 4:44:46 PM: ➡️ Updating gravity on https://dns-s1.example.com/admin... orbital-sync_1 | 12/6/2024, 4:44:49 PM: ✔️ Gravity updated on https://dns-s1.example.com/admin! orbital-sync_1 | 12/6/2024, 4:44:49 PM: ✔️ Success: 1/1 hosts synced. orbital-sync_1 | 12/6/2024, 4:44:49 PM: Waiting 10 minutes...``` ",
+  "wordCount" : "406",
   "inLanguage": "en",
   "image": "https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished": "2024-12-07T19:15:14-06:00",
   "dateModified": "2024-12-07T19:15:14-06:00",
@@ -213,7 +213,7 @@ Enter orbital-sync." />
     <h1 class="post-title">
       Synchronizing Multiple Piholes with orbital-sync
     </h1>
-    <div class="post-meta"><span title='2024-12-07 19:15:14 -0600 -0600'>December 7, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;380 words&nbsp;·&nbsp;Me
+    <div class="post-meta"><span title='2024-12-07 19:15:14 -0600 -0600'>December 7, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;406 words&nbsp;·&nbsp;Me
 
 </div>
   </header> <div class="toc">
@@ -227,9 +227,10 @@ Enter orbital-sync." />
     <li><a href="#installation">Installation</a>
       <ul>
         <li><a href="#docker-compose">docker-compose</a></li>
+        <li><a href="#configuration">Configuration</a></li>
+        <li><a href="#running">Running</a></li>
       </ul>
     </li>
-    <li><a href="#running">Running</a></li>
   </ul>
 </nav>
         </div>
@@ -265,7 +266,8 @@ Enter orbital-sync." />
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ssl_proxy_network</span><span class="w">
-</span></span></span></code></pre></div><p>I have a <code>.env</code> file in the same directory as <code>docker-compose.yaml</code> where I set the configuration variables.</p>
+</span></span></span></code></pre></div><h3 id="configuration">Configuration<a hidden class="anchor" aria-hidden="true" href="#configuration">#</a></h3>
+<p>I have a <code>.env</code> file in the same directory as <code>docker-compose.yaml</code> where I set the configuration variables.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="c1"># I run orbital-sync on the same host as the master pihole in the same</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># docker network I use for my SSL nginx proxy, so I can refer to it here</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># by container name.</span>
@@ -281,19 +283,22 @@ Enter orbital-sync." />
 </span></span><span class="line"><span class="cl"><span class="c1">#SECONDARY_HOSTS_3_BASE_URL=https://dns-secondary-three.example.com</span>
 </span></span><span class="line"><span class="cl"><span class="c1">#SECONDARY_HOSTS_3_PASSWORD=SECONDARY_THREE_PIHOLE_ADMIN_PASSWORD</span>
 </span></span></code></pre></div><p>The SSL proxy setup is documented at <a href="https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/">Set up nginx-proxy-manager with LetsEncrypt SSL certificates</a></p>
-<h2 id="running">Running<a hidden class="anchor" aria-hidden="true" href="#running">#</a></h2>
+<h3 id="running">Running<a hidden class="anchor" aria-hidden="true" href="#running">#</a></h3>
 <p>Now you can run <code>docker-compose up -d</code> and your settings will be synced from your master pihole to its secondaries.</p>
 <p>Here&rsquo;s a sanitized example docker log:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ docker-compose logs
-</span></span><span class="line"><span class="cl">Attaching to orbital-sync_orbital-sync_1
-</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:30:48 PM: ➡️ Signing in to http://pihole/admin...
-</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:30:48 PM: ✔️ Successfully signed in to http://pihole/admin!
-</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:30:48 PM: ➡️ Downloading backup from http://pihole/admin...
-</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:30:48 PM: ✔️ Backup from http://pihole/admin completed!
-</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:30:48 PM: ➡️ Signing in to https://dns-s1.example.com/admin...
-</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:30:48 PM: ✔️ Successfully signed in to https://dns-s1.example.com/admin!
-</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:30:48 PM: ➡️ Signing in to https://dns-s1.example.com/admin...
-</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:30:48 PM: ✔️ Successfully signed in to https://dns-s1.example.com/orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:30:48 PM: ➡️ Uploading backup to https://dns-s1.example.com/admin...
+</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:44:28 PM: ➡️ Signing in to http://pihole/admin...
+</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:44:28 PM: ✔️ Successfully signed in to http://pihole/admin!
+</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:44:28 PM: ➡️ Downloading backup from http://pihole/admin...
+</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:44:28 PM: ✔️ Backup from http://pihole/admin completed!
+</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:44:28 PM: ➡️ Signing in to https://dns-s1.example.com/admin...
+</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:44:28 PM: ✔️ Successfully signed in to https://dns-s1.example.com/admin!
+</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:44:28 PM: ➡️ Uploading backup to https://dns-s1.example.com/admin...
+</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:44:46 PM: ✔️ Backup uploaded to https://dns-s1.example.com/admin!
+</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:44:46 PM: ➡️ Updating gravity on https://dns-s1.example.com/admin...
+</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:44:49 PM: ✔️ Gravity updated on https://dns-s1.example.com/admin!
+</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:44:49 PM: ✔️ Success: 1/1 hosts synced.
+</span></span><span class="line"><span class="cl">orbital-sync_1  <span class="p">|</span> 12/6/2024, 4:44:49 PM: Waiting <span class="m">10</span> minutes...<span class="sb">```</span>
 </span></span></code></pre></div>
 
   </div>
