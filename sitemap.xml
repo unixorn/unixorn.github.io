@@ -2,11 +2,29 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/tags/dns/</loc>
+    <lastmod>2024-12-07T19:15:14-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/docker/</loc>
+    <lastmod>2024-12-07T19:15:14-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/homelab/</loc>
+    <lastmod>2024-12-07T19:15:14-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/pihole/</loc>
+    <lastmod>2024-12-07T19:15:14-06:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/post/</loc>
-    <lastmod>2024-11-03T11:16:12-07:00</lastmod>
+    <lastmod>2024-12-07T19:15:14-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/homelab/orbital-sync/</loc>
+    <lastmod>2024-12-07T19:15:14-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2024-12-07T19:15:14-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/</loc>
-    <lastmod>2024-11-03T11:16:12-07:00</lastmod>
+    <lastmod>2024-12-07T19:15:14-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/aquarium/</loc>
     <lastmod>2024-08-24T11:44:57-06:00</lastmod>
@@ -18,9 +36,6 @@
     <lastmod>2024-08-24T11:44:57-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/shrimp/</loc>
-    <lastmod>2024-08-24T11:44:57-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
     <lastmod>2024-08-24T11:44:57-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/aquarium_plant/</loc>
@@ -50,13 +65,7 @@
     <loc>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.14.0/</loc>
     <lastmod>2024-05-19T07:34:51-06:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/tags/docker/</loc>
-    <lastmod>2024-04-21T13:27:16-06:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/tags/grafana/</loc>
-    <lastmod>2024-04-21T13:27:16-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/homelab/</loc>
     <lastmod>2024-04-21T13:27:16-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/linux/</loc>
