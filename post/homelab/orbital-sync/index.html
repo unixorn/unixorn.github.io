@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Synchronizing Multiple Piholes with orbital-sync | unixorn.github.io</title>
-<meta name="keywords" content="docker, homelab, pihole, dns">
+<meta name="keywords" content="dns, docker, docker-compose, homelab, pihole">
 <meta name="description" content="I run PiHole for ad-blocking on my home network. I&rsquo;m an SRE in my day job, so of course I&rsquo;m not running a single instance of something as important as DNS. I also don&rsquo;t want to have to update things like local DNS entries or blocklists in multiple places, that will cause weird and annoying inconsistencies in my DNS.
 Enter orbital-sync.">
 <meta name="author" content="Me">
@@ -97,7 +97,7 @@ Enter orbital-sync." />
   "name": "Synchronizing Multiple Piholes with orbital-sync",
   "description": "I run PiHole for ad-blocking on my home network. I\u0026rsquo;m an SRE in my day job, so of course I\u0026rsquo;m not running a single instance of something as important as DNS. I also don\u0026rsquo;t want to have to update things like local DNS entries or blocklists in multiple places, that will cause weird and annoying inconsistencies in my DNS.\nEnter orbital-sync.\n",
   "keywords": [
-    "docker", "homelab", "pihole", "dns"
+    "dns", "docker", "docker-compose", "homelab", "pihole"
   ],
   "articleBody": "I run PiHole for ad-blocking on my home network. I’m an SRE in my day job, so of course I’m not running a single instance of something as important as DNS. I also don’t want to have to update things like local DNS entries or blocklists in multiple places, that will cause weird and annoying inconsistencies in my DNS.\nEnter orbital-sync.\nInstallation docker-compose I’m running orbital-sync via docker-compose with this docker-compose.yaml file.\n# docker-compose.yaml version: '3' services: orbital-sync: image: mattwebbio/orbital-sync:1 environment: PRIMARY_HOST_BASE_URL: $PRIMARY_HOST_BASE_URL PRIMARY_HOST_PASSWORD: $PRIMARY_HOST_PASSWORD SECONDARY_HOSTS_1_BASE_URL: $SECONDARY_HOSTS_1_BASE_URL SECONDARY_HOSTS_1_PASSWORD: $SECONDARY_HOSTS_1_PASSWORD SECONDARY_HOSTS_2_BASE_URL: $SECONDARY_HOSTS_2_BASE_URL SECONDARY_HOSTS_2_PASSWORD: $SECONDARY_HOSTS_2_PASSWORD # I only have two secondary hosts, but you could sync a third one # SECONDARY_HOSTS_3_BASE_URL: 'http://server:8080' # SECONDARY_HOSTS_3_PASSWORD: 'your_password4' # SECONDARY_HOSTS_3_PATH: '/apps/pi-hole' INTERVAL_MINUTES: $INTERVAL_MINUTES # Run it in the same docker network I run the master pihole in for simplicity. # You can comment this stanza out if you're not using a ssl proxy. networks: default: external: name: ssl_proxy_network Configuration I have a .env file in the same directory as docker-compose.yaml where I set the configuration variables.\n# I run orbital-sync on the same host as the master pihole in the same # docker network I use for my SSL nginx proxy, so I can refer to it here # by container name. PRIMARY_HOST_BASE_URL=http://pihole PRIMARY_HOST_PASSWORD=YOUR_MASTER_PIHOLE_ADMIN_PASSWORD SECONDARY_HOSTS_1_BASE_URL=https://dns-secondary-one.example.com SECONDARY_HOSTS_1_PASSWORD=SECONDARY_ONE_PIHOLE_ADMIN_PASSWORD SECONDARY_HOSTS_2_BASE_URL=https://dns-secondary-two.example.com SECONDARY_HOSTS_2_PASSWORD=SECONDARY_TWO_PIHOLE_ADMIN_PASSWORD # I sync the primary to the secondaries every ten minutes. INTERVAL_MINUTES=10 # I only run two secondaries, but I could sync a third if I wanted #SECONDARY_HOSTS_3_BASE_URL=https://dns-secondary-three.example.com #SECONDARY_HOSTS_3_PASSWORD=SECONDARY_THREE_PIHOLE_ADMIN_PASSWORD The SSL proxy setup is documented at Set up nginx-proxy-manager with LetsEncrypt SSL certificates\nRunning Now you can run docker-compose up -d and your settings will be synced from your master pihole to its secondaries.\nHere’s a sanitized example docker log:\n$ docker-compose logs orbital-sync_1 | 12/6/2024, 4:44:28 PM: ➡️ Signing in to http://pihole/admin... orbital-sync_1 | 12/6/2024, 4:44:28 PM: ✔️ Successfully signed in to http://pihole/admin! orbital-sync_1 | 12/6/2024, 4:44:28 PM: ➡️ Downloading backup from http://pihole/admin... orbital-sync_1 | 12/6/2024, 4:44:28 PM: ✔️ Backup from http://pihole/admin completed! orbital-sync_1 | 12/6/2024, 4:44:28 PM: ➡️ Signing in to https://dns-s1.example.com/admin... orbital-sync_1 | 12/6/2024, 4:44:28 PM: ✔️ Successfully signed in to https://dns-s1.example.com/admin! orbital-sync_1 | 12/6/2024, 4:44:28 PM: ➡️ Uploading backup to https://dns-s1.example.com/admin... orbital-sync_1 | 12/6/2024, 4:44:46 PM: ✔️ Backup uploaded to https://dns-s1.example.com/admin! orbital-sync_1 | 12/6/2024, 4:44:46 PM: ➡️ Updating gravity on https://dns-s1.example.com/admin... orbital-sync_1 | 12/6/2024, 4:44:49 PM: ✔️ Gravity updated on https://dns-s1.example.com/admin! orbital-sync_1 | 12/6/2024, 4:44:49 PM: ✔️ Success: 1/1 hosts synced. orbital-sync_1 | 12/6/2024, 4:44:49 PM: Waiting 10 minutes...``` ",
   "wordCount" : "406",
@@ -413,10 +413,11 @@ Enter orbital-sync." />
 
   <footer class="post-footer">
     <ul class="post-tags">
+      <li><a href="https://unixorn.github.io/tags/dns/">Dns</a></li>
       <li><a href="https://unixorn.github.io/tags/docker/">Docker</a></li>
+      <li><a href="https://unixorn.github.io/tags/docker-compose/">Docker-Compose</a></li>
       <li><a href="https://unixorn.github.io/tags/homelab/">Homelab</a></li>
       <li><a href="https://unixorn.github.io/tags/pihole/">Pihole</a></li>
-      <li><a href="https://unixorn.github.io/tags/dns/">Dns</a></li>
     </ul>
 <nav class="paginav">
   <a class="next" href="https://unixorn.github.io/post/aquarium/first-neos/">
@@ -430,7 +431,7 @@ Enter orbital-sync." />
 <ul class="share-buttons">
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Synchronizing Multiple Piholes with orbital-sync on x"
-            href="https://x.com/intent/tweet/?text=Synchronizing%20Multiple%20Piholes%20with%20orbital-sync&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2forbital-sync%2f&amp;hashtags=docker%2chomelab%2cpihole%2cdns">
+            href="https://x.com/intent/tweet/?text=Synchronizing%20Multiple%20Piholes%20with%20orbital-sync&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2forbital-sync%2f&amp;hashtags=dns%2cdocker%2cdocker-compose%2chomelab%2cpihole">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />

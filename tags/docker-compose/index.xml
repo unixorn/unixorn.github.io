@@ -12,8 +12,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 22 May 2023 10:32:34 -0600</lastBuildDate>
+    <lastBuildDate>Sat, 07 Dec 2024 19:15:14 -0600</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Synchronizing Multiple Piholes with orbital-sync</title>
+      <link>https://unixorn.github.io/post/homelab/orbital-sync/</link>
+      <pubDate>Sat, 07 Dec 2024 19:15:14 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/homelab/orbital-sync/</guid>
+      <description>&lt;p&gt;I run &lt;a href=&#34;https://pi-hole.net/&#34;&gt;PiHole&lt;/a&gt; for ad-blocking on my home network. I&amp;rsquo;m an SRE in my day job, so of course I&amp;rsquo;m not running a single instance of something as important as DNS. I also don&amp;rsquo;t want to have to update things like local DNS entries or blocklists in multiple places, that will cause weird and annoying inconsistencies in my DNS.&lt;/p&gt;
+&lt;p&gt;Enter &lt;a href=&#34;https://github.com/mattwebbio/orbital-sync&#34;&gt;orbital-sync&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Installing ESPHome</title>
       <link>https://unixorn.github.io/post/hass/2023-05-21-install-esphome/</link>
