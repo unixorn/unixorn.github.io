@@ -85,6 +85,15 @@
 &lt;p&gt;After some messing around, I eventually moved the couple scripts I had from &lt;code&gt;scripts.yaml&lt;/code&gt; as inline scripts in &lt;code&gt;configuration.yaml&lt;/code&gt;, restarted, and when I went to edit them, HA offered to migrate them into &lt;code&gt;scripts.yaml&lt;/code&gt;. Annoyingly, &lt;em&gt;then&lt;/em&gt; when I went to create a new script, HA didn’t return 500s, but the new script didn’t show up in the script list either. I could see it in &lt;code&gt;scripts.yaml&lt;/code&gt;, though, and &lt;code&gt;configuration.yaml&lt;/code&gt; had the expected &lt;code&gt;script: !include scripts.yaml&lt;/code&gt; line in it.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Set up nginx-proxy-manager with LetsEncrypt SSL certificates</title>
+      <link>https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/</link>
+      <pubDate>Sat, 22 Jul 2023 08:19:38 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/</guid>
+      <description>&lt;p&gt;In the next few posts, I&amp;rsquo;m going to document how to set up Home Assistant (HA) from scratch. We&amp;rsquo;re going to want to protect the admin UI interfaces for HA and its support services with SSL, and add authentication to services that don&amp;rsquo;t provide it themselves.&lt;/p&gt;
+&lt;p&gt;We&amp;rsquo;re going to do this with &lt;a href=&#34;https://nginxproxymanager.com/&#34;&gt;Nginx Proxy Manager&lt;/a&gt; because it has built in support for using &lt;a href=&#34;https://letsencrypt.org&#34;&gt;LetsEncrypt&lt;/a&gt; to obtain free SSL certificates, supports adding authentication to services that don&amp;rsquo;t do it themselves, and is overall easy to use.&lt;/p&gt;
+&lt;p&gt;Before I start writing more Home Assitant articles, let&amp;rsquo;s set up a SSL proxy server to keep everything secure.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Add Smarts to IKEA Vindriktning Sensors</title>
       <link>https://unixorn.github.io/post/add-smarts-to-ikea-vindriktning-air-sensors/</link>
       <pubDate>Sat, 18 Mar 2023 13:46:13 -0600</pubDate>
