@@ -12,8 +12,29 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 07 Dec 2024 19:15:14 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 15 Dec 2024 09:31:56 -0700</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Ha-Mqtt-Discoverable</title>
+      <link>https://unixorn.github.io/tags/ha-mqtt-discoverable/</link>
+      <pubDate>Sun, 15 Dec 2024 09:31:56 -0700</pubDate>
+      <guid>https://unixorn.github.io/tags/ha-mqtt-discoverable/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Homeassistant</title>
+      <link>https://unixorn.github.io/tags/homeassistant/</link>
+      <pubDate>Sun, 15 Dec 2024 09:31:56 -0700</pubDate>
+      <guid>https://unixorn.github.io/tags/homeassistant/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Python</title>
+      <link>https://unixorn.github.io/tags/python/</link>
+      <pubDate>Sun, 15 Dec 2024 09:31:56 -0700</pubDate>
+      <guid>https://unixorn.github.io/tags/python/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Dns</title>
       <link>https://unixorn.github.io/tags/dns/</link>
@@ -96,20 +117,6 @@
       <link>https://unixorn.github.io/tags/scifi/</link>
       <pubDate>Tue, 30 Jul 2024 10:21:15 -0600</pubDate>
       <guid>https://unixorn.github.io/tags/scifi/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Ha-Mqtt-Discoverable</title>
-      <link>https://unixorn.github.io/tags/ha-mqtt-discoverable/</link>
-      <pubDate>Sun, 19 May 2024 07:34:51 -0600</pubDate>
-      <guid>https://unixorn.github.io/tags/ha-mqtt-discoverable/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Homeassistant</title>
-      <link>https://unixorn.github.io/tags/homeassistant/</link>
-      <pubDate>Sun, 19 May 2024 07:34:51 -0600</pubDate>
-      <guid>https://unixorn.github.io/tags/homeassistant/</guid>
       <description></description>
     </item>
     <item>
@@ -390,13 +397,6 @@
       <link>https://unixorn.github.io/tags/tech/</link>
       <pubDate>Sat, 18 Mar 2023 13:46:13 -0600</pubDate>
       <guid>https://unixorn.github.io/tags/tech/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Python</title>
-      <link>https://unixorn.github.io/tags/python/</link>
-      <pubDate>Sat, 11 Mar 2023 16:39:38 -0700</pubDate>
-      <guid>https://unixorn.github.io/tags/python/</guid>
       <description></description>
     </item>
     <item>

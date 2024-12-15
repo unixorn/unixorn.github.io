@@ -12,8 +12,23 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 07 Dec 2024 19:15:14 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 15 Dec 2024 09:31:56 -0700</lastBuildDate>
     <atom:link href="https://unixorn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Released ha-mqtt-discoverable v0.16.2</title>
+      <link>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.16.2/</link>
+      <pubDate>Sun, 15 Dec 2024 09:31:56 -0700</pubDate>
+      <guid>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.16.2/</guid>
+      <description>&lt;p&gt;Released ha-mqtt-discoverable &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/releases/tag/v0.16.2&#34;&gt;v0.16.2&lt;/a&gt; and ha-mqtt-discoverable &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable-cli/releases/tag/v0.16.2&#34;&gt;v0.16.2&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;whats-changed&#34;&gt;What&amp;rsquo;s Changed&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Added missing last_reset to sensor for metering (electricity,gas, water etc.) by @unl0ck in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/286&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/286&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;new-contributors&#34;&gt;New Contributors&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;@unl0ck made their first contribution in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/286&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/286&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>Synchronizing Multiple Piholes with orbital-sync</title>
       <link>https://unixorn.github.io/post/homelab/orbital-sync/</link>

@@ -167,6 +167,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Weird Home Assistant Scripts Bug
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>I ran into a weird Home Assistant scripts issue when I upgraded to 2023.11 from 2023.06 (I know, but I didn’t need the new features and had higher priority stuff to deal with) last week.
+After the update, when I went to add or edit a script, I started seeing 500s.
+After some messing around, I eventually moved the couple scripts I had from scripts.yaml as inline scripts in configuration.yaml, restarted, and when I went to edit them, HA offered to migrate them into scripts.yaml. Annoyingly, then when I went to create a new script, HA didn’t return 500s, but the new script didn’t show up in the script list either. I could see it in scripts.yaml, though, and configuration.yaml had the expected script: !include scripts.yaml line in it.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-11-22 15:55:25 -0700 MST'>November 22, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;174 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Weird Home Assistant Scripts Bug" href="https://unixorn.github.io/post/hass/2023-11-weird-ha-scripts-bug/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Homelab Upgrade from USG-Pro to UDM-Pro
     </h2>
   </header>
@@ -285,19 +300,6 @@ To fix it, create assets/css/custom.css with the following contents:
   </div>
   <footer class="entry-footer"><span title='2022-11-14 19:12:41 -0700 MST'>November 14, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;59 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Fix Congo Backticks" href="https://unixorn.github.io/post/fix-congo-backticks/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Switching to Mastodon
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>I’m moving from Twitter to Mastodon. Specifically, I’m @unixorn@hachyderm.io. Here are my first impressions.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-11-10 08:39:22 -0700 MST'>November 10, 2022</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;798 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to Switching to Mastodon" href="https://unixorn.github.io/post/switching-to-mastodon/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
