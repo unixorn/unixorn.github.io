@@ -485,11 +485,12 @@
       <description>&lt;p&gt;Email me at blog @ unixorn.net.&lt;/p&gt;
 &lt;p&gt;You can find me around the internet at:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn&#34;&gt;unixorn&lt;/a&gt; on GitHub&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://mstdn.social/@unixorn&#34;&gt;@unixorn@mstdn.social&lt;/a&gt; on Mastodon&lt;/li&gt;
-&lt;li&gt;I&amp;rsquo;m unixorn on &lt;a href=&#34;https://www.redbubble.com/people/unixorn?utm_campaign=external-portfolio&amp;amp;utm_medium=embedded&amp;amp;utm_source=unixorn&amp;amp;asc=u&#34;&gt;redbubble&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://hachyderm.io/@unixorn&#34;&gt;@unixorn@hachyderm.io&lt;/a&gt; on Mastodon&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://www.instagram.com/apeseekingknowledge/&#34;&gt;apeseekingknowledge&lt;/a&gt; on Instagram.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://twitter.com/curiousbiped&#34;&gt;curiousbiped&lt;/a&gt; &lt;del&gt;on Twitter&lt;/del&gt; deprecated, use Mastodon instead&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bsky.app/profile/unixorn.bsky.social&#34;&gt;unixorn.bsky.social&lt;/a&gt; on Bluesky&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn&#34;&gt;unixorn&lt;/a&gt; on GitHub&lt;/li&gt;
+&lt;li&gt;I&amp;rsquo;m unixorn on &lt;a href=&#34;https://www.redbubble.com/people/unixorn?utm_campaign=external-portfolio&amp;amp;utm_medium=embedded&amp;amp;utm_source=unixorn&amp;amp;asc=u&#34;&gt;redbubble&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
     <item>
@@ -528,13 +529,15 @@ tags:&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/apgar&#34;&gt;apgar&lt;/a&gt; - Apgar is a quick and dirty health-check driver written in Go to prevent dependency conflicts. It is explicitly designed to be simple and not interfere with anything else running on your servers.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/awesome-zsh-plugins&#34;&gt;awesome-zsh-plugins&lt;/a&gt; - A list of ZSH frameworks, plugins, themes, tab-completions and tutorials.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://dotfiles.github.io&#34;&gt;dotfiles.github.io&lt;/a&gt; - The unofficial guide to dotfiles on GitHub.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/online-devops-meetups&#34;&gt;online-devops-meetups&lt;/a&gt; - A list of free online devops meetups.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/git-extra-commands&#34;&gt;git-extra-commands&lt;/a&gt; - A collection of useful extra &lt;code&gt;git&lt;/code&gt; scripts I&amp;rsquo;ve discovered or written, packaged for ease of use with shell frameworks.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/git-extra-commands&#34;&gt;git-extra-commands&lt;/a&gt; - A collection of useful extra &lt;code&gt;git&lt;/code&gt; scripts I&amp;rsquo;ve discovered or written, packaged for ease of use with shell frameworks. It also includes lists of &lt;code&gt;git&lt;/code&gt; tutorials and other &lt;code&gt;git&lt;/code&gt; resources.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable-cli&#34;&gt;ha-mqtt-discoverable-cli&lt;/a&gt; - A set of command line tools usable by shell scripts that uses &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable&#34;&gt;ha-mqtt-discoverable&lt;/a&gt; to make it easy to create MQTT topics that will automatically be detected by &lt;a href=&#34;https://home-assistant.io&#34;&gt;Home Asssistant&lt;/a&gt; as entities.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable&#34;&gt;ha-mqtt-discoverable&lt;/a&gt; - A python module that lets you create sensor and device MQTT topics that will automatically be detected by &lt;a href=&#34;https://home-assistant.io&#34;&gt;Home Asssistant&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/sysadmin-reading-list&#34;&gt;sysadmin-reading-list&lt;/a&gt; - A reading/viewing list for larval stage SRE/DevOps people.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/internet-of-trash/&#34;&gt;Internet-of-Trash&lt;/a&gt; - There are many IOT devices out there, and it&amp;rsquo;s hard to know which ones are any good. This list shows you products that are known to &lt;em&gt;not&lt;/em&gt; work well with &lt;a href=&#34;https://www.home-assistant.io&#34;&gt;Home Assistant&lt;/a&gt; so you can avoid wasting money on them.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/online-devops-meetups&#34;&gt;online-devops-meetups&lt;/a&gt; - A list of free online devops meetups.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/sysadmin-reading-list&#34;&gt;sysadmin-reading-list&lt;/a&gt; - A reading/viewing list for larval stage SRE/DevOps engineers.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/tumult.plugin.zsh&#34;&gt;tumult&lt;/a&gt; - Tumult is a collection of macOS-specific functions and scripts for your command-line environment. It is packaged as a ZSH plugin, but can be used in &lt;code&gt;bash&lt;/code&gt;, &lt;code&gt;fish&lt;/code&gt; or other shells as well.&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/works-with-home-assistant&#34;&gt;Works With Home Assistant&lt;/a&gt; - Not all IOT devices that claim to work with HA actually work well. This is a list of stuff that has been vouched to work well with &lt;a href=&#34;https://www.home-assistant.io&#34;&gt;Home Assistant&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/zsh-quickstart-kit&#34;&gt;zsh-quickstart-kit&lt;/a&gt; - A simple quick start for switching to ZSH. Includes a curated list of plugins that&amp;rsquo;s easily overridden if you want to change it, is easily customizable without needing to maintain a fork, and tweaks the setup to allow history de-duplication, history sharing across shells on the same machine, and on macOS will load a bunch of command line tools for manipulating your Mac.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/unixorn/zsh-quickstart-kit&#34;&gt;zsh-quickstart-kit&lt;/a&gt; - A simple quick start for switching to ZSH. Includes a curated list of plugins that&amp;rsquo;s easily overridden if you want to change it, is easily customizable without needing to maintain your own fork of the kit, and tweaks the setup to allow history de-duplication, history sharing across shells on the same machine, tab completion for a lot of commands that are not included in a stock ZSH install, and on macOS will load a bunch of command line tools for manipulating your Mac.&lt;/li&gt;
 &lt;/ul&gt;</description>
     </item>
   </channel>

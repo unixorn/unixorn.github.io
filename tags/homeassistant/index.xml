@@ -115,5 +115,12 @@
       <description>&lt;p&gt;Some tips about setting up Zigbee or Z-wave mesh networks.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve had a few people new to Home Assistant ask about how to best set up their mesh networks. Here&amp;rsquo;s my take on what works best.&lt;/p&gt;</description>
     </item>
+    <item>
+      <title>Use Pagerduty With Home Assistant</title>
+      <link>https://unixorn.github.io/post/use-pagerduty-with-home-assistant/</link>
+      <pubDate>Sat, 17 Sep 2022 15:38:01 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/use-pagerduty-with-home-assistant/</guid>
+      <description>&lt;p&gt;I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I&amp;rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal &lt;a href=&#34;https://www.pagerduty.com/&#34;&gt;PagerDuty&lt;/a&gt; account and connect it to my Home Assistant.&lt;/p&gt;</description>
+    </item>
   </channel>
 </rss>
