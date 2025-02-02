@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Reflash a Sonoff S31 to ESPHome | unixorn.github.io</title>
-<meta name="keywords" content="esphome, homeassitant, howto, iot, s31, smarthome, sonoff">
+<meta name="keywords" content="esphome, homeassistant, howto, iot, s31, smarthome, sonoff">
 <meta name="description" content="I like Sonoff hardware, but I prefer to only use devices in my smart home that are fully controllable over my local network. I don&rsquo;t want things to stop working just because some company is having an outage, or when my internet is down. Because of this, the first thing I do when I get a new Sonoff S31 smart plug is reflash it to ç so I can control it completely locally with Home Assistant without dealing with eWeLink. Here&rsquo;s how to upgrade your S31 to ESPHome.">
 <meta name="author" content="Me">
 <link rel="canonical" href="http://localhost:1313/post/hass/2023-05-21-reflash-sonoff-s31-to-esphome/">
@@ -95,7 +95,7 @@
   "name": "Reflash a Sonoff S31 to ESPHome",
   "description": "I like Sonoff hardware, but I prefer to only use devices in my smart home that are fully controllable over my local network. I don\u0026rsquo;t want things to stop working just because some company is having an outage, or when my internet is down. Because of this, the first thing I do when I get a new Sonoff S31 smart plug is reflash it to ç so I can control it completely locally with Home Assistant without dealing with eWeLink. Here\u0026rsquo;s how to upgrade your S31 to ESPHome.\n",
   "keywords": [
-    "esphome", "homeassitant", "howto", "iot", "s31", "smarthome", "sonoff"
+    "esphome", "homeassistant", "howto", "iot", "s31", "smarthome", "sonoff"
   ],
   "articleBody": "I like Sonoff hardware, but I prefer to only use devices in my smart home that are fully controllable over my local network. I don’t want things to stop working just because some company is having an outage, or when my internet is down. Because of this, the first thing I do when I get a new Sonoff S31 smart plug is reflash it to ç so I can control it completely locally with Home Assistant without dealing with eWeLink. Here’s how to upgrade your S31 to ESPHome.\nPre-requisites An ESPHome server. If you don’t already have one set up, see my quickstart post showing how to install ESPHome. A USB UART Serial Adapter. I used a DollaTek 3.3V / 5V USB to TTL Converter CH340G UART Serial Adapter Module, but it isn’t always in stock - I also hear good things about the DSD Tech USB to TTL. If you’re buying an USB for this project, make sure you get one that does both 3.3V and 5V so you can use it on more types of hardware later. Some test leads to connect the USB adapter to the S31 - I used these Goupchn Test Hooks to Breadboard Female Jumper Wires, but any that have a clip end and a female jumper end will be fine A Sonoff S31 smart plug. You want the WIFI version, not the Zigbee version. This will not work on the Zigbee version, and you might even brick the Zigbee model Preparation Hardware Disassemble the S31.\nCarefully pry the grey end cap off of the S31. Make sure to remember the orientation of the end cap so it’s easier to reassemble later. I can sometimes remove the cap with just my hands, but when I can’t, I use a plastic spudger that came with some hardware, but a putty knife, or guitar pick would work as well. There are delicate little latch protrusions on the plastic, so be careful. Once the end is off, pull the little white edge pieces out. Remove the 3 screws. I always put them in an altoids tin because I usually have feline assistance on these projects and I don’t want the screws to get to ride the Cat Digestive Tract Adventure. You should now be able to pull the guts of the S31 out in one piece. Software\ncomments: host: hachyderm.io username: unixorn id: 110149495764332469 ",
   "wordCount" : "397",
@@ -267,7 +267,7 @@
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="http://localhost:1313/tags/esphome/">Esphome</a></li>
-      <li><a href="http://localhost:1313/tags/homeassitant/">Homeassitant</a></li>
+      <li><a href="http://localhost:1313/tags/homeassistant/">Homeassistant</a></li>
       <li><a href="http://localhost:1313/tags/howto/">Howto</a></li>
       <li><a href="http://localhost:1313/tags/iot/">Iot</a></li>
       <li><a href="http://localhost:1313/tags/s31/">S31</a></li>
@@ -291,7 +291,7 @@
 <ul class="share-buttons">
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Reflash a Sonoff S31 to ESPHome on x"
-            href="https://x.com/intent/tweet/?text=Reflash%20a%20Sonoff%20S31%20to%20ESPHome&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fhass%2f2023-05-21-reflash-sonoff-s31-to-esphome%2f&amp;hashtags=esphome%2chomeassitant%2chowto%2ciot%2cs31%2csmarthome%2csonoff">
+            href="https://x.com/intent/tweet/?text=Reflash%20a%20Sonoff%20S31%20to%20ESPHome&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fhass%2f2023-05-21-reflash-sonoff-s31-to-esphome%2f&amp;hashtags=esphome%2chomeassistant%2chowto%2ciot%2cs31%2csmarthome%2csonoff">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />

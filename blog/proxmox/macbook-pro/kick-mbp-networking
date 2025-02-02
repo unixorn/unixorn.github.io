@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+#
+# kick-mbp-networking
+#
+# This script is Apache 2.0 licensed.
+#
+# Networking on proxmox on my 2019 MacBook Pro stubbornly fails to come up
+# during boot, but a systemctl networking restart will fix it.
+#
+# Stick this into root's crontab as a @reboot item and it will fix the
+# damned networking
+#
+# The entry should look like:
+# m h  dom mon dow  command
+#@reboot /usr/local/sbin/kick-mbp-networking
+#
+# Copyright 2025, Joe Block <jpb@unixorn.net>
+
+set -o pipefail
+if [[ -n "$DEBUG" ]]; then
+  # shellcheck disable=SC2086
+  if [[ "$(echo $DEBUG | tr '[:upper:]' '[:lower:]')" == "verbose" ]]; then
+    set -x
+  fi
+fi
+
+function debug() {
+  if [[ -n "$DEBUG" ]]; then
+    echo "$@"
+  fi
+}
+
+function echo-stderr() {
+  echo "$@" 1>&2  ## Send message to stderr.
+}
+
+function fail() {
+  printf '%s\n' "$1" >&2  ## Send message to stderr. Exclude >&2 if you don't want it that way.
+  exit "${2-1}"  ## Return a code specified by $2 or 1 by default.
+}
+
+function has() {
+  # Check if a command is in $PATH
+  which "$@" > /dev/null 2>&1
+}
+
+function get-settings() {
+  LOG_F=${LOG_F:-'/root/mbp-network-weirdness.log'}
+}
+
+function check-dependencies() {
+  # Confirm the stuff we need is in $PATH
+  debug "Checking dependencies..."
+  # shellcheck disable=SC2041
+  for p in 'ip' 'systemctl'
+  do
+    if ! has $p; then
+      fail "Can't find $p in your $PATH"
+    else
+      debug "- Found $p"
+    fi
+  done
+}
+
+function path-exists() {
+  local file="${1}"
+  [[ -s "${file}" ]] || fail "$1 is not valid"
+  [[ -d "${file}" ]] && return
+  [[ -f "${file}" ]] && return
+  fail "$1 is not a directory or file"
+}
+
+function restart-networking-if-down() {
+  debug "$LOG_F"
+  # Check if the vmbr interface is present
+  if [[ $(ip link show | grep -c vmbr) != 0 ]]; then
+    debug "ip link show = $(ip link show)" | tee -a "$LOG_F"
+    debug "Networking is up" | tee -a "$LOG_F"
+  else
+    debug "Networking was down after boot, restarting at $(date)" | tee -a "$LOG_F"
+    echo "Restarting networking after failed to start during boot at $(date)" | tee -a "$LOG_F"
+    time systemctl restart networking | tee -a "$LOG_F"
+  fi
+}
+
+check-dependencies
+get-settings
+restart-networking-if-down
