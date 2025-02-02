@@ -12,8 +12,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 15 Dec 2024 09:31:56 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 01 Feb 2025 10:18:01 -0700</lastBuildDate>
     <atom:link href="https://unixorn.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to install Proxmox on a 2019 Macbook Pro</title>
+      <link>https://unixorn.github.io/post/homelab/2025-02-01-install-proxmox-on-macbook-pro/</link>
+      <pubDate>Sat, 01 Feb 2025 10:18:01 -0700</pubDate>
+      <guid>https://unixorn.github.io/post/homelab/2025-02-01-install-proxmox-on-macbook-pro/</guid>
+      <description>&lt;p&gt;I recently replaced a 2019 Intel MacBook Pro with a M3 Macbook Air, so I decided to wipe it and install &lt;a href=&#34;https://www.proxmox.com&#34;&gt;proxmox&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;It wasn&amp;rsquo;t as straightforward as installing on non-Apple hardware, so I&amp;rsquo;m documenting what I had to do here.&lt;/p&gt;
+&lt;p&gt;Note that this post only covers getting things working on a MacBook Pro - look at the many online tutorials for what you should do once your node is up and running.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Released ha-mqtt-discoverable v0.16.2</title>
       <link>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.16.2/</link>

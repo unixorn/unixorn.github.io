@@ -2,25 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/tags/apple/</loc>
+    <lastmod>2025-02-01T10:18:01-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/homelab/</loc>
+    <lastmod>2025-02-01T10:18:01-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/homelab/2025-02-01-install-proxmox-on-macbook-pro/</loc>
+    <lastmod>2025-02-01T10:18:01-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/linux/</loc>
+    <lastmod>2025-02-01T10:18:01-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/mbp/</loc>
+    <lastmod>2025-02-01T10:18:01-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/</loc>
+    <lastmod>2025-02-01T10:18:01-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/proxmox/</loc>
+    <lastmod>2025-02-01T10:18:01-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2025-02-01T10:18:01-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/</loc>
+    <lastmod>2025-02-01T10:18:01-07:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/tags/ha-mqtt-discoverable/</loc>
     <lastmod>2024-12-15T09:31:56-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/homeassistant/</loc>
     <lastmod>2024-12-15T09:31:56-07:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/post/</loc>
-    <lastmod>2024-12-15T09:31:56-07:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/tags/python/</loc>
     <lastmod>2024-12-15T09:31:56-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.16.2/</loc>
-    <lastmod>2024-12-15T09:31:56-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
-    <lastmod>2024-12-15T09:31:56-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/</loc>
     <lastmod>2024-12-15T09:31:56-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/dns/</loc>
@@ -30,9 +48,6 @@
     <lastmod>2024-12-07T19:15:14-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/docker-compose/</loc>
-    <lastmod>2024-12-07T19:15:14-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/homelab/</loc>
     <lastmod>2024-12-07T19:15:14-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/pihole/</loc>
@@ -75,9 +90,6 @@
     <lastmod>2024-05-19T07:34:51-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/grafana/</loc>
-    <lastmod>2024-04-21T13:27:16-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/linux/</loc>
     <lastmod>2024-04-21T13:27:16-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/monitoring/</loc>
@@ -481,9 +493,6 @@
   </url><url>
     <loc>https://unixorn.github.io/post/til-about-docker-mac/</loc>
     <lastmod>2019-05-08T09:11:31-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/apple/</loc>
-    <lastmod>2019-03-05T22:48:25-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/fix-macos-captive-portal-issue/</loc>
     <lastmod>2019-03-05T22:48:25-07:00</lastmod>
