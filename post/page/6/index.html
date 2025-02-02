@@ -180,44 +180,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Rhasspy Setup
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Setting up Rhasspy for voice recognition on a Raspberry Pi 4
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-11-29 15:37:45 -0700 MST'>November 29, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;109 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to Rhasspy Setup" href="http://localhost:1313/post/setting-up-rhasspy/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Setting Up Pihole
-      <span class="entry-hint" title="Draft">
-        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
-          <path
-            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
-        </svg>
-      </span>
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Why PiHole? Frankly, I got sick of annoying ads, especially the ones that popped up the “your mac is infected with a virus” bullshit, so I decided to put a couple of PiHoles in my cluster and stop them at the network level.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-10-13 18:36:59 -0700 -0700'>October 13, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;178 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to Setting Up Pihole" href="http://localhost:1313/post/setting-up-pihole/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2 class="entry-hint-parent">Add metalLB and Traefik to k3s
       <span class="entry-hint" title="Draft">
         <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
@@ -345,6 +307,41 @@ Go to view volumes, then click the filesystem, then Volume Status, then click th
   </div>
   <footer class="entry-footer"><span title='2019-07-21 08:58:07 -0600 MDT'>July 21, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;124 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Beginning Home Assistant" href="http://localhost:1313/post/beginning-home-assistant/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Setting up a VPN on a Unifi USG
+      <span class="entry-hint" title="Draft">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" fill="currentColor">
+          <path
+            d="M160-410v-60h300v60H160Zm0-165v-60h470v60H160Zm0-165v-60h470v60H160Zm360 580v-123l221-220q9-9 20-13t22-4q12 0 23 4.5t20 13.5l37 37q9 9 13 20t4 22q0 11-4.5 22.5T862.09-380L643-160H520Zm300-263-37-37 37 37ZM580-220h38l121-122-18-19-19-18-122 121v38Zm141-141-19-18 37 37-18-19Z" />
+        </svg>
+      </span>
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Needed to set up a VPN on my Unifi
+Enable the radius service Settings -&gt; Radius -&gt; Server Set a good secret
+Create a network Set the type to Remote User VPN Specify a network for it
+Create a User You can specify a VLAN for them here Set tunnel type to L2TP Set tunnel medium type to IPv4
+</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-07-21 08:58:07 -0600 MDT'>July 21, 2019</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;59 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Setting up a VPN on a Unifi USG" href="http://localhost:1313/post/setting-up-unifi-vpn/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Adding a Distributed Filesystem to the Cluster
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>One of the reasons I set up my cluster was that I’m running out of space on my NAS. I don’t want to buy a whole new chassis, and while I could have put individual file shares on each cluster node, that would be both inconvenient and not provide any data redundancy without a lot of brittle home-rolled hacks to rsync data from node to node. And since distributed file systems are a thing, I’d rather not resort to hacks.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-06-23 17:22:47 -0700 -0700'>June 23, 2019</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;1025 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Adding a Distributed Filesystem to the Cluster" href="http://localhost:1313/post/adding-a-distributed-filesystem-to-cluster/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
