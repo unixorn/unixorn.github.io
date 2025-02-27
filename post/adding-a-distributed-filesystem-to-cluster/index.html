@@ -222,10 +222,10 @@
 
         <div class="inner"><nav id="TableOfContents">
   <ul>
-    <li><a href="#cephhttpscephcom"><a href="https://ceph.com">ceph</a></a></li>
-    <li><a href="#glusterfshttpsdocsglusterorg"><a href="https://docs.gluster.org">GlusterFS</a></a></li>
-    <li><a href="#lizardfshttpslizardfscom"><a href="https://lizardfs.com">LizardFS</a></a></li>
-    <li><a href="#moosefshttpsmoosefscom"><a href="https://moosefs.com">MooseFS</a></a></li>
+    <li><a href="#ceph"><a href="https://ceph.com">ceph</a></a></li>
+    <li><a href="#glusterfs"><a href="https://docs.gluster.org">GlusterFS</a></a></li>
+    <li><a href="#lizardfs"><a href="https://lizardfs.com">LizardFS</a></a></li>
+    <li><a href="#moosefs"><a href="https://moosefs.com">MooseFS</a></a></li>
   </ul>
 
   <ul>
@@ -253,13 +253,13 @@
   <div class="post-content"><p>One of the reasons I set up my cluster was that I&rsquo;m running out of space on my NAS. I don&rsquo;t want to buy a whole new chassis, and while I could have put individual file shares on each cluster node, that would be both inconvenient and not provide any data redundancy without a lot of brittle home-rolled hacks to <code>rsync</code> data from node to node. And since distributed file systems are a thing, I&rsquo;d rather not resort to hacks.</p>
 <h1 id="alternatives-considered">Alternatives Considered<a hidden class="anchor" aria-hidden="true" href="#alternatives-considered">#</a></h1>
 <p>To make a long story short, I considered ceph, glusterfs, lizardfs &amp; moosefs.</p>
-<h2 id="cephhttpscephcom"><a href="https://ceph.com">ceph</a><a hidden class="anchor" aria-hidden="true" href="#cephhttpscephcom">#</a></h2>
+<h2 id="ceph"><a href="https://ceph.com">ceph</a><a hidden class="anchor" aria-hidden="true" href="#ceph">#</a></h2>
 <p>Ceph&rsquo;s published specs show that it basically won&rsquo;t fit in my ODROID nodes. They say metadata servers need 1GB, OSDs need another 500MB, and the HC2s in my cluster only have 2GB of onboard RAM, and I&rsquo;m running k8s on them too, so Ceph is out.</p>
-<h2 id="glusterfshttpsdocsglusterorg"><a href="https://docs.gluster.org">GlusterFS</a><a hidden class="anchor" aria-hidden="true" href="#glusterfshttpsdocsglusterorg">#</a></h2>
+<h2 id="glusterfs"><a href="https://docs.gluster.org">GlusterFS</a><a hidden class="anchor" aria-hidden="true" href="#glusterfs">#</a></h2>
 <p>GlusterFS looked nice at first, but it&rsquo;s both less flexible (you can&rsquo;t add single drives to the storage cluster) and less performant (by a factor of 2 compared to MooseFS) on my HC2 hardware.</p>
-<h2 id="lizardfshttpslizardfscom"><a href="https://lizardfs.com">LizardFS</a><a hidden class="anchor" aria-hidden="true" href="#lizardfshttpslizardfscom">#</a></h2>
+<h2 id="lizardfs"><a href="https://lizardfs.com">LizardFS</a><a hidden class="anchor" aria-hidden="true" href="#lizardfs">#</a></h2>
 <p>LizardFS is a fork of MooseFS, and when I was trying to install it in my cluster I had a hard time finding debs for it. When I was looking for them online, I found a lot of complaints about performance issues on ARM, so that eliminated it from consideration.</p>
-<h2 id="moosefshttpsmoosefscom"><a href="https://moosefs.com">MooseFS</a><a hidden class="anchor" aria-hidden="true" href="#moosefshttpsmoosefscom">#</a></h2>
+<h2 id="moosefs"><a href="https://moosefs.com">MooseFS</a><a hidden class="anchor" aria-hidden="true" href="#moosefs">#</a></h2>
 <p>There were a lot of things to like about MooseFS for my use case on my hardware.</p>
 <ul>
 <li>There were prebuilt ARM debs on their site, in a handy PPA.</li>

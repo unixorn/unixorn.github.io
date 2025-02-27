@@ -90,7 +90,6 @@
       <pubDate>Fri, 13 Jan 2023 11:16:19 -0700</pubDate>
       <guid>https://unixorn.github.io/post/restic-backups-on-truenas/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been backing my homelab up with &lt;code&gt;duplicacy&lt;/code&gt; (See &lt;a href=&#34;https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/&#34;&gt;Backing Up the Cluster Using Duplicacy&lt;/a&gt;), but I&amp;rsquo;m fed up with it returning a &lt;code&gt;0&lt;/code&gt; exit code &lt;em&gt;even if there&amp;rsquo;s a problem with the backup&lt;/em&gt;. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to &lt;a href=&#34;https://restic.net/&#34;&gt;restic&lt;/a&gt;.&lt;/p&gt;
-&lt;!-- raw HTML omitted --&gt;
 &lt;p&gt;In this blog entry, I&amp;rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install &lt;a href=&#34;https://restic.net/&#34;&gt;restic&lt;/a&gt;, and how to use it to back up to &lt;a href=&#34;https://www.backblaze.com/b2/cloud-storage.html&#34;&gt;Backblaze b2&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>

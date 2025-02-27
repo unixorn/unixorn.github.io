@@ -296,7 +296,7 @@ data:
 <h3 id="traefik">Traefik<a hidden class="anchor" aria-hidden="true" href="#traefik">#</a></h3>
 <p>Installed traefik with my own configuration, which I have posted on <a href="https://github.com/unixorn/blog-scripts/tree/master/arm-k3s">github</a>:</p>
 <p>Here are the configuration files I used - you&rsquo;ll need to tweak them for your own network.</p>
-<h4 id="traefik-rbacyamlhttpsgithubcomunixornblog-scriptsblobmasterarm-k3straefik-rbacyaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-rbac.yaml">traefik-rbac.yaml</a><a hidden class="anchor" aria-hidden="true" href="#traefik-rbacyamlhttpsgithubcomunixornblog-scriptsblobmasterarm-k3straefik-rbacyaml">#</a></h4>
+<h4 id="traefik-rbacyaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-rbac.yaml">traefik-rbac.yaml</a><a hidden class="anchor" aria-hidden="true" href="#traefik-rbacyaml">#</a></h4>
 <pre tabindex="0"><code>---
 kind: ClusterRole
 apiVersion: rbac.authorization.k8s.io/v1beta1
@@ -334,7 +334,7 @@ subjects:
 - kind: ServiceAccount
   name: traefik-ingress-controller
   namespace: kube-system
-</code></pre><h4 id="traefik-configmapyamlhttpsgithubcomunixornblog-scriptsblobmasterarm-k3straefik-configmapyaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-configmap.yaml">traefik-configmap.yaml</a><a hidden class="anchor" aria-hidden="true" href="#traefik-configmapyamlhttpsgithubcomunixornblog-scriptsblobmasterarm-k3straefik-configmapyaml">#</a></h4>
+</code></pre><h4 id="traefik-configmapyaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-configmap.yaml">traefik-configmap.yaml</a><a hidden class="anchor" aria-hidden="true" href="#traefik-configmapyaml">#</a></h4>
 <pre tabindex="0"><code>apiVersion: v1
 kind: ConfigMap
 metadata:
@@ -379,7 +379,7 @@ data:
       entryPoint = &#34;traefik&#34;
     [ping]
     entryPoint = &#34;http&#34;
-</code></pre><h4 id="traefik-deploymentyamlhttpsgithubcomunixornblog-scriptsblobmasterarm-k3straefik-deploymentyaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-deployment.yaml">traefik-deployment.yaml</a><a hidden class="anchor" aria-hidden="true" href="#traefik-deploymentyamlhttpsgithubcomunixornblog-scriptsblobmasterarm-k3straefik-deploymentyaml">#</a></h4>
+</code></pre><h4 id="traefik-deploymentyaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-deployment.yaml">traefik-deployment.yaml</a><a hidden class="anchor" aria-hidden="true" href="#traefik-deploymentyaml">#</a></h4>
 <pre tabindex="0"><code>---
 apiVersion: v1
 kind: ServiceAccount
@@ -447,7 +447,7 @@ spec:
       - name: config
         configMap:
           name: traefik-conf
-</code></pre><h4 id="traefik-serviceyamlhttpsgithubcomunixornblog-scriptsblobmasterarm-k3straefik-serviceyaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-service.yaml">traefik-service.yaml</a><a hidden class="anchor" aria-hidden="true" href="#traefik-serviceyamlhttpsgithubcomunixornblog-scriptsblobmasterarm-k3straefik-serviceyaml">#</a></h4>
+</code></pre><h4 id="traefik-serviceyaml"><a href="https://github.com/unixorn/blog-scripts/blob/master/arm-k3s/traefik-service.yaml">traefik-service.yaml</a><a hidden class="anchor" aria-hidden="true" href="#traefik-serviceyaml">#</a></h4>
 <pre tabindex="0"><code>---
 kind: Service
 apiVersion: v1

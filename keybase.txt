@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/unixorn
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://unixorn.github.io
+  * I am unixorn (https://keybase.io/unixorn) on keybase.
+  * I have a public key ASBr05MHb630f5-KIhykSdZDElxVqh9HbHrqv0AXVdZ1fgo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "0111bc6a6debaced2d65e364875b3895d02eb5a837e6817df4aa29efc311b4db438b0a",
+      "host": "keybase.io",
+      "kid": "01206bd393076fadf47f9f8a221ca449d643125c55aa1f476c7aeabf401755d6757e0a",
+      "uid": "15658b42d4846be4485accb7f0a6a000",
+      "username": "unixorn"
+    },
+    "merkle_root": {
+      "ctime": 1740669026,
+      "hash": "7de2a4b420940d81d0ad60e9bf80297353f02de525aa77c7d19a5140a31caa8011a7d6e3833c0a9b5486ef076b91ddd571c043414ea20d725468d718a0d44fc9",
+      "hash_meta": "79fcfc20878bd1acc1163d190e11927163f2d6cfb1da9288fec59ac365ac9d14",
+      "seqno": 26583390
+    },
+    "service": {
+      "entropy": "tTehMar/l/ZvpNzOikJ6Zb6q",
+      "hostname": "unixorn.github.io",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "6.5.0"
+  },
+  "ctime": 1740669102,
+  "expire_in": 504576000,
+  "prev": "1158c03aeb91c564e04def8e4e5885445bf5681ccbea46facfff116cff101648",
+  "seqno": 28,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEga9OTB2+t9H+fiiIcpEnWQxJcVaofR2x66r9AF1XWdX4Kp3BheWxvYWTESpcCHMQgEVjAOuuRxWTgTe+OTliFRFv1aBzL6kb6z/8RbP8QFkjEIAsGAg19OpLoMlEHAJv1QI9L9ShKCRsbaThTAIHALtPkAgHCo3NpZ8RApv4TqJfmyuWv7Uud4TsOvWxWMiMNgHPkiKx9qyiAUs3iAWUV0hWJ47ToYFrCgiBzHTWlPYwzikrFZdjq2MCLBahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIJd8D59sv2FAc4qync0qDPbTUt/6sOkUdG3oTetBT/Iio3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/unixorn
+
+==================================================================
