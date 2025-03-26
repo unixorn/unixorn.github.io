@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/tags/aquarium/</loc>
+    <lastmod>2025-03-25T08:04:04-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/nanotank/</loc>
+    <lastmod>2025-03-25T08:04:04-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/aquarium/nanotank-setup/</loc>
+    <lastmod>2025-03-25T08:04:04-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/</loc>
+    <lastmod>2025-03-25T08:04:04-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/shrimp/</loc>
+    <lastmod>2025-03-25T08:04:04-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/shrimp/amano/</loc>
+    <lastmod>2025-03-25T08:04:04-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/shrimp/neocaridina/</loc>
+    <lastmod>2025-03-25T08:04:04-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2025-03-25T08:04:04-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/</loc>
+    <lastmod>2025-03-25T08:04:04-06:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/tags/apple/</loc>
     <lastmod>2025-02-01T10:18:01-07:00</lastmod>
   </url><url>
@@ -17,16 +44,7 @@
     <loc>https://unixorn.github.io/tags/mbp/</loc>
     <lastmod>2025-02-01T10:18:01-07:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/post/</loc>
-    <lastmod>2025-02-01T10:18:01-07:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/tags/proxmox/</loc>
-    <lastmod>2025-02-01T10:18:01-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
-    <lastmod>2025-02-01T10:18:01-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/</loc>
     <lastmod>2025-02-01T10:18:01-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/ha-mqtt-discoverable/</loc>
@@ -56,16 +74,10 @@
     <loc>https://unixorn.github.io/post/homelab/orbital-sync/</loc>
     <lastmod>2024-12-07T19:15:14-06:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/tags/aquarium/</loc>
-    <lastmod>2024-08-24T11:44:57-06:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/post/aquarium/first-neos/</loc>
     <lastmod>2024-08-24T11:44:57-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/neocaridina/</loc>
-    <lastmod>2024-08-24T11:44:57-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/shrimp/</loc>
     <lastmod>2024-08-24T11:44:57-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/aquarium_plant/</loc>
@@ -515,6 +527,8 @@
     <loc>https://unixorn.github.io/about-orig/</loc>
   </url><url>
     <loc>https://unixorn.github.io/about/</loc>
+  </url><url>
+    <loc>https://unixorn.github.io/about.unfucked/</loc>
   </url><url>
     <loc>https://unixorn.github.io/contact/</loc>
   </url><url>

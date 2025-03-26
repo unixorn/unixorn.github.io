@@ -12,8 +12,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 01 Feb 2025 10:18:01 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 25 Mar 2025 08:04:04 -0600</lastBuildDate>
     <atom:link href="https://unixorn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nanotank Setup</title>
+      <link>https://unixorn.github.io/post/aquarium/nanotank-setup/</link>
+      <pubDate>Tue, 25 Mar 2025 08:04:04 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/aquarium/nanotank-setup/</guid>
+      <description>&lt;h1 id=&#34;nanotank-setup-advice&#34;&gt;Nanotank Setup Advice&lt;/h1&gt;
+&lt;p&gt;You&amp;rsquo;ve seen some nice videos on YouTube of small tanks with fresh water shrimp. Here are some tips on setting a shrimp tank up for yourself.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>How to install Proxmox on a 2019 Macbook Pro</title>
       <link>https://unixorn.github.io/post/homelab/2025-02-01-install-proxmox-on-macbook-pro/</link>
@@ -475,14 +483,27 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://unixorn.github.io/about/</guid>
       <description>&lt;h1 id=&#34;about-me&#34;&gt;About Me&lt;/h1&gt;
-&lt;p&gt;I&amp;rsquo;m an SRE in Denver for ZScaler. Please don&amp;rsquo;t contact me about jobs involving blockchain, especially any of the griftcoins.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m an SRE in Denver for ZScaler. Please don&amp;rsquo;t contact me about jobs involving blockchain, I am not interested in working with griftcoins in any way.&lt;/p&gt;
 &lt;p&gt;I like cooking, photography, aquariums, home automation and working on distributed infrastructure.&lt;/p&gt;
 &lt;p&gt;You can find me online at:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Mastodon: &lt;a href=&#34;https://hachyderm.io/@unixorn&#34;&gt;@unixorn@hachyderm.io&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;I&amp;rsquo;m the organizer for the Denver &lt;a href=&#34;https://www.meetup.com/Denver-CoffeeOps/&#34;&gt;CoffeeOps&lt;/a&gt; meetup, which currently meets online - the meetup link details are posted in the Colorado channels of both the &lt;a href=&#34;https://hangops.slack.com&#34;&gt;hangops&lt;/a&gt; and &lt;a href=&#34;https://coffeeops.slack.com&#34;&gt;coffeeops&lt;/a&gt; slacks.&lt;/p&gt;
-&lt;p&gt;I have a variety of DevOPS (and DevOOPs) themed swag on &lt;a href=&#34;https://www.redbubble.com/people/unixorn/collections/1069603-devoops?asc=u&#34;&gt;redbubble&lt;/a&gt; and &lt;a href=&#34;https://www.spreadshirt.com/shop/user/unixorn/?srEdit=pa#?affiliateId=11625&#34;&gt;spreadshirt&lt;/a&gt;, if you&amp;rsquo;d like to buy something and contribute to me buying new hardware to write about.&lt;/p&gt;</description>
+&lt;p&gt;I&amp;rsquo;m the organizer for the Denver &lt;a href=&#34;https://www.meetup.com/Denver-CoffeeOps/&#34;&gt;CoffeeOps&lt;/a&gt; meetup, which currently meets online - the meetup link details are posted in the Colorado channels of both the &lt;a href=&#34;https://hangops.slack.com&#34;&gt;hangops&lt;/a&gt; and &lt;a href=&#34;https://coffeeops.slack.com&#34;&gt;coffeeops&lt;/a&gt; slacks.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title></title>
+      <link>https://unixorn.github.io/about.unfucked/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://unixorn.github.io/about.unfucked/</guid>
+      <description>&lt;h1 id=&#34;about-me&#34;&gt;About Me&lt;/h1&gt;
+&lt;p&gt;I&amp;rsquo;m an SRE in Denver for ZScaler. Please don&amp;rsquo;t contact me about jobs involving blockchain, I am not interested in working with griftcoins in any way.&lt;/p&gt;
+&lt;p&gt;I like cooking, photography, aquariums, home automation and working on distributed infrastructure.&lt;/p&gt;
+&lt;p&gt;You can find me online at:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Mastodon: &lt;a href=&#34;https://hachyderm.io/@unixorn&#34;&gt;@unixorn@hachyderm.io&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I&amp;rsquo;m the organizer for the Denver &lt;a href=&#34;https://www.meetup.com/Denver-CoffeeOps/&#34;&gt;CoffeeOps&lt;/a&gt; meetup, which currently meets online - the meetup link details are posted in the Colorado channels of both the &lt;a href=&#34;https://hangops.slack.com&#34;&gt;hangops&lt;/a&gt; and &lt;a href=&#34;https://coffeeops.slack.com&#34;&gt;coffeeops&lt;/a&gt; slacks.&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>
