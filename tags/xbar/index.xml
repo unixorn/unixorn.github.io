@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Xbar on unixorn.github.io</title>
+    <link>https://unixorn.github.io/tags/xbar/</link>
+    <description>Recent content in Xbar on unixorn.github.io</description>
+    <image>
+      <title>unixorn.github.io</title>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Thu, 27 Mar 2025 08:18:51 -0600</lastBuildDate>
+    <atom:link href="https://unixorn.github.io/tags/xbar/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lima Xbar Plugin 1.5.0</title>
+      <link>https://unixorn.github.io/post/open-source/lima-xbar-plugin-1.5.0/</link>
+      <pubDate>Thu, 27 Mar 2025 08:18:51 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/open-source/lima-xbar-plugin-1.5.0/</guid>
+      <description>&lt;p&gt;Released version 1.5.0 of &lt;a href=&#34;https://github.com/unixorn/lima-xbar-plugin&#34;&gt;https://github.com/unixorn/lima-xbar-plugin&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;lima-xbar-plugin works with both &lt;a href=&#34;https://xbarapp.com/&#34;&gt;xbar&lt;/a&gt; and &lt;a href=&#34;https://github.com/swiftbar/SwiftBar&#34;&gt;SwiftBar&lt;/a&gt; to add a macos menubar item to control your lima VMs and containers.&lt;/p&gt;
+&lt;p&gt;Thanks to new contributors &lt;a href=&#34;https://github.com/pythoninthegrass&#34;&gt;pythoninthegrass&lt;/a&gt; and &lt;a href=&#34;https://github.com/deepjia&#34;&gt;deepjia&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

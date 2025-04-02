@@ -2,10 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/tags/docker/</loc>
+    <lastmod>2025-03-27T08:18:51-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/open-source/lima-xbar-plugin-1.5.0/</loc>
+    <lastmod>2025-03-27T08:18:51-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/macos/</loc>
+    <lastmod>2025-03-27T08:18:51-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/open-source/</loc>
+    <lastmod>2025-03-27T08:18:51-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/open-source/lima/</loc>
+    <lastmod>2025-03-27T08:18:51-06:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/post/</loc>
     <lastmod>2025-03-27T08:18:51-06:00</lastmod>
   </url><url>
+    <loc>https://unixorn.github.io/tags/swiftbar/</loc>
+    <lastmod>2025-03-27T08:18:51-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2025-03-27T08:18:51-06:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/</loc>
+    <lastmod>2025-03-27T08:18:51-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/xbar/</loc>
     <lastmod>2025-03-27T08:18:51-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/aquarium/</loc>
@@ -24,9 +48,6 @@
     <lastmod>2025-03-25T08:04:04-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/shrimp/neocaridina/</loc>
-    <lastmod>2025-03-25T08:04:04-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
     <lastmod>2025-03-25T08:04:04-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/apple/</loc>
@@ -60,9 +81,6 @@
     <lastmod>2024-12-15T09:31:56-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/dns/</loc>
-    <lastmod>2024-12-07T19:15:14-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/docker/</loc>
     <lastmod>2024-12-07T19:15:14-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/docker-compose/</loc>
@@ -330,9 +348,6 @@
     <lastmod>2022-05-01T18:06:38-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/autodesk-fusion-signup/</loc>
-    <lastmod>2022-05-01T18:06:38-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/macos/</loc>
     <lastmod>2022-05-01T18:06:38-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/raid/</loc>

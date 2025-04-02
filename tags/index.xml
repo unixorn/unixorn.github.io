@@ -12,8 +12,50 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 25 Mar 2025 08:04:04 -0600</lastBuildDate>
+    <lastBuildDate>Thu, 27 Mar 2025 08:18:51 -0600</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker</title>
+      <link>https://unixorn.github.io/tags/docker/</link>
+      <pubDate>Thu, 27 Mar 2025 08:18:51 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Macos</title>
+      <link>https://unixorn.github.io/tags/macos/</link>
+      <pubDate>Thu, 27 Mar 2025 08:18:51 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/macos/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Open-Source</title>
+      <link>https://unixorn.github.io/tags/open-source/</link>
+      <pubDate>Thu, 27 Mar 2025 08:18:51 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/open-source/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Open-Source/Lima</title>
+      <link>https://unixorn.github.io/tags/open-source/lima/</link>
+      <pubDate>Thu, 27 Mar 2025 08:18:51 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/open-source/lima/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Swiftbar</title>
+      <link>https://unixorn.github.io/tags/swiftbar/</link>
+      <pubDate>Thu, 27 Mar 2025 08:18:51 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/swiftbar/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Xbar</title>
+      <link>https://unixorn.github.io/tags/xbar/</link>
+      <pubDate>Thu, 27 Mar 2025 08:18:51 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/xbar/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Aquarium</title>
       <link>https://unixorn.github.io/tags/aquarium/</link>
@@ -110,13 +152,6 @@
       <link>https://unixorn.github.io/tags/dns/</link>
       <pubDate>Sat, 07 Dec 2024 19:15:14 -0600</pubDate>
       <guid>https://unixorn.github.io/tags/dns/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Docker</title>
-      <link>https://unixorn.github.io/tags/docker/</link>
-      <pubDate>Sat, 07 Dec 2024 19:15:14 -0600</pubDate>
-      <guid>https://unixorn.github.io/tags/docker/</guid>
       <description></description>
     </item>
     <item>
@@ -565,13 +600,6 @@
       <link>https://unixorn.github.io/tags/autodesk-fusion-360/</link>
       <pubDate>Sun, 01 May 2022 18:06:38 -0600</pubDate>
       <guid>https://unixorn.github.io/tags/autodesk-fusion-360/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Macos</title>
-      <link>https://unixorn.github.io/tags/macos/</link>
-      <pubDate>Sun, 01 May 2022 18:06:38 -0600</pubDate>
-      <guid>https://unixorn.github.io/tags/macos/</guid>
       <description></description>
     </item>
     <item>
