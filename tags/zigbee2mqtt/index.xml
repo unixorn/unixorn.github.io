@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Zigbee2mqtt on unixorn.github.io</title>
-    <link>https://unixorn.github.io/tags/zigbee2mqtt/</link>
+    <link>http://localhost:1313/tags/zigbee2mqtt/</link>
     <description>Recent content in Zigbee2mqtt on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sun, 06 Nov 2022 14:47:14 -1000</lastBuildDate>
-    <atom:link href="https://unixorn.github.io/tags/zigbee2mqtt/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/zigbee2mqtt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Zigbee and Zwave Setup Tips</title>
-      <link>https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/</link>
+      <link>http://localhost:1313/post/zigbee-and-zwave-setup-tip/</link>
       <pubDate>Sun, 06 Nov 2022 14:47:14 -1000</pubDate>
-      <guid>https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/</guid>
+      <guid>http://localhost:1313/post/zigbee-and-zwave-setup-tip/</guid>
       <description>&lt;p&gt;Some tips about setting up Zigbee or Z-wave mesh networks.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve had a few people new to Home Assistant ask about how to best set up their mesh networks. Here&amp;rsquo;s my take on what works best.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fix Securifi Peanut issue with zigbee2mqtt</title>
-      <link>https://unixorn.github.io/post/securifi-peanut-gotcha/</link>
+      <link>http://localhost:1313/post/securifi-peanut-gotcha/</link>
       <pubDate>Thu, 06 Oct 2022 21:20:45 -1000</pubDate>
-      <guid>https://unixorn.github.io/post/securifi-peanut-gotcha/</guid>
+      <guid>http://localhost:1313/post/securifi-peanut-gotcha/</guid>
       <description>&lt;p&gt;Securifi Peanut plugs have issues with zigbee2mqtt.&lt;/p&gt;
 &lt;p&gt;I have several Securifi &lt;a href=&#34;https://smile.amazon.com/gp/product/B00TC9NC82&#34;&gt;Peanut&lt;/a&gt; Zigbee switches. Overall, they&amp;rsquo;re nice little smart plugs and make good Zigbee routers to strengthen your Zigbee mesh, but they have one annoying issue - &lt;a href=&#34;https://zigbee2mqtt.io&#34;&gt;zigbee2mqtt&lt;/a&gt; doesn&amp;rsquo;t recognize them perfectly, though there&amp;rsquo;s a simple fix that I&amp;rsquo;m going to document here.&lt;/p&gt;</description>
     </item>

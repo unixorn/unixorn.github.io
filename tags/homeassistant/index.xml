@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Homeassistant on unixorn.github.io</title>
-    <link>https://unixorn.github.io/tags/homeassistant/</link>
+    <link>http://localhost:1313/tags/homeassistant/</link>
     <description>Recent content in Homeassistant on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sun, 15 Dec 2024 09:31:56 -0700</lastBuildDate>
-    <atom:link href="https://unixorn.github.io/tags/homeassistant/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/homeassistant/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Released ha-mqtt-discoverable v0.16.2</title>
-      <link>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.16.2/</link>
+      <link>http://localhost:1313/post/hass/ha-mqtt-discoverable-0.16.2/</link>
       <pubDate>Sun, 15 Dec 2024 09:31:56 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.16.2/</guid>
+      <guid>http://localhost:1313/post/hass/ha-mqtt-discoverable-0.16.2/</guid>
       <description>&lt;p&gt;Released ha-mqtt-discoverable &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/releases/tag/v0.16.2&#34;&gt;v0.16.2&lt;/a&gt; and ha-mqtt-discoverable-cli &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable-cli/releases/tag/v0.16.2&#34;&gt;v0.16.2&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;whats-changed&#34;&gt;What&amp;rsquo;s Changed&lt;/h2&gt;
 &lt;ul&gt;
@@ -31,9 +31,9 @@
     </item>
     <item>
       <title>Released ha-mqtt-discoverable v0.14.0</title>
-      <link>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.14.0/</link>
+      <link>http://localhost:1313/post/hass/ha-mqtt-discoverable-0.14.0/</link>
       <pubDate>Sun, 19 May 2024 07:34:51 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.14.0/</guid>
+      <guid>http://localhost:1313/post/hass/ha-mqtt-discoverable-0.14.0/</guid>
       <description>&lt;p&gt;Released &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/releases/tag/v0.14.0&#34;&gt;ha-mqtt-discoverable v0.14.0&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;new-contributors&#34;&gt;New Contributors&lt;/h2&gt;
 &lt;ul&gt;
@@ -70,56 +70,63 @@
     </item>
     <item>
       <title>Released ha-mqtt-discoverable 0.12.0</title>
-      <link>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.12.0/</link>
+      <link>http://localhost:1313/post/hass/ha-mqtt-discoverable-0.12.0/</link>
       <pubDate>Wed, 22 Nov 2023 19:08:25 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.12.0/</guid>
+      <guid>http://localhost:1313/post/hass/ha-mqtt-discoverable-0.12.0/</guid>
       <description>&lt;p&gt;Released ha-mqtt-discoverable 0.12.0&lt;/p&gt;</description>
     </item>
     <item>
       <title>Weird Home Assistant Scripts Bug</title>
-      <link>https://unixorn.github.io/post/hass/2023-11-weird-ha-scripts-bug/</link>
+      <link>http://localhost:1313/post/hass/2023-11-weird-ha-scripts-bug/</link>
       <pubDate>Wed, 22 Nov 2023 15:55:25 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/hass/2023-11-weird-ha-scripts-bug/</guid>
+      <guid>http://localhost:1313/post/hass/2023-11-weird-ha-scripts-bug/</guid>
       <description>&lt;p&gt;I ran into a weird Home Assistant scripts issue when I upgraded to 2023.11 from 2023.06 (I know, but I didn’t need the new features and had higher priority stuff to deal with) last week.&lt;/p&gt;
 &lt;p&gt;After the update, when I went to add or edit a script, I started seeing 500s.&lt;/p&gt;
 &lt;p&gt;After some messing around, I eventually moved the couple scripts I had from &lt;code&gt;scripts.yaml&lt;/code&gt; as inline scripts in &lt;code&gt;configuration.yaml&lt;/code&gt;, restarted, and when I went to edit them, HA offered to migrate them into &lt;code&gt;scripts.yaml&lt;/code&gt;. Annoyingly, &lt;em&gt;then&lt;/em&gt; when I went to create a new script, HA didn’t return 500s, but the new script didn’t show up in the script list either. I could see it in &lt;code&gt;scripts.yaml&lt;/code&gt;, though, and &lt;code&gt;configuration.yaml&lt;/code&gt; had the expected &lt;code&gt;script: !include scripts.yaml&lt;/code&gt; line in it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Set up nginx-proxy-manager with LetsEncrypt SSL certificates</title>
-      <link>https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/</link>
+      <link>http://localhost:1313/post/hass/2023-07-09-set-up-nginx-proxy-manager/</link>
       <pubDate>Sat, 22 Jul 2023 08:19:38 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/</guid>
+      <guid>http://localhost:1313/post/hass/2023-07-09-set-up-nginx-proxy-manager/</guid>
       <description>&lt;p&gt;In the next few posts, I&amp;rsquo;m going to document how to set up Home Assistant (HA) from scratch. We&amp;rsquo;re going to want to protect the admin UI interfaces for HA and its support services with SSL, and add authentication to services that don&amp;rsquo;t provide it themselves.&lt;/p&gt;
 &lt;p&gt;We&amp;rsquo;re going to do this with &lt;a href=&#34;https://nginxproxymanager.com/&#34;&gt;Nginx Proxy Manager&lt;/a&gt; because it has built in support for using &lt;a href=&#34;https://letsencrypt.org&#34;&gt;LetsEncrypt&lt;/a&gt; to obtain free SSL certificates, supports adding authentication to services that don&amp;rsquo;t do it themselves, and is overall easy to use.&lt;/p&gt;
 &lt;p&gt;Before I start writing more Home Assitant articles, let&amp;rsquo;s set up a SSL proxy server to keep everything secure.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Reflash a Sonoff S31 to ESPHome</title>
+      <link>http://localhost:1313/post/hass/2023-05-21-reflash-sonoff-s31-to-esphome/</link>
+      <pubDate>Sun, 21 May 2023 18:15:48 -0600</pubDate>
+      <guid>http://localhost:1313/post/hass/2023-05-21-reflash-sonoff-s31-to-esphome/</guid>
+      <description>&lt;p&gt;I like Sonoff hardware, but I prefer to only use devices in my smart home that are fully controllable over my local network. I don&amp;rsquo;t want things to stop working just because some company is having an outage, or when my internet is down. Because of this, the first thing I do when I get a new Sonoff S31 smart plug is reflash it to ç so I can control it completely locally with Home Assistant without dealing with eWeLink. Here&amp;rsquo;s how to upgrade your S31 to ESPHome.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Add Smarts to IKEA Vindriktning Sensors</title>
-      <link>https://unixorn.github.io/post/add-smarts-to-ikea-vindriktning-air-sensors/</link>
+      <link>http://localhost:1313/post/add-smarts-to-ikea-vindriktning-air-sensors/</link>
       <pubDate>Sat, 18 Mar 2023 13:46:13 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/add-smarts-to-ikea-vindriktning-air-sensors/</guid>
+      <guid>http://localhost:1313/post/add-smarts-to-ikea-vindriktning-air-sensors/</guid>
       <description>&lt;p&gt;We&amp;rsquo;re doing a kitchen &amp;amp; bathrooms renovation, and the construction is generating a lot of dust, to the point that I was changing the HVAC filter twice a week. I wanted to see just how much garbage is in the air, so I started looking around for air quality sensors. Naturally I wanted one that I could integrate into my Home Assistant so I could generate notifications if the air was extra filthy.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Released ha-mqtt-discoverable 0.8.0</title>
-      <link>https://unixorn.github.io/post/ha-mqtt-discoverable-0.8.0/</link>
+      <link>http://localhost:1313/post/ha-mqtt-discoverable-0.8.0/</link>
       <pubDate>Sat, 11 Mar 2023 16:39:38 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/ha-mqtt-discoverable-0.8.0/</guid>
+      <guid>http://localhost:1313/post/ha-mqtt-discoverable-0.8.0/</guid>
       <description>&lt;p&gt;Released version 0.8.0 of ha-mqtt-discoverable and version 0.2.0 of ha-mqtt-discoverable-cli today.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Zigbee and Zwave Setup Tips</title>
-      <link>https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/</link>
+      <link>http://localhost:1313/post/zigbee-and-zwave-setup-tip/</link>
       <pubDate>Sun, 06 Nov 2022 14:47:14 -1000</pubDate>
-      <guid>https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/</guid>
+      <guid>http://localhost:1313/post/zigbee-and-zwave-setup-tip/</guid>
       <description>&lt;p&gt;Some tips about setting up Zigbee or Z-wave mesh networks.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve had a few people new to Home Assistant ask about how to best set up their mesh networks. Here&amp;rsquo;s my take on what works best.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Use Pagerduty With Home Assistant</title>
-      <link>https://unixorn.github.io/post/use-pagerduty-with-home-assistant/</link>
+      <link>http://localhost:1313/post/use-pagerduty-with-home-assistant/</link>
       <pubDate>Sat, 17 Sep 2022 15:38:01 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/use-pagerduty-with-home-assistant/</guid>
+      <guid>http://localhost:1313/post/use-pagerduty-with-home-assistant/</guid>
       <description>&lt;p&gt;I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I&amp;rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal &lt;a href=&#34;https://www.pagerduty.com/&#34;&gt;PagerDuty&lt;/a&gt; account and connect it to my Home Assistant.&lt;/p&gt;</description>
     </item>
   </channel>

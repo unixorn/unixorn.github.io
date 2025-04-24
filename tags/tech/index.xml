@@ -2,45 +2,45 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Tech on unixorn.github.io</title>
-    <link>https://unixorn.github.io/tags/tech/</link>
+    <link>http://localhost:1313/tags/tech/</link>
     <description>Recent content in Tech on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sat, 18 Mar 2023 13:46:13 -0600</lastBuildDate>
-    <atom:link href="https://unixorn.github.io/tags/tech/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Add Smarts to IKEA Vindriktning Sensors</title>
-      <link>https://unixorn.github.io/post/add-smarts-to-ikea-vindriktning-air-sensors/</link>
+      <link>http://localhost:1313/post/add-smarts-to-ikea-vindriktning-air-sensors/</link>
       <pubDate>Sat, 18 Mar 2023 13:46:13 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/add-smarts-to-ikea-vindriktning-air-sensors/</guid>
+      <guid>http://localhost:1313/post/add-smarts-to-ikea-vindriktning-air-sensors/</guid>
       <description>&lt;p&gt;We&amp;rsquo;re doing a kitchen &amp;amp; bathrooms renovation, and the construction is generating a lot of dust, to the point that I was changing the HVAC filter twice a week. I wanted to see just how much garbage is in the air, so I started looking around for air quality sensors. Naturally I wanted one that I could integrate into my Home Assistant so I could generate notifications if the air was extra filthy.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Switching to Mastodon</title>
-      <link>https://unixorn.github.io/post/switching-to-mastodon/</link>
+      <link>http://localhost:1313/post/switching-to-mastodon/</link>
       <pubDate>Thu, 10 Nov 2022 08:39:22 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/switching-to-mastodon/</guid>
+      <guid>http://localhost:1313/post/switching-to-mastodon/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m moving from Twitter to Mastodon. Specifically, I&amp;rsquo;m @unixorn@hachyderm.io. Here are my first impressions.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Zigbee and Zwave Setup Tips</title>
-      <link>https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/</link>
+      <link>http://localhost:1313/post/zigbee-and-zwave-setup-tip/</link>
       <pubDate>Sun, 06 Nov 2022 14:47:14 -1000</pubDate>
-      <guid>https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/</guid>
+      <guid>http://localhost:1313/post/zigbee-and-zwave-setup-tip/</guid>
       <description>&lt;p&gt;Some tips about setting up Zigbee or Z-wave mesh networks.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve had a few people new to Home Assistant ask about how to best set up their mesh networks. Here&amp;rsquo;s my take on what works best.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Switch Home Assistant to Use PostgreSQL Instead of SQLite</title>
-      <link>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</link>
+      <link>http://localhost:1313/post/hass-using-postgresql-instead-of-sqlite/</link>
       <pubDate>Sat, 05 Nov 2022 09:42:58 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</guid>
+      <guid>http://localhost:1313/post/hass-using-postgresql-instead-of-sqlite/</guid>
       <description>&lt;p&gt;I wanted to switch my new Home Assistant (HA) installation to write data to &lt;a href=&#34;https://www.postgresql.org/&#34;&gt;PostgreSQL&lt;/a&gt; instead of SQLite for a variety of reasons. Here&amp;rsquo;s how I did it.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s why I decided to switch:&lt;/p&gt;
 &lt;ul&gt;
@@ -51,40 +51,40 @@
     </item>
     <item>
       <title>Fix Securifi Peanut issue with zigbee2mqtt</title>
-      <link>https://unixorn.github.io/post/securifi-peanut-gotcha/</link>
+      <link>http://localhost:1313/post/securifi-peanut-gotcha/</link>
       <pubDate>Thu, 06 Oct 2022 21:20:45 -1000</pubDate>
-      <guid>https://unixorn.github.io/post/securifi-peanut-gotcha/</guid>
+      <guid>http://localhost:1313/post/securifi-peanut-gotcha/</guid>
       <description>&lt;p&gt;Securifi Peanut plugs have issues with zigbee2mqtt.&lt;/p&gt;
 &lt;p&gt;I have several Securifi &lt;a href=&#34;https://smile.amazon.com/gp/product/B00TC9NC82&#34;&gt;Peanut&lt;/a&gt; Zigbee switches. Overall, they&amp;rsquo;re nice little smart plugs and make good Zigbee routers to strengthen your Zigbee mesh, but they have one annoying issue - &lt;a href=&#34;https://zigbee2mqtt.io&#34;&gt;zigbee2mqtt&lt;/a&gt; doesn&amp;rsquo;t recognize them perfectly, though there&amp;rsquo;s a simple fix that I&amp;rsquo;m going to document here.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Use Pagerduty With Home Assistant</title>
-      <link>https://unixorn.github.io/post/use-pagerduty-with-home-assistant/</link>
+      <link>http://localhost:1313/post/use-pagerduty-with-home-assistant/</link>
       <pubDate>Sat, 17 Sep 2022 15:38:01 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/use-pagerduty-with-home-assistant/</guid>
+      <guid>http://localhost:1313/post/use-pagerduty-with-home-assistant/</guid>
       <description>&lt;p&gt;I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I&amp;rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal &lt;a href=&#34;https://www.pagerduty.com/&#34;&gt;PagerDuty&lt;/a&gt; account and connect it to my Home Assistant.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fixing Autodesk Fusion 360 First Time Launch on macOS Problems</title>
-      <link>https://unixorn.github.io/post/autodesk-fusion-signup/</link>
+      <link>http://localhost:1313/post/autodesk-fusion-signup/</link>
       <pubDate>Sun, 01 May 2022 18:06:38 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/autodesk-fusion-signup/</guid>
+      <guid>http://localhost:1313/post/autodesk-fusion-signup/</guid>
       <description>&lt;p&gt;I signed up for the free personal edition of Autodesk Fusion 360 to get started with 3d printing, and the first time I tried to launch it on macOS, it wouldn&amp;rsquo;t let me in because it refused to create a new team for me to join.&lt;/p&gt;
 &lt;p&gt;The solution ended up being to quit Fusion 360, open the &lt;a href=&#34;http://login.autodesk360.com/login/signup?product=fusion&amp;amp;edition=business&#34;&gt;Fusion Team Signup&lt;/a&gt; page in a browser, create a team there, then restart Fusion 360.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Western Digital Red drive SMR Fiasco</title>
-      <link>https://unixorn.github.io/post/western-digital-red-smr-fiasco/</link>
+      <link>http://localhost:1313/post/western-digital-red-smr-fiasco/</link>
       <pubDate>Sat, 15 Jan 2022 07:32:37 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/western-digital-red-smr-fiasco/</guid>
+      <guid>http://localhost:1313/post/western-digital-red-smr-fiasco/</guid>
       <description>&lt;p&gt;TL;DR - SMR drives can take thirteen to sixteen times as long to resilver in your ZFS raid than CMR drives. If they even succeed. This wouldn&amp;rsquo;t be a big deal, except that Western Digital started using SMR technology in their WD-Red drives that are marketed toward SOHO and small business raid, without any warnings about the RAID performance implications.&lt;/p&gt;
 &lt;p&gt;I got lucky when I bought my last batch of Reds, they were all CMR, but it was pure luck - I bought them based on Western Digital&amp;rsquo;s reputation and because I&amp;rsquo;ve seen multiple NAS vendors recommend WD-REDs in the past.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sysadvent 2021 Articles</title>
-      <link>https://unixorn.github.io/post/sysadvent-2021-article/</link>
+      <link>http://localhost:1313/post/sysadvent-2021-article/</link>
       <pubDate>Tue, 07 Dec 2021 11:13:39 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/sysadvent-2021-article/</guid>
+      <guid>http://localhost:1313/post/sysadvent-2021-article/</guid>
       <description>&lt;p&gt;I wrote two articles in sysadvent 2021&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://sysadvent.blogspot.com/2021/12/day-7-baking-multi-architecture-docker.html&#34;&gt;Baking Multi-Architecture Docker Images&lt;/a&gt;&lt;/li&gt;
@@ -93,32 +93,32 @@
     </item>
     <item>
       <title>Setting up Shinobi and a Wyze G2 Camera</title>
-      <link>https://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</link>
+      <link>http://localhost:1313/post/setting-up-shinobi-and-a-wyze-g2-camera/</link>
       <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</guid>
+      <guid>http://localhost:1313/post/setting-up-shinobi-and-a-wyze-g2-camera/</guid>
       <description>&lt;p&gt;I wanted to set up a security camera outside, but I didn&amp;rsquo;t want to be dependent on an outside cloud service - if my internet goes out, I don&amp;rsquo;t want to lose my ability to record video.&lt;/p&gt;
 &lt;p&gt;Wyze cameras are nice and cheap, and you can reflash them to support RTSP in addition to streaming to the Wyze cloud.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Home Assistant Printer Power Management</title>
-      <link>https://unixorn.github.io/post/home-assistant-printer-power-management/</link>
+      <link>http://localhost:1313/post/home-assistant-printer-power-management/</link>
       <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/home-assistant-printer-power-management/</guid>
+      <guid>http://localhost:1313/post/home-assistant-printer-power-management/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve got an old HP laser printer in my basement. We barely print 10 pages a month between the two of us, so we only turn it on when we&amp;rsquo;re going to print. That&amp;rsquo;s a hassle though, because inevitably we forget to shut it off sometimes and it stays on overnight or even for days, and while it has a powersave mode, the 4050N is so old that even that burns a good amount of power.&lt;/p&gt;
 &lt;p&gt;Enter Home Assistant.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Run a CUPSD print server on Raspberry Pi</title>
-      <link>https://unixorn.github.io/post/cupsd-setup/</link>
+      <link>http://localhost:1313/post/cupsd-setup/</link>
       <pubDate>Mon, 08 Feb 2021 12:11:24 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/cupsd-setup/</guid>
+      <guid>http://localhost:1313/post/cupsd-setup/</guid>
       <description>&lt;p&gt;I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here&amp;rsquo;s how I set that up.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Home Assistant Notifications via Twilio SMS</title>
-      <link>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</link>
+      <link>http://localhost:1313/post/home-assistant-notifications-via-twilio/</link>
       <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</guid>
+      <guid>http://localhost:1313/post/home-assistant-notifications-via-twilio/</guid>
       <description>&lt;h2 id=&#34;sending-notifications-from-home-assistant-via-twilio-sms&#34;&gt;Sending notifications from Home Assistant via Twilio SMS&lt;/h2&gt;
 &lt;p&gt;I got a post published at work about &lt;a href=&#34;https://www.twilio.com/blog/home-assistant-twilio-sms-alerts&#34;&gt;How to Receive Alerts from Home Assistant with Twilio SMS&lt;/a&gt;, so I won&amp;rsquo;t replicate it here.&lt;/p&gt;
 &lt;p&gt;TL;DR - It is super easy to send SMS messages via Twilio SMS with &lt;code&gt;curl&lt;/code&gt;.&lt;/p&gt;
@@ -126,9 +126,9 @@
     </item>
     <item>
       <title>Add Plex to Home Assistant</title>
-      <link>https://unixorn.github.io/post/add-plex-to-hass/</link>
+      <link>http://localhost:1313/post/add-plex-to-hass/</link>
       <pubDate>Sun, 08 Nov 2020 21:10:48 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/add-plex-to-hass/</guid>
+      <guid>http://localhost:1313/post/add-plex-to-hass/</guid>
       <description>&lt;p&gt;Adding the Plex integration to Home Assistant is pretty straightforward with the exception of finding your Plex token.&lt;/p&gt;
 &lt;h2 id=&#34;find-your-plex-token&#34;&gt;Find Your Plex token:&lt;/h2&gt;
 &lt;ol&gt;
@@ -143,75 +143,188 @@
     </item>
     <item>
       <title>Building Multi Architecture Docker Images with buildx</title>
-      <link>https://unixorn.github.io/post/multi-architecture-images/</link>
+      <link>http://localhost:1313/post/multi-architecture-images/</link>
       <pubDate>Sat, 13 Jun 2020 09:07:49 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/multi-architecture-images/</guid>
+      <guid>http://localhost:1313/post/multi-architecture-images/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are &lt;code&gt;arm7&lt;/code&gt;, some Raspberry Pi 4s that are &lt;code&gt;arm64&lt;/code&gt;, and am soon going to add an Intel node as well. It&amp;rsquo;s more hassle than it&amp;rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>k3s with k3sup and helm</title>
+      <link>http://localhost:1313/post/k3s-and-k3sup/</link>
+      <pubDate>Wed, 20 May 2020 21:55:18 -0700</pubDate>
+      <guid>http://localhost:1313/post/k3s-and-k3sup/</guid>
+      <description>&lt;p&gt;Installing k3s on the ARM cluster using k3sup&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Installing Docker on FreeNAS 11.2</title>
+      <link>http://localhost:1313/post/installing-docker-on-freenas-11.2/</link>
+      <pubDate>Fri, 17 Apr 2020 19:25:47 -0600</pubDate>
+      <guid>http://localhost:1313/post/installing-docker-on-freenas-11.2/</guid>
+      <description>&lt;h1 id=&#34;docker-on-freenas-11&#34;&gt;Docker on FreeNAS 11&lt;/h1&gt;
+&lt;p&gt;It isn&amp;rsquo;t as simple as just clicking on for a docker service in the UI. You&amp;rsquo;re going to have to set up a VM yourself.&lt;/p&gt;
+&lt;h2 id=&#34;create-rancher-vm&#34;&gt;Create Rancher VM&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Create a VM in the new UI, select Docker Host. This will create a Rancher VM that already has docker installed inside so you don&amp;rsquo;t have to hassle with installing.&lt;/li&gt;
+&lt;li&gt;Go into the classic webui, select the VM you just created, then devices, and edit&lt;/li&gt;
+&lt;li&gt;Pick the &lt;strong&gt;RAW&lt;/strong&gt; item, select edit, then set a password. This will be the rancher user&amp;rsquo;s password.&lt;/li&gt;
+&lt;li&gt;Back in the new UI, go into VM, select the Rancher VM, hit the &lt;strong&gt;&amp;hellip;&lt;/strong&gt; and select &lt;strong&gt;serial&lt;/strong&gt; to see the serial console. At the end of the boot messages, it will print something like &lt;code&gt;docker-sys: 172.18.42.1 eth0: 10.9.8.7 lo: 127.0.0.1&lt;/code&gt; before it presents a login prompt. The username is rancher, and the password is what you set in step 3.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;setup-network-on-the-rancher-vm&#34;&gt;Setup Network on the Rancher VM&lt;/h2&gt;
+&lt;p&gt;I chose to set the static address for my Rancher VM on my DHCP server. This makes it easier to change later without having to hand-configure the VM, I can just update it on the Unifi controller and reboot the VM.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Home Assistant Setup</title>
+      <link>http://localhost:1313/post/home-assistant-setup/</link>
+      <pubDate>Fri, 29 Nov 2019 15:37:45 -0700</pubDate>
+      <guid>http://localhost:1313/post/home-assistant-setup/</guid>
+      <description>&lt;p&gt;&lt;code&gt;sudo apt install mosquitto-clients&lt;/code&gt;
+mosquitto_sub -d -t hello/world
+mosquitto_pub -d -t hello/world -m &amp;ldquo;Hello from Terminal window 2&#39;
+mosquitto_pub -d -t hello/world -m &amp;lsquo;shazam&amp;rsquo;
+docker run -it &amp;ndash;rm eclipse-mosquitto mosquitto_pub -h hass.unixorn.net -d -t hello/world -m &amp;ldquo;Switch is ON&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Convert cleartext password file &lt;code&gt;mosquitto_passwd -U mqtt.passwords&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pip install paho-mqtt&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting Up Pihole</title>
+      <link>http://localhost:1313/post/setting-up-pihole/</link>
+      <pubDate>Sun, 13 Oct 2019 18:36:59 -0700</pubDate>
+      <guid>http://localhost:1313/post/setting-up-pihole/</guid>
+      <description>&lt;h2 id=&#34;why-pihole&#34;&gt;Why PiHole?&lt;/h2&gt;
+&lt;p&gt;Frankly, I got sick of annoying ads, especially the ones that popped up the &amp;ldquo;your mac is infected with a virus&amp;rdquo; bullshit, so I decided to put a couple of PiHoles in my cluster and stop them at the network level.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Add metalLB and Traefik to k3s</title>
+      <link>http://localhost:1313/post/k3s-add-metallb-and-traefik/</link>
+      <pubDate>Sat, 28 Sep 2019 16:28:00 -0600</pubDate>
+      <guid>http://localhost:1313/post/k3s-add-metallb-and-traefik/</guid>
+      <description>&lt;h1 id=&#34;tldr&#34;&gt;TL;DR&lt;/h1&gt;
+&lt;p&gt;How to configure Traefik and MetallB on an ARM k3s cluster.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Backing Up the Cluster with Duplicacy</title>
-      <link>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</link>
+      <link>http://localhost:1313/post/backing-up-the-cluster-with-duplicacy/</link>
       <pubDate>Sun, 01 Sep 2019 15:47:23 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</guid>
+      <guid>http://localhost:1313/post/backing-up-the-cluster-with-duplicacy/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;I wanted to ensure any data I put into my &lt;a href=&#34;https://unixorn.github.io/post/k3s-on-arm/&#34;&gt;ARM k3s cluster&lt;/a&gt; is backed up to prevent data loss.&lt;/p&gt;
 &lt;p&gt;I no longer recommend duplicacy. Instead, read my article on &lt;a href=&#34;https://unixorn.github.io/post/restic-backups-on-truenas/&#34;&gt;restic backups on TrueNas&lt;/a&gt; instead.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Growing EBS Volumes in Place</title>
-      <link>https://unixorn.github.io/post/growing-ebs-volumes-in-place/</link>
+      <link>http://localhost:1313/post/growing-ebs-volumes-in-place/</link>
       <pubDate>Tue, 20 Aug 2019 07:10:27 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/growing-ebs-volumes-in-place/</guid>
+      <guid>http://localhost:1313/post/growing-ebs-volumes-in-place/</guid>
       <description>&lt;p&gt;Yesterday I had to grow a live filesystem on a server in EC2, without downtime. I do this just infrequently enough to not &lt;em&gt;quite&lt;/em&gt; remember all the details without poking around the internet, so I&amp;rsquo;m documenting it all in one place.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Trying K3s on ARM, Part 1</title>
-      <link>https://unixorn.github.io/post/k3s-on-arm/</link>
+      <link>http://localhost:1313/post/k3s-on-arm/</link>
       <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/k3s-on-arm/</guid>
+      <guid>http://localhost:1313/post/k3s-on-arm/</guid>
       <description>&lt;h2 id=&#34;why-k3s-and-not-stick-with-k8s&#34;&gt;Why k3s and not stick with k8s?&lt;/h2&gt;
 &lt;p&gt;I wanted to experiment with &lt;a href=&#34;https://k3s.io&#34;&gt;k3s&lt;/a&gt;. They package everything you need in a single binary, don&amp;rsquo;t package in deprecated parts of k8s, and it works on Intel, ARMv7 and ARM64. It seemed like it&amp;rsquo;d be a less painful way to runn Kubernetes on my ARM cluster.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Equifax 2017 Breach Settlement Information</title>
-      <link>https://unixorn.github.io/post/equifax-2017-breach-settlement/</link>
+      <link>http://localhost:1313/post/equifax-2017-breach-settlement/</link>
       <pubDate>Sat, 27 Jul 2019 07:09:10 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/equifax-2017-breach-settlement/</guid>
+      <guid>http://localhost:1313/post/equifax-2017-breach-settlement/</guid>
       <description>&lt;p&gt;Get your money from the Equifax settlement regarding the 2017 security breach.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Deploying Openfaas</title>
+      <link>http://localhost:1313/post/deploying-openfaas/</link>
+      <pubDate>Wed, 24 Jul 2019 18:57:01 -0600</pubDate>
+      <guid>http://localhost:1313/post/deploying-openfaas/</guid>
+      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd faas-netes
+sudo kubectl apply -f namespaces.yml
+sudo kubectl apply -f yaml_armhf/
+sudo kubectl get pods --all-namespaces --watch
+
+kc get deploy -n openfaas
+# looking for gateway
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=DjpVtNjiXSU&#34;&gt;https://www.youtube.com/watch?v=DjpVtNjiXSU&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Get cli&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Go to &lt;a href=&#34;https://github.com/openfaas/faas-cli/releases&#34;&gt;https://github.com/openfaas/faas-cli/releases&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;</description>
+    </item>
+    <item>
+      <title>Replacing a ZFS Drive</title>
+      <link>http://localhost:1313/post/replace-zfs-drive/</link>
+      <pubDate>Wed, 24 Jul 2019 18:57:01 -0600</pubDate>
+      <guid>http://localhost:1313/post/replace-zfs-drive/</guid>
+      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;zpool status
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Video to watch -&lt;/p&gt;
+&lt;p&gt;Go to view volumes, then click the filesystem, then Volume Status, then click the removed disk, then click replace.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Beginning Home Assistant</title>
+      <link>http://localhost:1313/post/beginning-home-assistant/</link>
+      <pubDate>Sun, 21 Jul 2019 08:58:07 -0600</pubDate>
+      <guid>http://localhost:1313/post/beginning-home-assistant/</guid>
+      <description>&lt;h1 id=&#34;parts-list&#34;&gt;Parts List&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.home-assistant.io/&#34;&gt;Home Assistant&lt;/a&gt; Open source software that prioritizes local control and privacy. I&amp;rsquo;m using the arm build, &lt;a href=&#34;https://hub.docker.com/r/homeassistant/armhf-homeassistant&#34;&gt;homeassistant/armhf-homeassistant&lt;/a&gt; in docker.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ameridroid.com/products/odroid-hc2&#34;&gt;Odroid HC2&lt;/a&gt; - I run Home Assistant on one of the HC2s in my existing cluster.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://smile.amazon.com/gp/product/B01GJ826F8&#34;&gt;GoControl CECOMINOD016164 HUSBZB-1 USB Hub&lt;/a&gt; - This provides both Zigbee and Z-Wave interfaces for Home Assistant&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://smile.amazon.com/gp/product/B00TC9NC82&#34;&gt;Securifi Peanut Smart Plug&lt;/a&gt; - This is a Zigbee HA 1.2 switched plug - plug a device into it to add control. It has a manual on-off switch as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h1&gt;
+&lt;p&gt;Set up a ZWave key
+&lt;code&gt;tr -dc &#39;0-9A-F&#39; &amp;lt; /dev/urandom | fold -w 32 | head -n 1 | sed -e &#39;s/\(..\)/0x\1, /g&#39;&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting up a VPN on a Unifi USG</title>
+      <link>http://localhost:1313/post/setting-up-unifi-vpn/</link>
+      <pubDate>Sun, 21 Jul 2019 08:58:07 -0600</pubDate>
+      <guid>http://localhost:1313/post/setting-up-unifi-vpn/</guid>
+      <description>&lt;p&gt;Needed to set up a VPN on my Unifi&lt;/p&gt;
+&lt;h2 id=&#34;enable-the-radius-service&#34;&gt;Enable the radius service&lt;/h2&gt;
+&lt;p&gt;Settings -&amp;gt; Radius -&amp;gt; Server
+Set a good secret&lt;/p&gt;
+&lt;h2 id=&#34;create-a-network&#34;&gt;Create a network&lt;/h2&gt;
+&lt;p&gt;Set the type to Remote User VPN
+Specify a network for it&lt;/p&gt;
+&lt;h2 id=&#34;create-a-user&#34;&gt;Create a User&lt;/h2&gt;
+&lt;p&gt;You can specify a VLAN for them here
+Set tunnel type to L2TP
+Set tunnel medium type to IPv4&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Adding a Distributed Filesystem to the Cluster</title>
-      <link>https://unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</link>
+      <link>http://localhost:1313/post/adding-a-distributed-filesystem-to-cluster/</link>
       <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</guid>
+      <guid>http://localhost:1313/post/adding-a-distributed-filesystem-to-cluster/</guid>
       <description>&lt;p&gt;One of the reasons I set up my cluster was that I&amp;rsquo;m running out of space on my NAS. I don&amp;rsquo;t want to buy a whole new chassis, and while I could have put individual file shares on each cluster node, that would be both inconvenient and not provide any data redundancy without a lot of brittle home-rolled hacks to &lt;code&gt;rsync&lt;/code&gt; data from node to node. And since distributed file systems are a thing, I&amp;rsquo;d rather not resort to hacks.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Things I Learned About Docker Mac</title>
-      <link>https://unixorn.github.io/post/til-about-docker-mac/</link>
+      <link>http://localhost:1313/post/til-about-docker-mac/</link>
       <pubDate>Wed, 08 May 2019 09:11:31 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/til-about-docker-mac/</guid>
+      <guid>http://localhost:1313/post/til-about-docker-mac/</guid>
       <description>&lt;p&gt;I had a bunch of cruft in start scripts that would determine the IP of my laptop and set it as an environment variable to pass to &lt;code&gt;docker-compose&lt;/code&gt; and it turns out that with Docker for Mac you don&amp;rsquo;t have to do all that work - just use &lt;code&gt;docker.for.mac.localhost&lt;/code&gt; as a hostname.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fix macOS Captive WIFI Portal Issue</title>
-      <link>https://unixorn.github.io/post/fix-macos-captive-portal-issue/</link>
+      <link>http://localhost:1313/post/fix-macos-captive-portal-issue/</link>
       <pubDate>Tue, 05 Mar 2019 22:48:25 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/fix-macos-captive-portal-issue/</guid>
+      <guid>http://localhost:1313/post/fix-macos-captive-portal-issue/</guid>
       <description>&lt;p&gt;I&amp;rsquo;m not sure if this is just macOS Mojave being flaky or some interaction with the security malware installed on my work laptop, but it refuses to connect to some captive portals.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Parts list for the ARM cluster</title>
-      <link>https://unixorn.github.io/post/arm_cluster_parts_list/</link>
+      <link>http://localhost:1313/post/arm_cluster_parts_list/</link>
       <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/arm_cluster_parts_list/</guid>
+      <guid>http://localhost:1313/post/arm_cluster_parts_list/</guid>
       <description>ARM cluster parts list</description>
     </item>
     <item>
       <title>Getting an ARM kubernetes cluster up and running</title>
-      <link>https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</link>
+      <link>http://localhost:1313/post/in_the_beginning_there_was_bare_metal/</link>
       <pubDate>Sun, 17 Feb 2019 16:00:05 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</guid>
+      <guid>http://localhost:1313/post/in_the_beginning_there_was_bare_metal/</guid>
       <description>In the beginning, there was bare metal</description>
     </item>
   </channel>

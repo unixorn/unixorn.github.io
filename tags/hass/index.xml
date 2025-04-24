@@ -2,31 +2,78 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Hass on unixorn.github.io</title>
-    <link>https://unixorn.github.io/tags/hass/</link>
+    <link>http://localhost:1313/tags/hass/</link>
     <description>Recent content in Hass on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 06 Nov 2022 14:47:14 -1000</lastBuildDate>
-    <atom:link href="https://unixorn.github.io/tags/hass/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 24 Nov 2023 10:49:57 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/hass/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Set Up MQTT</title>
+      <link>http://localhost:1313/post/ha-quickstart/02-set-up-mqtt/</link>
+      <pubDate>Fri, 24 Nov 2023 10:49:57 +0200</pubDate>
+      <guid>http://localhost:1313/post/ha-quickstart/02-set-up-mqtt/</guid>
+      <description>&lt;p&gt;In this article, I&amp;rsquo;m going to show how to set up &lt;a href=&#34;https://mosquitto.org/&#34;&gt;mosquitto&lt;/a&gt; as an MQTT broker to use with Home Assistant. We&amp;rsquo;re going to run it in docker via &lt;code&gt;docker-compose&lt;/code&gt;, so we can use it to support services we want to use with Home Assistant.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Home Assistant Install Guide</title>
+      <link>http://localhost:1313/post/ha-quickstart/01-install-home-assistant/</link>
+      <pubDate>Wed, 22 Nov 2023 18:18:54 -0600</pubDate>
+      <guid>http://localhost:1313/post/ha-quickstart/01-install-home-assistant/</guid>
+      <description>&lt;p&gt;In this tutorial, we&amp;rsquo;re going to set up &lt;a href=&#34;https://nodered.org&#34;&gt;Node-Red&lt;/a&gt; and use our SSL proxy to protect its webUI.&lt;/p&gt;
+&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h2&gt;
+&lt;p&gt;In the post, I&amp;rsquo;m going to assume you already have:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A server running &lt;code&gt;docker&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;nginx-proxy-manager installed on that server, and have already configured it with an SSL wildcard certificate. If you haven&amp;rsquo;t, go read my &lt;a href=&#34;https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/&#34;&gt;Set up nginx-proxy-manager&lt;/a&gt; post and set it up.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;p&gt;We&amp;rsquo;re going to use &lt;code&gt;docker-compose&lt;/code&gt; to run homeassistant. Change the name of the network y&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Home Assistant Setup Guide</title>
+      <link>http://localhost:1313/post/ha-quickstart/homeassistant-quickstart/</link>
+      <pubDate>Wed, 22 Nov 2023 18:18:54 -0600</pubDate>
+      <guid>http://localhost:1313/post/ha-quickstart/homeassistant-quickstart/</guid>
+      <description>&lt;p&gt;This is the first in a series of posts detailing how to do a basic install of &lt;a href=&#34;https://www.home-assistant.io/&#34;&gt;Home Assistant&lt;/a&gt; with &lt;code&gt;docker&lt;/code&gt; and &lt;code&gt;docker-compose&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Node Red Setup Guide</title>
+      <link>http://localhost:1313/post/ha-quickstart/set-up-node-red/</link>
+      <pubDate>Wed, 22 Nov 2023 18:18:54 -0600</pubDate>
+      <guid>http://localhost:1313/post/ha-quickstart/set-up-node-red/</guid>
+      <description>&lt;p&gt;In this tutorial, we&amp;rsquo;re going to set up &lt;a href=&#34;https://nodered.org&#34;&gt;Node-Red&lt;/a&gt; and use our SSL proxy to protect its webUI.&lt;/p&gt;
+&lt;p&gt;Go to palette, add the node-red-contrib-home-assistant-websocket palette&lt;/p&gt;
+&lt;h1 id=&#34;create-hass-token&#34;&gt;Create Hass token&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Create user in hass. Make it an admin.&lt;/li&gt;
+&lt;li&gt;Log in as user, click user icon in bottom left, scroll to bottom, create a  long lived token&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiMTI3NzI4NDI3NTA0NzE1YTE0ZTlkN2U2NzkxY2ZmZCIsImlhdCI6MTcwMTExNzUzMCwiZXhwIjoyMDE2NDc3NTMwfQ.EzJecoQURFv5M690KbA6D9GeQCpw8FKZyOR7DyTiZ28&lt;/p&gt;
+&lt;p&gt;Add events:state from the HA palette
+double click, pick add server&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href=&#34;https://jordanrounds.com/installing-node-red-in-docker-for-home-assistant/&#34;&gt;https://jordanrounds.com/installing-node-red-in-docker-for-home-assistant/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Zigbee and Zwave Setup Tips</title>
-      <link>https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/</link>
+      <link>http://localhost:1313/post/zigbee-and-zwave-setup-tip/</link>
       <pubDate>Sun, 06 Nov 2022 14:47:14 -1000</pubDate>
-      <guid>https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/</guid>
+      <guid>http://localhost:1313/post/zigbee-and-zwave-setup-tip/</guid>
       <description>&lt;p&gt;Some tips about setting up Zigbee or Z-wave mesh networks.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve had a few people new to Home Assistant ask about how to best set up their mesh networks. Here&amp;rsquo;s my take on what works best.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Switch Home Assistant to Use PostgreSQL Instead of SQLite</title>
-      <link>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</link>
+      <link>http://localhost:1313/post/hass-using-postgresql-instead-of-sqlite/</link>
       <pubDate>Sat, 05 Nov 2022 09:42:58 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</guid>
+      <guid>http://localhost:1313/post/hass-using-postgresql-instead-of-sqlite/</guid>
       <description>&lt;p&gt;I wanted to switch my new Home Assistant (HA) installation to write data to &lt;a href=&#34;https://www.postgresql.org/&#34;&gt;PostgreSQL&lt;/a&gt; instead of SQLite for a variety of reasons. Here&amp;rsquo;s how I did it.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s why I decided to switch:&lt;/p&gt;
 &lt;ul&gt;
@@ -37,36 +84,52 @@
     </item>
     <item>
       <title>Fix Securifi Peanut issue with zigbee2mqtt</title>
-      <link>https://unixorn.github.io/post/securifi-peanut-gotcha/</link>
+      <link>http://localhost:1313/post/securifi-peanut-gotcha/</link>
       <pubDate>Thu, 06 Oct 2022 21:20:45 -1000</pubDate>
-      <guid>https://unixorn.github.io/post/securifi-peanut-gotcha/</guid>
+      <guid>http://localhost:1313/post/securifi-peanut-gotcha/</guid>
       <description>&lt;p&gt;Securifi Peanut plugs have issues with zigbee2mqtt.&lt;/p&gt;
 &lt;p&gt;I have several Securifi &lt;a href=&#34;https://smile.amazon.com/gp/product/B00TC9NC82&#34;&gt;Peanut&lt;/a&gt; Zigbee switches. Overall, they&amp;rsquo;re nice little smart plugs and make good Zigbee routers to strengthen your Zigbee mesh, but they have one annoying issue - &lt;a href=&#34;https://zigbee2mqtt.io&#34;&gt;zigbee2mqtt&lt;/a&gt; doesn&amp;rsquo;t recognize them perfectly, though there&amp;rsquo;s a simple fix that I&amp;rsquo;m going to document here.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Use Pagerduty With Home Assistant</title>
-      <link>https://unixorn.github.io/post/use-pagerduty-with-home-assistant/</link>
+      <link>http://localhost:1313/post/use-pagerduty-with-home-assistant/</link>
       <pubDate>Sat, 17 Sep 2022 15:38:01 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/use-pagerduty-with-home-assistant/</guid>
+      <guid>http://localhost:1313/post/use-pagerduty-with-home-assistant/</guid>
       <description>&lt;p&gt;I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I&amp;rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal &lt;a href=&#34;https://www.pagerduty.com/&#34;&gt;PagerDuty&lt;/a&gt; account and connect it to my Home Assistant.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Home Assistant Printer Power Management</title>
-      <link>https://unixorn.github.io/post/home-assistant-printer-power-management/</link>
+      <link>http://localhost:1313/post/home-assistant-printer-power-management/</link>
       <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/home-assistant-printer-power-management/</guid>
+      <guid>http://localhost:1313/post/home-assistant-printer-power-management/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve got an old HP laser printer in my basement. We barely print 10 pages a month between the two of us, so we only turn it on when we&amp;rsquo;re going to print. That&amp;rsquo;s a hassle though, because inevitably we forget to shut it off sometimes and it stays on overnight or even for days, and while it has a powersave mode, the 4050N is so old that even that burns a good amount of power.&lt;/p&gt;
 &lt;p&gt;Enter Home Assistant.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Home Assistant Notifications via Twilio SMS</title>
-      <link>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</link>
+      <link>http://localhost:1313/post/home-assistant-notifications-via-twilio/</link>
       <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</guid>
+      <guid>http://localhost:1313/post/home-assistant-notifications-via-twilio/</guid>
       <description>&lt;h2 id=&#34;sending-notifications-from-home-assistant-via-twilio-sms&#34;&gt;Sending notifications from Home Assistant via Twilio SMS&lt;/h2&gt;
 &lt;p&gt;I got a post published at work about &lt;a href=&#34;https://www.twilio.com/blog/home-assistant-twilio-sms-alerts&#34;&gt;How to Receive Alerts from Home Assistant with Twilio SMS&lt;/a&gt;, so I won&amp;rsquo;t replicate it here.&lt;/p&gt;
 &lt;p&gt;TL;DR - It is super easy to send SMS messages via Twilio SMS with &lt;code&gt;curl&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Update: I wrote another article, &lt;a href=&#34;https://unixorn.github.io/post/use-pagerduty-with-home-assistant/&#34;&gt;Use PagerDuty with Home Assistant&lt;/a&gt; this time for using PagerDuty which allows automatically de-duping notifications.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Beginning Home Assistant</title>
+      <link>http://localhost:1313/post/beginning-home-assistant/</link>
+      <pubDate>Sun, 21 Jul 2019 08:58:07 -0600</pubDate>
+      <guid>http://localhost:1313/post/beginning-home-assistant/</guid>
+      <description>&lt;h1 id=&#34;parts-list&#34;&gt;Parts List&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.home-assistant.io/&#34;&gt;Home Assistant&lt;/a&gt; Open source software that prioritizes local control and privacy. I&amp;rsquo;m using the arm build, &lt;a href=&#34;https://hub.docker.com/r/homeassistant/armhf-homeassistant&#34;&gt;homeassistant/armhf-homeassistant&lt;/a&gt; in docker.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ameridroid.com/products/odroid-hc2&#34;&gt;Odroid HC2&lt;/a&gt; - I run Home Assistant on one of the HC2s in my existing cluster.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://smile.amazon.com/gp/product/B01GJ826F8&#34;&gt;GoControl CECOMINOD016164 HUSBZB-1 USB Hub&lt;/a&gt; - This provides both Zigbee and Z-Wave interfaces for Home Assistant&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://smile.amazon.com/gp/product/B00TC9NC82&#34;&gt;Securifi Peanut Smart Plug&lt;/a&gt; - This is a Zigbee HA 1.2 switched plug - plug a device into it to add control. It has a manual on-off switch as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h1&gt;
+&lt;p&gt;Set up a ZWave key
+&lt;code&gt;tr -dc &#39;0-9A-F&#39; &amp;lt; /dev/urandom | fold -w 32 | head -n 1 | sed -e &#39;s/\(..\)/0x\1, /g&#39;&lt;/code&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

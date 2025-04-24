@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Plex on unixorn.github.io</title>
-    <link>https://unixorn.github.io/tags/plex/</link>
+    <link>http://localhost:1313/tags/plex/</link>
     <description>Recent content in Plex on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sun, 08 Nov 2020 21:10:48 -0700</lastBuildDate>
-    <atom:link href="https://unixorn.github.io/tags/plex/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/plex/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Add Plex to Home Assistant</title>
-      <link>https://unixorn.github.io/post/add-plex-to-hass/</link>
+      <link>http://localhost:1313/post/add-plex-to-hass/</link>
       <pubDate>Sun, 08 Nov 2020 21:10:48 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/add-plex-to-hass/</guid>
+      <guid>http://localhost:1313/post/add-plex-to-hass/</guid>
       <description>&lt;p&gt;Adding the Plex integration to Home Assistant is pretty straightforward with the exception of finding your Plex token.&lt;/p&gt;
 &lt;h2 id=&#34;find-your-plex-token&#34;&gt;Find Your Plex token:&lt;/h2&gt;
 &lt;ol&gt;

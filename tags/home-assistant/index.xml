@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Home-Assistant on unixorn.github.io</title>
-    <link>https://unixorn.github.io/tags/home-assistant/</link>
+    <link>http://localhost:1313/tags/home-assistant/</link>
     <description>Recent content in Home-Assistant on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sat, 05 Nov 2022 09:42:58 -0600</lastBuildDate>
-    <atom:link href="https://unixorn.github.io/tags/home-assistant/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/home-assistant/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Switch Home Assistant to Use PostgreSQL Instead of SQLite</title>
-      <link>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</link>
+      <link>http://localhost:1313/post/hass-using-postgresql-instead-of-sqlite/</link>
       <pubDate>Sat, 05 Nov 2022 09:42:58 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</guid>
+      <guid>http://localhost:1313/post/hass-using-postgresql-instead-of-sqlite/</guid>
       <description>&lt;p&gt;I wanted to switch my new Home Assistant (HA) installation to write data to &lt;a href=&#34;https://www.postgresql.org/&#34;&gt;PostgreSQL&lt;/a&gt; instead of SQLite for a variety of reasons. Here&amp;rsquo;s how I did it.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s why I decided to switch:&lt;/p&gt;
 &lt;ul&gt;
@@ -29,24 +29,24 @@
     </item>
     <item>
       <title>Use Pagerduty With Home Assistant</title>
-      <link>https://unixorn.github.io/post/use-pagerduty-with-home-assistant/</link>
+      <link>http://localhost:1313/post/use-pagerduty-with-home-assistant/</link>
       <pubDate>Sat, 17 Sep 2022 15:38:01 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/use-pagerduty-with-home-assistant/</guid>
+      <guid>http://localhost:1313/post/use-pagerduty-with-home-assistant/</guid>
       <description>&lt;p&gt;I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I&amp;rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal &lt;a href=&#34;https://www.pagerduty.com/&#34;&gt;PagerDuty&lt;/a&gt; account and connect it to my Home Assistant.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Home Assistant Printer Power Management</title>
-      <link>https://unixorn.github.io/post/home-assistant-printer-power-management/</link>
+      <link>http://localhost:1313/post/home-assistant-printer-power-management/</link>
       <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/home-assistant-printer-power-management/</guid>
+      <guid>http://localhost:1313/post/home-assistant-printer-power-management/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve got an old HP laser printer in my basement. We barely print 10 pages a month between the two of us, so we only turn it on when we&amp;rsquo;re going to print. That&amp;rsquo;s a hassle though, because inevitably we forget to shut it off sometimes and it stays on overnight or even for days, and while it has a powersave mode, the 4050N is so old that even that burns a good amount of power.&lt;/p&gt;
 &lt;p&gt;Enter Home Assistant.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Home Assistant Notifications via Twilio SMS</title>
-      <link>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</link>
+      <link>http://localhost:1313/post/home-assistant-notifications-via-twilio/</link>
       <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</guid>
+      <guid>http://localhost:1313/post/home-assistant-notifications-via-twilio/</guid>
       <description>&lt;h2 id=&#34;sending-notifications-from-home-assistant-via-twilio-sms&#34;&gt;Sending notifications from Home Assistant via Twilio SMS&lt;/h2&gt;
 &lt;p&gt;I got a post published at work about &lt;a href=&#34;https://www.twilio.com/blog/home-assistant-twilio-sms-alerts&#34;&gt;How to Receive Alerts from Home Assistant with Twilio SMS&lt;/a&gt;, so I won&amp;rsquo;t replicate it here.&lt;/p&gt;
 &lt;p&gt;TL;DR - It is super easy to send SMS messages via Twilio SMS with &lt;code&gt;curl&lt;/code&gt;.&lt;/p&gt;
@@ -54,9 +54,9 @@
     </item>
     <item>
       <title>Add Plex to Home Assistant</title>
-      <link>https://unixorn.github.io/post/add-plex-to-hass/</link>
+      <link>http://localhost:1313/post/add-plex-to-hass/</link>
       <pubDate>Sun, 08 Nov 2020 21:10:48 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/add-plex-to-hass/</guid>
+      <guid>http://localhost:1313/post/add-plex-to-hass/</guid>
       <description>&lt;p&gt;Adding the Plex integration to Home Assistant is pretty straightforward with the exception of finding your Plex token.&lt;/p&gt;
 &lt;h2 id=&#34;find-your-plex-token&#34;&gt;Find Your Plex token:&lt;/h2&gt;
 &lt;ol&gt;
@@ -68,6 +68,42 @@
 &lt;/ol&gt;
 &lt;h2 id=&#34;set-up-the-plex-home-assistant-integration&#34;&gt;Set up the Plex Home Assistant Integration&lt;/h2&gt;
 &lt;p&gt;Once you have the token,&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Home Assistant Setup</title>
+      <link>http://localhost:1313/post/home-assistant-setup/</link>
+      <pubDate>Fri, 29 Nov 2019 15:37:45 -0700</pubDate>
+      <guid>http://localhost:1313/post/home-assistant-setup/</guid>
+      <description>&lt;p&gt;&lt;code&gt;sudo apt install mosquitto-clients&lt;/code&gt;
+mosquitto_sub -d -t hello/world
+mosquitto_pub -d -t hello/world -m &amp;ldquo;Hello from Terminal window 2&#39;
+mosquitto_pub -d -t hello/world -m &amp;lsquo;shazam&amp;rsquo;
+docker run -it &amp;ndash;rm eclipse-mosquitto mosquitto_pub -h hass.unixorn.net -d -t hello/world -m &amp;ldquo;Switch is ON&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Convert cleartext password file &lt;code&gt;mosquitto_passwd -U mqtt.passwords&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pip install paho-mqtt&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Rhasspy Setup</title>
+      <link>http://localhost:1313/post/setting-up-rhasspy/</link>
+      <pubDate>Fri, 29 Nov 2019 15:37:45 -0700</pubDate>
+      <guid>http://localhost:1313/post/setting-up-rhasspy/</guid>
+      <description>&lt;p&gt;Setting up Rhasspy for voice recognition on a Raspberry Pi 4&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Beginning Home Assistant</title>
+      <link>http://localhost:1313/post/beginning-home-assistant/</link>
+      <pubDate>Sun, 21 Jul 2019 08:58:07 -0600</pubDate>
+      <guid>http://localhost:1313/post/beginning-home-assistant/</guid>
+      <description>&lt;h1 id=&#34;parts-list&#34;&gt;Parts List&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.home-assistant.io/&#34;&gt;Home Assistant&lt;/a&gt; Open source software that prioritizes local control and privacy. I&amp;rsquo;m using the arm build, &lt;a href=&#34;https://hub.docker.com/r/homeassistant/armhf-homeassistant&#34;&gt;homeassistant/armhf-homeassistant&lt;/a&gt; in docker.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://ameridroid.com/products/odroid-hc2&#34;&gt;Odroid HC2&lt;/a&gt; - I run Home Assistant on one of the HC2s in my existing cluster.&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://smile.amazon.com/gp/product/B01GJ826F8&#34;&gt;GoControl CECOMINOD016164 HUSBZB-1 USB Hub&lt;/a&gt; - This provides both Zigbee and Z-Wave interfaces for Home Assistant&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://smile.amazon.com/gp/product/B00TC9NC82&#34;&gt;Securifi Peanut Smart Plug&lt;/a&gt; - This is a Zigbee HA 1.2 switched plug - plug a device into it to add control. It has a manual on-off switch as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h1&gt;
+&lt;p&gt;Set up a ZWave key
+&lt;code&gt;tr -dc &#39;0-9A-F&#39; &amp;lt; /dev/urandom | fold -w 32 | head -n 1 | sed -e &#39;s/\(..\)/0x\1, /g&#39;&lt;/code&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

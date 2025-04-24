@@ -2,79 +2,126 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Docker on unixorn.github.io</title>
-    <link>https://unixorn.github.io/tags/docker/</link>
+    <link>http://localhost:1313/tags/docker/</link>
     <description>Recent content in Docker on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Thu, 27 Mar 2025 08:18:51 -0600</lastBuildDate>
-    <atom:link href="https://unixorn.github.io/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Lima Xbar Plugin 1.5.0</title>
-      <link>https://unixorn.github.io/post/open-source/lima-xbar-plugin-1.5.0/</link>
+      <link>http://localhost:1313/post/open-source/lima-xbar-plugin-1.5.0/</link>
       <pubDate>Thu, 27 Mar 2025 08:18:51 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/open-source/lima-xbar-plugin-1.5.0/</guid>
+      <guid>http://localhost:1313/post/open-source/lima-xbar-plugin-1.5.0/</guid>
       <description>&lt;p&gt;Released version 1.5.0 of &lt;a href=&#34;https://github.com/unixorn/lima-xbar-plugin&#34;&gt;https://github.com/unixorn/lima-xbar-plugin&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;lima-xbar-plugin works with both &lt;a href=&#34;https://xbarapp.com/&#34;&gt;xbar&lt;/a&gt; and &lt;a href=&#34;https://github.com/swiftbar/SwiftBar&#34;&gt;SwiftBar&lt;/a&gt; to add a macos menubar item to control your lima VMs and containers.&lt;/p&gt;
 &lt;p&gt;Thanks to new contributors &lt;a href=&#34;https://github.com/pythoninthegrass&#34;&gt;pythoninthegrass&lt;/a&gt; and &lt;a href=&#34;https://github.com/deepjia&#34;&gt;deepjia&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Synchronizing Multiple Piholes with orbital-sync</title>
-      <link>https://unixorn.github.io/post/homelab/orbital-sync/</link>
+      <link>http://localhost:1313/post/homelab/orbital-sync/</link>
       <pubDate>Sat, 07 Dec 2024 19:15:14 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/homelab/orbital-sync/</guid>
+      <guid>http://localhost:1313/post/homelab/orbital-sync/</guid>
       <description>&lt;p&gt;I run &lt;a href=&#34;https://pi-hole.net/&#34;&gt;PiHole&lt;/a&gt; for ad-blocking on my home network. I&amp;rsquo;m an SRE in my day job, so of course I&amp;rsquo;m not running a single instance of something as important as DNS. I also don&amp;rsquo;t want to have to update things like local DNS entries or blocklists in multiple places, that will cause weird and annoying inconsistencies in my DNS.&lt;/p&gt;
 &lt;p&gt;Enter &lt;a href=&#34;https://github.com/mattwebbio/orbital-sync&#34;&gt;orbital-sync&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Store NUT metrics in Prometheus so we can display them with Grafana</title>
-      <link>https://unixorn.github.io/post/homelab/homelab-nut-prometheus-grafana/</link>
+      <link>http://localhost:1313/post/homelab/homelab-nut-prometheus-grafana/</link>
       <pubDate>Sun, 21 Apr 2024 13:27:16 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/homelab/homelab-nut-prometheus-grafana/</guid>
+      <guid>http://localhost:1313/post/homelab/homelab-nut-prometheus-grafana/</guid>
       <description>&lt;p&gt;I ordered a second UPS because thanks to &lt;a href=&#34;https://github.com/Brandawg93/PeaNUT&#34;&gt;PeaNUT&lt;/a&gt;, I saw that my current UPS is only providing 20 minutes of uptime. Unfortunately, as of this post, PeaNUT will only read one UPS&amp;rsquo; metrics from &lt;a href=&#34;https://networkupstools.org/&#34;&gt;Network UPS Tools&lt;/a&gt; per PeaNUT instance, so I&amp;rsquo;m going to start scraping the metrics into Prometheus and displaying them with Grafana. Here&amp;rsquo;s how I did it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Setup Prometheus and Grafana in Your Homelab</title>
-      <link>https://unixorn.github.io/post/homelab/homelab-setup-prometheus-and-grafana/</link>
+      <link>http://localhost:1313/post/homelab/homelab-setup-prometheus-and-grafana/</link>
       <pubDate>Sat, 13 Apr 2024 14:19:26 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/homelab/homelab-setup-prometheus-and-grafana/</guid>
+      <guid>http://localhost:1313/post/homelab/homelab-setup-prometheus-and-grafana/</guid>
       <description>&lt;p&gt;I wanted nice graphs for the various metrics I collect in my homelab and from my Home Assistant server.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s how I installed Prometheus and Grafana in my homelab to get them.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Set up nut-upsd and peanut in your homelab</title>
-      <link>https://unixorn.github.io/post/homelab/homelab-nut-upsd/</link>
+      <link>http://localhost:1313/post/homelab/homelab-nut-upsd/</link>
       <pubDate>Sat, 06 Apr 2024 16:27:06 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/homelab/homelab-nut-upsd/</guid>
+      <guid>http://localhost:1313/post/homelab/homelab-nut-upsd/</guid>
       <description>&lt;h1 id=&#34;set-up-nut-upsd-and-peanut-in-your-homelab&#34;&gt;Set up nut-upsd and peanut in your homelab&lt;/h1&gt;
 &lt;p&gt;I run my Synology server and network switches off a UPS. I decided I wanted a dashboard for the UPS, here&amp;rsquo;s how I did set up &lt;a href=&#34;https://networkupstools.org/&#34;&gt;Network UPS Tools&lt;/a&gt;, aka NUT, and the &lt;a href=&#34;https://github.com/Brandawg93/PeaNUT&#34;&gt;PeaNUT&lt;/a&gt; dashboard.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Set Up MQTT</title>
+      <link>http://localhost:1313/post/ha-quickstart/02-set-up-mqtt/</link>
+      <pubDate>Fri, 24 Nov 2023 10:49:57 +0200</pubDate>
+      <guid>http://localhost:1313/post/ha-quickstart/02-set-up-mqtt/</guid>
+      <description>&lt;p&gt;In this article, I&amp;rsquo;m going to show how to set up &lt;a href=&#34;https://mosquitto.org/&#34;&gt;mosquitto&lt;/a&gt; as an MQTT broker to use with Home Assistant. We&amp;rsquo;re going to run it in docker via &lt;code&gt;docker-compose&lt;/code&gt;, so we can use it to support services we want to use with Home Assistant.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Home Assistant Install Guide</title>
+      <link>http://localhost:1313/post/ha-quickstart/01-install-home-assistant/</link>
+      <pubDate>Wed, 22 Nov 2023 18:18:54 -0600</pubDate>
+      <guid>http://localhost:1313/post/ha-quickstart/01-install-home-assistant/</guid>
+      <description>&lt;p&gt;In this tutorial, we&amp;rsquo;re going to set up &lt;a href=&#34;https://nodered.org&#34;&gt;Node-Red&lt;/a&gt; and use our SSL proxy to protect its webUI.&lt;/p&gt;
+&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h2&gt;
+&lt;p&gt;In the post, I&amp;rsquo;m going to assume you already have:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A server running &lt;code&gt;docker&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;nginx-proxy-manager installed on that server, and have already configured it with an SSL wildcard certificate. If you haven&amp;rsquo;t, go read my &lt;a href=&#34;https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/&#34;&gt;Set up nginx-proxy-manager&lt;/a&gt; post and set it up.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;p&gt;We&amp;rsquo;re going to use &lt;code&gt;docker-compose&lt;/code&gt; to run homeassistant. Change the name of the network y&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Home Assistant Setup Guide</title>
+      <link>http://localhost:1313/post/ha-quickstart/homeassistant-quickstart/</link>
+      <pubDate>Wed, 22 Nov 2023 18:18:54 -0600</pubDate>
+      <guid>http://localhost:1313/post/ha-quickstart/homeassistant-quickstart/</guid>
+      <description>&lt;p&gt;This is the first in a series of posts detailing how to do a basic install of &lt;a href=&#34;https://www.home-assistant.io/&#34;&gt;Home Assistant&lt;/a&gt; with &lt;code&gt;docker&lt;/code&gt; and &lt;code&gt;docker-compose&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Node Red Setup Guide</title>
+      <link>http://localhost:1313/post/ha-quickstart/set-up-node-red/</link>
+      <pubDate>Wed, 22 Nov 2023 18:18:54 -0600</pubDate>
+      <guid>http://localhost:1313/post/ha-quickstart/set-up-node-red/</guid>
+      <description>&lt;p&gt;In this tutorial, we&amp;rsquo;re going to set up &lt;a href=&#34;https://nodered.org&#34;&gt;Node-Red&lt;/a&gt; and use our SSL proxy to protect its webUI.&lt;/p&gt;
+&lt;p&gt;Go to palette, add the node-red-contrib-home-assistant-websocket palette&lt;/p&gt;
+&lt;h1 id=&#34;create-hass-token&#34;&gt;Create Hass token&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;Create user in hass. Make it an admin.&lt;/li&gt;
+&lt;li&gt;Log in as user, click user icon in bottom left, scroll to bottom, create a  long lived token&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiMTI3NzI4NDI3NTA0NzE1YTE0ZTlkN2U2NzkxY2ZmZCIsImlhdCI6MTcwMTExNzUzMCwiZXhwIjoyMDE2NDc3NTMwfQ.EzJecoQURFv5M690KbA6D9GeQCpw8FKZyOR7DyTiZ28&lt;/p&gt;
+&lt;p&gt;Add events:state from the HA palette
+double click, pick add server&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;a href=&#34;https://jordanrounds.com/installing-node-red-in-docker-for-home-assistant/&#34;&gt;https://jordanrounds.com/installing-node-red-in-docker-for-home-assistant/&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Set up nginx-proxy-manager with LetsEncrypt SSL certificates</title>
-      <link>https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/</link>
+      <link>http://localhost:1313/post/hass/2023-07-09-set-up-nginx-proxy-manager/</link>
       <pubDate>Sat, 22 Jul 2023 08:19:38 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/</guid>
+      <guid>http://localhost:1313/post/hass/2023-07-09-set-up-nginx-proxy-manager/</guid>
       <description>&lt;p&gt;In the next few posts, I&amp;rsquo;m going to document how to set up Home Assistant (HA) from scratch. We&amp;rsquo;re going to want to protect the admin UI interfaces for HA and its support services with SSL, and add authentication to services that don&amp;rsquo;t provide it themselves.&lt;/p&gt;
 &lt;p&gt;We&amp;rsquo;re going to do this with &lt;a href=&#34;https://nginxproxymanager.com/&#34;&gt;Nginx Proxy Manager&lt;/a&gt; because it has built in support for using &lt;a href=&#34;https://letsencrypt.org&#34;&gt;LetsEncrypt&lt;/a&gt; to obtain free SSL certificates, supports adding authentication to services that don&amp;rsquo;t do it themselves, and is overall easy to use.&lt;/p&gt;
 &lt;p&gt;Before I start writing more Home Assitant articles, let&amp;rsquo;s set up a SSL proxy server to keep everything secure.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Installing ESPHome</title>
-      <link>https://unixorn.github.io/post/hass/2023-05-21-install-esphome/</link>
+      <link>http://localhost:1313/post/hass/2023-05-21-install-esphome/</link>
       <pubDate>Mon, 22 May 2023 10:32:34 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/hass/2023-05-21-install-esphome/</guid>
+      <guid>http://localhost:1313/post/hass/2023-05-21-install-esphome/</guid>
       <description>&lt;p&gt;Some of my posts assume that the user already has &lt;a href=&#34;https://esphome.io/&#34;&gt;ESPHome&lt;/a&gt; installed, so I&amp;rsquo;m documenting how to install it here so I don&amp;rsquo;t have to repeat it everywhere.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Sysadvent 2021 Articles</title>
-      <link>https://unixorn.github.io/post/sysadvent-2021-article/</link>
+      <link>http://localhost:1313/post/sysadvent-2021-article/</link>
       <pubDate>Tue, 07 Dec 2021 11:13:39 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/sysadvent-2021-article/</guid>
+      <guid>http://localhost:1313/post/sysadvent-2021-article/</guid>
       <description>&lt;p&gt;I wrote two articles in sysadvent 2021&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;https://sysadvent.blogspot.com/2021/12/day-7-baking-multi-architecture-docker.html&#34;&gt;Baking Multi-Architecture Docker Images&lt;/a&gt;&lt;/li&gt;
@@ -83,40 +130,40 @@
     </item>
     <item>
       <title>Setting up Shinobi and a Wyze G2 Camera</title>
-      <link>https://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</link>
+      <link>http://localhost:1313/post/setting-up-shinobi-and-a-wyze-g2-camera/</link>
       <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</guid>
+      <guid>http://localhost:1313/post/setting-up-shinobi-and-a-wyze-g2-camera/</guid>
       <description>&lt;p&gt;I wanted to set up a security camera outside, but I didn&amp;rsquo;t want to be dependent on an outside cloud service - if my internet goes out, I don&amp;rsquo;t want to lose my ability to record video.&lt;/p&gt;
 &lt;p&gt;Wyze cameras are nice and cheap, and you can reflash them to support RTSP in addition to streaming to the Wyze cloud.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Run a CUPSD print server on Raspberry Pi</title>
-      <link>https://unixorn.github.io/post/cupsd-setup/</link>
+      <link>http://localhost:1313/post/cupsd-setup/</link>
       <pubDate>Mon, 08 Feb 2021 12:11:24 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/cupsd-setup/</guid>
+      <guid>http://localhost:1313/post/cupsd-setup/</guid>
       <description>&lt;p&gt;I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here&amp;rsquo;s how I set that up.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building Multi Architecture Docker Images with buildx</title>
-      <link>https://unixorn.github.io/post/multi-architecture-images/</link>
+      <link>http://localhost:1313/post/multi-architecture-images/</link>
       <pubDate>Sat, 13 Jun 2020 09:07:49 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/multi-architecture-images/</guid>
+      <guid>http://localhost:1313/post/multi-architecture-images/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve got a mix of architectures in my basement cluster - some Odroid HC2s that are &lt;code&gt;arm7&lt;/code&gt;, some Raspberry Pi 4s that are &lt;code&gt;arm64&lt;/code&gt;, and am soon going to add an Intel node as well. It&amp;rsquo;s more hassle than it&amp;rsquo;s worth to have to specify different images for the different architectures. I already build my own copies of images, so I decided to start building all my images as multiarchitecture images.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Backing Up the Cluster with Duplicacy</title>
-      <link>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</link>
+      <link>http://localhost:1313/post/backing-up-the-cluster-with-duplicacy/</link>
       <pubDate>Sun, 01 Sep 2019 15:47:23 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</guid>
+      <guid>http://localhost:1313/post/backing-up-the-cluster-with-duplicacy/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;I wanted to ensure any data I put into my &lt;a href=&#34;https://unixorn.github.io/post/k3s-on-arm/&#34;&gt;ARM k3s cluster&lt;/a&gt; is backed up to prevent data loss.&lt;/p&gt;
 &lt;p&gt;I no longer recommend duplicacy. Instead, read my article on &lt;a href=&#34;https://unixorn.github.io/post/restic-backups-on-truenas/&#34;&gt;restic backups on TrueNas&lt;/a&gt; instead.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Things I Learned About Docker Mac</title>
-      <link>https://unixorn.github.io/post/til-about-docker-mac/</link>
+      <link>http://localhost:1313/post/til-about-docker-mac/</link>
       <pubDate>Wed, 08 May 2019 09:11:31 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/til-about-docker-mac/</guid>
+      <guid>http://localhost:1313/post/til-about-docker-mac/</guid>
       <description>&lt;p&gt;I had a bunch of cruft in start scripts that would determine the IP of my laptop and set it as an environment variable to pass to &lt;code&gt;docker-compose&lt;/code&gt; and it turns out that with Docker for Mac you don&amp;rsquo;t have to do all that work - just use &lt;code&gt;docker.for.mac.localhost&lt;/code&gt; as a hostname.&lt;/p&gt;</description>
     </item>
   </channel>

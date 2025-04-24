@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><meta charset="utf-8">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -11,17 +11,17 @@
 We&rsquo;re going to do this with Nginx Proxy Manager because it has built in support for using LetsEncrypt to obtain free SSL certificates, supports adding authentication to services that don&rsquo;t do it themselves, and is overall easy to use.
 Before I start writing more Home Assitant articles, let&rsquo;s set up a SSL proxy server to keep everything secure.">
 <meta name="author" content="Me">
-<link rel="canonical" href="https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/">
+<link rel="canonical" href="http://localhost:1313/post/hass/2023-07-09-set-up-nginx-proxy-manager/">
 <meta name="google-site-verification" content="UA-100853138-2">
-<link crossorigin="anonymous" href="https://unixorn.github.io/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
-<link rel="icon" type="image/png" sizes="16x16" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
-<link rel="icon" type="image/png" sizes="32x32" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
-<link rel="apple-touch-icon" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
-<link rel="mask-icon" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
+<link rel="apple-touch-icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
+<link rel="mask-icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/post/hass/2023-07-09-set-up-nginx-proxy-manager/">
 <noscript>
     <style>
         #theme-toggle,
@@ -63,8 +63,8 @@ Before I start writing more Home Assitant articles, let&rsquo;s set up a SSL pro
 We&rsquo;re going to do this with Nginx Proxy Manager because it has built in support for using LetsEncrypt to obtain free SSL certificates, supports adding authentication to services that don&rsquo;t do it themselves, and is overall easy to use.
 Before I start writing more Home Assitant articles, let&rsquo;s set up a SSL proxy server to keep everything secure." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/" />
-<meta property="og:image" content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E" />
+<meta property="og:url" content="http://localhost:1313/post/hass/2023-07-09-set-up-nginx-proxy-manager/" />
+<meta property="og:image" content="http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E" />
 <meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-07-22T08:19:38-06:00" />
 <meta property="article:modified_time" content="2023-07-22T08:19:38-06:00" /><meta property="og:site_name" content="The Plural of SRE is an Outage" />
@@ -80,13 +80,13 @@ Before I start writing more Home Assitant articles, let&rsquo;s set up a SSL pro
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "https://unixorn.github.io/post/"
+      "item": "http://localhost:1313/post/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Set up nginx-proxy-manager with LetsEncrypt SSL certificates",
-      "item": "https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/"
+      "item": "http://localhost:1313/post/hass/2023-07-09-set-up-nginx-proxy-manager/"
     }
   ]
 }
@@ -104,7 +104,7 @@ Before I start writing more Home Assitant articles, let&rsquo;s set up a SSL pro
   "articleBody": "In the next few posts, I’m going to document how to set up Home Assistant (HA) from scratch. We’re going to want to protect the admin UI interfaces for HA and its support services with SSL, and add authentication to services that don’t provide it themselves.\nWe’re going to do this with Nginx Proxy Manager because it has built in support for using LetsEncrypt to obtain free SSL certificates, supports adding authentication to services that don’t do it themselves, and is overall easy to use.\nBefore I start writing more Home Assitant articles, let’s set up a SSL proxy server to keep everything secure.\nWe’re going to run the proxy server and the services behind it in containers with docker-compose to make things easier.\nPre-requisites A linux machine with docker installed that doesn’t already have something running on port 80 A domain that is using Route 53 for DNS A server on your network with a static IP, for example 10.1.2.3 A DNS entry pointing at your server, like demo.yourdomain.com Setup All screen shots and other instructions are valid as of 2023-07-22 when I wrote this post.\nRather than set up a web server and expose it to the internet so that LetsEncrypt can validate that you own the domain, we’re going to configure nginx-proxy-manager to use a DNS01 challenge. This lets LetsEncrypt validate ownership of your domain by special records that will be added to your domain’s DNS entries during certificate creation / renewal by our nginx-proxy-manager container.\nnginx-proxy-manager supports many DNS providers. I use Route 53 so I’ll use that for this article.\nSet up a domain in AWS Route 53 If you already have a domain, you can transfer it to Route 53. I think I pay about $1.50 a month for the domains I host there. And that’s in total, not per domain. My homelab doesn’t get a ton of DNS queries each month.\nIf you don’t own a domain or don’t want to transfer one you own to R53, you can use Amazon for your registrar. They support many tlds, and some of the ones they support cost less than $13 a year - in my opinion it’s worth a dollar a month to have a separate domain for a homelab.\nSet up Route 53 You don’t want to use your root IAM credentials with nginx-proxy-manager. It is never a good idea to use root IAM credentials for anything. Instead, we’re going to create an IAM user that only has privileges to affect your Route53-hosted domains.\nThis is pretty tedious, so it’s a good thing you only need to do it once. Log in to the AWS console and select Identity and Access Management (IAM).\nCreate an IAM policy We’re going to start by creating a policy that grants control over Route53, so select Policies from the sidebar, then hit the Create Policy button.\nCreating the policy first makes it easier to attach to the IAM group when we create it in the next step.\nI’ve already created a working policy, so instead of manually adding permissions, click JSON to the right of where it says Policy Editor and paste in this JSON snippet\n{ \"Version\": \"2012-10-17\", \"Statement\": [ { \"Effect\": \"Allow\", \"Action\": \"route53:ListHostedZonesByName\", \"Resource\": \"*\" }, { \"Effect\": \"Allow\", \"Action\": [ \"route53:ChangeResourceRecordSets\", \"route53:ListResourceRecordSets\", \"route53:GetHostedZone\" ], \"Resource\": [ \"arn:aws:route53:::hostedzone/ZG2ZIACD7OSSR\" ] } ] } If you want to restrict it to only controlling a specific domain, update the \"Resource\": \"*\" line - that’s out of scope for this post, though.\nAs of 2023-07-22, it should look like this:\nClick Next, and give your new policy a name and a description, for example blog-letsencrypt.\nCreate an IAM group Now you need to create a group, so click User Groups in the side bar, then hit the Create Group button. Give it a name like blog-le-users\nUnder Attach permissions policy* select the blog-letsencrypt policy you just created.\nHit the Create Group button on the bottom right of the page.\nCreate an IAM user Now that the group and policy are created, you can create your r53 IAM user. Click Users in the side bar, then click the Add Users button on the right side of the screen.\nGive it a name like r53-acme-user and click Next.\nDon’t bother to check the Provide user access to the AWS Management Console checkbox, this user will only be used by your proxy manager. Select the blog-le-users group\nClick Next again.\nYou’ll see a review and create page:\nClick Create user on the bottom right of the page.\nOne last thing - you’ll need to create access credentials for the user. Click on Users in the side bar again, then your brand new r53-acme-user user.\nYou’ll see an info page about the user, click the Security Credentials tab\nScroll down to Access Keys, and click Create access key.\nClick Other on the next page\nClick Next. Put in letsencrypt for the description,and click Create access key again.\nYou’ll see something like\nYou only get one chance to see the secret key, so store it in your password manager. It isn’t a huge deal if you lose it, you can always create another access key for your user. Copy the access key \u0026 secret keys into your password manager for later use.\nInstall nginx-proxy-manager Now that you have the DNS domain on Route 53 and have created an IAM user with rights to update it, you can set up nginx-proxy-manager and have it generate LetsEncrypt SSL certificates.\nFor the SSL proxy, I like to set it to use an external docker network. This lets you run other docker containers behind it easily, without having to cram them all into the same docker-compose.yaml file.\nCreating the network is easy - docker network create ssl_proxy_network and we’re good to go.\nHere’s the docker-compose.yaml file I use to start nginx-proxy-manager. As of 2023-07-21, there’s a bug getting Route 53 to work with the latest tag, but it does work with the docker image with github-pr-2971 tag. I’ll update this post when that fix gets merged upstream.\nConfigure docker-compose version: '3' services: nginx-proxy-manager: # image: 'jc21/nginx-proxy-manager:latest' # Use github-pr-2971 until the fix is merged image: jc21/nginx-proxy-manager:github-pr-2971 restart: unless-stopped container_name: nginx-proxy-manager ports: - '80:80' - '81:81' - '443:443' volumes: - ./nginx/data:/data - ./nginx/letsencrypt:/etc/letsencrypt - /etc/hostname:/etc/hostname:ro - /etc/localtime:/etc/localtime:ro - /etc/machine-id:/etc/machine-id:ro - /etc/timezone:/etc/timezone:ro # environment: # DISABLE_IPV6: 'true' networks: default: external: name: ssl_proxy_network You can download this here and put it on your server.\nNow you can run docker-compose up -d and docker-compose will download the image, create the nginx/data and nginx/letsencrypt directories, and start the proxy manager. The image is roughly 700 megs, and on my test Raspberry Pi, it took a couple of minutes to download and start. Run docker-compose logs -f to see what’s happening inside the container as it does initial setup. On slower hardware, it can take over a minute to start up and get the service running, especially on the first run, so be patient.\nUsage Set up a demo container to proxy I’m going to use a simple nginx demo server to demo SSL proxying. We don’t need anything fancy, just something that will serve a web page so we can confirm the proxy is working. Make a demo directory, and put the following snippet into its docker-compose.yaml file.\nI deliberately did not set up port forwarding in this configuration file because I don’t want it to be accessible from outside our ssl_proxy_network docker network - that’s what the proxy is for.\nversion: '3' services: demo: image: nginxdemos/hello restart: unless-stopped container_name: demo volumes: - /etc/hostname:/etc/hostname:ro - /etc/localtime:/etc/localtime:ro - /etc/machine-id:/etc/machine-id:ro - /etc/timezone:/etc/timezone:ro networks: default: external: name: ssl_proxy_network Start it up with docker-compose up -d. Because you’re using the same ssl_proxy_network that you created earlier, and your nginx-proxy-manager is also using that network, the two containers will be able to communicate with each other. Open yourserver.example.com in your browser, it should give you an error message about being unable to connect. You want to see that because you don’t want the service accessible except through the proxy.\nConfigure the Proxy Server Now that you have the demo backend and the nginx-proxy-manager proxy running, let’s set up proxying.\nFirst, log into the proxy manager at https://yourserver.example.com:81. The default username is admin@example.com, and the password is changeme. It’ll make you change those when you first log in.\nAdd an SSL certificate. To make things easier later, you’re going to create a wildcard SSL certificate for your domain. This will let you run as many services as you like as servicename.example.com on the server, and not have to specify port numbers, just add new DNS entries pointing at your server.\nSelect SSL Certificates. You’ll see\nClick Add SSL certificate. You should see something like this:\nPut *.yourdomain.com in as the domain name. Select Use DNS Challenge Put in your email address so LetsEncrypt can send you notifications if there’s an issue with your certificate later. Select Route 53 for the DNS provider Set the AWS access key to the one you created for your r53-acme-user IAM user earlier Set the AWS secret key Agree to the terms of service, and hit save. This can take a few minutes, especially if your machine is low powered or the LetsEncrypt backend is under load.\nIf everything went according to plan, you should see something like this:\nAdd a proxy host Click hosts, then proxy host from the submenu.\nYou’ll see a dialog like this, hit Add Proxy Host\nYou could have several different DNS names point at the same backend, but for this example, you only want demo.yourdomain.com, so stick that in the Domain Names field. The hostname should be the name of the container we’re proxying - the demo service we set up earlier uses http on port 80, so enter those here. Even though there isn’t a port entry in the docker-compose file, the ports on the backend will be accessible from other containers on the same docker network, and this is why you configured the nginx-proxy-manager and demo services to both use the external ssl_proxy_network network. I haven’t encountered problems with any backends using them, so I turn on Cache Assets, Websockets Support and Block Common Exploits since nginx-proxy-manager can add them. Don’t hit save yet, you still need to attach an SSL certificate. Click on the SSL tab at the top of the dialog.\nSelect the *.yourdomain.com certificate you created earlier\nFinally, turn on Force SSL and HTTP/2 Support\nConfirm things are working Go to yourserver.yourdomain.com and you should see the demo page\nAnd there should be a lock icon in your browser.\nAdd authentication Some services you’re going to want to run (like our demo) don’t have any user authentication. Fortunately, nginx-proxy-manager lets you insert a basic auth login step before a connection is created to the service it’s proxying.\nClick Access Lists in the main menu, and Add Access List.\nPut in a name - I used demo-acl\nClick on Authorization\nPut in a username and password. I used demo and demo here.\nI don’t care where the service is accessed from as long as they have a valid username \u0026 password, so click on the Access tab, so I’m allowing from 0.0.0.0/8 - you could put in your lan’s network and netmask if you wanted to be more strict.\nSave. Go back to Hosts -\u003e Proxy Hosts, and use the … menu on the right of your demo proxy entry to Edit.\nSelect your new ACL and Save\nNow when you go to the service, it should prompt you with a basic auth dialog.\nLock down the proxy manager management UI Now that you have SSL proxying working, there’s one last thing to do - putting the management interface behind itself, so that it is protected by SSL too.\nIn this example, I’m running nginx-proxy-manager on cthulhu, one of the HC2s in my homelab. The container is unimaginatively named nginxproxymanager, so I set up the proxy manager to route cthulhu.miniclusters.rocks to port 81 of the nginxproxymanager as seen below.\nAfter you confirm it’s working, do a docker-compose down in your proxy manager directory, delete or comment out the - '81:81' line in docker-compose.yaml, and restart it with docker-compose up -d. If you’ve done it correctly, if you try to access port 81 on your host you’ll get a connection refused, but if you connect to it with https://yourmachine.example.com, you’ll see the admin interface come up and it’ll have a lock icon to show it’s an SSL connection.\nUpdate 2023-07-30: Add the instructions on securing the management interface with SSL that I forgot to commit.\n",
   "wordCount" : "2101",
   "inLanguage": "en",
-  "image": "https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished": "2023-07-22T08:19:38-06:00",
+  "image": "http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished": "2023-07-22T08:19:38-06:00",
   "dateModified": "2023-07-22T08:19:38-06:00",
   "author":{
     "@type": "Person",
@@ -112,14 +112,14 @@ Before I start writing more Home Assitant articles, let&rsquo;s set up a SSL pro
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/"
+    "@id": "http://localhost:1313/post/hass/2023-07-09-set-up-nginx-proxy-manager/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "unixorn.github.io",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://unixorn.github.io/%3Clink%20/%20abs%20url%3E"
+      "url": "http://localhost:1313/%3Clink%20/%20abs%20url%3E"
     }
   }
 }
@@ -141,8 +141,8 @@ Before I start writing more Home Assitant articles, let&rsquo;s set up a SSL pro
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="https://unixorn.github.io/" accesskey="h" title="Home (Alt + H)">
-                <img src="https://unixorn.github.io/apple-touch-icon.png" alt="" aria-label="logo"
+            <a href="http://localhost:1313/" accesskey="h" title="Home (Alt + H)">
+                <img src="http://localhost:1313/apple-touch-icon.png" alt="" aria-label="logo"
                     height="35">Home</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)">
@@ -169,27 +169,27 @@ Before I start writing more Home Assitant articles, let&rsquo;s set up a SSL pro
         </div>
         <ul id="menu">
             <li>
-                <a href="https://unixorn.github.io/archives/" title="archives">
+                <a href="http://localhost:1313/archives/" title="archives">
                     <span>archives</span>
                 </a>
             </li>
             <li>
-                <a href="https://unixorn.github.io/search/" title="search (Alt &#43; /)" accesskey=/>
+                <a href="http://localhost:1313/search/" title="search (Alt &#43; /)" accesskey=/>
                     <span>search</span>
                 </a>
             </li>
             <li>
-                <a href="https://unixorn.github.io/about/" title="about">
+                <a href="http://localhost:1313/about/" title="about">
                     <span>about</span>
                 </a>
             </li>
             <li>
-                <a href="https://unixorn.github.io/projects/" title="projects">
+                <a href="http://localhost:1313/projects/" title="projects">
                     <span>projects</span>
                 </a>
             </li>
             <li>
-                <a href="https://unixorn.github.io/tags/" title="tags">
+                <a href="http://localhost:1313/tags/" title="tags">
                     <span>tags</span>
                 </a>
             </li>
@@ -208,10 +208,10 @@ Before I start writing more Home Assitant articles, let&rsquo;s set up a SSL pro
     </nav>
 </header>
 <main class="main">
-<link rel="stylesheet" type="text/css" href="https://unixorn.github.io/css/mastodon.css" />
+<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/mastodon.css" />
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="https://unixorn.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://unixorn.github.io/post/">Posts</a></div>
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/post/">Posts</a></div>
     <h1 class="post-title">
       Set up nginx-proxy-manager with LetsEncrypt SSL certificates
     </h1>
@@ -296,44 +296,44 @@ Before I start writing more Home Assitant articles, let&rsquo;s set up a SSL pro
 </span></span><span class="line"><span class="cl"><span class="p">}</span>
 </span></span></code></pre></div><p>If you want to restrict it to only controlling a specific domain, update the <code>&quot;Resource&quot;: &quot;*&quot;</code> line - that&rsquo;s out of scope for this post, though.</p>
 <p>As of 2023-07-22, it should look like this:</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/iam-r53-permissions.png#center" alt="policyedit"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/iam-r53-permissions.png#center" alt="policyedit"  />
 </p>
 <p>Click <strong>Next</strong>, and give your new policy a name and a description, for example <code>blog-letsencrypt</code>.</p>
 <h5 id="create-an-iam-group">Create an IAM group<a hidden class="anchor" aria-hidden="true" href="#create-an-iam-group">#</a></h5>
 <p>Now you need to create a group, so click <strong>User Groups</strong> in the side bar, then hit the <strong>Create Group</strong> button.
 Give it a name like <code>blog-le-users</code></p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/02-iam-create-blog-le-users-group.png#center" alt="create_iam_group"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/02-iam-create-blog-le-users-group.png#center" alt="create_iam_group"  />
 </p>
 <p>Under <em>Attach permissions policy</em>* select the <code>blog-letsencrypt</code> policy you just created.</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/03-iam-attach-policy.png#center" alt="add_iam_policy"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/03-iam-attach-policy.png#center" alt="add_iam_policy"  />
 </p>
 <p>Hit the <strong>Create Group</strong> button on the bottom right of the page.</p>
 <h5 id="create-an-iam-user">Create an IAM user<a hidden class="anchor" aria-hidden="true" href="#create-an-iam-user">#</a></h5>
 <p>Now that the group and policy are created, you can create your r53 IAM user. Click <strong>Users</strong> in the side bar, then click the <strong>Add Users</strong> button on the right side of the screen.</p>
 <p>Give it a name like <code>r53-acme-user</code> and click <strong>Next</strong>.</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/04-create-acme-user.png#center" alt="add_iam_user"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/04-create-acme-user.png#center" alt="add_iam_user"  />
 </p>
 <p>Don&rsquo;t bother to check the <code>Provide user access to the AWS Management Console</code> checkbox, this user will only be used by your proxy manager. Select the <code>blog-le-users</code> group</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/05-add-user-to-group.png#center" alt="add_user_to_group"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/05-add-user-to-group.png#center" alt="add_user_to_group"  />
 </p>
 <p>Click <strong>Next</strong> again.</p>
 <p>You&rsquo;ll see a review and create page:</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/06-review-and-create.png#center" alt="review_and_create"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/06-review-and-create.png#center" alt="review_and_create"  />
 </p>
 <p>Click <strong>Create user</strong> on the bottom right of the page.</p>
 <p>One last thing - you&rsquo;ll need to create access credentials for the user. Click on Users in the side bar again, then your brand new <code>r53-acme-user</code> user.</p>
 <p>You&rsquo;ll see an info page about the user, click the <strong>Security Credentials</strong> tab</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/07-security-credentials.png#center" alt="security_credentials"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/07-security-credentials.png#center" alt="security_credentials"  />
 </p>
 <p>Scroll down to <strong>Access Keys</strong>, and click <strong>Create access key</strong>.</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/08-create-access-key.png#center" alt="access_key"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/08-create-access-key.png#center" alt="access_key"  />
 </p>
 <p>Click <strong>Other</strong> on the next page</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/09-pick-other.png#center" alt="other"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/09-pick-other.png#center" alt="other"  />
 </p>
 <p>Click <strong>Next</strong>. Put in <code>letsencrypt</code> for the description,and click <strong>Create access key</strong> again.</p>
 <p>You&rsquo;ll see something like</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/10-retrieve-access-keys.png#center" alt="other"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/10-retrieve-access-keys.png#center" alt="other"  />
 </p>
 <p>You only get one chance to see the secret key, so store it in your password manager. It isn&rsquo;t a huge deal if you lose it, you can always create another access key for your user. Copy the access key &amp; secret keys into your password manager for later use.</p>
 <h3 id="install-nginx-proxy-manager">Install nginx-proxy-manager<a hidden class="anchor" aria-hidden="true" href="#install-nginx-proxy-manager">#</a></h3>
@@ -369,7 +369,7 @@ Give it a name like <code>blog-le-users</code></p>
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ssl_proxy_network</span><span class="w">
-</span></span></span></code></pre></div><p>You can download this <a href="https://unixorn.github.io/resources/nginx-proxy-manager/docker-compose.yaml">here</a> and put it on your server.</p>
+</span></span></span></code></pre></div><p>You can download this <a href="http://localhost:1313/resources/nginx-proxy-manager/docker-compose.yaml">here</a> and put it on your server.</p>
 <p>Now you can run <code>docker-compose up -d</code> and <code>docker-compose</code> will download the image, create the <code>nginx/data</code> and <code>nginx/letsencrypt</code> directories, and start the proxy manager. The image is roughly 700 megs, and on my test Raspberry Pi, it took a couple of minutes to download and start. Run <code>docker-compose logs -f</code> to see what&rsquo;s happening inside the container as it does initial setup. On slower hardware, it can take over a minute to start up and get the service running, especially on the first run, so be patient.</p>
 <h2 id="usage">Usage<a hidden class="anchor" aria-hidden="true" href="#usage">#</a></h2>
 <h3 id="set-up-a-demo-container-to-proxy">Set up a demo container to proxy<a hidden class="anchor" aria-hidden="true" href="#set-up-a-demo-container-to-proxy">#</a></h3>
@@ -399,10 +399,10 @@ Give it a name like <code>blog-le-users</code></p>
 <h4 id="add-an-ssl-certificate">Add an SSL certificate.<a hidden class="anchor" aria-hidden="true" href="#add-an-ssl-certificate">#</a></h4>
 <p>To make things easier later, you&rsquo;re going to create a wildcard SSL certificate for your domain. This will let you run as many services as you like as <code>servicename.example.com</code> on the server, and not have to specify port numbers, just add new DNS entries pointing at your server.</p>
 <p>Select <strong>SSL Certificates</strong>. You&rsquo;ll see</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/11-ssl.png#center" alt="ssl"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/11-ssl.png#center" alt="ssl"  />
 </p>
 <p>Click Add SSL certificate. You should see something like this:</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/create-wildcard-ssl-cert.png#center" alt="create_wildcard_cert"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/create-wildcard-ssl-cert.png#center" alt="create_wildcard_cert"  />
 </p>
 <ol>
 <li>Put <code>*.yourdomain.com</code> in as the domain name.</li>
@@ -415,14 +415,14 @@ Give it a name like <code>blog-le-users</code></p>
 </ol>
 <p>This can take a few minutes, especially if your machine is low powered or the LetsEncrypt backend is under load.</p>
 <p>If everything went according to plan, you should see something like this:</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/ssl-cert-list.png#center" alt="ssl_cert_list"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/ssl-cert-list.png#center" alt="ssl_cert_list"  />
 </p>
 <h4 id="add-a-proxy-host">Add a proxy host<a hidden class="anchor" aria-hidden="true" href="#add-a-proxy-host">#</a></h4>
 <p>Click <strong>hosts</strong>, then <strong>proxy host</strong> from the submenu.</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/proxy-submenu.png#center" alt="proxy_submenu"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/proxy-submenu.png#center" alt="proxy_submenu"  />
 </p>
 <p>You&rsquo;ll see a dialog like this, hit <strong>Add Proxy Host</strong></p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/empty-proxy-list.png#center" alt="empty_proxy_list"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/empty-proxy-list.png#center" alt="empty_proxy_list"  />
 </p>
 <ol>
 <li>You could have several different DNS names point at the same backend, but for this example, you only want <code>demo.yourdomain.com</code>, so stick that in the <strong>Domain Names</strong> field.</li>
@@ -430,43 +430,43 @@ Give it a name like <code>blog-le-users</code></p>
 <li>I haven&rsquo;t encountered problems with any backends using them, so I turn on <strong>Cache Assets</strong>, <strong>Websockets Support</strong> and <strong>Block Common Exploits</strong> since <code>nginx-proxy-manager</code> can add them.</li>
 </ol>
 <p>Don&rsquo;t hit save yet, you still need to attach an SSL certificate. Click on the <strong>SSL</strong> tab at the top of the dialog.</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/14-add-proxy-host.png#center" alt="add_proxy_host"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/14-add-proxy-host.png#center" alt="add_proxy_host"  />
 </p>
 <p>Select the <code>*.yourdomain.com</code> certificate you created earlier</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/15-add-cert-to-host.png#center" alt="add_cert_to_host"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/15-add-cert-to-host.png#center" alt="add_cert_to_host"  />
 </p>
 <p>Finally, turn on <strong>Force SSL</strong> and <strong>HTTP/2 Support</strong></p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/16-proxy-host-settings.png#center" alt="proxy_settings"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/16-proxy-host-settings.png#center" alt="proxy_settings"  />
 </p>
 <h3 id="confirm-things-are-working">Confirm things are working<a hidden class="anchor" aria-hidden="true" href="#confirm-things-are-working">#</a></h3>
 <p>Go to <code>yourserver.yourdomain.com</code> and you should see the demo page</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/demo-page.png#center" alt="demo_page"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/demo-page.png#center" alt="demo_page"  />
 </p>
 <p>And there should be a lock icon in your browser.</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/ssl-lock.png#center" alt="ssl_working"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/ssl-lock.png#center" alt="ssl_working"  />
 </p>
 <h4 id="add-authentication">Add authentication<a hidden class="anchor" aria-hidden="true" href="#add-authentication">#</a></h4>
 <p>Some services you&rsquo;re going to want to run (like our <code>demo</code>) don&rsquo;t have any user authentication. Fortunately, <code>nginx-proxy-manager</code> lets you insert a basic auth login step before a connection is created to the service it&rsquo;s proxying.</p>
 <p>Click <strong>Access Lists</strong> in the main menu, and <strong>Add Access List</strong>.</p>
 <p>Put in a name - I used <code>demo-acl</code></p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/demo-acl-01.png#center" alt="acl_01"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/demo-acl-01.png#center" alt="acl_01"  />
 </p>
 <p>Click on <strong>Authorization</strong></p>
 <p>Put in a username and password. I used <code>demo</code> and <code>demo</code> here.</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/acl-auth-user.png#center" alt="acl_auth"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/acl-auth-user.png#center" alt="acl_auth"  />
 </p>
 <p>I don&rsquo;t care where the service is accessed from as long as they have a valid username &amp; password, so click on the <strong>Access</strong> tab, so I&rsquo;m allowing from <code>0.0.0.0/8</code> - you could put in your lan&rsquo;s network and netmask if you wanted to be more strict.</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/grant-network-access.png#center" alt="grant_network_access"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/grant-network-access.png#center" alt="grant_network_access"  />
 </p>
 <p>Save. Go back to <strong>Hosts</strong> -&gt; <strong>Proxy Hosts</strong>, and use the &hellip; menu on the right of your <code>demo</code> proxy entry to <strong>Edit</strong>.</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/add-acl-to-proxy.png#center" alt="add_acl_to_proxy"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/add-acl-to-proxy.png#center" alt="add_acl_to_proxy"  />
 </p>
 <p>Select your new ACL and <strong>Save</strong></p>
 <p>Now when you go to the service, it should prompt you with a basic auth dialog.</p>
 <h3 id="lock-down-the-proxy-manager-management-ui">Lock down the proxy manager management UI<a hidden class="anchor" aria-hidden="true" href="#lock-down-the-proxy-manager-management-ui">#</a></h3>
 <p>Now that you have SSL proxying working, there&rsquo;s one last thing to do - putting the management interface behind itself, so that it is protected by SSL too.</p>
 <p>In this example, I&rsquo;m running nginx-proxy-manager on cthulhu, one of the HC2s in my homelab. The container is unimaginatively named <code>nginxproxymanager</code>, so I set up the proxy manager to route cthulhu.miniclusters.rocks to port 81 of the <code>nginxproxymanager</code> as seen below.</p>
-<p><img loading="lazy" src="https://unixorn.github.io/images/nginx-proxy-manager/enable-ssl-on-admin-ui.png#center" alt="add-ssl-to-admin-ui"  />
+<p><img loading="lazy" src="http://localhost:1313/images/nginx-proxy-manager/enable-ssl-on-admin-ui.png#center" alt="add-ssl-to-admin-ui"  />
 </p>
 <p>After you confirm it&rsquo;s working, do a <code>docker-compose down</code> in your proxy manager directory, delete or comment out the <code>- '81:81'</code> line in <code>docker-compose.yaml</code>, and restart it with <code>docker-compose up -d</code>. If you&rsquo;ve done it correctly, if you try to access port <code>81</code> on your host you&rsquo;ll get a connection refused, but if you connect to it with <code>https://yourmachine.example.com</code>, you&rsquo;ll see the admin interface come up and it&rsquo;ll have a lock icon to show it&rsquo;s an SSL connection.</p>
 <p>Update 2023-07-30: Add the instructions on securing the management interface with SSL that I forgot to commit.</p>
@@ -493,7 +493,7 @@ Give it a name like <code>blog-le-users</code></p>
   </dialog>
   <p id="mastodon-comments-list"><button id="load-comment" class="button">Load comments</button></p>
   <noscript><p>You need JavaScript to view the comments.</p></noscript>
-  <script src="https://unixorn.github.io/assets/js/purify.min.js"></script>
+  <script src="http://localhost:1313/assets/js/purify.min.js"></script>
   <script type="text/javascript">
     const dialog = document.querySelector('dialog');
 
@@ -583,24 +583,24 @@ Give it a name like <code>blog-le-users</code></p>
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="https://unixorn.github.io/tags/docker/">Docker</a></li>
-      <li><a href="https://unixorn.github.io/tags/homeassistant/">Homeassistant</a></li>
-      <li><a href="https://unixorn.github.io/tags/homelab/">Homelab</a></li>
-      <li><a href="https://unixorn.github.io/tags/howto/">Howto</a></li>
-      <li><a href="https://unixorn.github.io/tags/letsencrypt/">Letsencrypt</a></li>
-      <li><a href="https://unixorn.github.io/tags/linux/">Linux</a></li>
-      <li><a href="https://unixorn.github.io/tags/networking/">Networking</a></li>
-      <li><a href="https://unixorn.github.io/tags/nginx/">Nginx</a></li>
-      <li><a href="https://unixorn.github.io/tags/proxy/">Proxy</a></li>
-      <li><a href="https://unixorn.github.io/tags/ssl/">Ssl</a></li>
+      <li><a href="http://localhost:1313/tags/docker/">Docker</a></li>
+      <li><a href="http://localhost:1313/tags/homeassistant/">Homeassistant</a></li>
+      <li><a href="http://localhost:1313/tags/homelab/">Homelab</a></li>
+      <li><a href="http://localhost:1313/tags/howto/">Howto</a></li>
+      <li><a href="http://localhost:1313/tags/letsencrypt/">Letsencrypt</a></li>
+      <li><a href="http://localhost:1313/tags/linux/">Linux</a></li>
+      <li><a href="http://localhost:1313/tags/networking/">Networking</a></li>
+      <li><a href="http://localhost:1313/tags/nginx/">Nginx</a></li>
+      <li><a href="http://localhost:1313/tags/proxy/">Proxy</a></li>
+      <li><a href="http://localhost:1313/tags/ssl/">Ssl</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="https://unixorn.github.io/post/2023-08-homelab-upgrade/">
+  <a class="prev" href="http://localhost:1313/post/2023-08-homelab-upgrade/">
     <span class="title">« Prev</span>
     <br>
     <span>Homelab Upgrade from USG-Pro to UDM-Pro</span>
   </a>
-  <a class="next" href="https://unixorn.github.io/post/hass/2023-05-21-install-esphome/">
+  <a class="next" href="http://localhost:1313/post/hass/2023-05-21-install-esphome/">
     <span class="title">Next »</span>
     <br>
     <span>Installing ESPHome</span>
@@ -611,7 +611,7 @@ Give it a name like <code>blog-le-users</code></p>
 <ul class="share-buttons">
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Set up nginx-proxy-manager with LetsEncrypt SSL certificates on x"
-            href="https://x.com/intent/tweet/?text=Set%20up%20nginx-proxy-manager%20with%20LetsEncrypt%20SSL%20certificates&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fhass%2f2023-07-09-set-up-nginx-proxy-manager%2f&amp;hashtags=docker%2chomeassistant%2chomelab%2chowto%2cletsencrypt%2clinux%2cnetworking%2cnginx%2cproxy%2cssl">
+            href="https://x.com/intent/tweet/?text=Set%20up%20nginx-proxy-manager%20with%20LetsEncrypt%20SSL%20certificates&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fhass%2f2023-07-09-set-up-nginx-proxy-manager%2f&amp;hashtags=docker%2chomeassistant%2chomelab%2chowto%2cletsencrypt%2clinux%2cnetworking%2cnginx%2cproxy%2cssl">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
@@ -620,7 +620,7 @@ Give it a name like <code>blog-le-users</code></p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Set up nginx-proxy-manager with LetsEncrypt SSL certificates on linkedin"
-            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fhass%2f2023-07-09-set-up-nginx-proxy-manager%2f&amp;title=Set%20up%20nginx-proxy-manager%20with%20LetsEncrypt%20SSL%20certificates&amp;summary=Set%20up%20nginx-proxy-manager%20with%20LetsEncrypt%20SSL%20certificates&amp;source=https%3a%2f%2funixorn.github.io%2fpost%2fhass%2f2023-07-09-set-up-nginx-proxy-manager%2f">
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fhass%2f2023-07-09-set-up-nginx-proxy-manager%2f&amp;title=Set%20up%20nginx-proxy-manager%20with%20LetsEncrypt%20SSL%20certificates&amp;summary=Set%20up%20nginx-proxy-manager%20with%20LetsEncrypt%20SSL%20certificates&amp;source=http%3a%2f%2flocalhost%3a1313%2fpost%2fhass%2f2023-07-09-set-up-nginx-proxy-manager%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
@@ -629,7 +629,7 @@ Give it a name like <code>blog-le-users</code></p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Set up nginx-proxy-manager with LetsEncrypt SSL certificates on reddit"
-            href="https://reddit.com/submit?url=https%3a%2f%2funixorn.github.io%2fpost%2fhass%2f2023-07-09-set-up-nginx-proxy-manager%2f&title=Set%20up%20nginx-proxy-manager%20with%20LetsEncrypt%20SSL%20certificates">
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fpost%2fhass%2f2023-07-09-set-up-nginx-proxy-manager%2f&title=Set%20up%20nginx-proxy-manager%20with%20LetsEncrypt%20SSL%20certificates">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
@@ -638,7 +638,7 @@ Give it a name like <code>blog-le-users</code></p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Set up nginx-proxy-manager with LetsEncrypt SSL certificates on facebook"
-            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2funixorn.github.io%2fpost%2fhass%2f2023-07-09-set-up-nginx-proxy-manager%2f">
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fpost%2fhass%2f2023-07-09-set-up-nginx-proxy-manager%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
@@ -647,7 +647,7 @@ Give it a name like <code>blog-le-users</code></p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Set up nginx-proxy-manager with LetsEncrypt SSL certificates on whatsapp"
-            href="https://api.whatsapp.com/send?text=Set%20up%20nginx-proxy-manager%20with%20LetsEncrypt%20SSL%20certificates%20-%20https%3a%2f%2funixorn.github.io%2fpost%2fhass%2f2023-07-09-set-up-nginx-proxy-manager%2f">
+            href="https://api.whatsapp.com/send?text=Set%20up%20nginx-proxy-manager%20with%20LetsEncrypt%20SSL%20certificates%20-%20http%3a%2f%2flocalhost%3a1313%2fpost%2fhass%2f2023-07-09-set-up-nginx-proxy-manager%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
@@ -656,7 +656,7 @@ Give it a name like <code>blog-le-users</code></p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Set up nginx-proxy-manager with LetsEncrypt SSL certificates on telegram"
-            href="https://telegram.me/share/url?text=Set%20up%20nginx-proxy-manager%20with%20LetsEncrypt%20SSL%20certificates&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fhass%2f2023-07-09-set-up-nginx-proxy-manager%2f">
+            href="https://telegram.me/share/url?text=Set%20up%20nginx-proxy-manager%20with%20LetsEncrypt%20SSL%20certificates&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fhass%2f2023-07-09-set-up-nginx-proxy-manager%2f">
             <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
@@ -665,7 +665,7 @@ Give it a name like <code>blog-le-users</code></p>
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Set up nginx-proxy-manager with LetsEncrypt SSL certificates on ycombinator"
-            href="https://news.ycombinator.com/submitlink?t=Set%20up%20nginx-proxy-manager%20with%20LetsEncrypt%20SSL%20certificates&u=https%3a%2f%2funixorn.github.io%2fpost%2fhass%2f2023-07-09-set-up-nginx-proxy-manager%2f">
+            href="https://news.ycombinator.com/submitlink?t=Set%20up%20nginx-proxy-manager%20with%20LetsEncrypt%20SSL%20certificates&u=http%3a%2f%2flocalhost%3a1313%2fpost%2fhass%2f2023-07-09-set-up-nginx-proxy-manager%2f">
             <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
                 xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
                 <path

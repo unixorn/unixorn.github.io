@@ -2,171 +2,206 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Homelab on unixorn.github.io</title>
-    <link>https://unixorn.github.io/tags/homelab/</link>
+    <link>http://localhost:1313/tags/homelab/</link>
     <description>Recent content in Homelab on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sat, 01 Feb 2025 10:18:01 -0700</lastBuildDate>
-    <atom:link href="https://unixorn.github.io/tags/homelab/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/homelab/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to install Proxmox on a 2019 Macbook Pro</title>
-      <link>https://unixorn.github.io/post/homelab/2025-02-01-install-proxmox-on-macbook-pro/</link>
+      <link>http://localhost:1313/post/homelab/2025-02-01-install-proxmox-on-macbook-pro/</link>
       <pubDate>Sat, 01 Feb 2025 10:18:01 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/homelab/2025-02-01-install-proxmox-on-macbook-pro/</guid>
+      <guid>http://localhost:1313/post/homelab/2025-02-01-install-proxmox-on-macbook-pro/</guid>
       <description>&lt;p&gt;I recently replaced a 2019 Intel MacBook Pro with a M3 Macbook Air, so I decided to wipe the MBP and install &lt;a href=&#34;https://www.proxmox.com&#34;&gt;proxmox&lt;/a&gt; on it.&lt;/p&gt;
 &lt;p&gt;It wasn&amp;rsquo;t as straightforward as installing on non-Apple hardware, so I&amp;rsquo;m documenting what I had to do here.&lt;/p&gt;
 &lt;p&gt;Note that this post only covers getting things working on a MacBook Pro - look at the many online tutorials for what you should do once your node is up and running.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Synchronizing Multiple Piholes with orbital-sync</title>
-      <link>https://unixorn.github.io/post/homelab/orbital-sync/</link>
+      <link>http://localhost:1313/post/homelab/orbital-sync/</link>
       <pubDate>Sat, 07 Dec 2024 19:15:14 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/homelab/orbital-sync/</guid>
+      <guid>http://localhost:1313/post/homelab/orbital-sync/</guid>
       <description>&lt;p&gt;I run &lt;a href=&#34;https://pi-hole.net/&#34;&gt;PiHole&lt;/a&gt; for ad-blocking on my home network. I&amp;rsquo;m an SRE in my day job, so of course I&amp;rsquo;m not running a single instance of something as important as DNS. I also don&amp;rsquo;t want to have to update things like local DNS entries or blocklists in multiple places, that will cause weird and annoying inconsistencies in my DNS.&lt;/p&gt;
 &lt;p&gt;Enter &lt;a href=&#34;https://github.com/mattwebbio/orbital-sync&#34;&gt;orbital-sync&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Store NUT metrics in Prometheus so we can display them with Grafana</title>
-      <link>https://unixorn.github.io/post/homelab/homelab-nut-prometheus-grafana/</link>
+      <link>http://localhost:1313/post/homelab/homelab-nut-prometheus-grafana/</link>
       <pubDate>Sun, 21 Apr 2024 13:27:16 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/homelab/homelab-nut-prometheus-grafana/</guid>
+      <guid>http://localhost:1313/post/homelab/homelab-nut-prometheus-grafana/</guid>
       <description>&lt;p&gt;I ordered a second UPS because thanks to &lt;a href=&#34;https://github.com/Brandawg93/PeaNUT&#34;&gt;PeaNUT&lt;/a&gt;, I saw that my current UPS is only providing 20 minutes of uptime. Unfortunately, as of this post, PeaNUT will only read one UPS&amp;rsquo; metrics from &lt;a href=&#34;https://networkupstools.org/&#34;&gt;Network UPS Tools&lt;/a&gt; per PeaNUT instance, so I&amp;rsquo;m going to start scraping the metrics into Prometheus and displaying them with Grafana. Here&amp;rsquo;s how I did it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Setup Prometheus and Grafana in Your Homelab</title>
-      <link>https://unixorn.github.io/post/homelab/homelab-setup-prometheus-and-grafana/</link>
+      <link>http://localhost:1313/post/homelab/homelab-setup-prometheus-and-grafana/</link>
       <pubDate>Sat, 13 Apr 2024 14:19:26 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/homelab/homelab-setup-prometheus-and-grafana/</guid>
+      <guid>http://localhost:1313/post/homelab/homelab-setup-prometheus-and-grafana/</guid>
       <description>&lt;p&gt;I wanted nice graphs for the various metrics I collect in my homelab and from my Home Assistant server.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s how I installed Prometheus and Grafana in my homelab to get them.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Set up nut-upsd and peanut in your homelab</title>
-      <link>https://unixorn.github.io/post/homelab/homelab-nut-upsd/</link>
+      <link>http://localhost:1313/post/homelab/homelab-nut-upsd/</link>
       <pubDate>Sat, 06 Apr 2024 16:27:06 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/homelab/homelab-nut-upsd/</guid>
+      <guid>http://localhost:1313/post/homelab/homelab-nut-upsd/</guid>
       <description>&lt;h1 id=&#34;set-up-nut-upsd-and-peanut-in-your-homelab&#34;&gt;Set up nut-upsd and peanut in your homelab&lt;/h1&gt;
 &lt;p&gt;I run my Synology server and network switches off a UPS. I decided I wanted a dashboard for the UPS, here&amp;rsquo;s how I did set up &lt;a href=&#34;https://networkupstools.org/&#34;&gt;Network UPS Tools&lt;/a&gt;, aka NUT, and the &lt;a href=&#34;https://github.com/Brandawg93/PeaNUT&#34;&gt;PeaNUT&lt;/a&gt; dashboard.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Homelab Upgrade from USG-Pro to UDM-Pro</title>
-      <link>https://unixorn.github.io/post/2023-08-homelab-upgrade/</link>
+      <link>http://localhost:1313/post/2023-08-homelab-upgrade/</link>
       <pubDate>Sat, 26 Aug 2023 13:30:26 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/2023-08-homelab-upgrade/</guid>
+      <guid>http://localhost:1313/post/2023-08-homelab-upgrade/</guid>
       <description>&lt;p&gt;Last Tuesday night, my USG Pro died. I got it secondhand and I got almost five years use out of it, so it was past time for a more performant replacement.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Set up nginx-proxy-manager with LetsEncrypt SSL certificates</title>
-      <link>https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/</link>
+      <link>http://localhost:1313/post/hass/2023-07-09-set-up-nginx-proxy-manager/</link>
       <pubDate>Sat, 22 Jul 2023 08:19:38 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/</guid>
+      <guid>http://localhost:1313/post/hass/2023-07-09-set-up-nginx-proxy-manager/</guid>
       <description>&lt;p&gt;In the next few posts, I&amp;rsquo;m going to document how to set up Home Assistant (HA) from scratch. We&amp;rsquo;re going to want to protect the admin UI interfaces for HA and its support services with SSL, and add authentication to services that don&amp;rsquo;t provide it themselves.&lt;/p&gt;
 &lt;p&gt;We&amp;rsquo;re going to do this with &lt;a href=&#34;https://nginxproxymanager.com/&#34;&gt;Nginx Proxy Manager&lt;/a&gt; because it has built in support for using &lt;a href=&#34;https://letsencrypt.org&#34;&gt;LetsEncrypt&lt;/a&gt; to obtain free SSL certificates, supports adding authentication to services that don&amp;rsquo;t do it themselves, and is overall easy to use.&lt;/p&gt;
 &lt;p&gt;Before I start writing more Home Assitant articles, let&amp;rsquo;s set up a SSL proxy server to keep everything secure.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Installing ESPHome</title>
-      <link>https://unixorn.github.io/post/hass/2023-05-21-install-esphome/</link>
+      <link>http://localhost:1313/post/hass/2023-05-21-install-esphome/</link>
       <pubDate>Mon, 22 May 2023 10:32:34 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/hass/2023-05-21-install-esphome/</guid>
+      <guid>http://localhost:1313/post/hass/2023-05-21-install-esphome/</guid>
       <description>&lt;p&gt;Some of my posts assume that the user already has &lt;a href=&#34;https://esphome.io/&#34;&gt;ESPHome&lt;/a&gt; installed, so I&amp;rsquo;m documenting how to install it here so I don&amp;rsquo;t have to repeat it everywhere.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Booting an Orange Pi 5 from NVMe</title>
-      <link>https://unixorn.github.io/post/2023-03-boot-orange-pi-5-from-nvme/</link>
+      <link>http://localhost:1313/post/2023-03-boot-orange-pi-5-from-nvme/</link>
       <pubDate>Fri, 31 Mar 2023 11:08:42 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/2023-03-boot-orange-pi-5-from-nvme/</guid>
+      <guid>http://localhost:1313/post/2023-03-boot-orange-pi-5-from-nvme/</guid>
       <description>&lt;p&gt;Just got an Orange Pi 5. I couldn&amp;rsquo;t find a simple set of instructions on how to boot it off the M.2 NVMe slot, so I&amp;rsquo;m documenting it here.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Restic Backups on TrueNAS</title>
-      <link>https://unixorn.github.io/post/restic-backups-on-truenas/</link>
+      <link>http://localhost:1313/post/restic-backups-on-truenas/</link>
       <pubDate>Fri, 13 Jan 2023 11:16:19 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/restic-backups-on-truenas/</guid>
+      <guid>http://localhost:1313/post/restic-backups-on-truenas/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve been backing my homelab up with &lt;code&gt;duplicacy&lt;/code&gt; (See &lt;a href=&#34;https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/&#34;&gt;Backing Up the Cluster Using Duplicacy&lt;/a&gt;), but I&amp;rsquo;m fed up with it returning a &lt;code&gt;0&lt;/code&gt; exit code &lt;em&gt;even if there&amp;rsquo;s a problem with the backup&lt;/em&gt;. This makes me have to do a lot of annoying rummaging through log output to be sure that a backup actually worked, so I decided to switch to &lt;a href=&#34;https://restic.net/&#34;&gt;restic&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;In this blog entry, I&amp;rsquo;m going to explain how to create a jail in TrueNAS, mount directories you want to back up into the jail, install &lt;a href=&#34;https://restic.net/&#34;&gt;restic&lt;/a&gt;, and how to use it to back up to &lt;a href=&#34;https://www.backblaze.com/b2/cloud-storage.html&#34;&gt;Backblaze b2&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Western Digital Red drive SMR Fiasco</title>
-      <link>https://unixorn.github.io/post/western-digital-red-smr-fiasco/</link>
+      <link>http://localhost:1313/post/western-digital-red-smr-fiasco/</link>
       <pubDate>Sat, 15 Jan 2022 07:32:37 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/western-digital-red-smr-fiasco/</guid>
+      <guid>http://localhost:1313/post/western-digital-red-smr-fiasco/</guid>
       <description>&lt;p&gt;TL;DR - SMR drives can take thirteen to sixteen times as long to resilver in your ZFS raid than CMR drives. If they even succeed. This wouldn&amp;rsquo;t be a big deal, except that Western Digital started using SMR technology in their WD-Red drives that are marketed toward SOHO and small business raid, without any warnings about the RAID performance implications.&lt;/p&gt;
 &lt;p&gt;I got lucky when I bought my last batch of Reds, they were all CMR, but it was pure luck - I bought them based on Western Digital&amp;rsquo;s reputation and because I&amp;rsquo;ve seen multiple NAS vendors recommend WD-REDs in the past.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Setting up Shinobi and a Wyze G2 Camera</title>
-      <link>https://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</link>
+      <link>http://localhost:1313/post/setting-up-shinobi-and-a-wyze-g2-camera/</link>
       <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</guid>
+      <guid>http://localhost:1313/post/setting-up-shinobi-and-a-wyze-g2-camera/</guid>
       <description>&lt;p&gt;I wanted to set up a security camera outside, but I didn&amp;rsquo;t want to be dependent on an outside cloud service - if my internet goes out, I don&amp;rsquo;t want to lose my ability to record video.&lt;/p&gt;
 &lt;p&gt;Wyze cameras are nice and cheap, and you can reflash them to support RTSP in addition to streaming to the Wyze cloud.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Home Assistant Printer Power Management</title>
-      <link>https://unixorn.github.io/post/home-assistant-printer-power-management/</link>
+      <link>http://localhost:1313/post/home-assistant-printer-power-management/</link>
       <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/home-assistant-printer-power-management/</guid>
+      <guid>http://localhost:1313/post/home-assistant-printer-power-management/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve got an old HP laser printer in my basement. We barely print 10 pages a month between the two of us, so we only turn it on when we&amp;rsquo;re going to print. That&amp;rsquo;s a hassle though, because inevitably we forget to shut it off sometimes and it stays on overnight or even for days, and while it has a powersave mode, the 4050N is so old that even that burns a good amount of power.&lt;/p&gt;
 &lt;p&gt;Enter Home Assistant.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Run a CUPSD print server on Raspberry Pi</title>
-      <link>https://unixorn.github.io/post/cupsd-setup/</link>
+      <link>http://localhost:1313/post/cupsd-setup/</link>
       <pubDate>Mon, 08 Feb 2021 12:11:24 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/cupsd-setup/</guid>
+      <guid>http://localhost:1313/post/cupsd-setup/</guid>
       <description>&lt;p&gt;I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here&amp;rsquo;s how I set that up.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Home Assistant Notifications via Twilio SMS</title>
-      <link>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</link>
+      <link>http://localhost:1313/post/home-assistant-notifications-via-twilio/</link>
       <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</guid>
+      <guid>http://localhost:1313/post/home-assistant-notifications-via-twilio/</guid>
       <description>&lt;h2 id=&#34;sending-notifications-from-home-assistant-via-twilio-sms&#34;&gt;Sending notifications from Home Assistant via Twilio SMS&lt;/h2&gt;
 &lt;p&gt;I got a post published at work about &lt;a href=&#34;https://www.twilio.com/blog/home-assistant-twilio-sms-alerts&#34;&gt;How to Receive Alerts from Home Assistant with Twilio SMS&lt;/a&gt;, so I won&amp;rsquo;t replicate it here.&lt;/p&gt;
 &lt;p&gt;TL;DR - It is super easy to send SMS messages via Twilio SMS with &lt;code&gt;curl&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Update: I wrote another article, &lt;a href=&#34;https://unixorn.github.io/post/use-pagerduty-with-home-assistant/&#34;&gt;Use PagerDuty with Home Assistant&lt;/a&gt; this time for using PagerDuty which allows automatically de-duping notifications.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>k3s with k3sup and helm</title>
+      <link>http://localhost:1313/post/k3s-and-k3sup/</link>
+      <pubDate>Wed, 20 May 2020 21:55:18 -0700</pubDate>
+      <guid>http://localhost:1313/post/k3s-and-k3sup/</guid>
+      <description>&lt;p&gt;Installing k3s on the ARM cluster using k3sup&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Setting up an ODROID N2</title>
-      <link>https://unixorn.github.io/post/setting-up-an-n2/</link>
+      <link>http://localhost:1313/post/setting-up-an-n2/</link>
       <pubDate>Sun, 29 Mar 2020 15:37:45 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/setting-up-an-n2/</guid>
+      <guid>http://localhost:1313/post/setting-up-an-n2/</guid>
       <description>&lt;p&gt;I wanted a machine with more memory to be the master node for my ARM k3s cluster. I had an Odroid N2 with 4GB of RAM, sitting around, so here&amp;rsquo;s the log of getting it installed and running.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Home Assistant Setup</title>
+      <link>http://localhost:1313/post/home-assistant-setup/</link>
+      <pubDate>Fri, 29 Nov 2019 15:37:45 -0700</pubDate>
+      <guid>http://localhost:1313/post/home-assistant-setup/</guid>
+      <description>&lt;p&gt;&lt;code&gt;sudo apt install mosquitto-clients&lt;/code&gt;
+mosquitto_sub -d -t hello/world
+mosquitto_pub -d -t hello/world -m &amp;ldquo;Hello from Terminal window 2&#39;
+mosquitto_pub -d -t hello/world -m &amp;lsquo;shazam&amp;rsquo;
+docker run -it &amp;ndash;rm eclipse-mosquitto mosquitto_pub -h hass.unixorn.net -d -t hello/world -m &amp;ldquo;Switch is ON&amp;rdquo;&lt;/p&gt;
+&lt;p&gt;Convert cleartext password file &lt;code&gt;mosquitto_passwd -U mqtt.passwords&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;pip install paho-mqtt&lt;/code&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Rhasspy Setup</title>
+      <link>http://localhost:1313/post/setting-up-rhasspy/</link>
+      <pubDate>Fri, 29 Nov 2019 15:37:45 -0700</pubDate>
+      <guid>http://localhost:1313/post/setting-up-rhasspy/</guid>
+      <description>&lt;p&gt;Setting up Rhasspy for voice recognition on a Raspberry Pi 4&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Setting Up Pihole</title>
+      <link>http://localhost:1313/post/setting-up-pihole/</link>
+      <pubDate>Sun, 13 Oct 2019 18:36:59 -0700</pubDate>
+      <guid>http://localhost:1313/post/setting-up-pihole/</guid>
+      <description>&lt;h2 id=&#34;why-pihole&#34;&gt;Why PiHole?&lt;/h2&gt;
+&lt;p&gt;Frankly, I got sick of annoying ads, especially the ones that popped up the &amp;ldquo;your mac is infected with a virus&amp;rdquo; bullshit, so I decided to put a couple of PiHoles in my cluster and stop them at the network level.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Trying K3s on ARM, Part 1</title>
-      <link>https://unixorn.github.io/post/k3s-on-arm/</link>
+      <link>http://localhost:1313/post/k3s-on-arm/</link>
       <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/k3s-on-arm/</guid>
+      <guid>http://localhost:1313/post/k3s-on-arm/</guid>
       <description>&lt;h2 id=&#34;why-k3s-and-not-stick-with-k8s&#34;&gt;Why k3s and not stick with k8s?&lt;/h2&gt;
 &lt;p&gt;I wanted to experiment with &lt;a href=&#34;https://k3s.io&#34;&gt;k3s&lt;/a&gt;. They package everything you need in a single binary, don&amp;rsquo;t package in deprecated parts of k8s, and it works on Intel, ARMv7 and ARM64. It seemed like it&amp;rsquo;d be a less painful way to runn Kubernetes on my ARM cluster.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Adding a Distributed Filesystem to the Cluster</title>
-      <link>https://unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</link>
+      <link>http://localhost:1313/post/adding-a-distributed-filesystem-to-cluster/</link>
       <pubDate>Sun, 23 Jun 2019 17:22:47 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/adding-a-distributed-filesystem-to-cluster/</guid>
+      <guid>http://localhost:1313/post/adding-a-distributed-filesystem-to-cluster/</guid>
       <description>&lt;p&gt;One of the reasons I set up my cluster was that I&amp;rsquo;m running out of space on my NAS. I don&amp;rsquo;t want to buy a whole new chassis, and while I could have put individual file shares on each cluster node, that would be both inconvenient and not provide any data redundancy without a lot of brittle home-rolled hacks to &lt;code&gt;rsync&lt;/code&gt; data from node to node. And since distributed file systems are a thing, I&amp;rsquo;d rather not resort to hacks.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Parts list for the ARM cluster</title>
-      <link>https://unixorn.github.io/post/arm_cluster_parts_list/</link>
+      <link>http://localhost:1313/post/arm_cluster_parts_list/</link>
       <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/arm_cluster_parts_list/</guid>
+      <guid>http://localhost:1313/post/arm_cluster_parts_list/</guid>
       <description>ARM cluster parts list</description>
     </item>
     <item>
       <title>Getting an ARM kubernetes cluster up and running</title>
-      <link>https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</link>
+      <link>http://localhost:1313/post/in_the_beginning_there_was_bare_metal/</link>
       <pubDate>Sun, 17 Feb 2019 16:00:05 -0700</pubDate>
-      <guid>https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</guid>
+      <guid>http://localhost:1313/post/in_the_beginning_there_was_bare_metal/</guid>
       <description>In the beginning, there was bare metal</description>
     </item>
   </channel>
