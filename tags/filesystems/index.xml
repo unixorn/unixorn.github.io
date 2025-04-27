@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Filesystems on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/filesystems/</link>
+    <link>https://unixorn.github.io/tags/filesystems/</link>
     <description>Recent content in Filesystems on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Tue, 20 Aug 2019 07:10:27 -0600</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/filesystems/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/filesystems/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Growing EBS Volumes in Place</title>
-      <link>http://localhost:1313/post/growing-ebs-volumes-in-place/</link>
+      <link>https://unixorn.github.io/post/growing-ebs-volumes-in-place/</link>
       <pubDate>Tue, 20 Aug 2019 07:10:27 -0600</pubDate>
-      <guid>http://localhost:1313/post/growing-ebs-volumes-in-place/</guid>
+      <guid>https://unixorn.github.io/post/growing-ebs-volumes-in-place/</guid>
       <description>&lt;p&gt;Yesterday I had to grow a live filesystem on a server in EC2, without downtime. I do this just infrequently enough to not &lt;em&gt;quite&lt;/em&gt; remember all the details without poking around the internet, so I&amp;rsquo;m documenting it all in one place.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Alerting on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/alerting/</link>
+    <link>https://unixorn.github.io/tags/alerting/</link>
     <description>Recent content in Alerting on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sat, 17 Sep 2022 15:38:01 -0600</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/alerting/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/alerting/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Use Pagerduty With Home Assistant</title>
-      <link>http://localhost:1313/post/use-pagerduty-with-home-assistant/</link>
+      <link>https://unixorn.github.io/post/use-pagerduty-with-home-assistant/</link>
       <pubDate>Sat, 17 Sep 2022 15:38:01 -0600</pubDate>
-      <guid>http://localhost:1313/post/use-pagerduty-with-home-assistant/</guid>
+      <guid>https://unixorn.github.io/post/use-pagerduty-with-home-assistant/</guid>
       <description>&lt;p&gt;I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I&amp;rsquo;m an SRE, and have been using PagerDuty for years, so I decided to set up a personal &lt;a href=&#34;https://www.pagerduty.com/&#34;&gt;PagerDuty&lt;/a&gt; account and connect it to my Home Assistant.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Home Assistant Notifications via Twilio SMS</title>
-      <link>http://localhost:1313/post/home-assistant-notifications-via-twilio/</link>
+      <link>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</link>
       <pubDate>Sun, 17 Jan 2021 16:47:09 -0700</pubDate>
-      <guid>http://localhost:1313/post/home-assistant-notifications-via-twilio/</guid>
+      <guid>https://unixorn.github.io/post/home-assistant-notifications-via-twilio/</guid>
       <description>&lt;h2 id=&#34;sending-notifications-from-home-assistant-via-twilio-sms&#34;&gt;Sending notifications from Home Assistant via Twilio SMS&lt;/h2&gt;
 &lt;p&gt;I got a post published at work about &lt;a href=&#34;https://www.twilio.com/blog/home-assistant-twilio-sms-alerts&#34;&gt;How to Receive Alerts from Home Assistant with Twilio SMS&lt;/a&gt;, so I won&amp;rsquo;t replicate it here.&lt;/p&gt;
 &lt;p&gt;TL;DR - It is super easy to send SMS messages via Twilio SMS with &lt;code&gt;curl&lt;/code&gt;.&lt;/p&gt;

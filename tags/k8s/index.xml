@@ -2,74 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>K8s on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/k8s/</link>
+    <link>https://unixorn.github.io/tags/k8s/</link>
     <description>Recent content in K8s on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sun, 01 Sep 2019 15:47:23 -0600</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Backing Up the Cluster with Duplicacy</title>
-      <link>http://localhost:1313/post/backing-up-the-cluster-with-duplicacy/</link>
+      <link>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</link>
       <pubDate>Sun, 01 Sep 2019 15:47:23 -0600</pubDate>
-      <guid>http://localhost:1313/post/backing-up-the-cluster-with-duplicacy/</guid>
+      <guid>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</guid>
       <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
 &lt;p&gt;I wanted to ensure any data I put into my &lt;a href=&#34;https://unixorn.github.io/post/k3s-on-arm/&#34;&gt;ARM k3s cluster&lt;/a&gt; is backed up to prevent data loss.&lt;/p&gt;
 &lt;p&gt;I no longer recommend duplicacy. Instead, read my article on &lt;a href=&#34;https://unixorn.github.io/post/restic-backups-on-truenas/&#34;&gt;restic backups on TrueNas&lt;/a&gt; instead.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Trying K3s on ARM, Part 1</title>
-      <link>http://localhost:1313/post/k3s-on-arm/</link>
+      <link>https://unixorn.github.io/post/k3s-on-arm/</link>
       <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
-      <guid>http://localhost:1313/post/k3s-on-arm/</guid>
+      <guid>https://unixorn.github.io/post/k3s-on-arm/</guid>
       <description>&lt;h2 id=&#34;why-k3s-and-not-stick-with-k8s&#34;&gt;Why k3s and not stick with k8s?&lt;/h2&gt;
 &lt;p&gt;I wanted to experiment with &lt;a href=&#34;https://k3s.io&#34;&gt;k3s&lt;/a&gt;. They package everything you need in a single binary, don&amp;rsquo;t package in deprecated parts of k8s, and it works on Intel, ARMv7 and ARM64. It seemed like it&amp;rsquo;d be a less painful way to runn Kubernetes on my ARM cluster.&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Deploying Openfaas</title>
-      <link>http://localhost:1313/post/deploying-openfaas/</link>
-      <pubDate>Wed, 24 Jul 2019 18:57:01 -0600</pubDate>
-      <guid>http://localhost:1313/post/deploying-openfaas/</guid>
-      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd faas-netes
-sudo kubectl apply -f namespaces.yml
-sudo kubectl apply -f yaml_armhf/
-sudo kubectl get pods --all-namespaces --watch
-
-kc get deploy -n openfaas
-# looking for gateway
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=DjpVtNjiXSU&#34;&gt;https://www.youtube.com/watch?v=DjpVtNjiXSU&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Get cli&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Go to &lt;a href=&#34;https://github.com/openfaas/faas-cli/releases&#34;&gt;https://github.com/openfaas/faas-cli/releases&lt;/a&gt;&lt;/li&gt;
-&lt;/ol&gt;</description>
-    </item>
-    <item>
-      <title>Replacing a ZFS Drive</title>
-      <link>http://localhost:1313/post/replace-zfs-drive/</link>
-      <pubDate>Wed, 24 Jul 2019 18:57:01 -0600</pubDate>
-      <guid>http://localhost:1313/post/replace-zfs-drive/</guid>
-      <description>&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;zpool status
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Video to watch -&lt;/p&gt;
-&lt;p&gt;Go to view volumes, then click the filesystem, then Volume Status, then click the removed disk, then click replace.&lt;/p&gt;</description>
-    </item>
-    <item>
       <title>Parts list for the ARM cluster</title>
-      <link>http://localhost:1313/post/arm_cluster_parts_list/</link>
+      <link>https://unixorn.github.io/post/arm_cluster_parts_list/</link>
       <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
-      <guid>http://localhost:1313/post/arm_cluster_parts_list/</guid>
+      <guid>https://unixorn.github.io/post/arm_cluster_parts_list/</guid>
       <description>ARM cluster parts list</description>
     </item>
     <item>
       <title>Getting an ARM kubernetes cluster up and running</title>
-      <link>http://localhost:1313/post/in_the_beginning_there_was_bare_metal/</link>
+      <link>https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</link>
       <pubDate>Sun, 17 Feb 2019 16:00:05 -0700</pubDate>
-      <guid>http://localhost:1313/post/in_the_beginning_there_was_bare_metal/</guid>
+      <guid>https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</guid>
       <description>In the beginning, there was bare metal</description>
     </item>
   </channel>

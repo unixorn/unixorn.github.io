@@ -2,40 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Howto on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/howto/</link>
+    <link>https://unixorn.github.io/tags/howto/</link>
     <description>Recent content in Howto on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sat, 22 Jul 2023 08:19:38 -0600</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/howto/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/howto/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Set up nginx-proxy-manager with LetsEncrypt SSL certificates</title>
-      <link>http://localhost:1313/post/hass/2023-07-09-set-up-nginx-proxy-manager/</link>
+      <link>https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/</link>
       <pubDate>Sat, 22 Jul 2023 08:19:38 -0600</pubDate>
-      <guid>http://localhost:1313/post/hass/2023-07-09-set-up-nginx-proxy-manager/</guid>
+      <guid>https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/</guid>
       <description>&lt;p&gt;In the next few posts, I&amp;rsquo;m going to document how to set up Home Assistant (HA) from scratch. We&amp;rsquo;re going to want to protect the admin UI interfaces for HA and its support services with SSL, and add authentication to services that don&amp;rsquo;t provide it themselves.&lt;/p&gt;
 &lt;p&gt;We&amp;rsquo;re going to do this with &lt;a href=&#34;https://nginxproxymanager.com/&#34;&gt;Nginx Proxy Manager&lt;/a&gt; because it has built in support for using &lt;a href=&#34;https://letsencrypt.org&#34;&gt;LetsEncrypt&lt;/a&gt; to obtain free SSL certificates, supports adding authentication to services that don&amp;rsquo;t do it themselves, and is overall easy to use.&lt;/p&gt;
 &lt;p&gt;Before I start writing more Home Assitant articles, let&amp;rsquo;s set up a SSL proxy server to keep everything secure.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Installing ESPHome</title>
-      <link>http://localhost:1313/post/hass/2023-05-21-install-esphome/</link>
+      <link>https://unixorn.github.io/post/hass/2023-05-21-install-esphome/</link>
       <pubDate>Mon, 22 May 2023 10:32:34 -0600</pubDate>
-      <guid>http://localhost:1313/post/hass/2023-05-21-install-esphome/</guid>
+      <guid>https://unixorn.github.io/post/hass/2023-05-21-install-esphome/</guid>
       <description>&lt;p&gt;Some of my posts assume that the user already has &lt;a href=&#34;https://esphome.io/&#34;&gt;ESPHome&lt;/a&gt; installed, so I&amp;rsquo;m documenting how to install it here so I don&amp;rsquo;t have to repeat it everywhere.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Reflash a Sonoff S31 to ESPHome</title>
-      <link>http://localhost:1313/post/hass/2023-05-21-reflash-sonoff-s31-to-esphome/</link>
-      <pubDate>Sun, 21 May 2023 18:15:48 -0600</pubDate>
-      <guid>http://localhost:1313/post/hass/2023-05-21-reflash-sonoff-s31-to-esphome/</guid>
-      <description>&lt;p&gt;I like Sonoff hardware, but I prefer to only use devices in my smart home that are fully controllable over my local network. I don&amp;rsquo;t want things to stop working just because some company is having an outage, or when my internet is down. Because of this, the first thing I do when I get a new Sonoff S31 smart plug is reflash it to ç so I can control it completely locally with Home Assistant without dealing with eWeLink. Here&amp;rsquo;s how to upgrade your S31 to ESPHome.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

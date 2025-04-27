@@ -2,51 +2,37 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Mqtt on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/mqtt/</link>
+    <link>https://unixorn.github.io/tags/mqtt/</link>
     <description>Recent content in Mqtt on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 24 Nov 2023 10:49:57 +0200</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/mqtt/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Set Up MQTT</title>
-      <link>http://localhost:1313/post/ha-quickstart/02-set-up-mqtt/</link>
-      <pubDate>Fri, 24 Nov 2023 10:49:57 +0200</pubDate>
-      <guid>http://localhost:1313/post/ha-quickstart/02-set-up-mqtt/</guid>
-      <description>&lt;p&gt;In this article, I&amp;rsquo;m going to show how to set up &lt;a href=&#34;https://mosquitto.org/&#34;&gt;mosquitto&lt;/a&gt; as an MQTT broker to use with Home Assistant. We&amp;rsquo;re going to run it in docker via &lt;code&gt;docker-compose&lt;/code&gt;, so we can use it to support services we want to use with Home Assistant.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Home Assistant Setup Guide</title>
-      <link>http://localhost:1313/post/ha-quickstart/homeassistant-quickstart/</link>
-      <pubDate>Wed, 22 Nov 2023 18:18:54 -0600</pubDate>
-      <guid>http://localhost:1313/post/ha-quickstart/homeassistant-quickstart/</guid>
-      <description>&lt;p&gt;This is the first in a series of posts detailing how to do a basic install of &lt;a href=&#34;https://www.home-assistant.io/&#34;&gt;Home Assistant&lt;/a&gt; with &lt;code&gt;docker&lt;/code&gt; and &lt;code&gt;docker-compose&lt;/code&gt;.&lt;/p&gt;</description>
-    </item>
+    <lastBuildDate>Sat, 18 Mar 2023 13:46:13 -0600</lastBuildDate>
+    <atom:link href="https://unixorn.github.io/tags/mqtt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Add Smarts to IKEA Vindriktning Sensors</title>
-      <link>http://localhost:1313/post/add-smarts-to-ikea-vindriktning-air-sensors/</link>
+      <link>https://unixorn.github.io/post/add-smarts-to-ikea-vindriktning-air-sensors/</link>
       <pubDate>Sat, 18 Mar 2023 13:46:13 -0600</pubDate>
-      <guid>http://localhost:1313/post/add-smarts-to-ikea-vindriktning-air-sensors/</guid>
+      <guid>https://unixorn.github.io/post/add-smarts-to-ikea-vindriktning-air-sensors/</guid>
       <description>&lt;p&gt;We&amp;rsquo;re doing a kitchen &amp;amp; bathrooms renovation, and the construction is generating a lot of dust, to the point that I was changing the HVAC filter twice a week. I wanted to see just how much garbage is in the air, so I started looking around for air quality sensors. Naturally I wanted one that I could integrate into my Home Assistant so I could generate notifications if the air was extra filthy.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Released ha-mqtt-discoverable 0.8.0</title>
-      <link>http://localhost:1313/post/ha-mqtt-discoverable-0.8.0/</link>
+      <link>https://unixorn.github.io/post/ha-mqtt-discoverable-0.8.0/</link>
       <pubDate>Sat, 11 Mar 2023 16:39:38 -0700</pubDate>
-      <guid>http://localhost:1313/post/ha-mqtt-discoverable-0.8.0/</guid>
+      <guid>https://unixorn.github.io/post/ha-mqtt-discoverable-0.8.0/</guid>
       <description>&lt;p&gt;Released version 0.8.0 of ha-mqtt-discoverable and version 0.2.0 of ha-mqtt-discoverable-cli today.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Zigbee and Zwave Setup Tips</title>
-      <link>http://localhost:1313/post/zigbee-and-zwave-setup-tip/</link>
+      <link>https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/</link>
       <pubDate>Sun, 06 Nov 2022 14:47:14 -1000</pubDate>
-      <guid>http://localhost:1313/post/zigbee-and-zwave-setup-tip/</guid>
+      <guid>https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/</guid>
       <description>&lt;p&gt;Some tips about setting up Zigbee or Z-wave mesh networks.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;ve had a few people new to Home Assistant ask about how to best set up their mesh networks. Here&amp;rsquo;s my take on what works best.&lt;/p&gt;</description>
     </item>

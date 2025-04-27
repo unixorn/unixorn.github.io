@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Ha-Mqtt-Discoverable on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/ha-mqtt-discoverable/</link>
+    <link>https://unixorn.github.io/tags/ha-mqtt-discoverable/</link>
     <description>Recent content in Ha-Mqtt-Discoverable on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sun, 15 Dec 2024 09:31:56 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/ha-mqtt-discoverable/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/ha-mqtt-discoverable/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Released ha-mqtt-discoverable v0.16.2</title>
-      <link>http://localhost:1313/post/hass/ha-mqtt-discoverable-0.16.2/</link>
+      <link>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.16.2/</link>
       <pubDate>Sun, 15 Dec 2024 09:31:56 -0700</pubDate>
-      <guid>http://localhost:1313/post/hass/ha-mqtt-discoverable-0.16.2/</guid>
+      <guid>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.16.2/</guid>
       <description>&lt;p&gt;Released ha-mqtt-discoverable &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/releases/tag/v0.16.2&#34;&gt;v0.16.2&lt;/a&gt; and ha-mqtt-discoverable-cli &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable-cli/releases/tag/v0.16.2&#34;&gt;v0.16.2&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;whats-changed&#34;&gt;What&amp;rsquo;s Changed&lt;/h2&gt;
 &lt;ul&gt;
@@ -31,9 +31,9 @@
     </item>
     <item>
       <title>Released ha-mqtt-discoverable v0.14.0</title>
-      <link>http://localhost:1313/post/hass/ha-mqtt-discoverable-0.14.0/</link>
+      <link>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.14.0/</link>
       <pubDate>Sun, 19 May 2024 07:34:51 -0600</pubDate>
-      <guid>http://localhost:1313/post/hass/ha-mqtt-discoverable-0.14.0/</guid>
+      <guid>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.14.0/</guid>
       <description>&lt;p&gt;Released &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/releases/tag/v0.14.0&#34;&gt;ha-mqtt-discoverable v0.14.0&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;new-contributors&#34;&gt;New Contributors&lt;/h2&gt;
 &lt;ul&gt;
@@ -70,9 +70,9 @@
     </item>
     <item>
       <title>Released ha-mqtt-discoverable 0.12.0</title>
-      <link>http://localhost:1313/post/hass/ha-mqtt-discoverable-0.12.0/</link>
+      <link>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.12.0/</link>
       <pubDate>Wed, 22 Nov 2023 19:08:25 -0700</pubDate>
-      <guid>http://localhost:1313/post/hass/ha-mqtt-discoverable-0.12.0/</guid>
+      <guid>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.12.0/</guid>
       <description>&lt;p&gt;Released ha-mqtt-discoverable 0.12.0&lt;/p&gt;</description>
     </item>
   </channel>

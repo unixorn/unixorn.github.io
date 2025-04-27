@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Nut-Upsd on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/nut-upsd/</link>
+    <link>https://unixorn.github.io/tags/nut-upsd/</link>
     <description>Recent content in Nut-Upsd on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sun, 21 Apr 2024 13:27:16 -0600</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/nut-upsd/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/nut-upsd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Store NUT metrics in Prometheus so we can display them with Grafana</title>
-      <link>http://localhost:1313/post/homelab/homelab-nut-prometheus-grafana/</link>
+      <link>https://unixorn.github.io/post/homelab/homelab-nut-prometheus-grafana/</link>
       <pubDate>Sun, 21 Apr 2024 13:27:16 -0600</pubDate>
-      <guid>http://localhost:1313/post/homelab/homelab-nut-prometheus-grafana/</guid>
+      <guid>https://unixorn.github.io/post/homelab/homelab-nut-prometheus-grafana/</guid>
       <description>&lt;p&gt;I ordered a second UPS because thanks to &lt;a href=&#34;https://github.com/Brandawg93/PeaNUT&#34;&gt;PeaNUT&lt;/a&gt;, I saw that my current UPS is only providing 20 minutes of uptime. Unfortunately, as of this post, PeaNUT will only read one UPS&amp;rsquo; metrics from &lt;a href=&#34;https://networkupstools.org/&#34;&gt;Network UPS Tools&lt;/a&gt; per PeaNUT instance, so I&amp;rsquo;m going to start scraping the metrics into Prometheus and displaying them with Grafana. Here&amp;rsquo;s how I did it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Set up nut-upsd and peanut in your homelab</title>
-      <link>http://localhost:1313/post/homelab/homelab-nut-upsd/</link>
+      <link>https://unixorn.github.io/post/homelab/homelab-nut-upsd/</link>
       <pubDate>Sat, 06 Apr 2024 16:27:06 -0600</pubDate>
-      <guid>http://localhost:1313/post/homelab/homelab-nut-upsd/</guid>
+      <guid>https://unixorn.github.io/post/homelab/homelab-nut-upsd/</guid>
       <description>&lt;h1 id=&#34;set-up-nut-upsd-and-peanut-in-your-homelab&#34;&gt;Set up nut-upsd and peanut in your homelab&lt;/h1&gt;
 &lt;p&gt;I run my Synology server and network switches off a UPS. I decided I wanted a dashboard for the UPS, here&amp;rsquo;s how I did set up &lt;a href=&#34;https://networkupstools.org/&#34;&gt;Network UPS Tools&lt;/a&gt;, aka NUT, and the &lt;a href=&#34;https://github.com/Brandawg93/PeaNUT&#34;&gt;PeaNUT&lt;/a&gt; dashboard.&lt;/p&gt;</description>
     </item>

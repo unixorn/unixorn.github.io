@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Postgres on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/postgres/</link>
+    <link>https://unixorn.github.io/tags/postgres/</link>
     <description>Recent content in Postgres on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sat, 05 Nov 2022 09:42:58 -0600</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/postgres/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/postgres/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Switch Home Assistant to Use PostgreSQL Instead of SQLite</title>
-      <link>http://localhost:1313/post/hass-using-postgresql-instead-of-sqlite/</link>
+      <link>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</link>
       <pubDate>Sat, 05 Nov 2022 09:42:58 -0600</pubDate>
-      <guid>http://localhost:1313/post/hass-using-postgresql-instead-of-sqlite/</guid>
+      <guid>https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/</guid>
       <description>&lt;p&gt;I wanted to switch my new Home Assistant (HA) installation to write data to &lt;a href=&#34;https://www.postgresql.org/&#34;&gt;PostgreSQL&lt;/a&gt; instead of SQLite for a variety of reasons. Here&amp;rsquo;s how I did it.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s why I decided to switch:&lt;/p&gt;
 &lt;ul&gt;

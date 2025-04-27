@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -9,17 +9,17 @@
 <meta name="keywords" content="arm, arm7, homelab, k8s, kubernetes, odroid, tech">
 <meta name="description" content="In the beginning, there was bare metal">
 <meta name="author" content="Me">
-<link rel="canonical" href="http://localhost:1313/post/in_the_beginning_there_was_bare_metal/">
+<link rel="canonical" href="https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/">
 <meta name="google-site-verification" content="UA-100853138-2">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
-<link rel="apple-touch-icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
-<link rel="mask-icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
+<link crossorigin="anonymous" href="https://unixorn.github.io/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css" integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF&#43;13Dyqob6ASlTrTye8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="16x16" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="apple-touch-icon" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="mask-icon" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/post/in_the_beginning_there_was_bare_metal/">
+<link rel="alternate" hreflang="en" href="https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/">
 <noscript>
     <style>
         #theme-toggle,
@@ -56,15 +56,26 @@
         }
 
     </style>
-</noscript><meta property="og:title" content="Getting an ARM kubernetes cluster up and running" />
-<meta property="og:description" content="In the beginning, there was bare metal" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/in_the_beginning_there_was_bare_metal/" />
-<meta property="og:image" content="http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E" />
-<meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-02-17T16:00:05-07:00" />
-<meta property="article:modified_time" content="2019-02-17T16:00:05-07:00" /><meta property="og:site_name" content="The Plural of SRE is an Outage" />
-
+</noscript><meta property="og:url" content="https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/">
+  <meta property="og:site_name" content="unixorn.github.io">
+  <meta property="og:title" content="Getting an ARM kubernetes cluster up and running">
+  <meta property="og:description" content="In the beginning, there was bare metal">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2019-02-17T16:00:05-07:00">
+    <meta property="article:modified_time" content="2019-02-17T16:00:05-07:00">
+    <meta property="article:tag" content="Arm">
+    <meta property="article:tag" content="Arm7">
+    <meta property="article:tag" content="Homelab">
+    <meta property="article:tag" content="K8s">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="article:tag" content="Odroid">
+      <meta property="og:image" content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:title" content="Getting an ARM kubernetes cluster up and running">
+<meta name="twitter:description" content="In the beginning, there was bare metal">
 
 
 <script type="application/ld+json">
@@ -76,13 +87,13 @@
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://localhost:1313/post/"
+      "item": "https://unixorn.github.io/post/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Getting an ARM kubernetes cluster up and running",
-      "item": "http://localhost:1313/post/in_the_beginning_there_was_bare_metal/"
+      "item": "https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/"
     }
   ]
 }
@@ -100,7 +111,7 @@
   "articleBody": "I recently decided to set up a Kubernetes cluster in my basement, partly because I’d never set a cluster up from scratch by myself, and partly because my existing NAS was beginning to run out of headroom.\nFor a variety of reasons, I decided to use ODROID HC2 boards. They’ve got gigabit ethernet, eight CPU cores, 2 GB RAM and a SATA-3 port for directly connecting a hard drive, which I wanted so I could use them as file server bricks. In a future post I will detail how I set up a distributed filesystem across the cluster.\nEDIT - Added a link to the parts list, and added instructions for finding the new machine on your network.\nSetting up an ODROID HC2 cluster These notes should also work on an Odroid HC1 or XU4.\nInstall Debian Stretch I used meveric’s debian-stretch ISO from https://oph.mdrjr.net/meveric/images/Stretch/.\nI used Etcher to burn the debian-stretch ISO to an microSD card.\nFlash your microSD card, plug it into the HC2 and attach a SATA drive to your HC2 if you’re going to use one, then connect it to your switch and power up. It will get an IP address with DHCP. Since they don’t have a video connector, you’ll have to scan your network to figure out what IP it got.\nFind the Odroid on your network nmap You can use nmap to find the Odroid machines. Assuming your network is 10.0.0.1-254, you can scan the network with nmap -sP -n 10.0.0.0/24 | grep -v Host. Look for systems that show Wibrain in their MAC Address line.\nAngry IP Scanner If you’re not comfortable with nmap, I recommend Angry IP Scanner to find the new machine on your network because you can configure (select Fetchers in the Angry IP Scanner Menu on macOS, then add MAC Vendor to the selected fetchers) it to show the MAC vendor of your ethernet card - the ODroids show will show up as WIBRAIN.\nLogin as root, password odroid.\nChange your root password! Don’t skip this just because you’re running this on an internal-only network. The default root password for the image is well known, so run passwd root to change it so you’re not vulnerable if you accidentally open up your WIFI.\nInstall your updates Install ISOs are inevitably out of date, but that’s ok, we’ll begin by updating all the installed packages.\napt-get update \u0026\u0026 apt-get upgrade \u0026\u0026 apt-get dist-upgrade\nInstall useful tooling Let’s also add some useful tools to the machine.\napt-get install -y dnsutils git htop lshw man net-tools rsync sudo\nNow we’re ready to install Docker and Kubernetes.\nInstall docker-ce Install the docker-ce pre-requisites apt-get install \\ apt-transport-https \\ ca-certificates \\ curl \\ gnupg2 \\ software-properties-common Partition \u0026 Format the drive Install pre-requisites Check what’s on your drive with lshw -C disk\nFor the sake of these examples, we’ll assume the SATA drive is /dev/sda\nFormat the drive If you didn’t add a SATA drive to your Odroid, you can skip this section.\nFirst partition it fdisk /dev/sda list all the existing partitions with the p command Remove any existing partitions with the d command Create a new partition with the n command Write the new partition table to disk with the w command Now format it mkfs.ext4 /dev/sda1 Configure the system to automatically mount the drive Get the UUID with blkid | grep /dev/sda. You’ll see something like /dev/sda1: UUID=\"abcdabcd-abcd-11bb-9343-9089b93bbb72\" TYPE=\"ext4\" PARTUUID=\"13371337-abcd-1234-aa00-abcd1234abcd1234\" Create a mount point to mount your filesystem. I picked /mnt/sata and created it with mkdir -p /mnt/sata Add an entry to /etc/fstab. Use your editor of choice to add a line UUID=\"abcdabcd-abcd-11bb-9343-9089b93bbb72\" /mnt/sata ext4 defaults 0 2. Use the UUID from step 1, not the example one here. You should now be able to mount the drive with mount /mnt/sata. If it succesfully mounts, it should show up after a reboot.\nForce a static IP for the node(s) Your best option is to assign your nodes static IPs on your DHCP server. This way you have one place to assign IPs, and if you need to reassign them you can change them all on the DHCP server and within a few minutes (if you’re in a rush, reboot your nodes) your nodes will switch to the new addreses.\nIf you can’t assign static addresses in your DHCP server on your router, it’s garbage and consider replaceing it. Until you do, you’ll have to hard code them on the nodes.\nFirst, back up the current network config with cp /etc/network/interfaces /etc/network/interfaces-original\nNow edit /etc/network/interfaces and put in:\n# Ethernet adapter 0 auto eth0 allow-hotplug eth0 #no-auto-down eth0 iface eth0 inet static address 192.168.1.100 netmask 255.255.255.0 gateway 192.168.1.1 dns-nameservers 8.8.8.8 8.8.4.4 # Or use your own by uncommenting below # dns-nameservers 192.168.1.1 Disable swap Kubernetes doesn’t like swap, so disable it with swapoff -a.\nInstall Docker and Kubernetes Docker Install the docker apt signing GPG key curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -\necho \"deb [arch=armhf] https://download.docker.com/linux/debian $(lsb_release -cs) stable\" \u003e /etc/apt/sources.list.d/docker.list\nInstall pip \u0026 docker-compose apt-get update \u0026\u0026 apt-get install -y python3-pip \u0026\u0026 pip3 install setuptools docker-compose\nInstall docker apt-get install -y docker-ce --no-install-recommends\nConfirm Docker is working docker run hello-world\nYou should see something similar to this:\nroot@rodan:~# docker run hello-world Unable to find image 'hello-world:latest' locally latest: Pulling from library/hello-world c1eda109e4da: Pull complete Digest: sha256:2557e3c07ed1e38f26e389462d03ed943586f744621577a99efb77324b0fe535 Status: Downloaded newer image for hello-world:latest Hello from Docker! This message shows that your installation appears to be working correctly. To generate this message, Docker took the following steps: 1. The Docker client contacted the Docker daemon. 2. The Docker daemon pulled the \"hello-world\" image from the Docker Hub. (arm32v7) 3. The Docker daemon created a new container from that image which runs the executable that produces the output you are currently reading. 4. The Docker daemon streamed that output to the Docker client, which sent it to your terminal. To try something more ambitious, you can run an Ubuntu container with: $ docker run -it ubuntu bash Share images, automate workflows, and more with a free Docker ID: https://hub.docker.com/ For more examples and ideas, visit: https://docs.docker.com/get-started/ Install Kubernetes Install the k8s repository key curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | apt-key add -\nAdd the k8s apt repo cat \u003c/etc/apt/sources.list.d/kubernetes.list deb https://apt.kubernetes.io/ kubernetes-xenial main EOF Install kubernetes sudo apt-get update sudo apt-get install -y kubelet kubeadm kubectl sudo apt-mark hold kubelet kubeadm kubectl Uptodate at https://kubernetes.io/docs/setup/independent/\nThis is pretty tedious, is there an easier way? All this is tedious and prone to mistyping, especially if you’ve got multiple nodes to make into a cluster, so I’ve put everything except the network setup and disk formatting/mounting into a handy helper script, borg-odroid.\nYou can copy borg-odroid to a new machine after the first boot and it will bring the machine’s debian install up to date, then install docker \u0026 kubernetes and some other handy support tools.\nConfigure your Kubernetes Cluster First - did you configure your kubernetes nodes to use static addresses? You will have issues if you didn’t.\nInitialize the cluster on your master node By default, Flannel requires we use 10.244.0.0/16 for our CIDR when initializing the cluster, because the flannel configuration we’re going to install later expects that CIDR - sure, we could change all the references to it, but that is just going to give us chances to break it.\nkubeadm init --pod-network-cidr=10.244.0.0/16\nNote: It is normal to see your master node as NotReady if you run kubectl get nodes before setting up networking.\nSetup your config rm -rf ~/.kube/ \u0026\u0026 mkdir ~/.kube \u0026\u0026 cp /etc/kubernetes/admin.conf $HOME/.kube/config\nSet up Networking Set /proc/sys/net/bridge/bridge-nf-call-iptables to 1 by running sysctl net.bridge.bridge-nf-call-iptables=1 to pass bridged IPv4 traffic to iptables’ chains. Flannel supports the ARM architecture, so kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml Allow pods to run on master node If you only have one node in the cluster, k8s won’t run pods on the master node. Disable tainting with kubectl taint nodes --all node-role.kubernetes.io/master-\nAdd worker nodes On the master, run kubeadm token create --print-join-command to generate an add command, then run that on the worker. It will look something like:\nkubeadm join --token SUPERSECRET 10.9.8.7:6443 --discovery-token-ca-cert-hash sha256:1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF1234567890ABCDEF Install helm helm init --tiller-image=jessestuart/tiller:v2.9.1 --upgrade\nSet up the dashboard DASHSRC=https://raw.githubusercontent.com/kubernetes/dashboard/master curl -sSL $DASHSRC/src/deploy/recommended/kubernetes-dashboard-arm-head.yaml | kubectl apply -f - Updates Updated the docker install to use --no-install-recommends - this keeps it from attempting to install the aufs-dkms package, which causes error messages (but docker still works) on my Raspberry Pi 4 because the necessary kernel module isn’t provided. Added instructions for adding new worker nodes and disabling swap ",
   "wordCount" : "1419",
   "inLanguage": "en",
-  "image": "http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished": "2019-02-17T16:00:05-07:00",
+  "image": "https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished": "2019-02-17T16:00:05-07:00",
   "dateModified": "2019-02-17T16:00:05-07:00",
   "author":{
     "@type": "Person",
@@ -108,14 +119,14 @@
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/post/in_the_beginning_there_was_bare_metal/"
+    "@id": "https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "unixorn.github.io",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:1313/%3Clink%20/%20abs%20url%3E"
+      "url": "https://unixorn.github.io/%3Clink%20/%20abs%20url%3E"
     }
   }
 }
@@ -137,11 +148,11 @@
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Home (Alt + H)">
-                <img src="http://localhost:1313/apple-touch-icon.png" alt="" aria-label="logo"
+            <a href="https://unixorn.github.io/" accesskey="h" title="Home (Alt + H)">
+                <img src="https://unixorn.github.io/apple-touch-icon.png" alt="" aria-label="logo"
                     height="35">Home</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
@@ -165,27 +176,27 @@
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives/" title="archives">
+                <a href="https://unixorn.github.io/archives/" title="archives">
                     <span>archives</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="search (Alt &#43; /)" accesskey=/>
+                <a href="https://unixorn.github.io/search/" title="search (Alt &#43; /)" accesskey=/>
                     <span>search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about/" title="about">
+                <a href="https://unixorn.github.io/about/" title="about">
                     <span>about</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/projects/" title="projects">
+                <a href="https://unixorn.github.io/projects/" title="projects">
                     <span>projects</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="tags">
+                <a href="https://unixorn.github.io/tags/" title="tags">
                     <span>tags</span>
                 </a>
             </li>
@@ -204,10 +215,10 @@
     </nav>
 </header>
 <main class="main">
-<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/mastodon.css" />
+<link rel="stylesheet" type="text/css" href="https://unixorn.github.io/css/mastodon.css" />
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/post/">Posts</a></div>
+    <div class="breadcrumbs"><a href="https://unixorn.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://unixorn.github.io/post/">Posts</a></div>
     <h1 class="post-title">
       Getting an ARM kubernetes cluster up and running
     </h1>
@@ -443,21 +454,21 @@
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/arm/">Arm</a></li>
-      <li><a href="http://localhost:1313/tags/arm7/">Arm7</a></li>
-      <li><a href="http://localhost:1313/tags/homelab/">Homelab</a></li>
-      <li><a href="http://localhost:1313/tags/k8s/">K8s</a></li>
-      <li><a href="http://localhost:1313/tags/kubernetes/">Kubernetes</a></li>
-      <li><a href="http://localhost:1313/tags/odroid/">Odroid</a></li>
-      <li><a href="http://localhost:1313/tags/tech/">Tech</a></li>
+      <li><a href="https://unixorn.github.io/tags/arm/">Arm</a></li>
+      <li><a href="https://unixorn.github.io/tags/arm7/">Arm7</a></li>
+      <li><a href="https://unixorn.github.io/tags/homelab/">Homelab</a></li>
+      <li><a href="https://unixorn.github.io/tags/k8s/">K8s</a></li>
+      <li><a href="https://unixorn.github.io/tags/kubernetes/">Kubernetes</a></li>
+      <li><a href="https://unixorn.github.io/tags/odroid/">Odroid</a></li>
+      <li><a href="https://unixorn.github.io/tags/tech/">Tech</a></li>
     </ul>
 <nav class="paginav">
-  <a class="prev" href="http://localhost:1313/post/arm_cluster_parts_list/">
+  <a class="prev" href="https://unixorn.github.io/post/arm_cluster_parts_list/">
     <span class="title">« Prev</span>
     <br>
     <span>Parts list for the ARM cluster</span>
   </a>
-  <a class="next" href="http://localhost:1313/post/2023-10-16-samba-and-moosefs/">
+  <a class="next" href="https://unixorn.github.io/post/2023-10-16-samba-and-moosefs/">
     <span class="title">Next »</span>
     <br>
     <span></span>
@@ -468,7 +479,7 @@
 <ul class="share-buttons">
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Getting an ARM kubernetes cluster up and running on x"
-            href="https://x.com/intent/tweet/?text=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fin_the_beginning_there_was_bare_metal%2f&amp;hashtags=arm%2carm7%2chomelab%2ck8s%2ckubernetes%2codroid%2ctech">
+            href="https://x.com/intent/tweet/?text=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fin_the_beginning_there_was_bare_metal%2f&amp;hashtags=arm%2carm7%2chomelab%2ck8s%2ckubernetes%2codroid%2ctech">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
@@ -477,7 +488,7 @@
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Getting an ARM kubernetes cluster up and running on linkedin"
-            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fin_the_beginning_there_was_bare_metal%2f&amp;title=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running&amp;summary=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running&amp;source=http%3a%2f%2flocalhost%3a1313%2fpost%2fin_the_beginning_there_was_bare_metal%2f">
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fin_the_beginning_there_was_bare_metal%2f&amp;title=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running&amp;summary=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running&amp;source=https%3a%2f%2funixorn.github.io%2fpost%2fin_the_beginning_there_was_bare_metal%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
@@ -486,7 +497,7 @@
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Getting an ARM kubernetes cluster up and running on reddit"
-            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fpost%2fin_the_beginning_there_was_bare_metal%2f&title=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running">
+            href="https://reddit.com/submit?url=https%3a%2f%2funixorn.github.io%2fpost%2fin_the_beginning_there_was_bare_metal%2f&title=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
@@ -495,7 +506,7 @@
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Getting an ARM kubernetes cluster up and running on facebook"
-            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fpost%2fin_the_beginning_there_was_bare_metal%2f">
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2funixorn.github.io%2fpost%2fin_the_beginning_there_was_bare_metal%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
@@ -504,7 +515,7 @@
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Getting an ARM kubernetes cluster up and running on whatsapp"
-            href="https://api.whatsapp.com/send?text=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running%20-%20http%3a%2f%2flocalhost%3a1313%2fpost%2fin_the_beginning_there_was_bare_metal%2f">
+            href="https://api.whatsapp.com/send?text=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running%20-%20https%3a%2f%2funixorn.github.io%2fpost%2fin_the_beginning_there_was_bare_metal%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
@@ -513,7 +524,7 @@
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Getting an ARM kubernetes cluster up and running on telegram"
-            href="https://telegram.me/share/url?text=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fin_the_beginning_there_was_bare_metal%2f">
+            href="https://telegram.me/share/url?text=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fin_the_beginning_there_was_bare_metal%2f">
             <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
@@ -522,7 +533,7 @@
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Getting an ARM kubernetes cluster up and running on ycombinator"
-            href="https://news.ycombinator.com/submitlink?t=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running&u=http%3a%2f%2flocalhost%3a1313%2fpost%2fin_the_beginning_there_was_bare_metal%2f">
+            href="https://news.ycombinator.com/submitlink?t=Getting%20an%20ARM%20kubernetes%20cluster%20up%20and%20running&u=https%3a%2f%2funixorn.github.io%2fpost%2fin_the_beginning_there_was_bare_metal%2f">
             <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
                 xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
                 <path

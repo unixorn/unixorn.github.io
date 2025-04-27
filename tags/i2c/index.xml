@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>I2c on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/i2c/</link>
+    <link>https://unixorn.github.io/tags/i2c/</link>
     <description>Recent content in I2c on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sat, 18 Mar 2023 13:46:13 -0600</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/i2c/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/i2c/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Add Smarts to IKEA Vindriktning Sensors</title>
-      <link>http://localhost:1313/post/add-smarts-to-ikea-vindriktning-air-sensors/</link>
+      <link>https://unixorn.github.io/post/add-smarts-to-ikea-vindriktning-air-sensors/</link>
       <pubDate>Sat, 18 Mar 2023 13:46:13 -0600</pubDate>
-      <guid>http://localhost:1313/post/add-smarts-to-ikea-vindriktning-air-sensors/</guid>
+      <guid>https://unixorn.github.io/post/add-smarts-to-ikea-vindriktning-air-sensors/</guid>
       <description>&lt;p&gt;We&amp;rsquo;re doing a kitchen &amp;amp; bathrooms renovation, and the construction is generating a lot of dust, to the point that I was changing the HVAC filter twice a week. I wanted to see just how much garbage is in the air, so I started looking around for air quality sensors. Naturally I wanted one that I could integrate into my Home Assistant so I could generate notifications if the air was extra filthy.&lt;/p&gt;</description>
     </item>
   </channel>

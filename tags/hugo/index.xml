@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Hugo on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/hugo/</link>
+    <link>https://unixorn.github.io/tags/hugo/</link>
     <description>Recent content in Hugo on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Wed, 05 Apr 2023 15:45:03 -0600</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blog Comments via Mastodon</title>
-      <link>http://localhost:1313/post/2023-03-blog-comments-via-mastodon/</link>
+      <link>https://unixorn.github.io/post/2023-03-blog-comments-via-mastodon/</link>
       <pubDate>Wed, 05 Apr 2023 15:45:03 -0600</pubDate>
-      <guid>http://localhost:1313/post/2023-03-blog-comments-via-mastodon/</guid>
+      <guid>https://unixorn.github.io/post/2023-03-blog-comments-via-mastodon/</guid>
       <description>&lt;p&gt;As part of moving from Twitter to Mastodon I decided to add comments to the blog using Fediverse posts. Fortunately, Carl Schwan showed how he does it on his blog &lt;a href=&#34;https://carlschwan.eu/2020/12/29/adding-comments-to-your-static-blog-with-mastodon/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Here are the exact tweaks to his post I did to get it working with the &lt;a href=&#34;https://github.com/adityatelange/hugo-PaperMod&#34;&gt;papermod&lt;/a&gt; theme I&amp;rsquo;m using on this blog.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fix Congo Backticks</title>
-      <link>http://localhost:1313/post/fix-congo-backticks/</link>
+      <link>https://unixorn.github.io/post/fix-congo-backticks/</link>
       <pubDate>Mon, 14 Nov 2022 19:12:41 -0700</pubDate>
-      <guid>http://localhost:1313/post/fix-congo-backticks/</guid>
+      <guid>https://unixorn.github.io/post/fix-congo-backticks/</guid>
       <description>&lt;p&gt;I considered a switch to the &lt;a href=&#34;https://hugothemesfree.com/a-simple-lightweight-theme-for-hugo-built-with-tailwind-css/&#34;&gt;Congo&lt;/a&gt; theme for &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;. The one thing I didn&amp;rsquo;t like in it was the way it handles inline backticks - it displays them, in addition to formatting the enclosed text as code.&lt;/p&gt;
 &lt;p&gt;To fix it, create &lt;code&gt;assets/css/custom.css&lt;/code&gt; with the following contents:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-css&#34; data-lang=&#34;css&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;&lt;span class=&#34;p&#34;&gt;.&lt;/span&gt;&lt;span class=&#34;nc&#34;&gt;prose&lt;/span&gt; &lt;span class=&#34;nt&#34;&gt;code&lt;/span&gt;&lt;span class=&#34;p&#34;&gt;::&lt;/span&gt;&lt;span class=&#34;nd&#34;&gt;before&lt;/span&gt; &lt;span class=&#34;p&#34;&gt;{&lt;/span&gt;

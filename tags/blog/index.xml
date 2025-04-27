@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Blog on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/blog/</link>
+    <link>https://unixorn.github.io/tags/blog/</link>
     <description>Recent content in Blog on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Wed, 05 Apr 2023 15:45:03 -0600</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Blog Comments via Mastodon</title>
-      <link>http://localhost:1313/post/2023-03-blog-comments-via-mastodon/</link>
+      <link>https://unixorn.github.io/post/2023-03-blog-comments-via-mastodon/</link>
       <pubDate>Wed, 05 Apr 2023 15:45:03 -0600</pubDate>
-      <guid>http://localhost:1313/post/2023-03-blog-comments-via-mastodon/</guid>
+      <guid>https://unixorn.github.io/post/2023-03-blog-comments-via-mastodon/</guid>
       <description>&lt;p&gt;As part of moving from Twitter to Mastodon I decided to add comments to the blog using Fediverse posts. Fortunately, Carl Schwan showed how he does it on his blog &lt;a href=&#34;https://carlschwan.eu/2020/12/29/adding-comments-to-your-static-blog-with-mastodon/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Here are the exact tweaks to his post I did to get it working with the &lt;a href=&#34;https://github.com/adityatelange/hugo-PaperMod&#34;&gt;papermod&lt;/a&gt; theme I&amp;rsquo;m using on this blog.&lt;/p&gt;</description>
     </item>

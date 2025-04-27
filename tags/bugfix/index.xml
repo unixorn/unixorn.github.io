@@ -2,32 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Bugfix on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/bugfix/</link>
+    <link>https://unixorn.github.io/tags/bugfix/</link>
     <description>Recent content in Bugfix on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Wed, 22 Nov 2023 15:55:25 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/bugfix/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/bugfix/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Weird Home Assistant Scripts Bug</title>
-      <link>http://localhost:1313/post/hass/2023-11-weird-ha-scripts-bug/</link>
+      <link>https://unixorn.github.io/post/hass/2023-11-weird-ha-scripts-bug/</link>
       <pubDate>Wed, 22 Nov 2023 15:55:25 -0700</pubDate>
-      <guid>http://localhost:1313/post/hass/2023-11-weird-ha-scripts-bug/</guid>
+      <guid>https://unixorn.github.io/post/hass/2023-11-weird-ha-scripts-bug/</guid>
       <description>&lt;p&gt;I ran into a weird Home Assistant scripts issue when I upgraded to 2023.11 from 2023.06 (I know, but I didn’t need the new features and had higher priority stuff to deal with) last week.&lt;/p&gt;
 &lt;p&gt;After the update, when I went to add or edit a script, I started seeing 500s.&lt;/p&gt;
 &lt;p&gt;After some messing around, I eventually moved the couple scripts I had from &lt;code&gt;scripts.yaml&lt;/code&gt; as inline scripts in &lt;code&gt;configuration.yaml&lt;/code&gt;, restarted, and when I went to edit them, HA offered to migrate them into &lt;code&gt;scripts.yaml&lt;/code&gt;. Annoyingly, &lt;em&gt;then&lt;/em&gt; when I went to create a new script, HA didn’t return 500s, but the new script didn’t show up in the script list either. I could see it in &lt;code&gt;scripts.yaml&lt;/code&gt;, though, and &lt;code&gt;configuration.yaml&lt;/code&gt; had the expected &lt;code&gt;script: !include scripts.yaml&lt;/code&gt; line in it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fix Securifi Peanut issue with zigbee2mqtt</title>
-      <link>http://localhost:1313/post/securifi-peanut-gotcha/</link>
+      <link>https://unixorn.github.io/post/securifi-peanut-gotcha/</link>
       <pubDate>Thu, 06 Oct 2022 21:20:45 -1000</pubDate>
-      <guid>http://localhost:1313/post/securifi-peanut-gotcha/</guid>
+      <guid>https://unixorn.github.io/post/securifi-peanut-gotcha/</guid>
       <description>&lt;p&gt;Securifi Peanut plugs have issues with zigbee2mqtt.&lt;/p&gt;
 &lt;p&gt;I have several Securifi &lt;a href=&#34;https://smile.amazon.com/gp/product/B00TC9NC82&#34;&gt;Peanut&lt;/a&gt; Zigbee switches. Overall, they&amp;rsquo;re nice little smart plugs and make good Zigbee routers to strengthen your Zigbee mesh, but they have one annoying issue - &lt;a href=&#34;https://zigbee2mqtt.io&#34;&gt;zigbee2mqtt&lt;/a&gt; doesn&amp;rsquo;t recognize them perfectly, though there&amp;rsquo;s a simple fix that I&amp;rsquo;m going to document here.&lt;/p&gt;</description>
     </item>

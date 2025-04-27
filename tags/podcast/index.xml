@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Podcast on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/podcast/</link>
+    <link>https://unixorn.github.io/tags/podcast/</link>
     <description>Recent content in Podcast on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Tue, 30 Jul 2024 10:21:15 -0600</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/podcast/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/podcast/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hail Mary Podcast</title>
-      <link>http://localhost:1313/post/hail-mary-podcast/</link>
+      <link>https://unixorn.github.io/post/hail-mary-podcast/</link>
       <pubDate>Tue, 30 Jul 2024 10:21:15 -0600</pubDate>
-      <guid>http://localhost:1313/post/hail-mary-podcast/</guid>
+      <guid>https://unixorn.github.io/post/hail-mary-podcast/</guid>
       <description>&lt;p&gt;I was a guest on Pagerduty&amp;rsquo;s Page it to the Limit podcast in the July 2024 podcast book club episode about Andy Weir&amp;rsquo;s novel, &lt;a href=&#34;https://andyweirauthor.com/&#34;&gt;Project Hail Mary.&lt;/a&gt;. You can find the episode &lt;a href=&#34;https://www.pageittothelimit.com/project-hail-mary/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
   </channel>

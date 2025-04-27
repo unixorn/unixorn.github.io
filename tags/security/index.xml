@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Security on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/security/</link>
+    <link>https://unixorn.github.io/tags/security/</link>
     <description>Recent content in Security on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sun, 14 Mar 2021 01:59:26 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/security/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setting up Shinobi and a Wyze G2 Camera</title>
-      <link>http://localhost:1313/post/setting-up-shinobi-and-a-wyze-g2-camera/</link>
+      <link>https://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</link>
       <pubDate>Sun, 14 Mar 2021 01:59:26 -0700</pubDate>
-      <guid>http://localhost:1313/post/setting-up-shinobi-and-a-wyze-g2-camera/</guid>
+      <guid>https://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/</guid>
       <description>&lt;p&gt;I wanted to set up a security camera outside, but I didn&amp;rsquo;t want to be dependent on an outside cloud service - if my internet goes out, I don&amp;rsquo;t want to lose my ability to record video.&lt;/p&gt;
 &lt;p&gt;Wyze cameras are nice and cheap, and you can reflash them to support RTSP in addition to streaming to the Wyze cloud.&lt;/p&gt;</description>
     </item>

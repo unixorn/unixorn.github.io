@@ -2,40 +2,32 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Rpi on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/rpi/</link>
+    <link>https://unixorn.github.io/tags/rpi/</link>
     <description>Recent content in Rpi on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sat, 13 Feb 2021 12:08:24 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/rpi/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/rpi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Home Assistant Printer Power Management</title>
-      <link>http://localhost:1313/post/home-assistant-printer-power-management/</link>
+      <link>https://unixorn.github.io/post/home-assistant-printer-power-management/</link>
       <pubDate>Sat, 13 Feb 2021 12:08:24 -0700</pubDate>
-      <guid>http://localhost:1313/post/home-assistant-printer-power-management/</guid>
+      <guid>https://unixorn.github.io/post/home-assistant-printer-power-management/</guid>
       <description>&lt;p&gt;I&amp;rsquo;ve got an old HP laser printer in my basement. We barely print 10 pages a month between the two of us, so we only turn it on when we&amp;rsquo;re going to print. That&amp;rsquo;s a hassle though, because inevitably we forget to shut it off sometimes and it stays on overnight or even for days, and while it has a powersave mode, the 4050N is so old that even that burns a good amount of power.&lt;/p&gt;
 &lt;p&gt;Enter Home Assistant.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Run a CUPSD print server on Raspberry Pi</title>
-      <link>http://localhost:1313/post/cupsd-setup/</link>
+      <link>https://unixorn.github.io/post/cupsd-setup/</link>
       <pubDate>Mon, 08 Feb 2021 12:11:24 -0700</pubDate>
-      <guid>http://localhost:1313/post/cupsd-setup/</guid>
+      <guid>https://unixorn.github.io/post/cupsd-setup/</guid>
       <description>&lt;p&gt;I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here&amp;rsquo;s how I set that up.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Setting Up Pihole</title>
-      <link>http://localhost:1313/post/setting-up-pihole/</link>
-      <pubDate>Sun, 13 Oct 2019 18:36:59 -0700</pubDate>
-      <guid>http://localhost:1313/post/setting-up-pihole/</guid>
-      <description>&lt;h2 id=&#34;why-pihole&#34;&gt;Why PiHole?&lt;/h2&gt;
-&lt;p&gt;Frankly, I got sick of annoying ads, especially the ones that popped up the &amp;ldquo;your mac is infected with a virus&amp;rdquo; bullshit, so I decided to put a couple of PiHoles in my cluster and stop them at the network level.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
