@@ -2,11 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/tags/hass/</loc>
+    <lastmod>2025-04-27T08:31:56-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/homeassistant/</loc>
+    <lastmod>2025-04-27T08:31:56-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/mqtt/</loc>
+    <lastmod>2025-04-27T08:31:56-06:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/post/</loc>
-    <lastmod>2025-04-17T11:31:56-06:00</lastmod>
+    <lastmod>2025-04-27T08:31:56-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.19.1/</loc>
+    <lastmod>2025-04-27T08:31:56-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2025-04-27T08:31:56-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/</loc>
-    <lastmod>2025-04-17T11:31:56-06:00</lastmod>
+    <lastmod>2025-04-27T08:31:56-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/docker/</loc>
     <lastmod>2025-03-27T08:18:51-06:00</lastmod>
@@ -24,9 +39,6 @@
     <lastmod>2025-03-27T08:18:51-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/swiftbar/</loc>
-    <lastmod>2025-03-27T08:18:51-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
     <lastmod>2025-03-27T08:18:51-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/xbar/</loc>
@@ -69,9 +81,6 @@
     <lastmod>2025-02-01T10:18:01-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/ha-mqtt-discoverable/</loc>
-    <lastmod>2024-12-15T09:31:56-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/homeassistant/</loc>
     <lastmod>2024-12-15T09:31:56-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/python/</loc>
@@ -254,9 +263,6 @@
     <loc>https://unixorn.github.io/tags/i2c/</loc>
     <lastmod>2023-03-18T13:46:13-06:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/tags/mqtt/</loc>
-    <lastmod>2023-03-18T13:46:13-06:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/tags/sensor/</loc>
     <lastmod>2023-03-18T13:46:13-06:00</lastmod>
   </url><url>
@@ -298,9 +304,6 @@
   </url><url>
     <loc>https://unixorn.github.io/tags/twitter/</loc>
     <lastmod>2022-11-10T08:39:22-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/hass/</loc>
-    <lastmod>2022-11-06T14:47:14-10:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/zigbee/</loc>
     <lastmod>2022-11-06T14:47:14-10:00</lastmod>

@@ -12,8 +12,39 @@
     <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 18 Mar 2023 13:46:13 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 27 Apr 2025 08:31:56 -0600</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/mqtt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Released ha-mqtt-discoverable 0.19.1</title>
+      <link>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.19.1/</link>
+      <pubDate>Sun, 27 Apr 2025 08:31:56 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.19.1/</guid>
+      <description>&lt;p&gt;Released ha-mqtt-discoverable 0.19.1&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A lot of code cleanups&lt;/li&gt;
+&lt;li&gt;Dependency updates&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Thanks for your contributions and maintenance work, @kratz00&lt;/p&gt;
+&lt;h2 id=&#34;whats-changed&#34;&gt;What&amp;rsquo;s Changed&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;MegaLinter: fix linter errors by @kratz00 in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/323&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/323&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Update Pydantic to version 2.10.6 by @kratz00 in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/322&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/322&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Update pyaml to version 25.1.0 by @kratz00 in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/324&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/324&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[pre-commit.ci] pre-commit autoupdate by @pre-commit-ci in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/326&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/326&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Miscellaneous fixes and improvements by @kratz00 in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/325&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/325&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;ruff: Simplifying Python linter usage by @kratz00 in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/327&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/327&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;SensorInfo: Add &amp;lsquo;suggested_display_precision&amp;rsquo; (fixes #179) by @kratz00 in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/328&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/328&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[pre-commit.ci] pre-commit autoupdate by @pre-commit-ci in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/330&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/330&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Misc2 by @kratz00 in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/329&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/329&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Package Updates by @kratz00 in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/334&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/334&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[pre-commit.ci] pre-commit autoupdate by @pre-commit-ci in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/336&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/336&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Update ruff to version 0.11.4 by @kratz00 in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/339&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/339&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Update ruff to version 0.11.5 by @kratz00 in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/340&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/340&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Update pydantic to version 2.11.3 by @kratz00 in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/341&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/341&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Update to v0.19.0 for release by @unixorn in &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/pull/342&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/pull/342&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Full Changelog&lt;/strong&gt;: &lt;a href=&#34;https://github.com/unixorn/ha-mqtt-discoverable/compare/v0.18.0...v0.19.0&#34;&gt;https://github.com/unixorn/ha-mqtt-discoverable/compare/v0.18.0...v0.19.0&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Add Smarts to IKEA Vindriktning Sensors</title>
       <link>https://unixorn.github.io/post/add-smarts-to-ikea-vindriktning-air-sensors/</link>

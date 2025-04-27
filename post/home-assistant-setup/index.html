@@ -17,7 +17,7 @@ pip install paho-mqtt">
 <meta name="author" content="Me">
 <link rel="canonical" href="http://localhost:1313/post/home-assistant-setup/">
 <meta name="google-site-verification" content="UA-100853138-2">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.b609c58d5c11bb90b1a54e04005d74ad1ddf22165eb79f5533967e57df9c3b50.css" integrity="sha256-tgnFjVwRu5CxpU4EAF10rR3fIhZet59VM5Z&#43;V9&#43;cO1A=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css" integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF&#43;13Dyqob6ASlTrTye8=" rel="preload stylesheet" as="style">
 <link rel="icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
 <link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
 <link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
@@ -62,21 +62,33 @@ pip install paho-mqtt">
         }
 
     </style>
-</noscript><meta property="og:title" content="Home Assistant Setup" />
-<meta property="og:description" content="sudo apt install mosquitto-clients
+</noscript><meta property="og:url" content="http://localhost:1313/post/home-assistant-setup/">
+  <meta property="og:site_name" content="unixorn.github.io">
+  <meta property="og:title" content="Home Assistant Setup">
+  <meta property="og:description" content="sudo apt install mosquitto-clients mosquitto_sub -d -t hello/world mosquitto_pub -d -t hello/world -m “Hello from Terminal window 2&#39; mosquitto_pub -d -t hello/world -m ‘shazam’ docker run -it –rm eclipse-mosquitto mosquitto_pub -h hass.unixorn.net -d -t hello/world -m “Switch is ON”
+Convert cleartext password file mosquitto_passwd -U mqtt.passwords
+pip install paho-mqtt">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2019-11-29T15:37:45-07:00">
+    <meta property="article:modified_time" content="2019-11-29T15:37:45-07:00">
+    <meta property="article:tag" content="Arm">
+    <meta property="article:tag" content="Home-Assistant">
+    <meta property="article:tag" content="Homelab">
+    <meta property="article:tag" content="Odroid">
+    <meta property="article:tag" content="Tech">
+      <meta property="og:image" content="http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:title" content="Home Assistant Setup">
+<meta name="twitter:description" content="sudo apt install mosquitto-clients
 mosquitto_sub -d -t hello/world
 mosquitto_pub -d -t hello/world -m &ldquo;Hello from Terminal window 2&#39;
 mosquitto_pub -d -t hello/world -m &lsquo;shazam&rsquo;
 docker run -it &ndash;rm eclipse-mosquitto mosquitto_pub -h hass.unixorn.net -d -t hello/world -m &ldquo;Switch is ON&rdquo;
 Convert cleartext password file mosquitto_passwd -U mqtt.passwords
-pip install paho-mqtt" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/post/home-assistant-setup/" />
-<meta property="og:image" content="http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E" />
-<meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-11-29T15:37:45-07:00" />
-<meta property="article:modified_time" content="2019-11-29T15:37:45-07:00" /><meta property="og:site_name" content="The Plural of SRE is an Outage" />
-
+pip install paho-mqtt">
 
 
 <script type="application/ld+json">
@@ -153,7 +165,7 @@ pip install paho-mqtt" />
                 <img src="http://localhost:1313/apple-touch-icon.png" alt="" aria-label="logo"
                     height="35">Home</a>
             <div class="logo-switches">
-                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
                     <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                         stroke-linejoin="round">
