@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Shrimp/Neocaridina on unixorn.github.io</title>
-    <link>https://unixorn.github.io/tags/shrimp/neocaridina/</link>
-    <description>Recent content in Shrimp/Neocaridina on unixorn.github.io</description>
+    <title>Aquarium/Food on unixorn.github.io</title>
+    <link>https://unixorn.github.io/tags/aquarium/food/</link>
+    <description>Recent content in Aquarium/Food on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
       <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
@@ -13,21 +13,13 @@
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sun, 04 May 2025 14:21:53 -0600</lastBuildDate>
-    <atom:link href="https://unixorn.github.io/tags/shrimp/neocaridina/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/aquarium/food/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Shrimp Food Recipe</title>
       <link>https://unixorn.github.io/post/aquarium/shrimp-food-recipe/</link>
       <pubDate>Sun, 04 May 2025 14:21:53 -0600</pubDate>
       <guid>https://unixorn.github.io/post/aquarium/shrimp-food-recipe/</guid>
       <description>&lt;p&gt;It seems like everyone has their own recipe for home made food to feed their shrimp. Here&amp;rsquo;s mine.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Nanotank Setup</title>
-      <link>https://unixorn.github.io/post/aquarium/nanotank-setup/</link>
-      <pubDate>Tue, 25 Mar 2025 08:04:04 -0600</pubDate>
-      <guid>https://unixorn.github.io/post/aquarium/nanotank-setup/</guid>
-      <description>&lt;h1 id=&#34;nanotank-setup-advice&#34;&gt;Nanotank Setup Advice&lt;/h1&gt;
-&lt;p&gt;You&amp;rsquo;ve seen some nice videos on YouTube of small tanks with fresh water shrimp. Here are some tips on setting a shrimp tank up for yourself.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

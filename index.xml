@@ -12,8 +12,15 @@
     <generator>Hugo -- 0.147.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 27 Apr 2025 08:31:56 -0600</lastBuildDate>
+    <lastBuildDate>Sun, 04 May 2025 14:21:53 -0600</lastBuildDate>
     <atom:link href="https://unixorn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shrimp Food Recipe</title>
+      <link>https://unixorn.github.io/post/aquarium/shrimp-food-recipe/</link>
+      <pubDate>Sun, 04 May 2025 14:21:53 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/aquarium/shrimp-food-recipe/</guid>
+      <description>&lt;p&gt;It seems like everyone has their own recipe for home made food to feed their shrimp. Here&amp;rsquo;s mine.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Released ha-mqtt-discoverable 0.19.1</title>
       <link>https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.19.1/</link>
