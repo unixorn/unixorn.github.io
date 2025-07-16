@@ -12,8 +12,24 @@
     <generator>Hugo -- 0.147.8</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 01 Feb 2025 10:18:01 -0700</lastBuildDate>
+    <lastBuildDate>Tue, 15 Jul 2025 14:44:59 -0600</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/homelab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nodered, Home Assistant and Tailscale</title>
+      <link>https://unixorn.github.io/post/homelab/nodered-homeassistant-and-tailscale/</link>
+      <pubDate>Tue, 15 Jul 2025 14:44:59 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/homelab/nodered-homeassistant-and-tailscale/</guid>
+      <description>&lt;h1 id=&#34;nodered-home-assistant-and-tailscale&#34;&gt;Nodered, Home Assistant and Tailscale&lt;/h1&gt;
+&lt;p&gt;I&amp;rsquo;m moving my Home Assistant from a docker container to a proxmox VM running HAOS, and as part of that I&amp;rsquo;m moving Node-RED to its own container so I can move it to other proxmox hosts independently of HAOS.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m setting up a new Node-RED instance as part of moving Home Assistant out of docker and onto an HAOS VM. My requirements were:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Run Node-RED in a separate VM so I can move it to other proxmox hosts if there is resource contention or I need to fail over&lt;/li&gt;
+&lt;li&gt;Proper SSL certificate&lt;/li&gt;
+&lt;li&gt;Easy access via my tailnet&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h2&gt;
+&lt;p&gt;To follow these instructions, you will need:&lt;/p&gt;</description>
+    </item>
     <item>
       <title>How to install Proxmox on a 2019 Macbook Pro</title>
       <link>https://unixorn.github.io/post/homelab/2025-02-01-install-proxmox-on-macbook-pro/</link>

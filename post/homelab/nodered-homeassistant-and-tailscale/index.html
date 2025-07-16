@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="auto">
 
-<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
@@ -18,17 +18,17 @@ Easy access via my tailnet
 Pre-requisites
 To follow these instructions, you will need:">
 <meta name="author" content="Me">
-<link rel="canonical" href="http://localhost:1313/post/homelab/nodered-homeassistant-and-tailscale/">
+<link rel="canonical" href="https://unixorn.github.io/post/homelab/nodered-homeassistant-and-tailscale/">
 <meta name="google-site-verification" content="UA-100853138-2">
-<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.93f625d739f1d6a5c6f20c146bc6a8d26b233492b34b2220c54b12fd46a04ded.css" integrity="sha256-k/Yl1znx1qXG8gwUa8ao0msjNJKzSyIgxUsS/UagTe0=" rel="preload stylesheet" as="style">
-<link rel="icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
-<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
-<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
-<link rel="apple-touch-icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
-<link rel="mask-icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
+<link crossorigin="anonymous" href="https://unixorn.github.io/assets/css/stylesheet.93f625d739f1d6a5c6f20c146bc6a8d26b233492b34b2220c54b12fd46a04ded.css" integrity="sha256-k/Yl1znx1qXG8gwUa8ao0msjNJKzSyIgxUsS/UagTe0=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="16x16" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="apple-touch-icon" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="mask-icon" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<link rel="alternate" hreflang="en" href="http://localhost:1313/post/homelab/nodered-homeassistant-and-tailscale/">
+<link rel="alternate" hreflang="en" href="https://unixorn.github.io/post/homelab/nodered-homeassistant-and-tailscale/">
 <noscript>
     <style>
         #theme-toggle,
@@ -65,7 +65,7 @@ To follow these instructions, you will need:">
         }
 
     </style>
-</noscript><meta property="og:url" content="http://localhost:1313/post/homelab/nodered-homeassistant-and-tailscale/">
+</noscript><meta property="og:url" content="https://unixorn.github.io/post/homelab/nodered-homeassistant-and-tailscale/">
   <meta property="og:site_name" content="unixorn.github.io">
   <meta property="og:title" content="Nodered, Home Assistant and Tailscale">
   <meta property="og:description" content="Nodered, Home Assistant and Tailscale I’m moving my Home Assistant from a docker container to a proxmox VM running HAOS, and as part of that I’m moving Node-RED to its own container so I can move it to other proxmox hosts independently of HAOS.
@@ -81,9 +81,9 @@ Run Node-RED in a separate VM so I can move it to other proxmox hosts if there i
     <meta property="article:tag" content="Nodered">
     <meta property="article:tag" content="Proxmox">
     <meta property="article:tag" content="Tailscale">
-      <meta property="og:image" content="http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+      <meta property="og:image" content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:image" content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
 <meta name="twitter:title" content="Nodered, Home Assistant and Tailscale">
 <meta name="twitter:description" content="Nodered, Home Assistant and Tailscale
 I&rsquo;m moving my Home Assistant from a docker container to a proxmox VM running HAOS, and as part of that I&rsquo;m moving Node-RED to its own container so I can move it to other proxmox hosts independently of HAOS.
@@ -106,13 +106,13 @@ To follow these instructions, you will need:">
       "@type": "ListItem",
       "position":  1 ,
       "name": "Posts",
-      "item": "http://localhost:1313/post/"
+      "item": "https://unixorn.github.io/post/"
     }, 
     {
       "@type": "ListItem",
       "position":  2 ,
       "name": "Nodered, Home Assistant and Tailscale",
-      "item": "http://localhost:1313/post/homelab/nodered-homeassistant-and-tailscale/"
+      "item": "https://unixorn.github.io/post/homelab/nodered-homeassistant-and-tailscale/"
     }
   ]
 }
@@ -130,7 +130,7 @@ To follow these instructions, you will need:">
   "articleBody": "Nodered, Home Assistant and Tailscale I’m moving my Home Assistant from a docker container to a proxmox VM running HAOS, and as part of that I’m moving Node-RED to its own container so I can move it to other proxmox hosts independently of HAOS.\nI’m setting up a new Node-RED instance as part of moving Home Assistant out of docker and onto an HAOS VM. My requirements were:\nRun Node-RED in a separate VM so I can move it to other proxmox hosts if there is resource contention or I need to fail over Proper SSL certificate Easy access via my tailnet Pre-requisites To follow these instructions, you will need:\nYour own Tailnet. You can get a free tailnet at Tailscale.com. A server with docker installed that you can run docker compose on. I’m using a LXC container in my proxmox cluster, but you can run it on a standalone linux server. A working Home Assistant server. Installation Installing docker and Home Assistant are out of scope for this post. We will only be covering how to get Node-RED working with an existing Home Assistant server.\nGet a Tailscale Auth key Log into the Tailscale admin page. Click the Settings tab. On the bottom left, you’ll see a Personal Settings, and under that, Keys. Click Generate Auth Key. Give it a description, and then click Generate Key Copy the key to someplace secure, it won’t be displayed again Create a configuration file for tailscale serve By default, node-red runs on port 1880. Because we’re running tailscale and node-red in the same docker network, the tailscale container will be able to connect to port 1880 on the node-red container and act as a proxy.\nSave this as ts-config/nodered.json.\n{ \"TCP\": { \"443\": { \"HTTPS\": true } }, \"Web\": { \"${TS_CERT_DOMAIN}:443\": { \"Handlers\": { \"/\": { \"Proxy\": \"http://127.0.0.1:1880\" } } } }, \"AllowFunnel\": { \"${TS_CERT_DOMAIN}:443\": false } } Docker Compose Now that we have an auth token and a configuration file for tailscale, we’re going to use docker compose to start up node-red and a ts-nodered containers. The ts-nodered sidecar will connect to tailscale, register itself as nodered.your-tailnet.ts.net, use Lets Encrypt to create a SSL certificate that is trusted by your browser, then finally start proxying SSL traffic from nodered.your-tailnet.ts.net into the node-red container.\nThis docker-compose file is based on the Node-RED Getting Started with Docker page. I added a ts-nodered container to act as a tailscale sidecar and made some other minor changes. I prefer to mount a local directory instead of using a docker volume to make backups easier. I can copy the directory into a .tar.bz2 or .zip file, and it’s also easier to edit the configuration files since I can do that from the host OS.\nSave this as docker-compose.yaml\n################################################################################ # Node-RED Stack or Compose ################################################################################ version: \"3.7\" services: ts-nodered: image: tailscale/tailscale:latest # The hostname specified here will be registered in your tailnet. You will # be able to access Node-RED by entering nodered.your-tailnet.ts.net into # your browser hostname: nodered environment: # Set TS_AUTHKEY in the environment, you don't want it saved in # cleartext here - TS_AUTHKEY=${TS_AUTHKEY} - TS_STATE_DIR=/var/lib/tailscale - TS_SERVE_CONFIG=/config/nodered.json - TS_USERSPACE=true volumes: - ./ts-config:/config - ./ts-state:/var/lib/tailscale restart: unless-stopped nodered: container_name: node-red image: nodered/node-red:latest-debian # If you don't set the network_mode to the name of the tailscale sidecar # container, tailscale won't be able to connect to Node-RED and you will # have 500 errors network_mode: service:ts-nodered restart: unless-stopped environment: - TZ=America/Denver # We specify the port in nodered.json so tailscale serve knows what port to # proxy to. We don't actually activate external access to these ports since # everything gets proxied by Tailscale. # # ports: # - \"1880:1880\" volumes: - ./nodered:/data - ./externals:/externals - /etc/hostname:/etc/hostname:ro - /etc/localtime:/etc/localtime:ro - /etc/machine-id:/etc/machine-id:ro - /etc/timezone:/etc/timezone:ro Start Node-RED Prepare Your Node-RED Directory First, prepare your directory. You need to make a few subdirectories and move tailscale’s configuration file into the ts-config subdirectory.\nmkdir ts-config \u0026\u0026 mkdir ts-state Move the nodered.json file into the ts-config directory. Your directory structure should look like this:\n./docker-compose.yaml ./ts-config/nodered.json ./ts-state Start the Node-RED containers We’re going to pass the Tailscale auth token as an environment variable so we don’t have it visible in the configuration file. Run docker compose using the command below\nexport TS_AUTHKEY='yourReallyLongTailscaleAuthKey' docker compose up -d ; docker compose logs -f In a minute or two depending on your network connection, you’ll see a bunch of logs start scrolling. Eventually you should see a line like:\nts-nodered-1 | 2025/07/14 00:54:52 serve: creating a new proxy handler for http://127.0.0.1:1880 to show that the ts-nodered proxy is up and running, and another line similar to\nnode-red | 13 Jul 18:54:52 - [info] Server now running at http://127.0.0.1:1880/ when the node-red container is ready. The containers start in parallel, so the order of those lines isn’t guaranteed. Once you’ve seen both lines, you can go to nodered.your-tailnet.ts.net in your browser and access the Node-RED web interface. The first time you do this, it’ll take a little longer while tailscale generates a SSL certificate for the host with Lets Encrypt.\nThere’s one last thing to do before we can consider this operational.\nMake Node-RED require a login Create your password hash Run docker exec -it node-red bash to get a shell inside the running node-red container Run node-red admin hash-pw. It will ask you for a password that will be used to log into your node-red, then print out a hash. Save that so we can update the node-red container’s configuration. Update settings.js Use your editor of choice to edit ./nodered/settings.js. You will find a commented out block that looks like\n//adminAuth: { // type: \"credentials\", // users: [{ // username: \"admin\", // password: \"$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN.\", // permissions: \"*\" // }] //}, Replace that with:\nadminAuth: { type: \"credentials\", users: [{ username: \"admin\", password: \"TheHashFromRunning_nNodered_admin_hash-pw\", permissions: \"*\" }] }, Now we restart Node Red so it picks up the new admin user you created.\ndocker compose restart Give it 15-30 seconds, then refresh your browser. It should now give you a login dialog and make you login as admin with the password you input to the node-red admin hash-pw command.\nConnecting Node-RED to Home Assistant Now that you have a running Node-RED instance, you need to connect it to your Home Assistant server.\nCreate an access token To connect Node-RED to your Home Assistant (HA), we’re going to need an access token. To create an access token:\nLog into your HA instance Click on your username at the bottom of the sidebar Select the Security tab Scoll down to the Long Lived Access Tokens Section and click Ceate Troken. Name the new token. Store it someplace safe, it will only be displayed once. Configure the connection between Node-RED and Home Assistant Log into your Node-RED instance Click the burger menu on the right side of the screen, and select Manage Palette Select the Palette tab from the dialog’s left side, then Install on the top Install the HA plugin. Make sure you pick the one named node-red-contrib-home-assistant-websocket. You do not want the one named node-red-contrib-home-assistant, it is old and abandoned. You will now see a bunch more HA-related nodes in the left sidebar. Scroll down, find the API node, and drag it onto the Flow palette. Double-click the new node. An Edit API node dialog will appear, click add new server. Keep the protocol as Websocket. Do not check the Using the Home Assistant Add-on, we’re running Node-RED outside the HAOS instance. Put in the DNS name or IP address of your Home Assistant server. Hit Done to save. It’ll switch to the properties tab, just click Done again. You’ll now see a Deploy button at the upper right of the screen. Click that so NR can activate the connection to your HA instance You should be good to start writing Node-RED automations for your Home Assistant, but let’s verify that it’s working.\nVerifying your Node-RED connection Drag a Current State node onto your flow palette. Double-click it to edit it You should see your Home Assitant connection is already selected in the Server entry Start typing an entity name in the Entity ID field. If things are working correctly, it will start auto-completing the name for you. If it autocompleted, you’re good to go. Creating automations in NR is out of scope for this post, but there are a ton of videos on YouTube to show you how.\nCongratulations, you now have Node-RED running independently from Home Assistant.\n",
   "wordCount" : "1415",
   "inLanguage": "en",
-  "image": "http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished": "2025-07-15T14:44:59-06:00",
+  "image": "https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished": "2025-07-15T14:44:59-06:00",
   "dateModified": "2025-07-15T14:44:59-06:00",
   "author":{
     "@type": "Person",
@@ -138,14 +138,14 @@ To follow these instructions, you will need:">
   },
   "mainEntityOfPage": {
     "@type": "WebPage",
-    "@id": "http://localhost:1313/post/homelab/nodered-homeassistant-and-tailscale/"
+    "@id": "https://unixorn.github.io/post/homelab/nodered-homeassistant-and-tailscale/"
   },
   "publisher": {
     "@type": "Organization",
     "name": "unixorn.github.io",
     "logo": {
       "@type": "ImageObject",
-      "url": "http://localhost:1313/%3Clink%20/%20abs%20url%3E"
+      "url": "https://unixorn.github.io/%3Clink%20/%20abs%20url%3E"
     }
   }
 }
@@ -167,8 +167,8 @@ To follow these instructions, you will need:">
 <header class="header">
     <nav class="nav">
         <div class="logo">
-            <a href="http://localhost:1313/" accesskey="h" title="Home (Alt + H)">
-                <img src="http://localhost:1313/apple-touch-icon.png" alt="" aria-label="logo"
+            <a href="https://unixorn.github.io/" accesskey="h" title="Home (Alt + H)">
+                <img src="https://unixorn.github.io/apple-touch-icon.png" alt="" aria-label="logo"
                     height="35">Home</a>
             <div class="logo-switches">
                 <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
@@ -195,27 +195,27 @@ To follow these instructions, you will need:">
         </div>
         <ul id="menu">
             <li>
-                <a href="http://localhost:1313/archives/" title="archives">
+                <a href="https://unixorn.github.io/archives/" title="archives">
                     <span>archives</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/search/" title="search (Alt &#43; /)" accesskey=/>
+                <a href="https://unixorn.github.io/search/" title="search (Alt &#43; /)" accesskey=/>
                     <span>search</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/about/" title="about">
+                <a href="https://unixorn.github.io/about/" title="about">
                     <span>about</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/projects/" title="projects">
+                <a href="https://unixorn.github.io/projects/" title="projects">
                     <span>projects</span>
                 </a>
             </li>
             <li>
-                <a href="http://localhost:1313/tags/" title="tags">
+                <a href="https://unixorn.github.io/tags/" title="tags">
                     <span>tags</span>
                 </a>
             </li>
@@ -234,12 +234,12 @@ To follow these instructions, you will need:">
     </nav>
 </header>
 <main class="main">
-<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/mastodon.css" />
+<link rel="stylesheet" type="text/css" href="https://unixorn.github.io/css/mastodon.css" />
 <article class="post-single">
   <header class="post-header">
-    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/post/">Posts</a></div>
+    <div class="breadcrumbs"><a href="https://unixorn.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://unixorn.github.io/post/">Posts</a></div>
     <h1 class="post-title">
-      Nodered, Home Assistant and Tailscale<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+      Nodered, Home Assistant and Tailscale
     </h1>
     <div class="post-meta"><span title='2025-07-15 14:44:59 -0600 MDT'>July 15, 2025</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1415 words&nbsp;·&nbsp;Me
 
@@ -465,14 +465,14 @@ To follow these instructions, you will need:">
 
   <footer class="post-footer">
     <ul class="post-tags">
-      <li><a href="http://localhost:1313/tags/homeassistant/">Homeassistant</a></li>
-      <li><a href="http://localhost:1313/tags/homelab/">Homelab</a></li>
-      <li><a href="http://localhost:1313/tags/nodered/">Nodered</a></li>
-      <li><a href="http://localhost:1313/tags/proxmox/">Proxmox</a></li>
-      <li><a href="http://localhost:1313/tags/tailscale/">Tailscale</a></li>
+      <li><a href="https://unixorn.github.io/tags/homeassistant/">Homeassistant</a></li>
+      <li><a href="https://unixorn.github.io/tags/homelab/">Homelab</a></li>
+      <li><a href="https://unixorn.github.io/tags/nodered/">Nodered</a></li>
+      <li><a href="https://unixorn.github.io/tags/proxmox/">Proxmox</a></li>
+      <li><a href="https://unixorn.github.io/tags/tailscale/">Tailscale</a></li>
     </ul>
 <nav class="paginav">
-  <a class="next" href="http://localhost:1313/post/aquarium/2025-05-31-advice-for-new-neocaridina-keepers/">
+  <a class="next" href="https://unixorn.github.io/post/aquarium/2025-05-31-advice-for-new-neocaridina-keepers/">
     <span class="title">Next »</span>
     <br>
     <span>Advice for New Neocaridina Keepers</span>
@@ -483,7 +483,7 @@ To follow these instructions, you will need:">
 <ul class="share-buttons">
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Nodered, Home Assistant and Tailscale on x"
-            href="https://x.com/intent/tweet/?text=Nodered%2c%20Home%20Assistant%20and%20Tailscale&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fhomelab%2fnodered-homeassistant-and-tailscale%2f&amp;hashtags=homeassistant%2chomelab%2cnodered%2cproxmox%2ctailscale">
+            href="https://x.com/intent/tweet/?text=Nodered%2c%20Home%20Assistant%20and%20Tailscale&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fnodered-homeassistant-and-tailscale%2f&amp;hashtags=homeassistant%2chomelab%2cnodered%2cproxmox%2ctailscale">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
@@ -492,7 +492,7 @@ To follow these instructions, you will need:">
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Nodered, Home Assistant and Tailscale on linkedin"
-            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fhomelab%2fnodered-homeassistant-and-tailscale%2f&amp;title=Nodered%2c%20Home%20Assistant%20and%20Tailscale&amp;summary=Nodered%2c%20Home%20Assistant%20and%20Tailscale&amp;source=http%3a%2f%2flocalhost%3a1313%2fpost%2fhomelab%2fnodered-homeassistant-and-tailscale%2f">
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fnodered-homeassistant-and-tailscale%2f&amp;title=Nodered%2c%20Home%20Assistant%20and%20Tailscale&amp;summary=Nodered%2c%20Home%20Assistant%20and%20Tailscale&amp;source=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fnodered-homeassistant-and-tailscale%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
@@ -501,7 +501,7 @@ To follow these instructions, you will need:">
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Nodered, Home Assistant and Tailscale on reddit"
-            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fpost%2fhomelab%2fnodered-homeassistant-and-tailscale%2f&title=Nodered%2c%20Home%20Assistant%20and%20Tailscale">
+            href="https://reddit.com/submit?url=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fnodered-homeassistant-and-tailscale%2f&title=Nodered%2c%20Home%20Assistant%20and%20Tailscale">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
@@ -510,7 +510,7 @@ To follow these instructions, you will need:">
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Nodered, Home Assistant and Tailscale on facebook"
-            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fpost%2fhomelab%2fnodered-homeassistant-and-tailscale%2f">
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fnodered-homeassistant-and-tailscale%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
@@ -519,7 +519,7 @@ To follow these instructions, you will need:">
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Nodered, Home Assistant and Tailscale on whatsapp"
-            href="https://api.whatsapp.com/send?text=Nodered%2c%20Home%20Assistant%20and%20Tailscale%20-%20http%3a%2f%2flocalhost%3a1313%2fpost%2fhomelab%2fnodered-homeassistant-and-tailscale%2f">
+            href="https://api.whatsapp.com/send?text=Nodered%2c%20Home%20Assistant%20and%20Tailscale%20-%20https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fnodered-homeassistant-and-tailscale%2f">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
@@ -528,7 +528,7 @@ To follow these instructions, you will need:">
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Nodered, Home Assistant and Tailscale on telegram"
-            href="https://telegram.me/share/url?text=Nodered%2c%20Home%20Assistant%20and%20Tailscale&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fhomelab%2fnodered-homeassistant-and-tailscale%2f">
+            href="https://telegram.me/share/url?text=Nodered%2c%20Home%20Assistant%20and%20Tailscale&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fnodered-homeassistant-and-tailscale%2f">
             <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
@@ -537,7 +537,7 @@ To follow these instructions, you will need:">
     </li>
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Nodered, Home Assistant and Tailscale on ycombinator"
-            href="https://news.ycombinator.com/submitlink?t=Nodered%2c%20Home%20Assistant%20and%20Tailscale&u=http%3a%2f%2flocalhost%3a1313%2fpost%2fhomelab%2fnodered-homeassistant-and-tailscale%2f">
+            href="https://news.ycombinator.com/submitlink?t=Nodered%2c%20Home%20Assistant%20and%20Tailscale&u=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fnodered-homeassistant-and-tailscale%2f">
             <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
                 xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
                 <path

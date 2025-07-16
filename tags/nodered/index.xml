@@ -2,66 +2,33 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Nodered on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/nodered/</link>
+    <link>https://unixorn.github.io/tags/nodered/</link>
     <description>Recent content in Nodered on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.147.8</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Tue, 15 Jul 2025 14:44:59 -0600</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/nodered/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/nodered/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Nodered, Homeassistant and Tailscale</title>
-      <link>http://localhost:1313/post/homelab/nodered-homeassistant-and-tailscale/</link>
+      <title>Nodered, Home Assistant and Tailscale</title>
+      <link>https://unixorn.github.io/post/homelab/nodered-homeassistant-and-tailscale/</link>
       <pubDate>Tue, 15 Jul 2025 14:44:59 -0600</pubDate>
-      <guid>http://localhost:1313/post/homelab/nodered-homeassistant-and-tailscale/</guid>
-      <description>&lt;h1 id=&#34;nodered-homeassistant-and-tailscale&#34;&gt;Nodered, Homeassistant and Tailscale&lt;/h1&gt;
-&lt;p&gt;I&amp;rsquo;m moving my Home Assistant from a docker container to a proxmox VM running HAOS, and as part of that I&amp;rsquo;m moving Node-Red to its own install so I can move it to other proxmox hosts independently of HAOS.&lt;/p&gt;
-&lt;p&gt;I&amp;rsquo;m setting up a new Node-Red instance as part of moving Home Assistant out of docker and onto an HAOS VM. My requirements were:&lt;/p&gt;
+      <guid>https://unixorn.github.io/post/homelab/nodered-homeassistant-and-tailscale/</guid>
+      <description>&lt;h1 id=&#34;nodered-home-assistant-and-tailscale&#34;&gt;Nodered, Home Assistant and Tailscale&lt;/h1&gt;
+&lt;p&gt;I&amp;rsquo;m moving my Home Assistant from a docker container to a proxmox VM running HAOS, and as part of that I&amp;rsquo;m moving Node-RED to its own container so I can move it to other proxmox hosts independently of HAOS.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m setting up a new Node-RED instance as part of moving Home Assistant out of docker and onto an HAOS VM. My requirements were:&lt;/p&gt;
 &lt;ol&gt;
-&lt;li&gt;Running in a separate VM so I can move it to other proxmox hosts if there is resource contention or I need to fail over&lt;/li&gt;
+&lt;li&gt;Run Node-RED in a separate VM so I can move it to other proxmox hosts if there is resource contention or I need to fail over&lt;/li&gt;
 &lt;li&gt;Proper SSL certificate&lt;/li&gt;
 &lt;li&gt;Easy access via my tailnet&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h2&gt;
 &lt;p&gt;To follow these instructions, you will need:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Home Assistant Install Guide</title>
-      <link>http://localhost:1313/post/ha-quickstart/01-install-home-assistant/</link>
-      <pubDate>Wed, 22 Nov 2023 18:18:54 -0600</pubDate>
-      <guid>http://localhost:1313/post/ha-quickstart/01-install-home-assistant/</guid>
-      <description>&lt;p&gt;In this tutorial, we&amp;rsquo;re going to set up &lt;a href=&#34;https://nodered.org&#34;&gt;Node-Red&lt;/a&gt; and use our SSL proxy to protect its webUI.&lt;/p&gt;
-&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h2&gt;
-&lt;p&gt;In the post, I&amp;rsquo;m going to assume you already have:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;A server running &lt;code&gt;docker&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;nginx-proxy-manager installed on that server, and have already configured it with an SSL wildcard certificate. If you haven&amp;rsquo;t, go read my &lt;a href=&#34;https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/&#34;&gt;Set up nginx-proxy-manager&lt;/a&gt; post and set it up.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
-&lt;p&gt;We&amp;rsquo;re going to use &lt;code&gt;docker-compose&lt;/code&gt; to run homeassistant. Change the name of the network y&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Node Red Setup Guide</title>
-      <link>http://localhost:1313/post/ha-quickstart/set-up-node-red/</link>
-      <pubDate>Wed, 22 Nov 2023 18:18:54 -0600</pubDate>
-      <guid>http://localhost:1313/post/ha-quickstart/set-up-node-red/</guid>
-      <description>&lt;p&gt;In this tutorial, we&amp;rsquo;re going to set up &lt;a href=&#34;https://nodered.org&#34;&gt;Node-Red&lt;/a&gt; and use our SSL proxy to protect its webUI.&lt;/p&gt;
-&lt;p&gt;Go to palette, add the node-red-contrib-home-assistant-websocket palette&lt;/p&gt;
-&lt;h1 id=&#34;create-hass-token&#34;&gt;Create Hass token&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;Create user in hass. Make it an admin.&lt;/li&gt;
-&lt;li&gt;Log in as user, click user icon in bottom left, scroll to bottom, create a  long lived token&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJiMTI3NzI4NDI3NTA0NzE1YTE0ZTlkN2U2NzkxY2ZmZCIsImlhdCI6MTcwMTExNzUzMCwiZXhwIjoyMDE2NDc3NTMwfQ.EzJecoQURFv5M690KbA6D9GeQCpw8FKZyOR7DyTiZ28&lt;/p&gt;
-&lt;p&gt;Add events:state from the HA palette
-double click, pick add server&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;&lt;a href=&#34;https://jordanrounds.com/installing-node-red-in-docker-for-home-assistant/&#34;&gt;https://jordanrounds.com/installing-node-red-in-docker-for-home-assistant/&lt;/a&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
