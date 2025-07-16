@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Tailscale on unixorn.github.io</title>
+    <link>http://localhost:1313/tags/tailscale/</link>
+    <description>Recent content in Tailscale on unixorn.github.io</description>
+    <image>
+      <title>unixorn.github.io</title>
+      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.147.8</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 15 Jul 2025 14:44:59 -0600</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/tailscale/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Nodered, Homeassistant and Tailscale</title>
+      <link>http://localhost:1313/post/homelab/nodered-homeassistant-and-tailscale/</link>
+      <pubDate>Tue, 15 Jul 2025 14:44:59 -0600</pubDate>
+      <guid>http://localhost:1313/post/homelab/nodered-homeassistant-and-tailscale/</guid>
+      <description>&lt;h1 id=&#34;nodered-homeassistant-and-tailscale&#34;&gt;Nodered, Homeassistant and Tailscale&lt;/h1&gt;
+&lt;p&gt;I&amp;rsquo;m moving my Home Assistant from a docker container to a proxmox VM running HAOS, and as part of that I&amp;rsquo;m moving Node-Red to its own install so I can move it to other proxmox hosts independently of HAOS.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m setting up a new Node-Red instance as part of moving Home Assistant out of docker and onto an HAOS VM. My requirements were:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Running in a separate VM so I can move it to other proxmox hosts if there is resource contention or I need to fail over&lt;/li&gt;
+&lt;li&gt;Proper SSL certificate&lt;/li&gt;
+&lt;li&gt;Easy access via my tailnet&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h2&gt;
+&lt;p&gt;To follow these instructions, you will need:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
