@@ -222,6 +222,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Building a Debian 13 LXC Template for Proxmox
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Building a Debian 13 (Trixie) LXC Template for Proxmox Debian 13 (trixie) was released, but (at least as of 2025-08-12) there isn’t a LXC template available for it on proxmox. I wanted a Debian 13 LXC container, so I made a template of my own.
+Install tooling We’re going to use Debian Appliance Builder to create a Debian 13 LXC template.
+First, install the tooling:
+apt update apt install -y dab wget Download Debian 13 configuration mkdir dab cd dab # Get the debian 13 dab configuration wget -O dab.conf &#34;https://git.proxmox.com/?p=dab-pve-appliances.git;a=blob_plain;f=debian-13-trixie-std-64/dab.conf;hb=HEAD&#34; # Get a Makefile to make builds easier wget -O Makefile &#34;https://git.proxmox.com/?p=dab-pve-appliances.git;a=blob_plain;f=debian-13-trixie-std-64/Makefile;hb=HEAD&#34; Build the template Now we can build a template.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-08-15 19:10:16 -0600 -0600'>August 15, 2025</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;178 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Building a Debian 13 LXC Template for Proxmox" href="https://unixorn.github.io/post/homelab/2025-08-13-building-debian-13-lxc-template-for-proxmox/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Nodered, Home Assistant and Tailscale
     </h2>
   </header>
@@ -231,7 +247,7 @@ I’m setting up a new Node-RED instance as part of moving Home Assistant out of
 Run Node-RED in a separate VM so I can move it to other proxmox hosts if there is resource contention or I need to fail over Proper SSL certificate Easy access via my tailnet Pre-requisites To follow these instructions, you will need:
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-07-15 14:44:59 -0600 MDT'>July 15, 2025</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1415 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2025-07-15 14:44:59 -0600 -0600'>July 15, 2025</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1415 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Nodered, Home Assistant and Tailscale" href="https://unixorn.github.io/post/homelab/nodered-homeassistant-and-tailscale/"></a>
 </article>
 
@@ -244,7 +260,7 @@ Run Node-RED in a separate VM so I can move it to other proxmox hosts if there i
     <p>Advice for New Neocaridina Keepers Here’s my advice for someone starting out with neocaridina shrimp. I don’t pretend to be an expert, but my colony is thriving so I’m doing something right.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-05-31 08:33:03 -0600 MDT'>May 31, 2025</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1675 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2025-05-31 08:33:03 -0600 -0600'>May 31, 2025</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1675 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Advice for New Neocaridina Keepers" href="https://unixorn.github.io/post/aquarium/2025-05-31-advice-for-new-neocaridina-keepers/"></a>
 </article>
 
@@ -257,7 +273,7 @@ Run Node-RED in a separate VM so I can move it to other proxmox hosts if there i
     <p>It seems like everyone has their own recipe for home made food to feed their shrimp. Here’s mine.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-05-04 14:21:53 -0600 MDT'>May 4, 2025</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;710 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2025-05-04 14:21:53 -0600 -0600'>May 4, 2025</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;710 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Shrimp Food Recipe" href="https://unixorn.github.io/post/aquarium/shrimp-food-recipe/"></a>
 </article>
 
@@ -272,7 +288,7 @@ A lot of code cleanups Dependency updates Thanks for your contributions and main
 What’s Changed MegaLinter: fix linter errors by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/323 Update Pydantic to version 2.10.6 by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/322 Update pyaml to version 25.1.0 by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/324 [pre-commit.ci] pre-commit autoupdate by @pre-commit-ci in https://github.com/unixorn/ha-mqtt-discoverable/pull/326 Miscellaneous fixes and improvements by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/325 ruff: Simplifying Python linter usage by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/327 SensorInfo: Add ‘suggested_display_precision’ (fixes #179) by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/328 [pre-commit.ci] pre-commit autoupdate by @pre-commit-ci in https://github.com/unixorn/ha-mqtt-discoverable/pull/330 Misc2 by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/329 Package Updates by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/334 [pre-commit.ci] pre-commit autoupdate by @pre-commit-ci in https://github.com/unixorn/ha-mqtt-discoverable/pull/336 Update ruff to version 0.11.4 by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/339 Update ruff to version 0.11.5 by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/340 Update pydantic to version 2.11.3 by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/341 Update to v0.19.0 for release by @unixorn in https://github.com/unixorn/ha-mqtt-discoverable/pull/342 Full Changelog: https://github.com/unixorn/ha-mqtt-discoverable/compare/v0.18.0...v0.19.0
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-04-27 08:31:56 -0600 MDT'>April 27, 2025</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;143 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2025-04-27 08:31:56 -0600 -0600'>April 27, 2025</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;143 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Released ha-mqtt-discoverable 0.19.1" href="https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.19.1/"></a>
 </article>
 
@@ -287,7 +303,7 @@ lima-xbar-plugin works with both xbar and SwiftBar to add a macos menubar item t
 Thanks to new contributors pythoninthegrass and deepjia.
 </p>
   </div>
-  <footer class="entry-footer"><span title='2025-03-27 08:18:51 -0600 MDT'>March 27, 2025</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;32 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2025-03-27 08:18:51 -0600 -0600'>March 27, 2025</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;32 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Lima Xbar Plugin 1.5.0" href="https://unixorn.github.io/post/open-source/lima-xbar-plugin-1.5.0/"></a>
 </article>
 
@@ -300,7 +316,7 @@ Thanks to new contributors pythoninthegrass and deepjia.
     <p>Nanotank Setup Advice You’ve seen some nice videos on YouTube of small tanks with fresh water shrimp. Here are some tips on setting a shrimp tank up for yourself.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-03-25 08:04:04 -0600 MDT'>March 25, 2025</span>&nbsp;·&nbsp;20 min&nbsp;·&nbsp;4157 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2025-03-25 08:04:04 -0600 -0600'>March 25, 2025</span>&nbsp;·&nbsp;20 min&nbsp;·&nbsp;4157 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Nanotank Setup" href="https://unixorn.github.io/post/aquarium/nanotank-setup/"></a>
 </article>
 
@@ -315,7 +331,7 @@ It wasn’t as straightforward as installing on non-Apple hardware, so I’m doc
 Note that this post only covers getting things working on a MacBook Pro - look at the many online tutorials for what you should do once your node is up and running.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2025-02-01 10:18:01 -0700 MST'>February 1, 2025</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1300 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2025-02-01 10:18:01 -0700 -0700'>February 1, 2025</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1300 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to How to install Proxmox on a 2019 Macbook Pro" href="https://unixorn.github.io/post/homelab/2025-02-01-install-proxmox-on-macbook-pro/"></a>
 </article>
 
@@ -328,7 +344,7 @@ Note that this post only covers getting things working on a MacBook Pro - look a
     <p>Released ha-mqtt-discoverable v0.16.2 and ha-mqtt-discoverable-cli v0.16.2
 What’s Changed Added missing last_reset to sensor for metering (electricity,gas, water etc.) by @unl0ck in https://github.com/unixorn/ha-mqtt-discoverable/pull/286 New Contributors @unl0ck made their first contribution in https://github.com/unixorn/ha-mqtt-discoverable/pull/286 </p>
   </div>
-  <footer class="entry-footer"><span title='2024-12-15 09:31:56 -0700 MST'>December 15, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;31 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2024-12-15 09:31:56 -0700 -0700'>December 15, 2024</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;31 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Released ha-mqtt-discoverable v0.16.2" href="https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.16.2/"></a>
 </article>
 
@@ -342,23 +358,8 @@ What’s Changed Added missing last_reset to sensor for metering (electricity,ga
 Enter orbital-sync.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2024-12-07 19:15:14 -0600 -0600'>December 7, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;406 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2024-12-07 19:15:14 -0600 CST'>December 7, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;406 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Synchronizing Multiple Piholes with orbital-sync" href="https://unixorn.github.io/post/homelab/orbital-sync/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">First Neos
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Got my first neocaridinas yesterday!
-The new tank has been cycling for six weeks and the water parameters have been good for the last three weeks, so I decided it was past time to add more livestock to the tank so the Nerite doesn’t get lonely.
-I decided on Yellow Golden Backs because I thought they’d stand out in my tank, and ordered 20 from LVexoticfish.com. I have to give them props - as advertised, all the shrimp arrived alive.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-08-24 11:44:57 -0600 MDT'>August 24, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;259 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to First Neos" href="https://unixorn.github.io/post/aquarium/first-neos/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

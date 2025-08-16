@@ -171,6 +171,20 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Switch Home Assistant to Use PostgreSQL Instead of SQLite
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>I wanted to switch my new Home Assistant (HA) installation to write data to PostgreSQL instead of SQLite for a variety of reasons. Here’s how I did it.
+Here’s why I decided to switch:
+Resilience. If you’re running Home Assistant on a Raspberry Pi’s SD card, the constant churn of history updates will eventually destroy the card. The more entities you have, the faster HA will grind your SD card to failure. Writing all that to another server that is writing to a real SSD or spinning disk eliminates that problem. Convenience. I can back up the postgres database without having to stop HA. I don’t even have to run the backup on the HA server. Speed. Using a real database will speed up history display, especially once you have a large number of entities. ...</p>
+  </div>
+  <footer class="entry-footer"><span title='2022-11-05 09:42:58 -0600 -0600'>November 5, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;864 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Switch Home Assistant to Use PostgreSQL Instead of SQLite" href="https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Fix Securifi Peanut issue with zigbee2mqtt
     </h2>
   </header>
@@ -192,7 +206,7 @@ I have several Securifi Peanut Zigbee switches. Overall, they’re nice little s
     <p>I wanted my Home Assistant to be able to send me alerts when Bad Things are detected like water on my basement floor. I’m an SRE, and have been using PagerDuty for years, so I decided to set up a personal PagerDuty account and connect it to my Home Assistant.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-09-17 15:38:01 -0600 MDT'>September 17, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;894 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2022-09-17 15:38:01 -0600 -0600'>September 17, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;894 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Use Pagerduty With Home Assistant" href="https://unixorn.github.io/post/use-pagerduty-with-home-assistant/"></a>
 </article>
 
@@ -206,7 +220,7 @@ I have several Securifi Peanut Zigbee switches. Overall, they’re nice little s
 The solution ended up being to quit Fusion 360, open the Fusion Team Signup page in a browser, create a team there, then restart Fusion 360.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-05-01 18:06:38 -0600 MDT'>May 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;94 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2022-05-01 18:06:38 -0600 -0600'>May 1, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;94 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Fixing Autodesk Fusion 360 First Time Launch on macOS Problems" href="https://unixorn.github.io/post/autodesk-fusion-signup/"></a>
 </article>
 
@@ -220,7 +234,7 @@ The solution ended up being to quit Fusion 360, open the Fusion Team Signup page
 I got lucky when I bought my last batch of Reds, they were all CMR, but it was pure luck - I bought them based on Western Digital’s reputation and because I’ve seen multiple NAS vendors recommend WD-REDs in the past.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2022-01-15 07:32:37 -0700 MST'>January 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;177 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2022-01-15 07:32:37 -0700 -0700'>January 15, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;177 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Western Digital Red drive SMR Fiasco" href="https://unixorn.github.io/post/western-digital-red-smr-fiasco/"></a>
 </article>
 
@@ -233,7 +247,7 @@ I got lucky when I bought my last batch of Reds, they were all CMR, but it was p
     <p>I wrote two articles in sysadvent 2021
 Baking Multi-Architecture Docker Images Setting up k3s in your home lab </p>
   </div>
-  <footer class="entry-footer"><span title='2021-12-07 11:13:39 -0700 MST'>December 7, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;18 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2021-12-07 11:13:39 -0700 -0700'>December 7, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;18 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Sysadvent 2021 Articles" href="https://unixorn.github.io/post/sysadvent-2021-article/"></a>
 </article>
 
@@ -246,7 +260,7 @@ Baking Multi-Architecture Docker Images Setting up k3s in your home lab </p>
     <p>For a variety of reasons, I needed to enable some EC2 instances to write/update a single EC2 tag, but the instaces needed to only be able to tag themselves.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2021-06-13 15:21:03 -0600 MDT'>June 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;141 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2021-06-13 15:21:03 -0600 -0600'>June 13, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;141 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to AWS IAM Self Tagging EC2 Instances" href="https://unixorn.github.io/post/iam-self-tagging/"></a>
 </article>
 
@@ -260,7 +274,7 @@ Baking Multi-Architecture Docker Images Setting up k3s in your home lab </p>
 Wyze cameras are nice and cheap, and you can reflash them to support RTSP in addition to streaming to the Wyze cloud.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2021-03-14 01:59:26 -0700 MST'>March 14, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;785 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2021-03-14 01:59:26 -0700 -0700'>March 14, 2021</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;785 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Setting up Shinobi and a Wyze G2 Camera" href="https://unixorn.github.io/post/setting-up-shinobi-and-a-wyze-g2-camera/"></a>
 </article>
 
@@ -274,7 +288,7 @@ Wyze cameras are nice and cheap, and you can reflash them to support RTSP in add
 Enter Home Assistant.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2021-02-13 12:08:24 -0700 MST'>February 13, 2021</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1461 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2021-02-13 12:08:24 -0700 -0700'>February 13, 2021</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1461 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Home Assistant Printer Power Management" href="https://unixorn.github.io/post/home-assistant-printer-power-management/"></a>
 </article>
 
@@ -287,23 +301,8 @@ Enter Home Assistant.
     <p>I have an old HP 4050N. For a variety of reasons, I want to have it behind a print server instead of having my laptops print directly to it. Here’s how I set that up.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2021-02-08 12:11:24 -0700 MST'>February 8, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;367 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2021-02-08 12:11:24 -0700 -0700'>February 8, 2021</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;367 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Run a CUPSD print server on Raspberry Pi" href="https://unixorn.github.io/post/cupsd-setup/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Home Assistant Notifications via Twilio SMS
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Sending notifications from Home Assistant via Twilio SMS I got a post published at work about How to Receive Alerts from Home Assistant with Twilio SMS, so I won’t replicate it here.
-TL;DR - It is super easy to send SMS messages via Twilio SMS with curl.
-Update: I wrote another article, Use PagerDuty with Home Assistant this time for using PagerDuty which allows automatically de-duping notifications.
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2021-01-17 16:47:09 -0700 MST'>January 17, 2021</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;67 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to Home Assistant Notifications via Twilio SMS" href="https://unixorn.github.io/post/home-assistant-notifications-via-twilio/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

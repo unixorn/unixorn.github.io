@@ -12,8 +12,50 @@
     <generator>Hugo -- 0.147.8</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Tue, 15 Jul 2025 14:44:59 -0600</lastBuildDate>
+    <lastBuildDate>Fri, 15 Aug 2025 19:10:16 -0600</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Debian</title>
+      <link>https://unixorn.github.io/tags/debian/</link>
+      <pubDate>Fri, 15 Aug 2025 19:10:16 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/debian/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Debian13</title>
+      <link>https://unixorn.github.io/tags/debian13/</link>
+      <pubDate>Fri, 15 Aug 2025 19:10:16 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/debian13/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Homelab</title>
+      <link>https://unixorn.github.io/tags/homelab/</link>
+      <pubDate>Fri, 15 Aug 2025 19:10:16 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/homelab/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linux</title>
+      <link>https://unixorn.github.io/tags/linux/</link>
+      <pubDate>Fri, 15 Aug 2025 19:10:16 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Lxc</title>
+      <link>https://unixorn.github.io/tags/lxc/</link>
+      <pubDate>Fri, 15 Aug 2025 19:10:16 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/lxc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Proxmox</title>
+      <link>https://unixorn.github.io/tags/proxmox/</link>
+      <pubDate>Fri, 15 Aug 2025 19:10:16 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/proxmox/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Homeassistant</title>
       <link>https://unixorn.github.io/tags/homeassistant/</link>
@@ -22,24 +64,10 @@
       <description></description>
     </item>
     <item>
-      <title>Homelab</title>
-      <link>https://unixorn.github.io/tags/homelab/</link>
-      <pubDate>Tue, 15 Jul 2025 14:44:59 -0600</pubDate>
-      <guid>https://unixorn.github.io/tags/homelab/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Nodered</title>
       <link>https://unixorn.github.io/tags/nodered/</link>
       <pubDate>Tue, 15 Jul 2025 14:44:59 -0600</pubDate>
       <guid>https://unixorn.github.io/tags/nodered/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Proxmox</title>
-      <link>https://unixorn.github.io/tags/proxmox/</link>
-      <pubDate>Tue, 15 Jul 2025 14:44:59 -0600</pubDate>
-      <guid>https://unixorn.github.io/tags/proxmox/</guid>
       <description></description>
     </item>
     <item>
@@ -166,13 +194,6 @@
       <link>https://unixorn.github.io/tags/apple/</link>
       <pubDate>Sat, 01 Feb 2025 10:18:01 -0700</pubDate>
       <guid>https://unixorn.github.io/tags/apple/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Linux</title>
-      <link>https://unixorn.github.io/tags/linux/</link>
-      <pubDate>Sat, 01 Feb 2025 10:18:01 -0700</pubDate>
-      <guid>https://unixorn.github.io/tags/linux/</guid>
       <description></description>
     </item>
     <item>
