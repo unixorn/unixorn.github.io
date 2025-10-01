@@ -12,8 +12,15 @@
     <generator>Hugo -- 0.148.2</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 15 Aug 2025 19:10:16 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 30 Sep 2025 21:22:46 -0600</lastBuildDate>
     <atom:link href="https://unixorn.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Shrimp Food Recipe V2</title>
+      <link>https://unixorn.github.io/post/aquarium/shrimp-food-recipe-v2/</link>
+      <pubDate>Tue, 30 Sep 2025 21:22:46 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/aquarium/shrimp-food-recipe-v2/</guid>
+      <description>&lt;p&gt;Here&amp;rsquo;s the current (as of 2025-09-30) version of my shrimp food recipe.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Building a Debian 13 LXC Template for Proxmox</title>
       <link>https://unixorn.github.io/post/homelab/2025-08-13-building-debian-13-lxc-template-for-proxmox/</link>
