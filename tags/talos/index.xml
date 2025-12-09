@@ -16,6 +16,13 @@
     <atom:link href="https://unixorn.github.io/tags/talos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Weird shit is afoot with macOS and iTerm</title>
+      <link>https://unixorn.github.io/post/homelab/weird-macos-and-iterm-issue/</link>
+      <pubDate>Mon, 08 Dec 2025 17:54:19 -0700</pubDate>
+      <guid>https://unixorn.github.io/post/homelab/weird-macos-and-iterm-issue/</guid>
+      <description>&lt;p&gt;So here&amp;rsquo;s a fun macOS weirdness I ran into this weekend where I couldn&amp;rsquo;t connect to a port on another machine from a shell session inside of iTerm, even though I was able to &lt;code&gt;ssh&lt;/code&gt; to other hosts.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Weird shit is afoot with macOS and iTerm</title>
       <link>https://unixorn.github.io/post/homelab/weird-shit-is-afoot-with-macos-and-iterm/</link>
       <pubDate>Mon, 08 Dec 2025 17:54:19 -0700</pubDate>
       <guid>https://unixorn.github.io/post/homelab/weird-shit-is-afoot-with-macos-and-iterm/</guid>
