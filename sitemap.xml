@@ -2,13 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/tags/homelab/</loc>
+    <lastmod>2025-12-08T17:54:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/iterm/</loc>
+    <lastmod>2025-12-08T17:54:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/k8s/</loc>
+    <lastmod>2025-12-08T17:54:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/kubernetes/</loc>
+    <lastmod>2025-12-08T17:54:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/macos/</loc>
+    <lastmod>2025-12-08T17:54:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/</loc>
+    <lastmod>2025-12-08T17:54:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2025-12-08T17:54:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/talos/</loc>
+    <lastmod>2025-12-08T17:54:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/</loc>
+    <lastmod>2025-12-08T17:54:19-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/homelab/weird-macos-and-iterm-issue/</loc>
+    <lastmod>2025-12-08T17:54:19-07:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/tags/aquarium/</loc>
     <lastmod>2025-09-30T21:22:46-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/aquarium/food/</loc>
-    <lastmod>2025-09-30T21:22:46-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/post/</loc>
     <lastmod>2025-09-30T21:22:46-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/shrimp/</loc>
@@ -23,12 +50,6 @@
     <loc>https://unixorn.github.io/tags/shrimp/neocaridina/</loc>
     <lastmod>2025-09-30T21:22:46-06:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
-    <lastmod>2025-09-30T21:22:46-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/</loc>
-    <lastmod>2025-09-30T21:22:46-06:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/post/homelab/2025-08-13-building-debian-13-lxc-template-for-proxmox/</loc>
     <lastmod>2025-08-15T19:10:16-06:00</lastmod>
   </url><url>
@@ -36,9 +57,6 @@
     <lastmod>2025-08-15T19:10:16-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/debian13/</loc>
-    <lastmod>2025-08-15T19:10:16-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/homelab/</loc>
     <lastmod>2025-08-15T19:10:16-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/linux/</loc>
@@ -87,9 +105,6 @@
     <lastmod>2025-03-27T08:18:51-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/open-source/lima-xbar-plugin-1.5.0/</loc>
-    <lastmod>2025-03-27T08:18:51-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/macos/</loc>
     <lastmod>2025-03-27T08:18:51-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/open-source/</loc>
@@ -510,12 +525,6 @@
     <lastmod>2019-09-01T15:47:23-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/deprecated/</loc>
-    <lastmod>2019-09-01T15:47:23-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/k8s/</loc>
-    <lastmod>2019-09-01T15:47:23-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/kubernetes/</loc>
     <lastmod>2019-09-01T15:47:23-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/aws/</loc>
