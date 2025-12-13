@@ -184,19 +184,6 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
-    <h2 class="entry-hint-parent">Released ha-mqtt-discoverable 0.12.0
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Released ha-mqtt-discoverable 0.12.0
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2023-11-22 19:08:25 -0700 MST'>November 22, 2023</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;62 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to Released ha-mqtt-discoverable 0.12.0" href="https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.12.0/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
     <h2 class="entry-hint-parent">Weird Home Assistant Scripts Bug
     </h2>
   </header>
@@ -316,6 +303,20 @@ In this blog entry, I’m going to explain how to create a jail in TrueNAS, moun
   </div>
   <footer class="entry-footer"><span title='2023-01-13 11:16:19 -0700 MST'>January 13, 2023</span>&nbsp;·&nbsp;11 min&nbsp;·&nbsp;2237 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Restic Backups on TrueNAS" href="https://unixorn.github.io/post/restic-backups-on-truenas/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Fix Congo Backticks
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>I considered a switch to the Congo theme for Hugo. The one thing I didn’t like in it was the way it handles inline backticks - it displays them, in addition to formatting the enclosed text as code.
+To fix it, create assets/css/custom.css with the following contents:
+.prose code::before { content: &#39;&#39; } .prose code::after { content: &#39;&#39; } </p>
+  </div>
+  <footer class="entry-footer"><span title='2022-11-14 19:12:41 -0700 MST'>November 14, 2022</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;59 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Fix Congo Backticks" href="https://unixorn.github.io/post/fix-congo-backticks/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
