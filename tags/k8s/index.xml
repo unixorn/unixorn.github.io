@@ -12,8 +12,15 @@
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 08 Dec 2025 17:54:19 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 12 Dec 2025 23:49:23 -0700</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/k8s/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using a NFS Provisioner with Talos</title>
+      <link>https://unixorn.github.io/post/homelab/talos-nfs-provisioner/</link>
+      <pubDate>Fri, 12 Dec 2025 23:49:23 -0700</pubDate>
+      <guid>https://unixorn.github.io/post/homelab/talos-nfs-provisioner/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been experimenting with running &lt;a href=&#34;https://www.talos.dev/&#34;&gt;Talos&lt;/a&gt; in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run in docker-compose. I decided to use my Synology to store k8s volumes, here&amp;rsquo;s how I set that up&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Weird shit is afoot with macOS and iTerm</title>
       <link>https://unixorn.github.io/post/homelab/weird-shit-is-afoot-with-macos-and-iterm/</link>
