@@ -99,13 +99,6 @@
       <description></description>
     </item>
     <item>
-      <title>Debian13</title>
-      <link>https://unixorn.github.io/tags/debian13/</link>
-      <pubDate>Fri, 15 Aug 2025 19:10:16 -0600</pubDate>
-      <guid>https://unixorn.github.io/tags/debian13/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Linux</title>
       <link>https://unixorn.github.io/tags/linux/</link>
       <pubDate>Fri, 15 Aug 2025 19:10:16 -0600</pubDate>
@@ -124,6 +117,13 @@
       <link>https://unixorn.github.io/tags/proxmox/</link>
       <pubDate>Fri, 15 Aug 2025 19:10:16 -0600</pubDate>
       <guid>https://unixorn.github.io/tags/proxmox/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Hass</title>
+      <link>https://unixorn.github.io/tags/hass/</link>
+      <pubDate>Tue, 15 Jul 2025 14:44:59 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/hass/</guid>
       <description></description>
     </item>
     <item>
@@ -159,13 +159,6 @@
       <link>https://unixorn.github.io/tags/nanotank/</link>
       <pubDate>Sat, 31 May 2025 08:33:03 -0600</pubDate>
       <guid>https://unixorn.github.io/tags/nanotank/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Hass</title>
-      <link>https://unixorn.github.io/tags/hass/</link>
-      <pubDate>Sun, 27 Apr 2025 08:31:56 -0600</pubDate>
-      <guid>https://unixorn.github.io/tags/hass/</guid>
       <description></description>
     </item>
     <item>
@@ -222,6 +215,13 @@
       <link>https://unixorn.github.io/tags/apple/</link>
       <pubDate>Sat, 01 Feb 2025 10:18:01 -0700</pubDate>
       <guid>https://unixorn.github.io/tags/apple/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Macbookpro</title>
+      <link>https://unixorn.github.io/tags/macbookpro/</link>
+      <pubDate>Sat, 01 Feb 2025 10:18:01 -0700</pubDate>
+      <guid>https://unixorn.github.io/tags/macbookpro/</guid>
       <description></description>
     </item>
     <item>

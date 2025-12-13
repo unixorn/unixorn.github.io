@@ -22,6 +22,14 @@
       <description>&lt;p&gt;I ordered a second UPS because thanks to &lt;a href=&#34;https://github.com/Brandawg93/PeaNUT&#34;&gt;PeaNUT&lt;/a&gt;, I saw that my current UPS is only providing 20 minutes of uptime. Unfortunately, as of this post, PeaNUT will only read one UPS&amp;rsquo; metrics from &lt;a href=&#34;https://networkupstools.org/&#34;&gt;Network UPS Tools&lt;/a&gt; per PeaNUT instance, so I&amp;rsquo;m going to start scraping the metrics into Prometheus and displaying them with Grafana. Here&amp;rsquo;s how I did it.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Setup Prometheus and Grafana in Your Homelab</title>
+      <link>https://unixorn.github.io/post/homelab/homelab-setup-prometheus-and-grafana/</link>
+      <pubDate>Sat, 13 Apr 2024 14:19:26 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/homelab/homelab-setup-prometheus-and-grafana/</guid>
+      <description>&lt;p&gt;I wanted nice graphs for the various metrics I collect in my homelab and from my Home Assistant server.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s how I installed Prometheus and Grafana in my homelab to get them.&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Set up nut-upsd and peanut in your homelab</title>
       <link>https://unixorn.github.io/post/homelab/homelab-nut-upsd/</link>
       <pubDate>Sat, 06 Apr 2024 16:27:06 -0600</pubDate>
