@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Proton.me on unixorn.github.io</title>
+    <link>https://unixorn.github.io/tags/proton.me/</link>
+    <description>Recent content in Proton.me on unixorn.github.io</description>
+    <image>
+      <title>unixorn.github.io</title>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Fri, 26 Dec 2025 15:30:31 -0700</lastBuildDate>
+    <atom:link href="https://unixorn.github.io/tags/proton.me/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Switching to Proton.me eMail Advice</title>
+      <link>https://unixorn.github.io/post/2025-12-26-advice-for-switching-to-proton-hosted-email/</link>
+      <pubDate>Fri, 26 Dec 2025 15:30:31 -0700</pubDate>
+      <guid>https://unixorn.github.io/post/2025-12-26-advice-for-switching-to-proton-hosted-email/</guid>
+      <description>&lt;p&gt;After 19 years of hosting email for my domains on Google Workspace (I was an early internal tester when it was still Google Apps) I finally moved my domains to &lt;a href=&#34;https://proton.me&#34;&gt;proton.me&lt;/a&gt; last month when they had a Cyber Monday sale.&lt;/p&gt;
+&lt;p&gt;There were a lot of reasons that boiled down to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I no longer trust Google to not use my data to train Gemini&lt;/li&gt;
+&lt;li&gt;I pay less for 500GB worth of storage for proton services than I did for 30GB on Google. And proton includes a VPN as part of my package&amp;rsquo;s services.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you have a proton email account &lt;em&gt;but&lt;/em&gt; you haven&amp;rsquo;t already started importing email into proton, don&amp;rsquo;t kick that off until you read this - it&amp;rsquo;s what I wish I had known when I was setting up my account. If you don&amp;rsquo;t have one but are considering one, here&amp;rsquo;s a &lt;a href=&#34;https://pr.tn/ref/3E8ZRJVR&#34;&gt;referral link&lt;/a&gt; that will get you two weeks for free &lt;em&gt;and&lt;/em&gt; $20 off of your first bill. Disclaimer - I get $20 in credit too.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

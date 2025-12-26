@@ -12,8 +12,21 @@
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Fri, 12 Dec 2025 23:49:23 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 26 Dec 2025 15:30:31 -0700</lastBuildDate>
     <atom:link href="https://unixorn.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Switching to Proton.me eMail Advice</title>
+      <link>https://unixorn.github.io/post/2025-12-26-advice-for-switching-to-proton-hosted-email/</link>
+      <pubDate>Fri, 26 Dec 2025 15:30:31 -0700</pubDate>
+      <guid>https://unixorn.github.io/post/2025-12-26-advice-for-switching-to-proton-hosted-email/</guid>
+      <description>&lt;p&gt;After 19 years of hosting email for my domains on Google Workspace (I was an early internal tester when it was still Google Apps) I finally moved my domains to &lt;a href=&#34;https://proton.me&#34;&gt;proton.me&lt;/a&gt; last month when they had a Cyber Monday sale.&lt;/p&gt;
+&lt;p&gt;There were a lot of reasons that boiled down to:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;I no longer trust Google to not use my data to train Gemini&lt;/li&gt;
+&lt;li&gt;I pay less for 500GB worth of storage for proton services than I did for 30GB on Google. And proton includes a VPN as part of my package&amp;rsquo;s services.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you have a proton email account &lt;em&gt;but&lt;/em&gt; you haven&amp;rsquo;t already started importing email into proton, don&amp;rsquo;t kick that off until you read this - it&amp;rsquo;s what I wish I had known when I was setting up my account. If you don&amp;rsquo;t have one but are considering one, here&amp;rsquo;s a &lt;a href=&#34;https://pr.tn/ref/3E8ZRJVR&#34;&gt;referral link&lt;/a&gt; that will get you two weeks for free &lt;em&gt;and&lt;/em&gt; $20 off of your first bill. Disclaimer - I get $20 in credit too.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Using a NFS Provisioner with Talos</title>
       <link>https://unixorn.github.io/post/homelab/talos-nfs-provisioner/</link>
@@ -518,9 +531,11 @@
       <link>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</link>
       <pubDate>Sun, 01 Sep 2019 15:47:23 -0600</pubDate>
       <guid>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</guid>
-      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;do-not-use-duplicacy&#34;&gt;Do not use duplicacy!&lt;/h2&gt;
+&lt;p&gt;TL;DR: duplicacy is unusable if you&amp;rsquo;re serious about backing up your data. Use restic instead!&lt;/p&gt;
 &lt;p&gt;I wanted to ensure any data I put into my &lt;a href=&#34;https://unixorn.github.io/post/k3s-on-arm/&#34;&gt;ARM k3s cluster&lt;/a&gt; is backed up to prevent data loss.&lt;/p&gt;
-&lt;p&gt;I no longer recommend duplicacy. Instead, read my article on &lt;a href=&#34;https://unixorn.github.io/post/restic-backups-on-truenas/&#34;&gt;restic backups on TrueNas&lt;/a&gt; instead.&lt;/p&gt;</description>
+&lt;p&gt;I no longer recommend duplicacy. Instead, read my article on &lt;a href=&#34;https://unixorn.github.io/post/restic-backups-on-truenas/&#34;&gt;restic backups on TrueNas&lt;/a&gt; instead.&lt;/p&gt;
+&lt;p&gt;2025 edit: This post is only here for historical reasons. &lt;strong&gt;&lt;em&gt;Do NOT use duplicacy&lt;/em&gt;&lt;/strong&gt;. It does not report backup errors in its exit code. You will have to parse its logs yourself and hope your regex didn&amp;rsquo;t miss an error condition. And &lt;em&gt;every&lt;/em&gt; update, you&amp;rsquo;ll have to check and make sure it hasn&amp;rsquo;t changed anything that your regex &lt;em&gt;was&lt;/em&gt; catching. Backups are supposed to be something you set up once and ignore other than to do periodic restore tests, and duplicacy fails that simple criteria.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Growing EBS Volumes in Place</title>

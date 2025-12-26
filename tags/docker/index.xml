@@ -108,9 +108,11 @@
       <link>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</link>
       <pubDate>Sun, 01 Sep 2019 15:47:23 -0600</pubDate>
       <guid>https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/</guid>
-      <description>&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+      <description>&lt;h2 id=&#34;do-not-use-duplicacy&#34;&gt;Do not use duplicacy!&lt;/h2&gt;
+&lt;p&gt;TL;DR: duplicacy is unusable if you&amp;rsquo;re serious about backing up your data. Use restic instead!&lt;/p&gt;
 &lt;p&gt;I wanted to ensure any data I put into my &lt;a href=&#34;https://unixorn.github.io/post/k3s-on-arm/&#34;&gt;ARM k3s cluster&lt;/a&gt; is backed up to prevent data loss.&lt;/p&gt;
-&lt;p&gt;I no longer recommend duplicacy. Instead, read my article on &lt;a href=&#34;https://unixorn.github.io/post/restic-backups-on-truenas/&#34;&gt;restic backups on TrueNas&lt;/a&gt; instead.&lt;/p&gt;</description>
+&lt;p&gt;I no longer recommend duplicacy. Instead, read my article on &lt;a href=&#34;https://unixorn.github.io/post/restic-backups-on-truenas/&#34;&gt;restic backups on TrueNas&lt;/a&gt; instead.&lt;/p&gt;
+&lt;p&gt;2025 edit: This post is only here for historical reasons. &lt;strong&gt;&lt;em&gt;Do NOT use duplicacy&lt;/em&gt;&lt;/strong&gt;. It does not report backup errors in its exit code. You will have to parse its logs yourself and hope your regex didn&amp;rsquo;t miss an error condition. And &lt;em&gt;every&lt;/em&gt; update, you&amp;rsquo;ll have to check and make sure it hasn&amp;rsquo;t changed anything that your regex &lt;em&gt;was&lt;/em&gt; catching. Backups are supposed to be something you set up once and ignore other than to do periodic restore tests, and duplicacy fails that simple criteria.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Things I Learned About Docker Mac</title>

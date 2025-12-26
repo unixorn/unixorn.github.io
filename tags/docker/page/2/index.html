@@ -186,11 +186,13 @@
     </h2>
   </header>
   <div class="entry-content">
-    <p>Motivation I wanted to ensure any data I put into my ARM k3s cluster is backed up to prevent data loss.
+    <p>Do not use duplicacy! TL;DR: duplicacy is unusable if you’re serious about backing up your data. Use restic instead!
+I wanted to ensure any data I put into my ARM k3s cluster is backed up to prevent data loss.
 I no longer recommend duplicacy. Instead, read my article on restic backups on TrueNas instead.
+2025 edit: This post is only here for historical reasons. Do NOT use duplicacy. It does not report backup errors in its exit code. You will have to parse its logs yourself and hope your regex didn’t miss an error condition. And every update, you’ll have to check and make sure it hasn’t changed anything that your regex was catching. Backups are supposed to be something you set up once and ignore other than to do periodic restore tests, and duplicacy fails that simple criteria.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2019-09-01 15:47:23 -0600 MDT'>September 1, 2019</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;2087 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2019-09-01 15:47:23 -0600 MDT'>September 1, 2019</span>&nbsp;·&nbsp;11 min&nbsp;·&nbsp;2190 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Backing Up the Cluster with Duplicacy" href="https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/"></a>
 </article>
 
