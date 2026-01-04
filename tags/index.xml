@@ -12,47 +12,47 @@
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 03 Jan 2026 08:27:42 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 04 Jan 2026 09:27:42 -0700</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cert-Manager</title>
       <link>https://unixorn.github.io/tags/cert-manager/</link>
-      <pubDate>Sat, 03 Jan 2026 08:27:42 -0700</pubDate>
+      <pubDate>Sun, 04 Jan 2026 09:27:42 -0700</pubDate>
       <guid>https://unixorn.github.io/tags/cert-manager/</guid>
       <description></description>
     </item>
     <item>
       <title>Homelab</title>
       <link>https://unixorn.github.io/tags/homelab/</link>
-      <pubDate>Sat, 03 Jan 2026 08:27:42 -0700</pubDate>
+      <pubDate>Sun, 04 Jan 2026 09:27:42 -0700</pubDate>
       <guid>https://unixorn.github.io/tags/homelab/</guid>
       <description></description>
     </item>
     <item>
       <title>K8s</title>
       <link>https://unixorn.github.io/tags/k8s/</link>
-      <pubDate>Sat, 03 Jan 2026 08:27:42 -0700</pubDate>
+      <pubDate>Sun, 04 Jan 2026 09:27:42 -0700</pubDate>
       <guid>https://unixorn.github.io/tags/k8s/</guid>
       <description></description>
     </item>
     <item>
       <title>Letsencrypt</title>
       <link>https://unixorn.github.io/tags/letsencrypt/</link>
-      <pubDate>Sat, 03 Jan 2026 08:27:42 -0700</pubDate>
+      <pubDate>Sun, 04 Jan 2026 09:27:42 -0700</pubDate>
       <guid>https://unixorn.github.io/tags/letsencrypt/</guid>
       <description></description>
     </item>
     <item>
       <title>R53</title>
       <link>https://unixorn.github.io/tags/r53/</link>
-      <pubDate>Sat, 03 Jan 2026 08:27:42 -0700</pubDate>
+      <pubDate>Sun, 04 Jan 2026 09:27:42 -0700</pubDate>
       <guid>https://unixorn.github.io/tags/r53/</guid>
       <description></description>
     </item>
     <item>
       <title>Talos</title>
       <link>https://unixorn.github.io/tags/talos/</link>
-      <pubDate>Sat, 03 Jan 2026 08:27:42 -0700</pubDate>
+      <pubDate>Sun, 04 Jan 2026 09:27:42 -0700</pubDate>
       <guid>https://unixorn.github.io/tags/talos/</guid>
       <description></description>
     </item>
