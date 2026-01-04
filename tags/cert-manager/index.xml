@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>R53 on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/r53/</link>
-    <description>Recent content in R53 on unixorn.github.io</description>
+    <title>Cert-Manager on unixorn.github.io</title>
+    <link>http://localhost:1313/tags/cert-manager/</link>
+    <description>Recent content in Cert-Manager on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
       <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
@@ -13,7 +13,7 @@
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sat, 03 Jan 2026 07:07:37 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/r53/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/cert-manager/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Setting up kubernetes to use cert-manager to use LetsEncrypt with domains hosted on Amazon Route 53</title>
       <link>http://localhost:1313/post/homelab/k8s/02-r53-cert-manager/</link>
@@ -25,22 +25,6 @@
 &lt;li&gt;A domain hosted on Amazon Route 53 that you have administrative rights on.&lt;/li&gt;
 &lt;li&gt;A working kubernetes cluster. I&amp;rsquo;m using &lt;a href=&#34;https://www.talos.dev/&#34;&gt;Talos&lt;/a&gt; for mine, but regular &lt;a href=&#34;https://kubernetes.io&#34;&gt;kubernetes&lt;/a&gt; or &lt;a href=&#34;https://k3s.io&#34;&gt;k3s&lt;/a&gt; clusters will work too.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;kubectl&lt;/code&gt; &amp;amp; &lt;code&gt;helm&lt;/code&gt; - if you don&amp;rsquo;t want to &lt;code&gt;brew install&lt;/code&gt; them, install instructions are at &lt;a href=&#34;https://helm.sh&#34;&gt;helm.sh&lt;/a&gt; and &lt;a href=&#34;https://kubernetes.io/docs/tasks/tools/&#34;&gt;kubectl&lt;/a&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;software-versions&#34;&gt;Software Versions&lt;/h3&gt;
-&lt;p&gt;Here are the versions of the software I used while writing this post.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Setting up kubernetes to use cert-manager to use LetsEncrypt with domains hosted on Amazon Route 53</title>
-      <link>http://localhost:1313/post/homelab/2025-12-17-r53-cert-manager/</link>
-      <pubDate>Wed, 17 Dec 2025 07:07:37 -0700</pubDate>
-      <guid>http://localhost:1313/post/homelab/2025-12-17-r53-cert-manager/</guid>
-      <description>&lt;p&gt;Now that my &lt;a href=&#34;https://www.talos.dev/&#34;&gt;Talos&lt;/a&gt; cluster is up, and I have &lt;a href=&#34;https://unixorn.github.io&#34;&gt;PVCs working with NFS&lt;/a&gt; the next thing to do is get cert-manager working with &lt;a href=&#34;https://letsencrypt.org&#34;&gt;LetsEncrypt&lt;/a&gt;. The tutorials I&amp;rsquo;ve seen all use CloudFlare, but I have my lab domain on Route 53 so this post will cover that.&lt;/p&gt;
-&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h2&gt;
-&lt;p&gt;You&amp;rsquo;re going to need all of these to follow these instructions.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;A domain hosted on Amazon Route 53&lt;/li&gt;
-&lt;li&gt;A working kubernetes cluster. I&amp;rsquo;m using &lt;a href=&#34;https://www.talos.dev/&#34;&gt;Talos&lt;/a&gt; for mine, but regular &lt;a href=&#34;https://kubernetes.io&#34;&gt;kubernetes&lt;/a&gt; or &lt;a href=&#34;https://k3s.io&#34;&gt;k3s&lt;/a&gt; clusters will work too.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;kubectl&lt;/code&gt; &amp;amp; &lt;code&gt;helm&lt;/code&gt; - if you don&amp;rsquo;t want to &lt;code&gt;brew install&lt;/code&gt; them, install instructions are at &lt;a href=&#34;https://helm.sh&#34;&gt;helm.sh&lt;/a&gt; and &lt;a href=&#34;&#34;&gt;kubectl&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;software-versions&#34;&gt;Software Versions&lt;/h3&gt;
 &lt;p&gt;Here are the versions of the software I used while writing this post.&lt;/p&gt;</description>
