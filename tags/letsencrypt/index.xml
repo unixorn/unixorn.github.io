@@ -12,8 +12,29 @@
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 04 Jan 2026 09:27:42 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 04 Jan 2026 15:17:37 -0700</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/letsencrypt/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53</title>
+      <link>https://unixorn.github.io/post/homelab/k8s/02-k8s-cilium-r53-and-cert-manager/</link>
+      <pubDate>Sun, 04 Jan 2026 15:17:37 -0700</pubDate>
+      <guid>https://unixorn.github.io/post/homelab/k8s/02-k8s-cilium-r53-and-cert-manager/</guid>
+      <description>&lt;p&gt;In part two of this homelab kubernetes setup series, we&amp;rsquo;re going to install &amp;amp; configure &lt;a href=&#34;https://cert-manager.io/&#34;&gt;cert-manager&lt;/a&gt; to use &lt;a href=&#34;https://letsencrypt.org&#34;&gt;LetsEncrypt&lt;/a&gt; with &lt;a href=&#34;https://aws.amazon.com/route53/&#34;&gt;Route 53&lt;/a&gt; so we can use SSL to connect to our services.&lt;/p&gt;
+&lt;p&gt;The tutorials I&amp;rsquo;ve seen for using cert-manager with a DNS challenge all use CloudFlare. I have my lab domain on &lt;a href=&#34;https://aws.amazon.com/route53/&#34;&gt;Route 53&lt;/a&gt; so this post will cover that instead.&lt;/p&gt;
+&lt;h2 id=&#34;talos-homelab-setup-series&#34;&gt;Talos Homelab Setup Series&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;../01-talos-with-cilium-cni-on-proxmox/&#34;&gt;01 - Setting up Talos with a Cilium CNI on proxmox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;02 - Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;A domain hosted on Amazon Route 53 that you have administrative rights on.&lt;/li&gt;
+&lt;li&gt;A working kubernetes cluster with Cilium installed and configured to be a Gateway. I&amp;rsquo;m using &lt;a href=&#34;https://www.talos.dev/&#34;&gt;Talos&lt;/a&gt; for mine, but regular &lt;a href=&#34;https://kubernetes.io&#34;&gt;kubernetes&lt;/a&gt; or &lt;a href=&#34;https://k3s.io&#34;&gt;k3s&lt;/a&gt; clusters will work too. If you need to set up a new cluster, or configure an existing one to use Cilum, read &lt;a href=&#34;(../01-talos-with-cilium-cni-on-proxmox/)&#34;&gt;part one&lt;/a&gt; of this series.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cilium&lt;/code&gt;, &lt;code&gt;kubectl&lt;/code&gt; &amp;amp; &lt;code&gt;helm&lt;/code&gt; - if you don&amp;rsquo;t want to &lt;code&gt;brew install&lt;/code&gt; them, install instructions are at &lt;a href=&#34;https://docs.cilium.io/en/stable/gettingstarted/k8s-install-default/#install-the-cilium-cli&#34;&gt;cilium.io&lt;/a&gt;, &lt;a href=&#34;https://helm.sh&#34;&gt;helm.sh&lt;/a&gt; and &lt;a href=&#34;https://kubernetes.io/docs/tasks/tools/&#34;&gt;kubectl&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;software-versions&#34;&gt;Software Versions&lt;/h3&gt;
+&lt;p&gt;Here are the versions of the software I used while writing this post. Later versions should work, but this is what these instructions were tested with.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Creating a Talos kubernetes cluster with a Cilium CNI on Proxmox</title>
       <link>https://unixorn.github.io/post/homelab/k8s/01-talos-with-cilium-cni-on-proxmox/</link>

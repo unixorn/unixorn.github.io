@@ -222,6 +222,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In part two of this homelab kubernetes setup series, we’re going to install &amp; configure cert-manager to use LetsEncrypt with Route 53 so we can use SSL to connect to our services.
+The tutorials I’ve seen for using cert-manager with a DNS challenge all use CloudFlare. I have my lab domain on Route 53 so this post will cover that instead.
+Talos Homelab Setup Series 01 - Setting up Talos with a Cilium CNI on proxmox 02 - Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53 Pre-requisites A domain hosted on Amazon Route 53 that you have administrative rights on. A working kubernetes cluster with Cilium installed and configured to be a Gateway. I’m using Talos for mine, but regular kubernetes or k3s clusters will work too. If you need to set up a new cluster, or configure an existing one to use Cilum, read part one of this series. cilium, kubectl &amp; helm - if you don’t want to brew install them, install instructions are at cilium.io, helm.sh and kubectl. Software Versions Here are the versions of the software I used while writing this post. Later versions should work, but this is what these instructions were tested with.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-01-04 15:17:37 -0700 MST'>January 4, 2026</span>&nbsp;·&nbsp;14 min&nbsp;·&nbsp;2833 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53" href="https://unixorn.github.io/post/homelab/k8s/02-k8s-cilium-r53-and-cert-manager/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Creating a Talos kubernetes cluster with a Cilium CNI on Proxmox
     </h2>
   </header>
@@ -342,21 +357,6 @@ Run Node-RED in a separate VM so I can move it to other proxmox hosts if there i
   </div>
   <footer class="entry-footer"><span title='2025-05-04 14:21:53 -0600 MDT'>May 4, 2025</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;718 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Shrimp Food Recipe" href="https://unixorn.github.io/post/aquarium/shrimp-food-recipe/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Released ha-mqtt-discoverable 0.19.1
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Released ha-mqtt-discoverable 0.19.1
-A lot of code cleanups Dependency updates Thanks for your contributions and maintenance work, @kratz00
-What’s Changed MegaLinter: fix linter errors by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/323 Update Pydantic to version 2.10.6 by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/322 Update pyaml to version 25.1.0 by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/324 [pre-commit.ci] pre-commit autoupdate by @pre-commit-ci in https://github.com/unixorn/ha-mqtt-discoverable/pull/326 Miscellaneous fixes and improvements by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/325 ruff: Simplifying Python linter usage by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/327 SensorInfo: Add ‘suggested_display_precision’ (fixes #179) by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/328 [pre-commit.ci] pre-commit autoupdate by @pre-commit-ci in https://github.com/unixorn/ha-mqtt-discoverable/pull/330 Misc2 by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/329 Package Updates by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/334 [pre-commit.ci] pre-commit autoupdate by @pre-commit-ci in https://github.com/unixorn/ha-mqtt-discoverable/pull/336 Update ruff to version 0.11.4 by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/339 Update ruff to version 0.11.5 by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/340 Update pydantic to version 2.11.3 by @kratz00 in https://github.com/unixorn/ha-mqtt-discoverable/pull/341 Update to v0.19.0 for release by @unixorn in https://github.com/unixorn/ha-mqtt-discoverable/pull/342 Full Changelog: https://github.com/unixorn/ha-mqtt-discoverable/compare/v0.18.0...v0.19.0
-</p>
-  </div>
-  <footer class="entry-footer"><span title='2025-04-27 08:31:56 -0600 MDT'>April 27, 2025</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;143 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to Released ha-mqtt-discoverable 0.19.1" href="https://unixorn.github.io/post/hass/ha-mqtt-discoverable-0.19.1/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -169,6 +169,21 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In part two of this homelab kubernetes setup series, we’re going to install &amp; configure cert-manager to use LetsEncrypt with Route 53 so we can use SSL to connect to our services.
+The tutorials I’ve seen for using cert-manager with a DNS challenge all use CloudFlare. I have my lab domain on Route 53 so this post will cover that instead.
+Talos Homelab Setup Series 01 - Setting up Talos with a Cilium CNI on proxmox 02 - Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53 Pre-requisites A domain hosted on Amazon Route 53 that you have administrative rights on. A working kubernetes cluster with Cilium installed and configured to be a Gateway. I’m using Talos for mine, but regular kubernetes or k3s clusters will work too. If you need to set up a new cluster, or configure an existing one to use Cilum, read part one of this series. cilium, kubectl &amp; helm - if you don’t want to brew install them, install instructions are at cilium.io, helm.sh and kubectl. Software Versions Here are the versions of the software I used while writing this post. Later versions should work, but this is what these instructions were tested with.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-01-04 15:17:37 -0700 MST'>January 4, 2026</span>&nbsp;·&nbsp;14 min&nbsp;·&nbsp;2833 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53" href="https://unixorn.github.io/post/homelab/k8s/02-k8s-cilium-r53-and-cert-manager/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Creating a Talos kubernetes cluster with a Cilium CNI on Proxmox
     </h2>
   </header>
@@ -291,19 +306,6 @@ Here’s how I installed Prometheus and Grafana in my homelab to get them.
   </div>
   <footer class="entry-footer"><span title='2024-04-13 14:19:26 -0600 MDT'>April 13, 2024</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;1256 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Setup Prometheus and Grafana in Your Homelab" href="https://unixorn.github.io/post/homelab/homelab-setup-prometheus-and-grafana/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Set up nut-upsd and peanut in your homelab
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Set up nut-upsd and peanut in your homelab I run my Synology server and network switches off a UPS. I decided I wanted a dashboard for the UPS, here’s how I did set up Network UPS Tools, aka NUT, and the PeaNUT dashboard.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-04-06 16:27:06 -0600 MDT'>April 6, 2024</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;991 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to Set up nut-upsd and peanut in your homelab" href="https://unixorn.github.io/post/homelab/homelab-nut-upsd/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
