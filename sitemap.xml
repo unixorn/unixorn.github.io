@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/post/</loc>
+    <lastmod>2026-01-04T15:17:37-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/</loc>
+    <lastmod>2026-01-04T15:17:37-07:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/tags/cert-manager/</loc>
     <lastmod>2026-01-04T09:27:42-07:00</lastmod>
   </url><url>
@@ -17,19 +23,16 @@
     <loc>https://unixorn.github.io/tags/letsencrypt/</loc>
     <lastmod>2026-01-04T09:27:42-07:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/post/</loc>
+    <loc>https://unixorn.github.io/tags/r53/</loc>
     <lastmod>2026-01-04T09:27:42-07:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/tags/r53/</loc>
+    <loc>https://unixorn.github.io/tags/ssl/</loc>
     <lastmod>2026-01-04T09:27:42-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/</loc>
     <lastmod>2026-01-04T09:27:42-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/talos/</loc>
-    <lastmod>2026-01-04T09:27:42-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/</loc>
     <lastmod>2026-01-04T09:27:42-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/email/</loc>
@@ -288,9 +291,6 @@
     <lastmod>2023-07-22T08:19:38-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/</loc>
-    <lastmod>2023-07-22T08:19:38-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/ssl/</loc>
     <lastmod>2023-07-22T08:19:38-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/esphome/</loc>
