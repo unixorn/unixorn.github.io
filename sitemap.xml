@@ -2,37 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://unixorn.github.io/post/</loc>
-    <lastmod>2026-01-16T23:07:33-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/</loc>
-    <lastmod>2026-01-16T23:07:33-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/post/homelab/k8s/02-k8s-cilium-r53-and-cert-manager/</loc>
-    <lastmod>2026-01-05T22:17:37-07:00</lastmod>
+    <loc>https://unixorn.github.io/tags/age/</loc>
+    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/cert-manager/</loc>
-    <lastmod>2026-01-05T22:17:37-07:00</lastmod>
+    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/gpg/</loc>
+    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/homelab/</loc>
-    <lastmod>2026-01-05T22:17:37-07:00</lastmod>
+    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/k8s/</loc>
-    <lastmod>2026-01-05T22:17:37-07:00</lastmod>
+    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/kubernetes/</loc>
+    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/letsencrypt/</loc>
-    <lastmod>2026-01-05T22:17:37-07:00</lastmod>
+    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/macos/</loc>
+    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/</loc>
+    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/r53/</loc>
-    <lastmod>2026-01-05T22:17:37-07:00</lastmod>
+    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/homelab/k8s/03-secret-management-with-sops/</loc>
+    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/sops/</loc>
+    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/ssl/</loc>
-    <lastmod>2026-01-05T22:17:37-07:00</lastmod>
+    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/</loc>
-    <lastmod>2026-01-05T22:17:37-07:00</lastmod>
+    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/talos/</loc>
+    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/</loc>
+    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/homelab/k8s/02-k8s-cilium-r53-and-cert-manager/</loc>
     <lastmod>2026-01-05T22:17:37-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/homelab/k8s/01-talos-with-cilium-cni-on-proxmox/</loc>
@@ -56,9 +74,6 @@
     <loc>https://unixorn.github.io/post/2025-12-26-advice-for-switching-to-proton-hosted-email/</loc>
     <lastmod>2025-12-26T15:30:31-07:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/tags/kubernetes/</loc>
-    <lastmod>2025-12-12T23:49:23-07:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/tags/nfs/</loc>
     <lastmod>2025-12-12T23:49:23-07:00</lastmod>
   </url><url>
@@ -69,9 +84,6 @@
     <lastmod>2025-12-12T23:49:23-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/iterm/</loc>
-    <lastmod>2025-12-08T17:54:19-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/macos/</loc>
     <lastmod>2025-12-08T17:54:19-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/homelab/weird-shit-is-afoot-with-macos-and-iterm/</loc>
