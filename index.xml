@@ -23,8 +23,9 @@
 &lt;p&gt;The tutorials I&amp;rsquo;ve seen for using cert-manager with a DNS challenge all use CloudFlare. I have my lab domain on &lt;a href=&#34;https://aws.amazon.com/route53/&#34;&gt;Route 53&lt;/a&gt; so this post will cover that instead.&lt;/p&gt;
 &lt;h2 id=&#34;talos-homelab-setup-series&#34;&gt;Talos Homelab Setup Series&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;../01-talos-with-cilium-cni-on-proxmox/&#34;&gt;01 - Setting up Talos with a Cilium CNI on proxmox&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;02 - Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../01-talos-with-cilium-cni-on-proxmox/&#34;&gt;Part 1 - Setting up Talos with a Cilium CNI on proxmox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 2 - Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../03-secret-management-with-sops/&#34;&gt;- Part 3 - Set up Secret Management with SOPS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h2&gt;
 &lt;ul&gt;
@@ -632,8 +633,10 @@
 &lt;p&gt;I like cooking, photography, and working on distributed infrastructure.&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m the organizer for Denver &lt;a href=&#34;https://www.meetup.com/Denver-CoffeeOps/&#34;&gt;CoffeeOps&lt;/a&gt;, which currently meets online - the meetup link has the Google Meet details.&lt;/p&gt;
 &lt;p&gt;I have a variety of DevOps (and DevOOPs) themed swag on &lt;a href=&#34;https://www.redbubble.com/people/unixorn/collections/1069603-devoops?asc=u&#34;&gt;redbubble&lt;/a&gt;, if you&amp;rsquo;d like to buy something and contribute to my hardware habit, or you can contribute at &lt;a href=&#34;https://www.patreon.com/unixorn&#34;&gt;https://www.patreon.com/unixorn&lt;/a&gt;.&lt;/p&gt;
-&lt;script type=&#34;text/javascript&#34; src=&#34;http://www.redbubble.com/assets/external_portfolio.js&#34;&gt;&lt;/script&gt;
-&lt;script id=&#34;rb-xzfcxvzx&#34; type=&#34;text/javascript&#34;&gt;new RBExternalPortfolio(&#39;www.redbubble.com&#39;, &#39;unixorn&#39;, 3, 3).renderIframe();&lt;/script&gt;</description>
+&lt;p&gt;&lt;script type=&#34;text/javascript&#34; src=&#34;http://www.redbubble.com/assets/external_portfolio.js&#34;&gt;&lt;/script&gt;
+&lt;script id=&#34;rb-xzfcxvzx&#34; type=&#34;text/javascript&#34;&gt;new RBExternalPortfolio(&#39;www.redbubble.com&#39;, &#39;unixorn&#39;, 3, 3).renderIframe();&lt;/script&gt;
+
+&lt;a href=&#34;https://patreon.com/unixorn?utm_medium=unknown&amp;amp;utm_source=join_link&amp;amp;utm_campaign=creatorshare_creator&amp;amp;utm_content=copyLink&#34;&gt;https://patreon.com/unixorn?utm_medium=unknown&amp;amp;utm_source=join_link&amp;amp;utm_campaign=creatorshare_creator&amp;amp;utm_content=copyLink&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title></title>

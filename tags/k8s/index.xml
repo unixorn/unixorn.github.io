@@ -23,8 +23,9 @@
 &lt;p&gt;The tutorials I&amp;rsquo;ve seen for using cert-manager with a DNS challenge all use CloudFlare. I have my lab domain on &lt;a href=&#34;https://aws.amazon.com/route53/&#34;&gt;Route 53&lt;/a&gt; so this post will cover that instead.&lt;/p&gt;
 &lt;h2 id=&#34;talos-homelab-setup-series&#34;&gt;Talos Homelab Setup Series&lt;/h2&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;../01-talos-with-cilium-cni-on-proxmox/&#34;&gt;01 - Setting up Talos with a Cilium CNI on proxmox&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;02 - Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../01-talos-with-cilium-cni-on-proxmox/&#34;&gt;Part 1 - Setting up Talos with a Cilium CNI on proxmox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 2 - Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../03-secret-management-with-sops/&#34;&gt;- Part 3 - Set up Secret Management with SOPS&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-requisites&lt;/h2&gt;
 &lt;ul&gt;
