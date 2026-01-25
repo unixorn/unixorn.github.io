@@ -12,8 +12,50 @@
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Mon, 19 Jan 2026 14:19:03 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 24 Jan 2026 12:20:42 -0700</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Backups</title>
+      <link>https://unixorn.github.io/tags/backups/</link>
+      <pubDate>Sat, 24 Jan 2026 12:20:42 -0700</pubDate>
+      <guid>https://unixorn.github.io/tags/backups/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Etcd</title>
+      <link>https://unixorn.github.io/tags/etcd/</link>
+      <pubDate>Sat, 24 Jan 2026 12:20:42 -0700</pubDate>
+      <guid>https://unixorn.github.io/tags/etcd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Homelab</title>
+      <link>https://unixorn.github.io/tags/homelab/</link>
+      <pubDate>Sat, 24 Jan 2026 12:20:42 -0700</pubDate>
+      <guid>https://unixorn.github.io/tags/homelab/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>K8s</title>
+      <link>https://unixorn.github.io/tags/k8s/</link>
+      <pubDate>Sat, 24 Jan 2026 12:20:42 -0700</pubDate>
+      <guid>https://unixorn.github.io/tags/k8s/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Smb</title>
+      <link>https://unixorn.github.io/tags/smb/</link>
+      <pubDate>Sat, 24 Jan 2026 12:20:42 -0700</pubDate>
+      <guid>https://unixorn.github.io/tags/smb/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Talos</title>
+      <link>https://unixorn.github.io/tags/talos/</link>
+      <pubDate>Sat, 24 Jan 2026 12:20:42 -0700</pubDate>
+      <guid>https://unixorn.github.io/tags/talos/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Age</title>
       <link>https://unixorn.github.io/tags/age/</link>
@@ -33,20 +75,6 @@
       <link>https://unixorn.github.io/tags/gpg/</link>
       <pubDate>Mon, 19 Jan 2026 14:19:03 -0700</pubDate>
       <guid>https://unixorn.github.io/tags/gpg/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Homelab</title>
-      <link>https://unixorn.github.io/tags/homelab/</link>
-      <pubDate>Mon, 19 Jan 2026 14:19:03 -0700</pubDate>
-      <guid>https://unixorn.github.io/tags/homelab/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>K8s</title>
-      <link>https://unixorn.github.io/tags/k8s/</link>
-      <pubDate>Mon, 19 Jan 2026 14:19:03 -0700</pubDate>
-      <guid>https://unixorn.github.io/tags/k8s/</guid>
       <description></description>
     </item>
     <item>
@@ -89,13 +117,6 @@
       <link>https://unixorn.github.io/tags/ssl/</link>
       <pubDate>Mon, 19 Jan 2026 14:19:03 -0700</pubDate>
       <guid>https://unixorn.github.io/tags/ssl/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Talos</title>
-      <link>https://unixorn.github.io/tags/talos/</link>
-      <pubDate>Mon, 19 Jan 2026 14:19:03 -0700</pubDate>
-      <guid>https://unixorn.github.io/tags/talos/</guid>
       <description></description>
     </item>
     <item>
@@ -642,13 +663,6 @@
       <link>https://unixorn.github.io/tags/tech/</link>
       <pubDate>Sat, 18 Mar 2023 13:46:13 -0600</pubDate>
       <guid>https://unixorn.github.io/tags/tech/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Backups</title>
-      <link>https://unixorn.github.io/tags/backups/</link>
-      <pubDate>Fri, 13 Jan 2023 11:16:19 -0700</pubDate>
-      <guid>https://unixorn.github.io/tags/backups/</guid>
       <description></description>
     </item>
     <item>

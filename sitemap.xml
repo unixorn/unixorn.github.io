@@ -2,7 +2,31 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/post/homelab/k8s/04-backup-talos-etcd-to-smb/</loc>
+    <lastmod>2026-01-24T12:20:42-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/backups/</loc>
+    <lastmod>2026-01-24T12:20:42-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/etcd/</loc>
+    <lastmod>2026-01-24T12:20:42-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/homelab/</loc>
+    <lastmod>2026-01-24T12:20:42-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/k8s/</loc>
+    <lastmod>2026-01-24T12:20:42-07:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/post/</loc>
+    <lastmod>2026-01-24T12:20:42-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/smb/</loc>
+    <lastmod>2026-01-24T12:20:42-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2026-01-24T12:20:42-07:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/talos/</loc>
     <lastmod>2026-01-24T12:20:42-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/</loc>
@@ -15,12 +39,6 @@
     <lastmod>2026-01-19T14:19:03-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/gpg/</loc>
-    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/homelab/</loc>
-    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/k8s/</loc>
     <lastmod>2026-01-19T14:19:03-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/kubernetes/</loc>
@@ -42,12 +60,6 @@
     <lastmod>2026-01-19T14:19:03-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/ssl/</loc>
-    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
-    <lastmod>2026-01-19T14:19:03-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/talos/</loc>
     <lastmod>2026-01-19T14:19:03-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/homelab/k8s/02-k8s-cilium-r53-and-cert-manager/</loc>
@@ -379,9 +391,6 @@
   </url><url>
     <loc>https://unixorn.github.io/post/ha-mqtt-discoverable-0.8.0/</loc>
     <lastmod>2023-03-11T16:39:38-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/backups/</loc>
-    <lastmod>2023-01-13T11:16:19-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/duplicacy/</loc>
     <lastmod>2023-01-13T11:16:19-07:00</lastmod>

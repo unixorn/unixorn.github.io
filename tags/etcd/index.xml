@@ -2,37 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
     <title>Etcd on unixorn.github.io</title>
-    <link>http://localhost:1313/tags/etcd/</link>
+    <link>https://unixorn.github.io/tags/etcd/</link>
     <description>Recent content in Etcd on unixorn.github.io</description>
     <image>
       <title>unixorn.github.io</title>
-      <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
-      <link>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sat, 24 Jan 2026 12:20:42 -0700</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/etcd/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://unixorn.github.io/tags/etcd/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Back up Talos etcd cluster to a smb share</title>
-      <link>http://localhost:1313/post/homelab/k8s/04-backup-talos-etcd-to-smb/</link>
+      <title>Back up your Talos etcd cluster to a smb share</title>
+      <link>https://unixorn.github.io/post/homelab/k8s/04-backup-talos-etcd-to-smb/</link>
       <pubDate>Sat, 24 Jan 2026 12:20:42 -0700</pubDate>
-      <guid>http://localhost:1313/post/homelab/k8s/04-backup-talos-etcd-to-smb/</guid>
+      <guid>https://unixorn.github.io/post/homelab/k8s/04-backup-talos-etcd-to-smb/</guid>
       <description>&lt;p&gt;In this post, I will show how to access smb shares outside the cluster from a Kubernetes Pod. I will be backing up the etcd cluster in my Talos k8s cluster to a share, but you can use this for any service (like Plex or Jellyfin) that need access to files on a NAS.&lt;/p&gt;
 &lt;p&gt;This is part four of my Homelab Kubernetes series.&lt;/p&gt;
-&lt;h2 id=&#34;talos-kubernetes-homelab-setup-series&#34;&gt;Talos Kubernetes Homelab Setup Series&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;../01-talos-with-cilium-cni-on-proxmox/&#34;&gt;Part 1 - Setting up Talos with a Cilium CNI on proxmox&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;../02-k8s-cilium-r53-and-cert-manager/&#34;&gt;Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;../03-secret-management-with-sops/&#34;&gt;Part 3 - Secret Management with SOPS&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 4 - Back up etcd to a SMB share&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;A working kubernetes cluster. I&amp;rsquo;m using &lt;a href=&#34;https://www.talos.dev/&#34;&gt;Talos&lt;/a&gt; for mine, but regular &lt;a href=&#34;https://kubernetes.io&#34;&gt;kubernetes&lt;/a&gt; or &lt;a href=&#34;https://k3s.io&#34;&gt;k3s&lt;/a&gt; clusters will work too. If you need to set up a new cluster, or configure an existing one to use Cilum, read &lt;a href=&#34;(../01-talos-with-cilium-cni-on-proxmox/)&#34;&gt;part one&lt;/a&gt; of this series.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;helm&lt;/code&gt; &amp;amp; &lt;code&gt;kubectl&lt;/code&gt; - if you don&amp;rsquo;t want to &lt;code&gt;brew install&lt;/code&gt; them, install instructions are at &lt;a href=&#34;https://helm.sh&#34;&gt;helm.sh&lt;/a&gt; and &lt;a href=&#34;https://kubernetes.io/docs/tasks/tools/&#34;&gt;kubectl&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;sops&lt;/code&gt; and &lt;code&gt;age&lt;/code&gt;. On a Mac, you can run &lt;code&gt;brew install sops age&lt;/code&gt;. If you&amp;rsquo;re using Linux or Windows, use the &lt;a href=&#34;https://github.com/FiloSottile/age#installation&#34;&gt;age installation instructions&lt;/a&gt; and &lt;a href=&#34;https://github.com/getsops/sops?tab=readme-ov-file#1download&#34;&gt;sops installation instructions&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Part 4 - Back up your Talos etcd cluster to a SMB share&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The Kubernetes project has created a standardized API specification to make it possible for third parties to write plugins that allow clusters to interact with file or block based storage systems without having to have code merged into the core project.&lt;/p&gt;</description>
     </item>
