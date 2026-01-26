@@ -19,29 +19,15 @@
       <link>https://unixorn.github.io/post/homelab/k8s/04-backup-talos-etcd-to-smb/</link>
       <pubDate>Sat, 24 Jan 2026 12:20:42 -0700</pubDate>
       <guid>https://unixorn.github.io/post/homelab/k8s/04-backup-talos-etcd-to-smb/</guid>
-      <description>&lt;p&gt;In this post, I will show how to access smb shares outside the cluster from a Kubernetes Pod. I will be backing up the etcd cluster in my Talos k8s cluster to a share, but you can use this for any service (like Plex or Jellyfin) that need access to files on a NAS.&lt;/p&gt;
-&lt;p&gt;This is part four of my Homelab Kubernetes series.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;../01-talos-with-cilium-cni-on-proxmox/&#34;&gt;Part 1 - Setting up Talos with a Cilium CNI on proxmox&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;../02-k8s-cilium-r53-and-cert-manager/&#34;&gt;Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;../03-secret-management-with-sops/&#34;&gt;Part 3 - Secret Management with SOPS&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 4 - Back up your Talos etcd cluster to a SMB share&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The Kubernetes project has created a standardized API specification to make it possible for third parties to write plugins that allow clusters to interact with file or block based storage systems without having to have code merged into the core project.&lt;/p&gt;</description>
+      <description>&lt;p&gt;In this post, I will show how to access smb shares outside the cluster from a Kubernetes Pod. The example is backing up the etcd cluster in my Talos k8s cluster to a share, but you can use this for any service (like Plex or Jellyfin) that need access to files on a NAS.&lt;/p&gt;
+&lt;p&gt;This is part four of my Homelab Kubernetes series.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Secret Management with SOPS</title>
       <link>https://unixorn.github.io/post/homelab/k8s/03-secret-management-with-sops/</link>
       <pubDate>Mon, 19 Jan 2026 14:19:03 -0700</pubDate>
       <guid>https://unixorn.github.io/post/homelab/k8s/03-secret-management-with-sops/</guid>
-      <description>&lt;p&gt;This is part 3 of my Kubernetes homelab cluster setup series - Secrets Management with &lt;a href=&#34;https://github.com/getsops/sops&#34;&gt;SOPS&lt;/a&gt;.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;../01-talos-with-cilium-cni-on-proxmox/&#34;&gt;Part 1 - Setting up Talos with a Cilium CNI on proxmox&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;../02-k8s-cilium-r53-and-cert-manager/&#34;&gt;Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Part 3 - Secret Management with SOPS&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;../04-backup-talos-etcd-to-smb/&#34;&gt;Part 4 - Back up your Talos etcd cluster to a SMB share&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;The cluster is up, but it isn&amp;rsquo;t very usable yet. Before we and any services, we need to set up secrets management.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This is part 3 of my Kubernetes homelab cluster setup series - Secrets Management with &lt;a href=&#34;https://github.com/getsops/sops&#34;&gt;SOPS&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53</title>
