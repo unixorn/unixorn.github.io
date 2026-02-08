@@ -32,6 +32,7 @@
 &lt;li&gt;Part 2 - Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;../03-secret-management-with-sops/&#34;&gt;Part 3 - Set up Secret Management with SOPS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;../04-backup-talos-etcd-to-smb/&#34;&gt;Part 4 - Back up your Talos etcd cluster to a SMB share&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../05-install-argocd/&#34;&gt;Part 5 - Install ArgoCD&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The tutorials I&amp;rsquo;ve seen for using cert-manager with a DNS challenge all use CloudFlare. I have my lab domain on &lt;a href=&#34;https://aws.amazon.com/route53/&#34;&gt;Route 53&lt;/a&gt; so this post will cover that instead.&lt;/p&gt;</description>
     </item>
@@ -40,7 +41,7 @@
       <link>https://unixorn.github.io/post/homelab/k8s/01-talos-with-cilium-cni-on-proxmox/</link>
       <pubDate>Sun, 04 Jan 2026 09:27:42 -0700</pubDate>
       <guid>https://unixorn.github.io/post/homelab/k8s/01-talos-with-cilium-cni-on-proxmox/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve been meaning to set up a talos cluster in my homelab for a while and set one up over the holiday break. Here&amp;rsquo;s how I did it.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve been meaning to set up a &lt;a href=&#34;https://www.siderolabs.com/talos-linux/&#34;&gt;Talos&lt;/a&gt; linux kubernetes cluster in my homelab for a while and set one up over the holiday break. Here&amp;rsquo;s how I did it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Set up nginx-proxy-manager with LetsEncrypt SSL certificates</title>

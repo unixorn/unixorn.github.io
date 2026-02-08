@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Install Argo CD in a homelab cluster | unixorn.github.io</title>
+<meta name="keywords" content="argocd, homelab, k8s, kubernetes, talos">
+<meta name="description" content="In part five of my kubernetes homelab series, we will install Argo CD into a homelab cluster so we can use gitops practices instead of ad-hoc kubectl commands.
+This will make it much easier to recreate the cluster exactly if we decide to move it to new hardware or just want to reset things to a known-good state after experimentation.
+
+Part 1 - Setting up Talos with a Cilium CNI on proxmox
+Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53
+Part 3 - Secret Management with SOPS
+Part 4 - Back up your Talos etcd cluster to a SMB share
+Part 5 - Install Argo CD
+
+Why bother with gitops? It&rsquo;s a homelab, and I&rsquo;m the only administrator
+Using gitops to configure your cluster instead of running kubectl apply commands directly makes it possible to reproduce the exact state of the cluster later if you need to revert to a known-good state.">
+<meta name="author" content="Me">
+<link rel="canonical" href="https://unixorn.github.io/post/homelab/k8s/05-install-argocd/">
+<meta name="google-site-verification" content="UA-100853138-2">
+<link crossorigin="anonymous" href="https://unixorn.github.io/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css" integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF&#43;13Dyqob6ASlTrTye8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="16x16" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="apple-touch-icon" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="mask-icon" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://unixorn.github.io/post/homelab/k8s/05-install-argocd/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://unixorn.github.io/post/homelab/k8s/05-install-argocd/">
+  <meta property="og:site_name" content="unixorn.github.io">
+  <meta property="og:title" content="Install Argo CD in a homelab cluster">
+  <meta property="og:description" content="In part five of my kubernetes homelab series, we will install Argo CD into a homelab cluster so we can use gitops practices instead of ad-hoc kubectl commands.
+This will make it much easier to recreate the cluster exactly if we decide to move it to new hardware or just want to reset things to a known-good state after experimentation.
+Part 1 - Setting up Talos with a Cilium CNI on proxmox Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53 Part 3 - Secret Management with SOPS Part 4 - Back up your Talos etcd cluster to a SMB share Part 5 - Install Argo CD Why bother with gitops? It’s a homelab, and I’m the only administrator Using gitops to configure your cluster instead of running kubectl apply commands directly makes it possible to reproduce the exact state of the cluster later if you need to revert to a known-good state.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-02-08T09:21:34-07:00">
+    <meta property="article:modified_time" content="2026-02-08T09:21:34-07:00">
+    <meta property="article:tag" content="Argocd">
+    <meta property="article:tag" content="Homelab">
+    <meta property="article:tag" content="K8s">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="article:tag" content="Talos">
+      <meta property="og:image" content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:title" content="Install Argo CD in a homelab cluster">
+<meta name="twitter:description" content="In part five of my kubernetes homelab series, we will install Argo CD into a homelab cluster so we can use gitops practices instead of ad-hoc kubectl commands.
+This will make it much easier to recreate the cluster exactly if we decide to move it to new hardware or just want to reset things to a known-good state after experimentation.
+
+Part 1 - Setting up Talos with a Cilium CNI on proxmox
+Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53
+Part 3 - Secret Management with SOPS
+Part 4 - Back up your Talos etcd cluster to a SMB share
+Part 5 - Install Argo CD
+
+Why bother with gitops? It&rsquo;s a homelab, and I&rsquo;m the only administrator
+Using gitops to configure your cluster instead of running kubectl apply commands directly makes it possible to reproduce the exact state of the cluster later if you need to revert to a known-good state.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://unixorn.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Install Argo CD in a homelab cluster",
+      "item": "https://unixorn.github.io/post/homelab/k8s/05-install-argocd/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Install Argo CD in a homelab cluster",
+  "name": "Install Argo CD in a homelab cluster",
+  "description": "In part five of my kubernetes homelab series, we will install Argo CD into a homelab cluster so we can use gitops practices instead of ad-hoc kubectl commands.\nThis will make it much easier to recreate the cluster exactly if we decide to move it to new hardware or just want to reset things to a known-good state after experimentation.\nPart 1 - Setting up Talos with a Cilium CNI on proxmox Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53 Part 3 - Secret Management with SOPS Part 4 - Back up your Talos etcd cluster to a SMB share Part 5 - Install Argo CD Why bother with gitops? It\u0026rsquo;s a homelab, and I\u0026rsquo;m the only administrator Using gitops to configure your cluster instead of running kubectl apply commands directly makes it possible to reproduce the exact state of the cluster later if you need to revert to a known-good state.\n",
+  "keywords": [
+    "argocd", "homelab", "k8s", "kubernetes", "talos"
+  ],
+  "articleBody": "In part five of my kubernetes homelab series, we will install Argo CD into a homelab cluster so we can use gitops practices instead of ad-hoc kubectl commands.\nThis will make it much easier to recreate the cluster exactly if we decide to move it to new hardware or just want to reset things to a known-good state after experimentation.\nPart 1 - Setting up Talos with a Cilium CNI on proxmox Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53 Part 3 - Secret Management with SOPS Part 4 - Back up your Talos etcd cluster to a SMB share Part 5 - Install Argo CD Why bother with gitops? It’s a homelab, and I’m the only administrator Using gitops to configure your cluster instead of running kubectl apply commands directly makes it possible to reproduce the exact state of the cluster later if you need to revert to a known-good state.\nIn a non-homelab environment, using gitops allows you to have a history of who made what changes when, easily control who can change which environments and to reproduce the same state in multiple clusters running in different data centers.\nIn our homelab environment, running kubectl apply commands directly makes it nearly impossible to reproduce the exact state of the cluster later if you need to revert to a known-good state. By using gitops powered by Argo CD, you can revert your configuration git repository to a known-good tag or commit, and Argo will automatically bring the cluster back to that state.\nEven if you’re the only one administering the cluster, it’s a good habit to get into - unless you’re very unlucky, work environments will require changes to production clusters to be done via some form of gitops for change management.\nGoals In this post we will install Argo CD into our homelab cluster and configure it to manage itself.\nSoftware Versions Here are the versions of the software I used while writing this post. Later versions should work, but this is what these instructions were tested with.\nSoftware Version argocd 3.2.6 helm 4.0.1 kubectl 1.34 kubernetes 1.34.1 talos 1.11.5 Pre-requisites To follow along with this post, you will need:\nA homelab kubernetes cluster. I’m using the talos cluster from Part 1 - Setting up Talos with a Cilium CNI on proxmox, but this will work with any kubernetes cluster. A GitHub account. You can also use GitLab or your own git server, but all the examples in this post assume you’re storing your Argo CD repository on GitHub. The argocd command line tool. Either install it with brew install argocd or follow the argocd install instructions page. If you’ve been following along with this series, you already have helm and kubectl. Otherwise you can brew install them or follow the install instructions at helm.sh and kubectl. Goals We’re going to bootstrap ArgoCD by installing it with helm, then we’ll aad it to its own configuration repository so we can do future upgrades with git.\nInstallation Add the helm repository We’re going to do our initial bootstrap with helm, so first add the argo helm repository.\nhelm repo add argo https://argoproj.github.io/argo-helm Find the latest chart version We want to extract the default values from the helm chart, so first run\nhelm search repo argo/argo-cd As I’m writing this, the current chart version is 9.3.7\n$ helm search repo argo/argo-cd NAME CHART VERSION\tAPP VERSION\tDESCRIPTION argo/argo-cd\t9.3.7 v3.2.6 A Helm chart for Argo CD, a declarative, GitOps... Now we can extract the defaults and see what we want to change\nhelm show values argo/argo-cd --version 9.3.7 \u003e values.yaml Create argo-values.yaml In this post, we’re going to use all defaults except for server.insecure, so put this into argo-values.yaml\nconfigs: params: server.insecure: true Bootstrap Argo CD with helm Now we can bootstrap Argo CD. Why helm upgrade --install instead of helm install? If you have an old version of a chart installed and run helm install, you get an error. helm upgrade --install works whether or not the chart is already installed.\nhelm upgrade --install argocd argo/argo-cd \\ --version 9.3.7 \\ --values argo-values.yaml \\ --namespace argocd --create-namespace Confirm the install Depending on the horsepower of your k8s nodes, it can take a few minutes for argocd’s install to complete. Run kubectl get pod -n argocd until all the pods show that they’re ready - it should look similar to this:\n$ kubectl get pod -n argocd NAME READY STATUS RESTARTS AGE argocd-application-controller-0 1/1 Running 0 4m25s argocd-applicationset-controller-5f6775c8f7-pc6mt 1/1 Running 0 4m23s argocd-dex-server-7c454cdd97-x7b2g 1/1 Running 2 (4m5s ago) 4m25s argocd-notifications-controller-6485c849d7-9s6zq 1/1 Running 0 4m25s argocd-redis-6cf948f6d6-vqjx8 1/1 Running 0 4m25s argocd-repo-server-5b584fdbb8-pr6lg 1/1 Running 0 4m25s argocd-server-849bd4596-b52z4 1/1 Running 0 4m25s Create a GitHub token Argo CD reads its configuration from git repositories, so it needs a token to read your private repositories. These instructions were valid as on 2026-02-01. You don’t need to create a token if you’re only going to use public git repositories.\nGo to GitHub and select Settings, then Developer Settings at the bottom of the sidebar on the left Select Fine-grained-tokens, then Generate new token at the right side of the page. Give it a token name and description, then set an expiration time Time to decide on Repository Access level. I picked All repositories, but you can restrict it to just public repositories or even specific repositories Click the Add permissions button and grant Contents permission, then specify access - I didn’t want there to be any chance of it changing things behind my back so I gave it Read-only access. Connect to your Argo CD instance Before you connect to the web ui, you need to find the random password generated for the admin user when ArgoCD was installed.\nkubectl get secret argocd-initial-admin-secret -n argocd \\ -o jsonpath=\"{.data.password}\" | base64 -d Set up port forwarding so you can connect to Argo’s web UI\nkubectl -n argocd port-forward svc/argocd-server 8443:443 Now you can log into https://localhost:8443\nFirst, reset the password Click User Info in the left sidebar\nOnce you’ve changed your password and added it to your password manager, you should delete the argocd-initial-admin-secret secret. It will be regenerated if you force a password reset in the future.\nkubectl -n argocd delete secret/argocd-initial-admin-secret Create an Argo CD chart We want Argo to be able to update or roll itself back, so let’s create an app for it and add that.\nCreate the argocd application in your Argo CD configuration repository Create git a repository for your Argo CD configuration. Add an argocd top-level directory to it. We’re going to create a helm chart for it, so you’ll need to create three files in the argocd directory - Chart.yaml, Chart.lock, and values.yaml.\nYou can copy them from my bootstrap-argocd repository, or fork that repository.\nHere are the manifest source files\nChart.yaml # Chart.yaml apiVersion: v2 name: argocd description: Argo CD Helm Chart type: application version: 9.3.7 dependencies: - name: argo-cd version: 9.3.7 repository: https://argoproj.github.io/argo-helm Chart.lock # Chart.lock dependencies: - name: argo-cd repository: https://argoproj.github.io/argo-helm version: 9.3.7 digest: sha256:688d3b74c5750ef87ff3cafd13b5879c8e7cda7be17ab252a289f3c24591ff0b generated: \"2026-01-28T00:02:16.172701-07:00\" values.yaml You could specify all the values you got when you ran helm show values argo/argo-cd --version 9.3.7 \u003e values.yaml, but I prefer to only override the values I care about. If other values change in future versions, I want them automatically updated when I update argo.\n--- # values.yaml argo-cd: nameOverride: argocd configs: params: server.insecure: true Commit all the files, then push to GitHub.\nMake ArgoCD manage itself For these instructions, I’m going to use an example repository I set up on GitHub. Replace this url https://github.com/unixorn-exemplars/bootstrap-argocd.git with your repository url.\nAdd a new argocd app Log into your Argo CD instance and select New App from the upper left corner of the UI.\nSet the Application name to argocd Select default from the Project Name dropdown menu Leave the Sync policy as Manual for now Set the repository url to https://github.com/unixorn-exemplars/bootstrap-argocd.git Leave the revision as HEAD Set the path to argocd Since we’re running Argo on the same cluster we want to manage, set the cluster URL to https://kubernetes.default.svc Set the namespace to argocd. We want to use the same namespace that we had helm install argo into so that when we sync, it reuses the same resources that were installed by helm instead of making new ones. Click create. It should look similar to this:\nIf your configuration repository is a private repository, you will have to add your GitHub username and set the password to the PAT you created earlier.\nClick Create.\nSyncing the App Right now your app has been added, but until you sync it, it won’t be active. You should see\nIf you click on the app tile, it’ll show you a detailed map of what resources the app creates\nGo ahead and click Sync.\nBecause you’ve already installed argo with helm, the resources already exist and it should only take a few seconds to show that it is synced.\nEnabling automatic syncing One last thing to configure - right now, Argo will only sync when you explicitly tell it to. That’s not much good for gitops though, we want argo to detect when changes are merged to main and apply them to the cluster automatically.\nClick details, then scroll down to the bottom of the panel until you see sync policy\nEnable auto-sync, then select Prune Resources and Self Heal, and save. By default, Argo CD checks every 120 seconds, with a random offset of up to 60 seconds to prevent simultaneously polling multiple apps at once.\nPrune Resources tells argo that if a new version of the app no longer includes a resource, that resource should eb deleted during upgrade.\nSelf Heal tells argo that whenever it detects a deviation from the app’s configuration, it should correct it - not only during upgrades, all of the time.\nSummary You have:\nInstalled Argo CD in your cluster so that you can use it for gitops practices Created a configuration GitHub repository you can use with Argo CD to install and configure apps in your cluster Created an argocd directory in that GitHub directory Configured Argo CD to use the argocd app in your repository to manage itself Configured Argo CD to automagically correct any deviation from the spec defined in the argocd directory ",
+  "wordCount" : "1722",
+  "inLanguage": "en",
+  "image": "https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished": "2026-02-08T09:21:34-07:00",
+  "dateModified": "2026-02-08T09:21:34-07:00",
+  "author":{
+    "@type": "Person",
+    "name": "Me"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://unixorn.github.io/post/homelab/k8s/05-install-argocd/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "unixorn.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://unixorn.github.io/%3Clink%20/%20abs%20url%3E"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://unixorn.github.io/" accesskey="h" title="Home (Alt + H)">
+                <img src="https://unixorn.github.io/apple-touch-icon.png" alt="" aria-label="logo"
+                    height="35">Home</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://unixorn.github.io/archives/" title="archives">
+                    <span>archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://unixorn.github.io/search/" title="search (Alt &#43; /)" accesskey=/>
+                    <span>search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://unixorn.github.io/about/" title="about">
+                    <span>about</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://unixorn.github.io/projects/" title="projects">
+                    <span>projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://unixorn.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hachyderm.io/@unixorn" title="hachyderm.io/@unixorn">
+                    <span>hachyderm.io/@unixorn</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<link rel="stylesheet" type="text/css" href="https://unixorn.github.io/css/mastodon.css" />
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://unixorn.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://unixorn.github.io/post/">Posts</a></div>
+    <h1 class="post-title">
+      Install Argo CD in a homelab cluster
+    </h1>
+    <div class="post-meta"><span title='2026-02-08 09:21:34 -0700 MST'>February 8, 2026</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1722 words&nbsp;·&nbsp;Me
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-bother-with-gitops-its-a-homelab-and-im-the-only-administrator">Why bother with gitops? It&rsquo;s a homelab, and I&rsquo;m the only administrator</a></li>
+    <li><a href="#goals">Goals</a>
+      <ul>
+        <li><a href="#software-versions">Software Versions</a></li>
+        <li><a href="#pre-requisites">Pre-requisites</a></li>
+      </ul>
+    </li>
+    <li><a href="#goals-1">Goals</a></li>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#add-the-helm-repository">Add the helm repository</a></li>
+        <li><a href="#bootstrap-argo-cd-with-helm">Bootstrap Argo CD with <code>helm</code></a></li>
+        <li><a href="#create-a-github-token">Create a GitHub token</a></li>
+        <li><a href="#connect-to-your-argo-cd-instance">Connect to your Argo CD instance</a></li>
+      </ul>
+    </li>
+    <li><a href="#create-an-argo-cd-chart">Create an Argo CD chart</a>
+      <ul>
+        <li><a href="#create-the-argocd-application-in-your-argo-cd-configuration-repository">Create the argocd application in your Argo CD configuration repository</a></li>
+      </ul>
+    </li>
+    <li><a href="#make-argocd-manage-itself">Make ArgoCD manage itself</a>
+      <ul>
+        <li><a href="#add-a-new-argocd-app">Add a new argocd app</a></li>
+        <li><a href="#syncing-the-app">Syncing the App</a></li>
+        <li><a href="#enabling-automatic-syncing">Enabling automatic syncing</a></li>
+      </ul>
+    </li>
+    <li><a href="#summary">Summary</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>In part five of my kubernetes homelab series, we will install Argo CD into a homelab cluster so we can use gitops practices instead of ad-hoc <code>kubectl</code> commands.</p>
+<p>This will make it much easier to recreate the cluster exactly if we decide to move it to new hardware or just want to reset things to a known-good state after experimentation.</p>
+<ul>
+<li><a href="../01-talos-with-cilium-cni-on-proxmox/">Part 1 - Setting up Talos with a Cilium CNI on proxmox</a></li>
+<li><a href="../02-k8s-cilium-r53-and-cert-manager/">Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53</a></li>
+<li><a href="../03-secret-management-with-sops/">Part 3 - Secret Management with SOPS</a></li>
+<li><a href="../04-backup-talos-etcd-to-smb/">Part 4 - Back up your Talos etcd cluster to a SMB share</a></li>
+<li>Part 5 - Install Argo CD</li>
+</ul>
+<h2 id="why-bother-with-gitops-its-a-homelab-and-im-the-only-administrator">Why bother with gitops? It&rsquo;s a homelab, and I&rsquo;m the only administrator<a hidden class="anchor" aria-hidden="true" href="#why-bother-with-gitops-its-a-homelab-and-im-the-only-administrator">#</a></h2>
+<p>Using gitops to configure your cluster instead of running <code>kubectl apply</code> commands directly makes it possible to reproduce the exact state of the cluster later if you need to revert to a known-good state.</p>
+<p>In a non-homelab environment, using gitops allows you to have a history of who made what changes when, easily control who can change which environments and to reproduce the same state in multiple clusters running in different data centers.</p>
+<p>In our homelab environment, running  <code>kubectl apply</code> commands directly makes it nearly impossible to reproduce the exact state of the cluster later if you need to revert to a known-good state. By using gitops powered by Argo CD, you can revert your configuration <code>git</code> repository to a known-good tag or commit, and Argo will automatically bring the cluster back to that state.</p>
+<p>Even if you&rsquo;re the only one administering the cluster, it&rsquo;s a good habit to get into - unless you&rsquo;re very unlucky, work environments will require changes to production clusters to be done via some form of gitops for change management.</p>
+<h2 id="goals">Goals<a hidden class="anchor" aria-hidden="true" href="#goals">#</a></h2>
+<p>In this post we will install Argo CD into our homelab cluster and configure it to manage itself.</p>
+<h3 id="software-versions">Software Versions<a hidden class="anchor" aria-hidden="true" href="#software-versions">#</a></h3>
+<p>Here are the versions of the software I used while writing this post. Later versions should work, but this is what these instructions were tested with.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Software</th>
+          <th>Version</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>argocd</code></td>
+          <td>3.2.6</td>
+      </tr>
+      <tr>
+          <td><code>helm</code></td>
+          <td>4.0.1</td>
+      </tr>
+      <tr>
+          <td><code>kubectl</code></td>
+          <td>1.34</td>
+      </tr>
+      <tr>
+          <td><code>kubernetes</code></td>
+          <td>1.34.1</td>
+      </tr>
+      <tr>
+          <td><code>talos</code></td>
+          <td>1.11.5</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="pre-requisites">Pre-requisites<a hidden class="anchor" aria-hidden="true" href="#pre-requisites">#</a></h3>
+<p>To follow along with this post, you will need:</p>
+<ul>
+<li>A homelab kubernetes cluster. I&rsquo;m using the talos cluster from <a href="../01-talos-with-cilium-cni-on-proxmox/">Part 1 - Setting up Talos with a Cilium CNI on proxmox</a>, but this will work with any kubernetes cluster.</li>
+<li>A GitHub account. You can also use GitLab or your own <code>git</code> server, but all the examples in this post assume you&rsquo;re storing your Argo CD repository on GitHub.</li>
+<li>The <code>argocd</code> command line tool. Either install it with <code>brew install argocd</code> or follow the <a href="https://argo-cd.readthedocs.io/en/stable/cli_installation/">argocd install</a> instructions page.</li>
+<li>If you&rsquo;ve been following along with this series, you already have <code>helm</code> and <code>kubectl</code>.  Otherwise you can <code>brew install</code> them or follow the install instructions at <a href="https://helm.sh">helm.sh</a>  and <a href="https://kubernetes.io/docs/tasks/tools/">kubectl</a>.</li>
+</ul>
+<h2 id="goals-1">Goals<a hidden class="anchor" aria-hidden="true" href="#goals-1">#</a></h2>
+<p>We&rsquo;re going to bootstrap ArgoCD by installing it with <code>helm</code>, then we&rsquo;ll aad it to its own configuration repository so we can do future upgrades with <code>git</code>.</p>
+<h2 id="installation">Installation<a hidden class="anchor" aria-hidden="true" href="#installation">#</a></h2>
+<h3 id="add-the-helm-repository">Add the helm repository<a hidden class="anchor" aria-hidden="true" href="#add-the-helm-repository">#</a></h3>
+<p>We&rsquo;re going to do our initial bootstrap with <code>helm</code>, so first add the argo helm repository.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">helm repo add argo https://argoproj.github.io/argo-helm
+</span></span></code></pre></div><h4 id="find-the-latest-chart-version">Find the latest chart version<a hidden class="anchor" aria-hidden="true" href="#find-the-latest-chart-version">#</a></h4>
+<p>We want to extract the default values from the helm chart, so first run</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">helm search repo argo/argo-cd
+</span></span></code></pre></div><p>As I&rsquo;m writing this, the current chart version is 9.3.7</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ helm search repo argo/argo-cd
+</span></span><span class="line"><span class="cl">NAME        	CHART VERSION	APP VERSION	DESCRIPTION
+</span></span><span class="line"><span class="cl">argo/argo-cd	9.3.7        	v3.2.6     	A Helm chart <span class="k">for</span> Argo CD, a declarative, GitOps...
+</span></span></code></pre></div><p>Now we can extract the defaults and see what we want to change</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">helm show values argo/argo-cd --version 9.3.7 &gt; values.yaml
+</span></span></code></pre></div><h4 id="create-argo-valuesyaml">Create <code>argo-values.yaml</code><a hidden class="anchor" aria-hidden="true" href="#create-argo-valuesyaml">#</a></h4>
+<p>In this post, we&rsquo;re going to use all defaults except for <code>server.insecure</code>, so put this into <code>argo-values.yaml</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">configs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">server.insecure</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div><h3 id="bootstrap-argo-cd-with-helm">Bootstrap Argo CD with <code>helm</code><a hidden class="anchor" aria-hidden="true" href="#bootstrap-argo-cd-with-helm">#</a></h3>
+<p>Now we can bootstrap Argo CD. Why <code>helm upgrade --install</code> instead of <code>helm install</code>? If you have an old version of a chart installed and run <code>helm install</code>, you get an error. <code>helm upgrade --install</code> works whether or not the chart is already installed.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">helm upgrade --install argocd argo/argo-cd <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --version 9.3.7 <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --values argo-values.yaml <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --namespace argocd --create-namespace
+</span></span></code></pre></div><h4 id="confirm-the-install">Confirm the install<a hidden class="anchor" aria-hidden="true" href="#confirm-the-install">#</a></h4>
+<p>Depending on the horsepower of your k8s nodes, it can take a few minutes for argocd&rsquo;s install to complete. Run <code>kubectl get pod -n argocd</code> until all the pods show that they&rsquo;re ready - it should look similar to this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ kubectl get pod -n argocd
+</span></span><span class="line"><span class="cl">NAME                                                READY   STATUS    RESTARTS       AGE
+</span></span><span class="line"><span class="cl">argocd-application-controller-0                     1/1     Running   <span class="m">0</span>              4m25s
+</span></span><span class="line"><span class="cl">argocd-applicationset-controller-5f6775c8f7-pc6mt   1/1     Running   <span class="m">0</span>              4m23s
+</span></span><span class="line"><span class="cl">argocd-dex-server-7c454cdd97-x7b2g                  1/1     Running   <span class="m">2</span> <span class="o">(</span>4m5s ago<span class="o">)</span>   4m25s
+</span></span><span class="line"><span class="cl">argocd-notifications-controller-6485c849d7-9s6zq    1/1     Running   <span class="m">0</span>              4m25s
+</span></span><span class="line"><span class="cl">argocd-redis-6cf948f6d6-vqjx8                       1/1     Running   <span class="m">0</span>              4m25s
+</span></span><span class="line"><span class="cl">argocd-repo-server-5b584fdbb8-pr6lg                 1/1     Running   <span class="m">0</span>              4m25s
+</span></span><span class="line"><span class="cl">argocd-server-849bd4596-b52z4                       1/1     Running   <span class="m">0</span>              4m25s
+</span></span></code></pre></div><h3 id="create-a-github-token">Create a GitHub token<a hidden class="anchor" aria-hidden="true" href="#create-a-github-token">#</a></h3>
+<p>Argo CD reads its configuration from <code>git</code> repositories, so it needs a token to read your private repositories. These instructions were valid as on 2026-02-01. You don&rsquo;t need to create a token if you&rsquo;re only going to use public <code>git</code> repositories.</p>
+<ol>
+<li>Go to GitHub and select <code>Settings</code>, then <code>Developer Settings</code> at the bottom of the sidebar on the left</li>
+<li>Select <code>Fine-grained-tokens</code>, then <code>Generate new token</code> at the right side of the page.</li>
+<li>Give it a token name and description, then set an expiration time</li>
+<li>Time to decide on Repository Access level. I picked <code>All repositories</code>, but you can restrict it to just public repositories or even specific repositories</li>
+<li>Click the <code>Add permissions</code> button and grant <code>Contents</code> permission, then specify access - I didn&rsquo;t want there to be any chance of it changing things behind my back so I gave it <code>Read-only</code> access.</li>
+</ol>
+<h3 id="connect-to-your-argo-cd-instance">Connect to your Argo CD instance<a hidden class="anchor" aria-hidden="true" href="#connect-to-your-argo-cd-instance">#</a></h3>
+<p>Before you connect to the web ui, you need to find the random password generated for the <code>admin</code> user when ArgoCD was installed.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl get secret argocd-initial-admin-secret -n argocd <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -o <span class="nv">jsonpath</span><span class="o">=</span><span class="s2">&#34;{.data.password}&#34;</span> <span class="p">|</span> base64 -d
+</span></span></code></pre></div><p>Set up port forwarding so you can connect to Argo&rsquo;s web UI</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl -n argocd port-forward svc/argocd-server 8443:443
+</span></span></code></pre></div><p>Now you can log into <a href="https://localhost:8443">https://localhost:8443</a></p>
+<h4 id="first-reset-the-password">First, reset the password<a hidden class="anchor" aria-hidden="true" href="#first-reset-the-password">#</a></h4>
+<p>Click <code>User Info</code> in the left sidebar</p>
+<p><img alt="Argo CD User Info" loading="lazy" src="https://unixorn.github.io/images/homelab/bootstrap-argo-cd/argo-user-info.png"></p>
+<p>Once you&rsquo;ve changed your password and added it to your password manager, you should delete the <code>argocd-initial-admin-secret</code> secret. It will be regenerated if you force a password reset in the future.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl -n argocd delete secret/argocd-initial-admin-secret
+</span></span></code></pre></div><h2 id="create-an-argo-cd-chart">Create an Argo CD chart<a hidden class="anchor" aria-hidden="true" href="#create-an-argo-cd-chart">#</a></h2>
+<p>We want Argo to be able to update or roll itself back, so let&rsquo;s create an app for it and add that.</p>
+<h3 id="create-the-argocd-application-in-your-argo-cd-configuration-repository">Create the argocd application in your Argo CD configuration repository<a hidden class="anchor" aria-hidden="true" href="#create-the-argocd-application-in-your-argo-cd-configuration-repository">#</a></h3>
+<p>Create <code>git</code> a repository for your Argo CD configuration. Add an <code>argocd</code> top-level directory to it.
+We&rsquo;re going to create a <code>helm</code> chart for it, so you&rsquo;ll need to create three files in the <code>argocd</code> directory - <code>Chart.yaml</code>, <code>Chart.lock</code>, and <code>values.yaml</code>.</p>
+<p>You can copy them from my <a href="https://github.com/unixorn-exemplars/bootstrap-argocd/tree/main/argocd">bootstrap-argocd</a> repository, or fork that repository.</p>
+<p>Here are the manifest source files</p>
+<h4 id="chartyaml">Chart.yaml<a hidden class="anchor" aria-hidden="true" href="#chartyaml">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Chart.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">argocd</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">description</span><span class="p">:</span><span class="w"> </span><span class="l">Argo CD Helm Chart</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">application</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="m">9.3.7</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">dependencies</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">argo-cd</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="m">9.3.7</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l">https://argoproj.github.io/argo-helm</span><span class="w">
+</span></span></span></code></pre></div><h4 id="chartlock">Chart.lock<a hidden class="anchor" aria-hidden="true" href="#chartlock">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># Chart.lock</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">dependencies</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">argo-cd</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l">https://argoproj.github.io/argo-helm</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="m">9.3.7</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">digest</span><span class="p">:</span><span class="w"> </span><span class="l">sha256:688d3b74c5750ef87ff3cafd13b5879c8e7cda7be17ab252a289f3c24591ff0b</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">generated</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;2026-01-28T00:02:16.172701-07:00&#34;</span><span class="w">
+</span></span></span></code></pre></div><h4 id="valuesyaml">values.yaml<a hidden class="anchor" aria-hidden="true" href="#valuesyaml">#</a></h4>
+<p>You could specify all the values you got when you ran <code>helm show values argo/argo-cd --version 9.3.7 &gt; values.yaml</code>, but I prefer to only override the values I care about. If other values change in future versions, I want them automatically updated when I update argo.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># values.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">argo-cd</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">nameOverride</span><span class="p">:</span><span class="w"> </span><span class="l">argocd</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">configs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">params</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">server.insecure</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div><p>Commit all the files, then push to GitHub.</p>
+<h2 id="make-argocd-manage-itself">Make ArgoCD manage itself<a hidden class="anchor" aria-hidden="true" href="#make-argocd-manage-itself">#</a></h2>
+<p>For these instructions, I&rsquo;m going to use an example repository I set up on GitHub. Replace this url <a href="https://github.com/unixorn-exemplars/bootstrap-argocd.git">https://github.com/unixorn-exemplars/bootstrap-argocd.git</a> with your repository url.</p>
+<h3 id="add-a-new-argocd-app">Add a new argocd app<a hidden class="anchor" aria-hidden="true" href="#add-a-new-argocd-app">#</a></h3>
+<p>Log into your Argo CD instance and select <code>New App</code> from the upper left corner of the UI.</p>
+<p><img alt="Argo CD User Info" loading="lazy" src="https://unixorn.github.io/images/homelab/bootstrap-argo-cd/argo-cd-empty.png"></p>
+<ol>
+<li>Set the Application name to <code>argocd</code></li>
+<li>Select <code>default</code> from the <code>Project Name</code> dropdown menu</li>
+<li>Leave the Sync policy as <code>Manual</code> for now</li>
+<li>Set the repository url to <code>https://github.com/unixorn-exemplars/bootstrap-argocd.git</code></li>
+<li>Leave the revision as HEAD</li>
+<li>Set the path to argocd</li>
+<li>Since we&rsquo;re running Argo on the same cluster we want to manage, set the cluster URL to <code>https://kubernetes.default.svc</code></li>
+<li>Set the namespace to <code>argocd</code>. We want to use the same namespace that we had <code>helm</code> install argo into so that when we sync, it reuses the same resources that were installed by <code>helm</code> instead of making new ones.</li>
+<li>Click create.</li>
+</ol>
+<p>It should look similar to this:</p>
+<p><img alt="Add Argo CD app" loading="lazy" src="https://unixorn.github.io/images/homelab/bootstrap-argo-cd/add-argo-cd-app.png"></p>
+<p>If your configuration repository is a private repository, you will have to add your GitHub username and set the password to the PAT you created earlier.</p>
+<p>Click <code>Create</code>.</p>
+<h3 id="syncing-the-app">Syncing the App<a hidden class="anchor" aria-hidden="true" href="#syncing-the-app">#</a></h3>
+<p>Right now your app has been added, but until you sync it, it won&rsquo;t be active. You should see</p>
+<p><img alt="Unsynced Argo CD app" loading="lazy" src="https://unixorn.github.io/images/homelab/bootstrap-argo-cd/app-out-of-sync.png"></p>
+<p>If you click on the app tile, it&rsquo;ll show you a detailed map of what resources the app creates</p>
+<p><img alt="Unsynced Argo CD app map" loading="lazy" src="https://unixorn.github.io/images/homelab/bootstrap-argo-cd/app-map-pre-sync.png"></p>
+<p>Go ahead and click <code>Sync</code>.</p>
+<p>Because you&rsquo;ve already installed argo with <code>helm</code>, the resources already exist and it should only take a few seconds to show that it is synced.</p>
+<p><img alt="Synced and health Argo CD app map" loading="lazy" src="https://unixorn.github.io/images/homelab/bootstrap-argo-cd/app-map-synced-healthy.png"></p>
+<h3 id="enabling-automatic-syncing">Enabling automatic syncing<a hidden class="anchor" aria-hidden="true" href="#enabling-automatic-syncing">#</a></h3>
+<p>One last thing to configure - right now, Argo will only sync when you explicitly tell it to. That&rsquo;s not much good for gitops though, we want argo to detect when changes are merged to main and apply them to the cluster automatically.</p>
+<p>Click details, then scroll down to the bottom of the panel until you see sync policy</p>
+<p><img alt="sync policy" loading="lazy" src="https://unixorn.github.io/images/homelab/bootstrap-argo-cd/sync-policy.png"></p>
+<p>Enable auto-sync, then select <code>Prune Resources</code> and <code>Self Heal</code>, and save. By default, Argo CD checks every 120 seconds, with a random offset of up to 60 seconds to prevent simultaneously polling multiple apps at once.</p>
+<p><img alt="final sync policy" loading="lazy" src="https://unixorn.github.io/images/homelab/bootstrap-argo-cd/final-sync-policy.png"></p>
+<p><code>Prune Resources</code> tells argo that if a new version of the app no longer includes a resource, that resource should eb deleted during upgrade.</p>
+<p><code>Self Heal</code> tells argo that whenever it detects a deviation from the app&rsquo;s configuration, it should correct it - not only during upgrades, all of the time.</p>
+<h2 id="summary">Summary<a hidden class="anchor" aria-hidden="true" href="#summary">#</a></h2>
+<p>You have:</p>
+<ul>
+<li>Installed Argo CD in your cluster so that you can use it for gitops practices</li>
+<li>Created a configuration GitHub repository you can use with Argo CD to install and configure apps in your cluster</li>
+<li>Created an <code>argocd</code> directory in that GitHub directory</li>
+<li>Configured Argo CD to use the <code>argocd</code> app in your repository to manage itself</li>
+<li>Configured Argo CD to automagically correct any deviation from the spec defined in the <code>argocd</code> directory</li>
+</ul>
+
+
+  </div>
+  <div>
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://unixorn.github.io/tags/argocd/">Argocd</a></li>
+      <li><a href="https://unixorn.github.io/tags/homelab/">Homelab</a></li>
+      <li><a href="https://unixorn.github.io/tags/k8s/">K8s</a></li>
+      <li><a href="https://unixorn.github.io/tags/kubernetes/">Kubernetes</a></li>
+      <li><a href="https://unixorn.github.io/tags/talos/">Talos</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://unixorn.github.io/post/homelab/k8s/04-backup-talos-etcd-to-smb/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Back up your Talos etcd cluster to a smb share</span>
+  </a>
+</nav>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Install Argo CD in a homelab cluster on x"
+            href="https://x.com/intent/tweet/?text=Install%20Argo%20CD%20in%20a%20homelab%20cluster&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fk8s%2f05-install-argocd%2f&amp;hashtags=argocd%2chomelab%2ck8s%2ckubernetes%2ctalos">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Install Argo CD in a homelab cluster on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fk8s%2f05-install-argocd%2f&amp;title=Install%20Argo%20CD%20in%20a%20homelab%20cluster&amp;summary=Install%20Argo%20CD%20in%20a%20homelab%20cluster&amp;source=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fk8s%2f05-install-argocd%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Install Argo CD in a homelab cluster on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fk8s%2f05-install-argocd%2f&title=Install%20Argo%20CD%20in%20a%20homelab%20cluster">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Install Argo CD in a homelab cluster on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fk8s%2f05-install-argocd%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Install Argo CD in a homelab cluster on whatsapp"
+            href="https://api.whatsapp.com/send?text=Install%20Argo%20CD%20in%20a%20homelab%20cluster%20-%20https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fk8s%2f05-install-argocd%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Install Argo CD in a homelab cluster on telegram"
+            href="https://telegram.me/share/url?text=Install%20Argo%20CD%20in%20a%20homelab%20cluster&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fk8s%2f05-install-argocd%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Install Argo CD in a homelab cluster on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Install%20Argo%20CD%20in%20a%20homelab%20cluster&u=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fk8s%2f05-install-argocd%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>Copyright 2019-2024, Joe Block. All rights reserved.</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+        <a rel="me" href="https://hachyderm.io/@unixorn">Mastodon</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

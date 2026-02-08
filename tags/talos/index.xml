@@ -12,8 +12,25 @@
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 24 Jan 2026 12:20:42 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 08 Feb 2026 09:21:34 -0700</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/talos/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install Argo CD in a homelab cluster</title>
+      <link>https://unixorn.github.io/post/homelab/k8s/05-install-argocd/</link>
+      <pubDate>Sun, 08 Feb 2026 09:21:34 -0700</pubDate>
+      <guid>https://unixorn.github.io/post/homelab/k8s/05-install-argocd/</guid>
+      <description>&lt;p&gt;In part five of my kubernetes homelab series, we will install Argo CD into a homelab cluster so we can use gitops practices instead of ad-hoc &lt;code&gt;kubectl&lt;/code&gt; commands.&lt;/p&gt;
+&lt;p&gt;This will make it much easier to recreate the cluster exactly if we decide to move it to new hardware or just want to reset things to a known-good state after experimentation.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;../01-talos-with-cilium-cni-on-proxmox/&#34;&gt;Part 1 - Setting up Talos with a Cilium CNI on proxmox&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../02-k8s-cilium-r53-and-cert-manager/&#34;&gt;Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../03-secret-management-with-sops/&#34;&gt;Part 3 - Secret Management with SOPS&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../04-backup-talos-etcd-to-smb/&#34;&gt;Part 4 - Back up your Talos etcd cluster to a SMB share&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Part 5 - Install Argo CD&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;why-bother-with-gitops-its-a-homelab-and-im-the-only-administrator&#34;&gt;Why bother with gitops? It&amp;rsquo;s a homelab, and I&amp;rsquo;m the only administrator&lt;/h2&gt;
+&lt;p&gt;Using gitops to configure your cluster instead of running &lt;code&gt;kubectl apply&lt;/code&gt; commands directly makes it possible to reproduce the exact state of the cluster later if you need to revert to a known-good state.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Back up your Talos etcd cluster to a smb share</title>
       <link>https://unixorn.github.io/post/homelab/k8s/04-backup-talos-etcd-to-smb/</link>
@@ -40,6 +57,7 @@
 &lt;li&gt;Part 2 - Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;../03-secret-management-with-sops/&#34;&gt;Part 3 - Set up Secret Management with SOPS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;../04-backup-talos-etcd-to-smb/&#34;&gt;Part 4 - Back up your Talos etcd cluster to a SMB share&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../05-install-argocd/&#34;&gt;Part 5 - Install ArgoCD&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The tutorials I&amp;rsquo;ve seen for using cert-manager with a DNS challenge all use CloudFlare. I have my lab domain on &lt;a href=&#34;https://aws.amazon.com/route53/&#34;&gt;Route 53&lt;/a&gt; so this post will cover that instead.&lt;/p&gt;</description>
     </item>
@@ -48,14 +66,15 @@
       <link>https://unixorn.github.io/post/homelab/k8s/01-talos-with-cilium-cni-on-proxmox/</link>
       <pubDate>Sun, 04 Jan 2026 09:27:42 -0700</pubDate>
       <guid>https://unixorn.github.io/post/homelab/k8s/01-talos-with-cilium-cni-on-proxmox/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve been meaning to set up a talos cluster in my homelab for a while and set one up over the holiday break. Here&amp;rsquo;s how I did it.&lt;/p&gt;</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve been meaning to set up a &lt;a href=&#34;https://www.siderolabs.com/talos-linux/&#34;&gt;Talos&lt;/a&gt; linux kubernetes cluster in my homelab for a while and set one up over the holiday break. Here&amp;rsquo;s how I did it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Using a NFS Provisioner with Talos</title>
       <link>https://unixorn.github.io/post/homelab/talos-nfs-provisioner/</link>
       <pubDate>Fri, 12 Dec 2025 23:49:23 -0700</pubDate>
       <guid>https://unixorn.github.io/post/homelab/talos-nfs-provisioner/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve been experimenting with running &lt;a href=&#34;https://www.talos.dev/&#34;&gt;Talos&lt;/a&gt; in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run in docker-compose. I decided to use my Synology to store k8s volumes, here&amp;rsquo;s how I set that up&lt;/p&gt;</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve been experimenting with running &lt;a href=&#34;https://www.talos.dev/&#34;&gt;Talos&lt;/a&gt; in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run with &lt;code&gt;docker-compose&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I decided to use my Synology to store k8s volumes, here&amp;rsquo;s how I set that up.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Weird shit is afoot with macOS and iTerm</title>

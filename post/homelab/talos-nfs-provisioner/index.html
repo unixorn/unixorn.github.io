@@ -6,8 +6,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>Using a NFS Provisioner with Talos | unixorn.github.io</title>
-<meta name="keywords" content="homelab, k8s, kubernetes, talos, nfs, synology">
-<meta name="description" content="I&rsquo;ve been experimenting with running Talos in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run in docker-compose. I decided to use my Synology to store k8s volumes, here&rsquo;s how I set that up">
+<meta name="keywords" content="homelab, k8s, container_storage_interface, talos, nfs, synology">
+<meta name="description" content="I&rsquo;ve been experimenting with running Talos in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run with docker-compose.
+I decided to use my Synology to store k8s volumes, here&rsquo;s how I set that up.">
 <meta name="author" content="Me">
 <link rel="canonical" href="https://unixorn.github.io/post/homelab/talos-nfs-provisioner/">
 <meta name="google-site-verification" content="UA-100853138-2">
@@ -59,7 +60,8 @@
 </noscript><meta property="og:url" content="https://unixorn.github.io/post/homelab/talos-nfs-provisioner/">
   <meta property="og:site_name" content="unixorn.github.io">
   <meta property="og:title" content="Using a NFS Provisioner with Talos">
-  <meta property="og:description" content="I’ve been experimenting with running Talos in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run in docker-compose. I decided to use my Synology to store k8s volumes, here’s how I set that up">
+  <meta property="og:description" content="I’ve been experimenting with running Talos in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run with docker-compose.
+I decided to use my Synology to store k8s volumes, here’s how I set that up.">
   <meta property="og:locale" content="en-us">
   <meta property="og:type" content="article">
     <meta property="article:section" content="post">
@@ -67,7 +69,7 @@
     <meta property="article:modified_time" content="2025-12-12T23:49:23-07:00">
     <meta property="article:tag" content="Homelab">
     <meta property="article:tag" content="K8s">
-    <meta property="article:tag" content="Kubernetes">
+    <meta property="article:tag" content="Container_storage_interface">
     <meta property="article:tag" content="Talos">
     <meta property="article:tag" content="Nfs">
     <meta property="article:tag" content="Synology">
@@ -75,7 +77,8 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
 <meta name="twitter:title" content="Using a NFS Provisioner with Talos">
-<meta name="twitter:description" content="I&rsquo;ve been experimenting with running Talos in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run in docker-compose. I decided to use my Synology to store k8s volumes, here&rsquo;s how I set that up">
+<meta name="twitter:description" content="I&rsquo;ve been experimenting with running Talos in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run with docker-compose.
+I decided to use my Synology to store k8s volumes, here&rsquo;s how I set that up.">
 
 
 <script type="application/ld+json">
@@ -104,12 +107,12 @@
   "@type": "BlogPosting",
   "headline": "Using a NFS Provisioner with Talos",
   "name": "Using a NFS Provisioner with Talos",
-  "description": "I\u0026rsquo;ve been experimenting with running Talos in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run in docker-compose. I decided to use my Synology to store k8s volumes, here\u0026rsquo;s how I set that up\n",
+  "description": "I\u0026rsquo;ve been experimenting with running Talos in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run with docker-compose.\nI decided to use my Synology to store k8s volumes, here\u0026rsquo;s how I set that up.\n",
   "keywords": [
-    "homelab", "k8s", "kubernetes", "talos", "nfs", "synology"
+    "homelab", "k8s", "container_storage_interface", "talos", "nfs", "synology"
   ],
-  "articleBody": "I’ve been experimenting with running Talos in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run in docker-compose. I decided to use my Synology to store k8s volumes, here’s how I set that up\nI have a Talos cluster running in my proxmox cluster. Because it’s immutable and is managed via API calls with talosctl, using the Synology isn’t as simple as sshing to a kubernetes node and mounting a filesystem.\nPre-requisites helm \u0026 talosctl. I installed them on my M3Book with brew, but you can get other install instructions at helm.sh and the Sidero Labs website An NFS server. I’m using my Synology for this post and including setup instructions for it. There are are many tutorials out there for setting up NFS on Linux so that’s out of scope for this post. A working Talos cluster. I used a single-node one to validate these instructions. The NFS server on my Synology grants access based on the IP of the client machine. I recommend that you either configure your DHCP server to always assign your talos cluster nodes the same IP or assign a static address in your Talos cluster configuration. I prefer to do it on my DHCP server so there’s a single source of truth for IP address assignments in my homelab.\nSet up a NFS share On my Synology, I went to Control Panel -\u003e Shared Folder and created a new shared folder talos-nfs, and enabled NFS on it. Keep track of the complete path to the folder (in my case /volume2/talos-nfs), you’re going to need it later.\nI also created a second share, talos-nfs-retains that I’m going to use for a separate storageClass with a reclaimPolicy of Retains. This one’s path is /volume2/talos-nfs-retains.\nGo to the NFS Permissions tab and create an access rule that allows connections from your talos node’s IP address.\nIt’ll look something like this: Put in the IP address of your talos node. I checked all three of the optional boxes - Enable asynchronous, Allow connections from unprivileged ports and Allow users to access mounted subfolders.\nYou could put in the entire /24 (10.1.2.0/24 in my example) but I don’t recommend it for security reasons. Yes, it’s a homelab and you should trust the other machines on your network, but assigning wide-open access to things “just to get it running” is a really bad habit to get into. Do it right, not right now.\nInstall nfs-subdir-external-provisioner We’re going to use helm to install the nfs-subdir-external-provisioner. I prefer using NFS because then any files the pods write are regular files in a directory tree on the server. This lets me use restic to back them up like I do with my other shares, and I can also move files in or out of the NFS volume without having to crack open an iSCSI volume.\nDepending on your workload it can be a little slower than iSCSI, but my homelab services only have to support two users. Ease of backup is more of a priority for me than performance is.\nAdd the helm repository We’re going to use helm to install the provisioner, so to get started, install the helm repository and do a helm repo update.\nhelm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner \\ \u0026\u0026 helm repo update Install the provisioners My Synology has two bonded ports on 10.0.1.108. nfs.path should be the path being exported from the nfs server, you don’t have to care where talos mounts it.\nThe default is storage class name is nfs-client). I’m using --set storageClass.name=different-nfs-client-name in the helm command below to specify names that would be clear about the reclaim policy.\nI don’t want to accidentally create any volume claims locally if I forget to specify a storageClass, so I made this the default storageClass. Remove the --set storageClass.defaultClass=true argument if you want something else for your default.\nexport NFS_SERVER_IP=YOUR_SERVERS_IP helm install nfs-provisioner-deletes \\ nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \\ --set nfs.server=$NFS_SERVER_IP \\ --set nfs.path=/volume2/talos-nfs \\ --set storageClass.reclaimPolicy=Delete \\ --set storageClass.defaultClass=true \\ --set storageClass.archiveOnDelete=false \\ --set storageClass.name=nfs-client-deletes \\ --set storageClass.onDelete=delete I also added a second storageClass, this time with the reclaimPolicy set to Retains\nhelm install nfs-provisioner-retains \\ nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \\ --set nfs.server=$NFS_SERVER_IP \\ --set nfs.path=/volume2/talos-nfs-retains \\ --set storageClass.name=nfs-client-retains \\ --set storageClass.reclaimPolicy=Retain Confirm that the install succeeded. Check your pods and storage classes with kubectl.\n$ kubectl get pod NAME READY STATUS RESTARTS AGE nfs-provisioner-retains-nfs-subdir-external-provisioner-bc7f6tp 1/1 Running 0 11m nfs-subdir-external-provisioner-745688c67-c27mg 1/1 Running 0 21m $ kubectl get sc NAME PROVISIONER RECLAIMPOLICY VOLUMEBINDINGMODE ALLOWVOLUMEEXPANSION AGE nfs-client-deletes (default) cluster.local/nfs-subdir-external-provisioner Delete Immediate true 22m nfs-client-retains cluster.local/nfs-provisioner-retains-nfs-subdir-external-provisioner Retain Immediate true 12m It only took a few seconds for the provisioner pod to come ready. If the provisioner pod never comes ready, check that you have the right IP address in your NFS permissions - when I first set this up I put a .15 where it should have had a .51.\nOnce the nfs-subdir-external-provisioner pod is ready, we can start testing it.\nTest NFS on talos Create a dynamic PVC Create the a yaml file describing the test pvc, debian-tester-pvc-deletes.yaml\n# debian-tester-pvc-deletes.yaml apiVersion: v1 kind: PersistentVolumeClaim metadata: name: debian-test-pvc spec: accessModes: - ReadWriteOnce storageClassName: nfs-client-deletes resources: requests: storage: 5Gi Create the pvc with kubectl.\nkubectl apply -f debian-tester-pvc-deletes.yaml Create a debian deployment that uses the new PVC Create a yaml file for a debian test deployment that attaches the test pvc, debian-pvc-test-deployment.yaml\n# Toy debian deployment apiVersion: apps/v1 kind: Deployment metadata: name: debian-tester-deployment spec: replicas: 1 selector: matchLabels: app: debian-tester template: metadata: labels: app: debian-tester spec: containers: - name: debian-tester-container # Use a standard Debian image image: debian:stable command: [\"/bin/bash\", \"-c\", \"echo 'Data created in PVC' \u003e /mnt/data/testfile.txt; while true; do sleep 30; done;\"] # Mount the volume named 'persistent-storage' to the container path '/mnt/data' volumeMounts: - name: persistent-storage mountPath: /mnt/data volumes: - name: persistent-storage persistentVolumeClaim: claimName: debian-test-pvc And deploy it with\nkubectl apply -f debian-pvc-test-deployment.yaml Confirm our deployment succeeded We should now be able to see our deployment:\n$ kubectl get deployment NAME READY UP-TO-DATE AVAILABLE AGE debian-tester-deployment 1/1 1 1 25s A running pod for it:\nkubectl get pod NAME READY STATUS RESTARTS AGE debian-tester-deployment-77ddd68557-qvcrk 1/1 Running 0 2m24s And finally get a shell in the running pod:\n# Use the pod name from kubectl get pod, in this case DEBIAN_P=debian-tester-deployment-77ddd68557-qvcrk kubectl exec $DEBIAN_P -it -- bash root@debian-tester-deployment-77ddd68557-qvcrk:/# Inside the pod, we can now cd /mnt/data and create some files as a test\ncd /mnt/data echo \"Success\" \u003e pvc-test root@debian-tester-deployment-77ddd68557-qvcrk:/mnt/data# ls pvc-test testfile.txt Confirm it on the NFS server side ssh into your NFS server and cd into the directory you shared. In my case, /volume2/talos-nfs and we can see a directory for the pvc.\ncd /volume2/talos-nfs ls #recycle @eaDir default-debian-test-pvc-pvc-e6cf5df1-90c8-4962-97bb-91ae795945bc /volume2/talos-nfs $ cat default-debian-test-pvc-pvc-e6cf5df1-90c8-4962-97bb-91ae795945bc/pvc-test Success /volume2/talos-nfs $ Persistence test Delete the deployment.\nkubectl delete deployment debian-tester-deployment Create the deployment again.\nkubectl apply -f debian-pvc-test-deployment.yaml Find the new pod with kubectl get pod, and get a shell in it. You’ll see the files you created in /mnt/data\nClean up Delete the deployment\nkubectl delete deployment debian-tester-deployment Delete the pvc\nkubectl delete pvc debian-test-pvc The subdirectory on your NFS server should be gone - ssh in and confirm\ncd /volume2/talos-nfs ls #recycle @eaDir /volume2/talos-nfs $ And with that, NFS setup is done.\nSoftware Versions I’ve found it frustrating when I go find a technical post and can’t tell what versions of software they were using, so here are the versions of the software I used while writing this post.\nSoftware Version helm 4.0.1 kubectl 1.34 talosctl 1.11.5 talos 1.11.5 proxmox 9.0.3 Synology DSM 7.2.2 ",
-  "wordCount" : "1271",
+  "articleBody": "I’ve been experimenting with running Talos in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run with docker-compose.\nI decided to use my Synology to store k8s volumes, here’s how I set that up.\nI have a Talos cluster running in my proxmox cluster. Because it’s immutable and is managed via API calls with talosctl, using the Synology isn’t as simple as sshing to a kubernetes node and configuring it to automount a filesystem.\nPre-requisites helm \u0026 talosctl. I installed them on my M3Book with brew, but you can get other install instructions at helm.sh and the Sidero Labs website An NFS server. I’m using my Synology for this post and including setup instructions for it. There are are many tutorials out there for setting up NFS on Linux so that’s out of scope for this post. A working Talos cluster. I used a single-node cluster to validate these instructions. I wrote Setting up Talos with a Cilium CNI on proxmox with instructions to set one up. The NFS server on my Synology grants access based on the IP of the client machine. I recommend that you either configure your DHCP server to always assign your talos cluster nodes the same IP or assign a static address in your Talos cluster configuration. I prefer to do it on my DHCP server so there’s a single source of truth for IP address assignments in my homelab.\nSoftware Versions I’ve found it frustrating when I go find a technical post and can’t tell what versions of software they were using, so here are the versions of the software I used while writing this post.\nSoftware Version helm 4.0.1 kubectl 1.34 talosctl 1.11.5 talos 1.11.5 proxmox 9.0.3 Synology DSM 7.2.2 Set up a NFS share On my Synology, I went to Control Panel -\u003e Shared Folder and created a new shared folder talos-nfs, and enabled NFS on it. Keep track of the complete path to the folder (in my case /volume2/talos-nfs), you’re going to need it later.\nI also created a second share, talos-nfs-retains that I’m going to use for a separate storageClass with a reclaimPolicy of Retains. This one’s path is /volume2/talos-nfs-retains.\nGo to the NFS Permissions tab and create an access rule that allows connections from your talos node’s IP address.\nIt’ll look something like this:\nPut in the IP address of your talos node. I checked all three of the optional boxes - Enable asynchronous, Allow connections from unprivileged ports and Allow users to access mounted subfolders.\nYou could put in the entire /24 (10.1.2.0/24 in my example) but I don’t recommend it for security reasons. Yes, it’s a homelab and you should trust the other machines on your network, but assigning wide-open access to things “just to get it running” is a really bad habit to get into. Do it right, not right now.\nInstall nfs-subdir-external-provisioner We’re going to use helm to install nfs-subdir-external-provisioner. I prefer using NFS to iSCSI because then any files the pods write are regular files in a directory tree on the server. This lets me use restic to back them up like I do with my other shares, and I can also move files in or out of the NFS volume without having to crack open an iSCSI volume.\nDepending on your workload it can be a little slower than iSCSI, but my homelab services only have to support two users. Ease of backup is more of a priority for me than performance is.\nAdd the helm repository We’re going to use helm to install the provisioner, so to get started, install the helm repository and run helm repo update.\nhelm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner \\ \u0026\u0026 helm repo update Install the provisioners My Synology has two bonded ports on 10.0.1.108. nfs.path should be the path being exported from the nfs server, you don’t have to care where talos mounts it.\nThe default storage class name is nfs-client). I’m using --set storageClass.name=different-nfs-client-name in the helm command below to specify names that are clear about the reclaim policy.\nI don’t want to accidentally create any volume claims locally if I forget to specify a storageClass, so I made this the default storageClass for my cluster. Remove the --set storageClass.defaultClass=true argument if you want something else for your default.\nexport NFS_SERVER_IP=YOUR_SERVERS_IP helm install nfs-provisioner-deletes \\ nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \\ --set nfs.server=$NFS_SERVER_IP \\ --set nfs.path=/volume2/talos-nfs \\ --set storageClass.reclaimPolicy=Delete \\ --set storageClass.defaultClass=true \\ --set storageClass.archiveOnDelete=false \\ --set storageClass.name=nfs-client-deletes \\ --set storageClass.onDelete=delete I also added a second storageClass, this time with the reclaimPolicy set to Retains\nhelm install nfs-provisioner-retains \\ nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \\ --set nfs.server=$NFS_SERVER_IP \\ --set nfs.path=/volume2/talos-nfs-retains \\ --set storageClass.name=nfs-client-retains \\ --set storageClass.reclaimPolicy=Retain Confirm that the install succeeded Check your pods and storage classes with kubectl.\n$ kubectl get pod NAME READY STATUS RESTARTS AGE nfs-provisioner-retains-nfs-subdir-external-provisioner-bc7f6tp 1/1 Running 0 11m nfs-subdir-external-provisioner-745688c67-c27mg 1/1 Running 0 21m $ kubectl get sc NAME PROVISIONER RECLAIMPOLICY VOLUMEBINDINGMODE ALLOWVOLUMEEXPANSION AGE nfs-client-deletes (default) cluster.local/nfs-subdir-external-provisioner Delete Immediate true 22m nfs-client-retains cluster.local/nfs-provisioner-retains-nfs-subdir-external-provisioner Retain Immediate true 12m It only took a few seconds for the provisioner pod to come ready. If the provisioner pod never comes ready, check that you have the right IP address in your NFS permissions on the server side, not just the cluster - when I first set this up I put a .15 where it should have had a .51.\nOnce the nfs-subdir-external-provisioner pod is ready, we can start testing it.\nTest NFS on talos Create a dynamic PVC Create the a yaml file describing the test pvc, debian-tester-pvc-deletes.yaml\n# debian-tester-pvc-deletes.yaml apiVersion: v1 kind: PersistentVolumeClaim metadata: name: debian-test-pvc spec: accessModes: - ReadWriteOnce storageClassName: nfs-client-deletes resources: requests: storage: 5Gi Create the pvc with kubectl.\nkubectl apply -f debian-tester-pvc-deletes.yaml Create a debian deployment that uses the new PVC Create a yaml file for a debian test deployment that attaches the test pvc, debian-pvc-test-deployment.yaml\n# Toy debian deployment apiVersion: apps/v1 kind: Deployment metadata: name: debian-tester-deployment spec: replicas: 1 selector: matchLabels: app: debian-tester template: metadata: labels: app: debian-tester spec: containers: - name: debian-tester-container # Use a standard Debian image image: debian:stable command: [\"/bin/bash\", \"-c\", \"echo 'Data created in PVC' \u003e /mnt/data/testfile.txt; while true; do sleep 30; done;\"] # Mount the volume named 'persistent-storage' to the container path '/mnt/data' volumeMounts: - name: persistent-storage mountPath: /mnt/data volumes: - name: persistent-storage persistentVolumeClaim: claimName: debian-test-pvc And deploy it with\nkubectl apply -f debian-pvc-test-deployment.yaml Confirm our deployment succeeded We should now be able to see our deployment:\n$ kubectl get deployment NAME READY UP-TO-DATE AVAILABLE AGE debian-tester-deployment 1/1 1 1 25s A running pod for it:\nkubectl get pod NAME READY STATUS RESTARTS AGE debian-tester-deployment-77ddd68557-qvcrk 1/1 Running 0 2m24s And finally get a shell in the running pod:\n# Use the pod name from kubectl get pod, in this case DEBIAN_P=debian-tester-deployment-77ddd68557-qvcrk kubectl exec $DEBIAN_P -it -- bash root@debian-tester-deployment-77ddd68557-qvcrk:/# Inside the pod, we can now cd /mnt/data and create some files as a test\ncd /mnt/data echo \"Success\" \u003e pvc-test root@debian-tester-deployment-77ddd68557-qvcrk:/mnt/data# ls pvc-test testfile.txt Confirm it on the NFS server side ssh into your NFS server and cd into the directory you shared. In my case, the NVS volume is /volume2/talos-nfs and we can see a directory for the pvc.\ncd /volume2/talos-nfs ls #recycle @eaDir default-debian-test-pvc-pvc-e6cf5df1-90c8-4962-97bb-91ae795945bc /volume2/talos-nfs $ cat default-debian-test-pvc-pvc-e6cf5df1-90c8-4962-97bb-91ae795945bc/pvc-test Success /volume2/talos-nfs $ Persistence test Delete the deployment.\nkubectl delete deployment debian-tester-deployment Create the deployment again.\nkubectl apply -f debian-pvc-test-deployment.yaml Find the new pod with kubectl get pod, and get a shell in it. You’ll see the files you created in /mnt/data\nClean up Delete the deployment\nkubectl delete deployment debian-tester-deployment Delete the pvc\nkubectl delete pvc debian-test-pvc The subdirectory on your NFS server should be gone - ssh in and confirm\ncd /volume2/talos-nfs ls #recycle @eaDir /volume2/talos-nfs $ And with that, NFS setup is done.\n",
+  "wordCount" : "1304",
   "inLanguage": "en",
   "image": "https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished": "2025-12-12T23:49:23-07:00",
   "dateModified": "2025-12-12T23:49:23-07:00",
@@ -222,7 +225,7 @@
     <h1 class="post-title">
       Using a NFS Provisioner with Talos
     </h1>
-    <div class="post-meta"><span title='2025-12-12 23:49:23 -0700 MST'>December 12, 2025</span>&nbsp;·&nbsp;6 min&nbsp;·&nbsp;1271 words&nbsp;·&nbsp;Me
+    <div class="post-meta"><span title='2025-12-12 23:49:23 -0700 MST'>December 12, 2025</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;1304 words&nbsp;·&nbsp;Me
 
 </div>
   </header> <div class="toc">
@@ -234,47 +237,84 @@
         <div class="inner"><nav id="TableOfContents">
   <ul>
     <li><a href="#pre-requisites">Pre-requisites</a></li>
+    <li><a href="#software-versions">Software Versions</a></li>
     <li><a href="#set-up-a-nfs-share">Set up a NFS share</a>
       <ul>
         <li><a href="#install-nfs-subdir-external-provisioner">Install nfs-subdir-external-provisioner</a></li>
         <li><a href="#test-nfs-on-talos">Test NFS on talos</a></li>
       </ul>
     </li>
-    <li><a href="#software-versions">Software Versions</a></li>
   </ul>
 </nav>
         </div>
     </details>
 </div>
 
-  <div class="post-content"><p>I&rsquo;ve been experimenting with running <a href="https://www.talos.dev/">Talos</a> in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run in docker-compose. I decided to use my Synology to store k8s volumes, here&rsquo;s how I set that up</p>
-<p>I have a <a href="https://www.talos.dev/">Talos</a> cluster running in my proxmox cluster. Because it&rsquo;s immutable and is managed via API calls with <code>talosctl</code>, using the Synology isn&rsquo;t as simple as sshing to a kubernetes node and mounting a filesystem.</p>
+  <div class="post-content"><p>I&rsquo;ve been experimenting with running <a href="https://www.talos.dev/">Talos</a> in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run with <code>docker-compose</code>.</p>
+<p>I decided to use my Synology to store k8s volumes, here&rsquo;s how I set that up.</p>
+<p>I have a <a href="https://www.talos.dev/">Talos</a> cluster running in my proxmox cluster. Because it&rsquo;s immutable and is managed via API calls with <code>talosctl</code>, using the Synology isn&rsquo;t as simple as sshing to a kubernetes node and configuring it to automount a filesystem.</p>
 <h2 id="pre-requisites">Pre-requisites<a hidden class="anchor" aria-hidden="true" href="#pre-requisites">#</a></h2>
 <ul>
 <li><code>helm</code> &amp; <code>talosctl</code>. I installed them on my M3Book with <code>brew</code>, but you can get other install instructions at <a href="https://helm.sh">helm.sh</a> and the Sidero Labs <a href="https://docs.siderolabs.com/omni/getting-started/how-to-install-talosctl#install-talosctl">website</a></li>
 <li>An NFS server. I&rsquo;m using my Synology for this post and including setup instructions for it. There are are many tutorials out there for setting up NFS on Linux so that&rsquo;s out of scope for this post.</li>
-<li>A working Talos cluster. I used a single-node one to validate these instructions.</li>
+<li>A working Talos cluster. I used a single-node cluster to validate these instructions. I wrote <a href="../01-talos-with-cilium-cni-on-proxmox/">Setting up Talos with a Cilium CNI on proxmox</a> with instructions to set one up.</li>
 </ul>
 <p>The NFS server on my Synology grants access based on the IP of the client machine. I recommend that you either configure your DHCP server to always assign your talos cluster nodes the same IP or assign a static address in your Talos cluster configuration. I prefer to do it on my DHCP server so there&rsquo;s a single source of truth for IP address assignments in my homelab.</p>
+<h2 id="software-versions">Software Versions<a hidden class="anchor" aria-hidden="true" href="#software-versions">#</a></h2>
+<p>I&rsquo;ve found it frustrating when I go find a technical post and can&rsquo;t tell what versions of software they were using, so here are the versions of the software I used while writing this post.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Software</th>
+          <th>Version</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>helm</code></td>
+          <td>4.0.1</td>
+      </tr>
+      <tr>
+          <td><code>kubectl</code></td>
+          <td>1.34</td>
+      </tr>
+      <tr>
+          <td><code>talosctl</code></td>
+          <td>1.11.5</td>
+      </tr>
+      <tr>
+          <td><code>talos</code></td>
+          <td>1.11.5</td>
+      </tr>
+      <tr>
+          <td><code>proxmox</code></td>
+          <td>9.0.3</td>
+      </tr>
+      <tr>
+          <td>Synology DSM</td>
+          <td>7.2.2</td>
+      </tr>
+  </tbody>
+</table>
 <h2 id="set-up-a-nfs-share">Set up a NFS share<a hidden class="anchor" aria-hidden="true" href="#set-up-a-nfs-share">#</a></h2>
 <p>On my Synology, I went to <code>Control Panel</code> -&gt; <code>Shared Folder</code> and created a new shared folder <code>talos-nfs</code>, and enabled NFS on it. Keep track of the complete path to the folder (in my case <code>/volume2/talos-nfs</code>), you&rsquo;re going to need it later.</p>
 <p>I also created a second share, <code>talos-nfs-retains</code> that I&rsquo;m going to use for a separate <code>storageClass</code> with a <code>reclaimPolicy</code> of <code>Retains</code>.  This one&rsquo;s path is <code>/volume2/talos-nfs-retains</code>.</p>
 <p>Go to the <code>NFS Permissions</code> tab and create an access rule that allows connections from your talos node&rsquo;s IP address.</p>
-<p>It&rsquo;ll look something like this:
-<img alt="create-an-nfs-rule-dialog" loading="lazy" src="https://unixorn.github.io/images/homelab/talos-nfs/create-an-nfs-rule.png">
+<p>It&rsquo;ll look something like this:</p>
+<p><img alt="create-an-nfs-rule-dialog" loading="lazy" src="https://unixorn.github.io/images/homelab/talos-nfs/create-an-nfs-rule.png">
 Put in the IP address of your talos node. I checked all three of the optional boxes - <code>Enable asynchronous</code>, <code>Allow connections from unprivileged ports</code> and <code>Allow users to access mounted subfolders</code>.</p>
 <p>You <em>could</em> put in the entire <code>/24</code> (<code>10.1.2.0/24</code> in my example) but I don&rsquo;t recommend it for security reasons. Yes, it&rsquo;s a homelab and you should trust the other machines on your network, but assigning wide-open access to things &ldquo;just to get it running&rdquo; is a really bad habit to get into. Do it right, not right now.</p>
 <h3 id="install-nfs-subdir-external-provisioner">Install nfs-subdir-external-provisioner<a hidden class="anchor" aria-hidden="true" href="#install-nfs-subdir-external-provisioner">#</a></h3>
-<p>We&rsquo;re going to use <code>helm</code> to install the <code>nfs-subdir-external-provisioner</code>. I prefer using NFS because then any files the pods write are regular files in a directory tree on the server. This lets me use <code>restic</code> to back them up like I do with my other shares, and I can also move files in or out of the NFS volume without having to crack open an iSCSI volume.</p>
+<p>We&rsquo;re going to use <code>helm</code> to install <code>nfs-subdir-external-provisioner</code>. I prefer using NFS to iSCSI because then any files the pods write are regular files in a directory tree on the server. This lets me use <code>restic</code> to back them up like I do with my other shares, and I can also move files in or out of the NFS volume without having to crack open an iSCSI volume.</p>
 <p>Depending on your workload it can be a little slower than iSCSI, but my homelab services only have to support two users. Ease of backup is more of a priority for me than performance is.</p>
 <h4 id="add-the-helm-repository">Add the helm repository<a hidden class="anchor" aria-hidden="true" href="#add-the-helm-repository">#</a></h4>
-<p>We&rsquo;re going to use <code>helm</code> to install the provisioner, so to get started, install the helm repository and do a <code>helm repo update</code>.</p>
+<p>We&rsquo;re going to use <code>helm</code> to install the provisioner, so to get started, install the helm repository and run <code>helm repo update</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">helm repo add nfs-subdir-external-provisioner https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="o">&amp;&amp;</span> helm repo update
 </span></span></code></pre></div><h4 id="install-the-provisioners">Install the provisioners<a hidden class="anchor" aria-hidden="true" href="#install-the-provisioners">#</a></h4>
 <p>My Synology has two bonded ports on 10.0.1.108. <code>nfs.path</code> should be the path being exported from the nfs server, you don&rsquo;t have to care where talos mounts it.</p>
-<p>The default is storage class name is <code>nfs-client</code>). I&rsquo;m using <code> --set storageClass.name=different-nfs-client-name</code> in the <code>helm</code> command below to specify names that would be clear about the reclaim policy.</p>
-<p>I don&rsquo;t want to accidentally create any volume claims locally if I forget to specify a <code>storageClass</code>, so I made this the default <code>storageClass</code>. Remove the <code>--set storageClass.defaultClass=true</code> argument if you want something else for your default.</p>
+<p>The default storage class name is <code>nfs-client</code>). I&rsquo;m using <code> --set storageClass.name=different-nfs-client-name</code> in the <code>helm</code> command below to specify names that are clear about the reclaim policy.</p>
+<p>I don&rsquo;t want to accidentally create any volume claims locally if I forget to specify a <code>storageClass</code>, so I made this the default <code>storageClass</code> for my cluster. Remove the <code>--set storageClass.defaultClass=true</code> argument if you want something else for your default.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">NFS_SERVER_IP</span><span class="o">=</span>YOUR_SERVERS_IP
 </span></span><span class="line"><span class="cl">helm install nfs-provisioner-deletes <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  nfs-subdir-external-provisioner/nfs-subdir-external-provisioner <span class="se">\
@@ -292,7 +332,7 @@ Put in the IP address of your talos node. I checked all three of the optional bo
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --set nfs.path<span class="o">=</span>/volume2/talos-nfs-retains <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --set storageClass.name<span class="o">=</span>nfs-client-retains <span class="se">\
 </span></span></span><span class="line"><span class="cl"><span class="se"></span>  --set storageClass.reclaimPolicy<span class="o">=</span>Retain
-</span></span></code></pre></div><h4 id="confirm-that-the-install-succeeded">Confirm that the install succeeded.<a hidden class="anchor" aria-hidden="true" href="#confirm-that-the-install-succeeded">#</a></h4>
+</span></span></code></pre></div><h4 id="confirm-that-the-install-succeeded">Confirm that the install succeeded<a hidden class="anchor" aria-hidden="true" href="#confirm-that-the-install-succeeded">#</a></h4>
 <p>Check your pods and storage classes with <code>kubectl</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ kubectl get pod
 </span></span><span class="line"><span class="cl">NAME                                                              READY   STATUS    RESTARTS   AGE
@@ -302,7 +342,7 @@ Put in the IP address of your talos node. I checked all three of the optional bo
 </span></span><span class="line"><span class="cl">NAME                           PROVISIONER                                                             RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
 </span></span><span class="line"><span class="cl">nfs-client-deletes <span class="o">(</span>default<span class="o">)</span>   cluster.local/nfs-subdir-external-provisioner                           Delete          Immediate           <span class="nb">true</span>                   22m
 </span></span><span class="line"><span class="cl">nfs-client-retains             cluster.local/nfs-provisioner-retains-nfs-subdir-external-provisioner   Retain          Immediate           <span class="nb">true</span>                   12m
-</span></span></code></pre></div><p>It only took a few seconds for the provisioner pod to come ready. If the provisioner pod never comes ready, check that you have the right IP address in your NFS permissions - when I first set this up I put a <code>.15</code> where it should have had a <code>.51</code>.</p>
+</span></span></code></pre></div><p>It only took a few seconds for the provisioner pod to come ready. If the provisioner pod never comes ready, check that you have the right IP address in your NFS permissions on the server side, not just the cluster - when I first set this up I put a <code>.15</code> where it should have had a <code>.51</code>.</p>
 <p>Once the <code>nfs-subdir-external-provisioner</code> pod is ready, we can start testing it.</p>
 <h3 id="test-nfs-on-talos">Test NFS on talos<a hidden class="anchor" aria-hidden="true" href="#test-nfs-on-talos">#</a></h3>
 <h4 id="create-a-dynamic-pvc">Create a dynamic PVC<a hidden class="anchor" aria-hidden="true" href="#create-a-dynamic-pvc">#</a></h4>
@@ -373,7 +413,7 @@ Put in the IP address of your talos node. I checked all three of the optional bo
 </span></span><span class="line"><span class="cl">root@debian-tester-deployment-77ddd68557-qvcrk:/mnt/data# ls
 </span></span><span class="line"><span class="cl">pvc-test  testfile.txt
 </span></span></code></pre></div><h4 id="confirm-it-on-the-nfs-server-side">Confirm it on the NFS server side<a hidden class="anchor" aria-hidden="true" href="#confirm-it-on-the-nfs-server-side">#</a></h4>
-<p><code>ssh</code> into your NFS server and <code>cd</code> into the directory you shared. In my case, <code>/volume2/talos-nfs</code> and we can see a directory for the pvc.</p>
+<p><code>ssh</code> into your NFS server and <code>cd</code> into the directory you shared. In my case, the NVS volume is <code>/volume2/talos-nfs</code> and we can see a directory for the pvc.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="nb">cd</span> /volume2/talos-nfs
 </span></span><span class="line"><span class="cl">ls
 </span></span><span class="line"><span class="cl"><span class="c1">#recycle</span>
@@ -400,42 +440,6 @@ Put in the IP address of your talos node. I checked all three of the optional bo
 </span></span><span class="line"><span class="cl">@eaDir
 </span></span><span class="line"><span class="cl">/volume2/talos-nfs $
 </span></span></code></pre></div><p>And with that, NFS setup is done.</p>
-<h2 id="software-versions">Software Versions<a hidden class="anchor" aria-hidden="true" href="#software-versions">#</a></h2>
-<p>I&rsquo;ve found it frustrating when I go find a technical post and can&rsquo;t tell what versions of software they were using, so here are the versions of the software I used while writing this post.</p>
-<table>
-  <thead>
-      <tr>
-          <th>Software</th>
-          <th>Version</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>helm</code></td>
-          <td>4.0.1</td>
-      </tr>
-      <tr>
-          <td><code>kubectl</code></td>
-          <td>1.34</td>
-      </tr>
-      <tr>
-          <td><code>talosctl</code></td>
-          <td>1.11.5</td>
-      </tr>
-      <tr>
-          <td><code>talos</code></td>
-          <td>1.11.5</td>
-      </tr>
-      <tr>
-          <td><code>proxmox</code></td>
-          <td>9.0.3</td>
-      </tr>
-      <tr>
-          <td>Synology DSM</td>
-          <td>7.2.2</td>
-      </tr>
-  </tbody>
-</table>
 
   </div>
   <div>
@@ -551,7 +555,7 @@ Put in the IP address of your talos node. I checked all three of the optional bo
     <ul class="post-tags">
       <li><a href="https://unixorn.github.io/tags/homelab/">Homelab</a></li>
       <li><a href="https://unixorn.github.io/tags/k8s/">K8s</a></li>
-      <li><a href="https://unixorn.github.io/tags/kubernetes/">Kubernetes</a></li>
+      <li><a href="https://unixorn.github.io/tags/container_storage_interface/">Container_storage_interface</a></li>
       <li><a href="https://unixorn.github.io/tags/talos/">Talos</a></li>
       <li><a href="https://unixorn.github.io/tags/nfs/">Nfs</a></li>
       <li><a href="https://unixorn.github.io/tags/synology/">Synology</a></li>
@@ -573,7 +577,7 @@ Put in the IP address of your talos node. I checked all three of the optional bo
 <ul class="share-buttons">
     <li>
         <a target="_blank" rel="noopener noreferrer" aria-label="share Using a NFS Provisioner with Talos on x"
-            href="https://x.com/intent/tweet/?text=Using%20a%20NFS%20Provisioner%20with%20Talos&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2ftalos-nfs-provisioner%2f&amp;hashtags=homelab%2ck8s%2ckubernetes%2ctalos%2cnfs%2csynology">
+            href="https://x.com/intent/tweet/?text=Using%20a%20NFS%20Provisioner%20with%20Talos&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2ftalos-nfs-provisioner%2f&amp;hashtags=homelab%2ck8s%2ccontainer_storage_interface%2ctalos%2cnfs%2csynology">
             <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
                 <path
                     d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />

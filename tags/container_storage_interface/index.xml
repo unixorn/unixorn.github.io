@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Container_storage_interface on unixorn.github.io</title>
+    <link>https://unixorn.github.io/tags/container_storage_interface/</link>
+    <description>Recent content in Container_storage_interface on unixorn.github.io</description>
+    <image>
+      <title>unixorn.github.io</title>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019-2024, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 24 Jan 2026 12:20:42 -0700</lastBuildDate>
+    <atom:link href="https://unixorn.github.io/tags/container_storage_interface/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Back up your Talos etcd cluster to a smb share</title>
+      <link>https://unixorn.github.io/post/homelab/k8s/04-backup-talos-etcd-to-smb/</link>
+      <pubDate>Sat, 24 Jan 2026 12:20:42 -0700</pubDate>
+      <guid>https://unixorn.github.io/post/homelab/k8s/04-backup-talos-etcd-to-smb/</guid>
+      <description>&lt;p&gt;In this post, I will show how to access smb shares outside the cluster from a Kubernetes Pod. The example is backing up the etcd cluster in my Talos k8s cluster to a share, but you can use this for any service (like Plex or Jellyfin) that need access to files on a NAS.&lt;/p&gt;
+&lt;p&gt;This is part four of my Homelab Kubernetes series.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Using a NFS Provisioner with Talos</title>
+      <link>https://unixorn.github.io/post/homelab/talos-nfs-provisioner/</link>
+      <pubDate>Fri, 12 Dec 2025 23:49:23 -0700</pubDate>
+      <guid>https://unixorn.github.io/post/homelab/talos-nfs-provisioner/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been experimenting with running &lt;a href=&#34;https://www.talos.dev/&#34;&gt;Talos&lt;/a&gt; in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run with &lt;code&gt;docker-compose&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I decided to use my Synology to store k8s volumes, here&amp;rsquo;s how I set that up.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

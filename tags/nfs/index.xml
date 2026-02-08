@@ -19,7 +19,8 @@
       <link>https://unixorn.github.io/post/homelab/talos-nfs-provisioner/</link>
       <pubDate>Fri, 12 Dec 2025 23:49:23 -0700</pubDate>
       <guid>https://unixorn.github.io/post/homelab/talos-nfs-provisioner/</guid>
-      <description>&lt;p&gt;I&amp;rsquo;ve been experimenting with running &lt;a href=&#34;https://www.talos.dev/&#34;&gt;Talos&lt;/a&gt; in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run in docker-compose. I decided to use my Synology to store k8s volumes, here&amp;rsquo;s how I set that up&lt;/p&gt;</description>
+      <description>&lt;p&gt;I&amp;rsquo;ve been experimenting with running &lt;a href=&#34;https://www.talos.dev/&#34;&gt;Talos&lt;/a&gt; in my home lab. I really like the idea of an immutable OS layer under Kubernetes and wanted to stand up a cluster to run some of my services that are currently run with &lt;code&gt;docker-compose&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;I decided to use my Synology to store k8s volumes, here&amp;rsquo;s how I set that up.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
