@@ -12,8 +12,16 @@
     <generator>Hugo -- 0.152.2</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2026, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 08 Feb 2026 09:21:34 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2026 12:12:39 -0700</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/argocd/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Install MQTT into k8s</title>
+      <link>https://unixorn.github.io/post/homelab/k8s/06-install-mqtt/</link>
+      <pubDate>Sun, 01 Mar 2026 12:12:39 -0700</pubDate>
+      <guid>https://unixorn.github.io/post/homelab/k8s/06-install-mqtt/</guid>
+      <description>&lt;p&gt;Now that the cluster is up and has Argo CD controlling application deployment, I&amp;rsquo;m starting to move my homelab services out of &lt;code&gt;docker-compose&lt;/code&gt; stacks and into my k8s cluster.&lt;/p&gt;
+&lt;p&gt;I run MQTT (Eclipse &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; in my case) as a message bus between &lt;a href=&#34;https://www.zigbee2mqtt.io/&#34;&gt;zigbee2mqtt&lt;/a&gt; and &lt;a href=&#34;https://github.com/zwave-js/zwave-js-ui&#34;&gt;zwave-js-ui&lt;/a&gt; and &lt;a href=&#34;https://www.home-assistant.io/&#34;&gt;Home Assistant&lt;/a&gt;, so it&amp;rsquo;s the first service I&amp;rsquo;m moving into the k8s cluster.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Install Argo CD in a homelab cluster</title>
       <link>https://unixorn.github.io/post/homelab/k8s/05-install-argocd/</link>
@@ -27,6 +35,7 @@
 &lt;li&gt;&lt;a href=&#34;../03-secret-management-with-sops/&#34;&gt;Part 3 - Secret Management with SOPS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;../04-backup-talos-etcd-to-smb/&#34;&gt;Part 4 - Back up your Talos etcd cluster to a SMB share&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Part 5 - Install Argo CD&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../06-install-mqtt/&#34;&gt;Part 6 - Install MQTT into a k8s cluster&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;why-bother-with-gitops-its-a-homelab-and-im-the-only-administrator&#34;&gt;Why bother with gitops? It&amp;rsquo;s a homelab, and I&amp;rsquo;m the only administrator&lt;/h2&gt;
 &lt;p&gt;Using gitops to configure your cluster instead of running &lt;code&gt;kubectl apply&lt;/code&gt; commands directly makes it possible to reproduce the exact state of the cluster later if you need to revert to a known-good state.&lt;/p&gt;</description>

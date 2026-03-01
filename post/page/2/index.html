@@ -184,6 +184,22 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Building a Debian 13 LXC Template for Proxmox
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>Building a Debian 13 (Trixie) LXC Template for Proxmox Debian 13 (trixie) was released, but (at least as of 2025-08-12) there isn’t a LXC template available for it on proxmox. I wanted a Debian 13 LXC container, so I made a template of my own.
+Install tooling We’re going to use Debian Appliance Builder to create a Debian 13 LXC template.
+First, install the tooling:
+apt update apt install -y dab wget Download Debian 13 configuration mkdir dab cd dab # Get the debian 13 dab configuration wget -O dab.conf &#34;https://git.proxmox.com/?p=dab-pve-appliances.git;a=blob_plain;f=debian-13-trixie-std-64/dab.conf;hb=HEAD&#34; # Get a Makefile to make builds easier wget -O Makefile &#34;https://git.proxmox.com/?p=dab-pve-appliances.git;a=blob_plain;f=debian-13-trixie-std-64/Makefile;hb=HEAD&#34; Build the template Now we can build a template.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2025-08-15 19:10:16 -0600 MDT'>August 15, 2025</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;178 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Building a Debian 13 LXC Template for Proxmox" href="https://unixorn.github.io/post/homelab/2025-08-13-building-debian-13-lxc-template-for-proxmox/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Nodered, Home Assistant and Tailscale
     </h2>
   </header>
@@ -306,21 +322,6 @@ Enter orbital-sync.
   </div>
   <footer class="entry-footer"><span title='2024-12-07 19:15:14 -0600 -0600'>December 7, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;406 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Synchronizing Multiple Piholes with orbital-sync" href="https://unixorn.github.io/post/homelab/orbital-sync/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">First Neos
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Got my first neocaridinas yesterday!
-The new tank has been cycling for six weeks and the water parameters have been good for the last three weeks, so I decided it was past time to add more livestock to the tank so the Nerite doesn’t get lonely.
-I decided on Yellow Golden Backs because I thought they’d stand out in my tank, and ordered 20 from LVexoticfish.com. I have to give them props - as advertised, all the shrimp arrived alive.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2024-08-24 11:44:57 -0600 MDT'>August 24, 2024</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;259 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to First Neos" href="https://unixorn.github.io/post/aquarium/first-neos/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

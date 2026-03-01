@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Install MQTT into k8s | unixorn.github.io</title>
+<meta name="keywords" content="argocd, gitops, helm, homeassistant, homelab, k8s, mosquitto, mqtt, sops">
+<meta name="description" content="Now that the cluster is up and has Argo CD controlling application deployment, I&rsquo;m starting to move my homelab services out of docker-compose stacks and into my k8s cluster.
+I run MQTT (Eclipse Mosquitto in my case) as a message bus between zigbee2mqtt and zwave-js-ui and Home Assistant, so it&rsquo;s the first service I&rsquo;m moving into the k8s cluster.">
+<meta name="author" content="Me">
+<link rel="canonical" href="https://unixorn.github.io/post/homelab/k8s/06-install-mqtt/">
+<meta name="google-site-verification" content="UA-100853138-2">
+<link crossorigin="anonymous" href="https://unixorn.github.io/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css" integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF&#43;13Dyqob6ASlTrTye8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="16x16" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="apple-touch-icon" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<link rel="mask-icon" href="https://unixorn.github.io/%3Clink%20/%20abs%20url%3E">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="https://unixorn.github.io/post/homelab/k8s/06-install-mqtt/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="https://unixorn.github.io/post/homelab/k8s/06-install-mqtt/">
+  <meta property="og:site_name" content="unixorn.github.io">
+  <meta property="og:title" content="Install MQTT into k8s">
+  <meta property="og:description" content="Now that the cluster is up and has Argo CD controlling application deployment, I’m starting to move my homelab services out of docker-compose stacks and into my k8s cluster.
+I run MQTT (Eclipse Mosquitto in my case) as a message bus between zigbee2mqtt and zwave-js-ui and Home Assistant, so it’s the first service I’m moving into the k8s cluster.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-03-01T12:12:39-07:00">
+    <meta property="article:modified_time" content="2026-03-01T12:12:39-07:00">
+    <meta property="article:tag" content="Argocd">
+    <meta property="article:tag" content="Gitops">
+    <meta property="article:tag" content="Helm">
+    <meta property="article:tag" content="Homeassistant">
+    <meta property="article:tag" content="Homelab">
+    <meta property="article:tag" content="K8s">
+      <meta property="og:image" content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:title" content="Install MQTT into k8s">
+<meta name="twitter:description" content="Now that the cluster is up and has Argo CD controlling application deployment, I&rsquo;m starting to move my homelab services out of docker-compose stacks and into my k8s cluster.
+I run MQTT (Eclipse Mosquitto in my case) as a message bus between zigbee2mqtt and zwave-js-ui and Home Assistant, so it&rsquo;s the first service I&rsquo;m moving into the k8s cluster.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "https://unixorn.github.io/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Install MQTT into k8s",
+      "item": "https://unixorn.github.io/post/homelab/k8s/06-install-mqtt/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Install MQTT into k8s",
+  "name": "Install MQTT into k8s",
+  "description": "Now that the cluster is up and has Argo CD controlling application deployment, I\u0026rsquo;m starting to move my homelab services out of docker-compose stacks and into my k8s cluster.\nI run MQTT (Eclipse Mosquitto in my case) as a message bus between zigbee2mqtt and zwave-js-ui and Home Assistant, so it\u0026rsquo;s the first service I\u0026rsquo;m moving into the k8s cluster.\n",
+  "keywords": [
+    "argocd", "gitops", "helm", "homeassistant", "homelab", "k8s", "mosquitto", "mqtt", "sops"
+  ],
+  "articleBody": "Now that the cluster is up and has Argo CD controlling application deployment, I’m starting to move my homelab services out of docker-compose stacks and into my k8s cluster.\nI run MQTT (Eclipse Mosquitto in my case) as a message bus between zigbee2mqtt and zwave-js-ui and Home Assistant, so it’s the first service I’m moving into the k8s cluster.\nThis is part 6 of my Kubernetes homelab cluster setup series - Install MQTT into a k8s cluster.\nPart 1 - Setting up Talos with a Cilium CNI on proxmox Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53 Part 3 - Set up Secret Management with SOPS Part 4 - Back up your Talos etcd cluster to a SMB share Part 5 - Install ArgoCD Part 6 - Install MQTT into a k8s cluster Goals Set up an ArgoCD Application that installs Eclipse Mosquitto into your cluster Software Versions Here are the versions of the software I used while writing this post.\nSoftware Version argocd 3.2.6 cilium 1.18.6 kubectl 1.34 kubernetes 1.34.1 mosquitto 2.1.2 talos 1.12.4 Pre-requisites To follow along with this post, you will need:\nA kubernetes cluster. I’m using the talos cluster from Part 1 - Setting up Talos with a Cilium CNI on proxmox, but this will work with any kubernetes cluster. A GitHub account. You can also use GitLab or your own git server, but all the examples in this post assume you’re storing your Argo CD repository on GitHub. ArgoCD installed in your cluster. See Part 5 - Install ArgoCD for installation instructions If you’ve been following along with this series, you already have helm and kubectl. Otherwise you can brew install them or follow the install instructions at helm.sh and kubectl. Installing Mosquitto I created a helm chart for Mosquitto here.\nBefore we install it, I’m going to show you the manifests I used to create the chart so you can see how everything works. I recommend you read through that before going to the easier gitops way to have Argo CD install the helm chart with your own values.yaml.\nPick a static IP Mosquitto needs a static IP to run on so that your IOT devices can find it. I recommend you make your life easier and add a mqtt-server.example.com entry in your homelab pointing at the IP though, instead of configuring your devices with the bare IP. I have too many devices to want to hassle with reconfiguring things later just because I decide to move the MQTT server - that’s what DNS is for.\nCreate the password secret Whether you install from the manifests directly or via Argo and Helm, you’re going to need to create a secret containing the password file. Here’s one I created with sops.\nFirst, you need to create a password file - we’ll use docker so we don’t have to install mosquitto outside of k8s just to make a password file.\ndocker run --rm -v $(pwd):/mnt eclipse-mosquitto mosquitto_passwd -b -c /mnt/mqtt_password iot your iot_password Replace the iot entry in this manifest with the one in the mqtt_password file you just created.\n# mqtt-sops-secret.yaml apiVersion: isindir.github.com/v1alpha3 kind: SopsSecret metadata: name: mqtt-secret namespace: mqtt spec: secretTemplates: - name: mqtt-secret stringData: password.txt: | iot:$7$1000$APd9OAc+QTR9rB8Zq8KOseIIWNl8AbyfDmqn4aHgwaSlFTKi7lrn1P/6+cHQDiJmzYtDaBCy7vNemrvxGr0PZg==$ZOqrxA2Y4vnHLtSC8HpQhGTV8b49IGiAAU2fhcFMxz1L9M42IBBk8yun03t1WTw6CUcfr3sBRuZ8Y6Gdt3FMag== Then use sops to encrypt the secret.\nsops encrypt -i mqtt-secret.yaml If you haven’t already set SOPS up in your cluster, I documented that in Part 3 - Set up Secret Management with SOPS.\nFinally, create the secret containing the password file.\nkubectl create namespace mqtt \u0026\u0026 \\ kubectl apply -f mqtt-sops-secret.yaml Install Mosquitto using plain manifest files Make a mosquitto directory in the repository your Argo CD installation is using for configuration.\nCreate a Namespace Keep Mosquitto in its own namespace for tidiness.\n# mqtt-namespace.yaml apiVersion: v1 kind: Namespace metadata: labels: kubernetes.io/metadata.name: mqtt pod-security.kubernetes.io/enforce: privileged name: mqtt Create a PVC Create a PVC for mosquitto to store its data in\n--- # mqtt-data-pvc.yaml apiVersion: v1 kind: PersistentVolumeClaim metadata: name: mosquitto-data-pvc namespace: mqtt spec: accessModes: [\"ReadWriteMany\"] resources: requests: storage: 1Gi It needs a LoadBalancer so it can be reached from outside the cluster I run zigbee2mqtt and zwave-js-ui as part of my Home Assistant system. I haven’t moved them into the k8s cluster yet though, so I need mosquitto accessible from outside the cluster.\nThis service manifest works with the Cilium CNI we set up in Part 1 - Setting up Talos with a Cilium CNI on proxmox.\nChange the cilium.io/lb-ipam-pool-name and lbipam.cilium.io/ips keys in the manifest file to match your local setup.\n--- # mqtt-lb.yaml apiVersion: v1 kind: Service metadata: name: mqtt-lb namespace: mqtt annotations: cilium.io/lb-ipam-pool-name: \"default-pool\" cilium.io/assign-internal-ip: \"true\" lbipam.cilium.io/ips: \"10.9.8.7\" lbipam.cilium.io/sharing-key: \"mqtt\" labels: homelab.service: mqtt spec: type: LoadBalancer ports: - name: mqtt-tcp port: 1883 protocol: TCP targetPort: 1883 - name: mqtt-websocket port: 9001 protocol: TCP targetPort: 9001 selector: app: mosquitto Create a manifest for the ConfigMap and Deployment --- # mqtt-stack.yaml apiVersion: v1 kind: ConfigMap metadata: name: mosquitto-config namespace: mqtt data: mosquitto.conf: | persistence true persistence_location /mosquitto/data log_dest stdout # Explicitly bind to 0.0.0.0 to allow K8s Service traffic listener 1883 0.0.0.0 allow_anonymous false password_file /mosquitto/config/password.txt listener 9001 0.0.0.0 protocol websockets # # MQTT over TLS # listener 8883 # cafile /mosquitto/certs/ca.crt # certfile /mosquitto/certs/tls.crt # keyfile /mosquitto/certs/tls.key # # MQTT over WebSockets (Secure) # listener 9001 # protocol websockets # cafile /mosquitto/certs/ca.crt # certfile /mosquitto/certs/tls.crt # keyfile /mosquitto/certs/tls.key --- apiVersion: apps/v1 kind: Deployment metadata: name: mosquitto-deployment namespace: mqtt spec: replicas: 1 selector: matchLabels: app: mosquitto template: metadata: labels: app: mosquitto spec: securityContext: runAsNonRoot: true runAsUser: 1883 runAsGroup: 1883 fsGroup: 1883 fsGroupChangePolicy: \"Always\" seccompProfile: type: RuntimeDefault initContainers: - name: init-permissions image: busybox:latest command: - sh - -c - | # Copy from read-only secret to writable emptyDir # It will be owned by UID 1883 automatically cp /mnt/secret/password_file /mosquitto/writable-config/password.txt chmod 0600 /mosquitto/writable-config/password.txt securityContext: allowPrivilegeEscalation: false capabilities: drop: [\"ALL\"] runAsNonRoot: true runAsUser: 1883 seccompProfile: type: RuntimeDefault volumeMounts: - name: password-file-raw mountPath: /mnt/secret readOnly: true - name: writable-config mountPath: /mosquitto/writable-config containers: - name: mosquitto image: eclipse-mosquitto:latest securityContext: allowPrivilegeEscalation: false capabilities: drop: [\"ALL\"] readOnlyRootFilesystem: true runAsNonRoot: true runAsUser: 1883 seccompProfile: type: RuntimeDefault resources: limits: memory: \"128Mi\" requests: cpu: \"100m\" memory: \"128Mi\" ports: - containerPort: 1883 - containerPort: 9001 volumeMounts: - name: config mountPath: /mosquitto/config/mosquitto.conf subPath: mosquitto.conf - name: data mountPath: /mosquitto/data - name: writable-config mountPath: /mosquitto/config/password.txt subPath: password.txt - name: tmp mountPath: /tmp volumes: - name: config configMap: name: mosquitto-config - name: password-file-raw secret: secretName: mqtt-secret - name: writable-config emptyDir: {} - name: data persistentVolumeClaim: claimName: mosquitto-data-pvc - name: tmp emptyDir: {} Move all the manifest files into your mqtt directory, then install them with\nkubectl apply -f mqtt Install Mosquitto with ArgoCD The helm chart has only been tested on clusters using Cilium as their CNI. Clusters without Cilium should ignore the cilium annotations and work, I haven’t tested that.\nhelm repo add laboratorium-domesticum https://unixorn-argocd.github.io/laboratorium-domesticum \u0026\u0026 \\ helm search repo laboratorium-domesticum --versions First, install the password secret from the manifest we created earlier.\nCreate a values.yaml file to configure the chart Add a directory in your configuration git repository. I put mine in configs/mosquitto/values.yaml.\nHere’s an example values.yaml you can base yours on.\nMake sure you change the ips and poolName keys in the cilium section. The mosquittoConfig section contains a reasonable configuration for using mqtt with zigbee2mqtt, zwave-js-ui and all the WIFI-based IOT devices I’ve used. Don’t increase the replicas in the mosquittoDeployment section or some of your devices and services will update one replica and some others and you will have weird errors. If you didn’t name your password secret mqtt-secret, update the existingSecret key in the mosquittoSecret section. The full documentation for the helm chart is here\n# values.yaml # Networking cilium: assign-internal-ip: \"true\" ips: \"10.9.8.7\" # Set the IP address of your MQTT server here pool-name: \"default-pool\" # The cilium IP pool that contains the IP sharing-key: \"mqtt\" # Changed from sharingKey # Mosquitto Deployment Settings mosquittoDeployment: replicas: 1 # Don't image: repository: eclipse-mosquitto tag: \"2.0.18\" podSecurityContext: fsGroup: 1883 resources: limits: cpu: 100m memory: 128Mi requests: cpu: 100m memory: 128Mi # Configuration (Supports templates for dynamic values) mosquittoConfig: mosquittoConf: |- persistence true persistence_location /mosquitto/data log_dest stdout listener 1883 0.0.0.0 allow_anonymous false # This must match the mount path in our deployment password_file /mosquitto/config/password.txt # Password Secret Configuration mosquittoSecrets: # Set to false because you are providing the secret manually create: false # The name of your existing Kubernetes Secret existingSecret: \"mqtt-secret\" # This can be left empty since create is false passwordData: \"\" # Persistent Storage pvc: storageRequest: 1Gi # Probably overkill mqttLb: type: LoadBalancer # Add these lines here: poolName: \"default-pool\" sharingKey: \"mqtt\" ips: \"10.9.8.7\" revisionHistoryLimit: 3 Commit the file and push your changes to the default branch of your configuration repository.\nCreate an ArgoCD Application Manifest Here’s an ArgoCD multi-source application manifest you can use. It will configure Argo to use my chart to install Mosquitto using the values.yaml you just created in your git repository. I keep mine in an argocd-applications directory in my configuration repository.\n# mosquitto-argocd.yaml apiVersion: argoproj.io/v1alpha1 kind: Application metadata: name: mosquitto-mqtt namespace: argocd spec: project: default destination: server: https://kubernetes.default.svc # CHANGED: Now points to the 'mqtt' namespace namespace: mqtt sources: - repoURL: 'https://github.com/unixorn-argocd/laboratorium-domesticum.git' targetRevision: main path: charts/mqtt-cilium helm: valueFiles: - $config/configs/mosquitto/values.yaml - repoURL: 'https://github.com/your_username/your_config_repo' targetRevision: HEAD ref: config syncPolicy: automated: prune: true selfHeal: true syncOptions: # Ensures the 'mqtt' namespace is created if missing - CreateNamespace=true Apply it with kubectl\nkubectl apply -f argocd-applications/mosquitto-argocd.yaml And within a minute or so, you should see ArgoCD finish creating the deployment and it’ll be active on your LAN.\nIt’ll look something like this:\nand the detailed view should look similar to this:\nYou can see that there are two ReplicaSets - ArgoCD keeps old ReplicaSets to make rollback easier - they’re set to zero replicas since they’ve been superseded by a newer version.\n",
+  "wordCount" : "1635",
+  "inLanguage": "en",
+  "image": "https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished": "2026-03-01T12:12:39-07:00",
+  "dateModified": "2026-03-01T12:12:39-07:00",
+  "author":{
+    "@type": "Person",
+    "name": "Me"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://unixorn.github.io/post/homelab/k8s/06-install-mqtt/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "unixorn.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://unixorn.github.io/%3Clink%20/%20abs%20url%3E"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://unixorn.github.io/" accesskey="h" title="Home (Alt + H)">
+                <img src="https://unixorn.github.io/apple-touch-icon.png" alt="" aria-label="logo"
+                    height="35">Home</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://unixorn.github.io/archives/" title="archives">
+                    <span>archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://unixorn.github.io/search/" title="search (Alt &#43; /)" accesskey=/>
+                    <span>search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://unixorn.github.io/about/" title="about">
+                    <span>about</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://unixorn.github.io/projects/" title="projects">
+                    <span>projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://unixorn.github.io/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hachyderm.io/@unixorn" title="hachyderm.io/@unixorn">
+                    <span>hachyderm.io/@unixorn</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<link rel="stylesheet" type="text/css" href="https://unixorn.github.io/css/mastodon.css" />
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="https://unixorn.github.io/">Home</a>&nbsp;»&nbsp;<a href="https://unixorn.github.io/post/">Posts</a></div>
+    <h1 class="post-title">
+      Install MQTT into k8s
+    </h1>
+    <div class="post-meta"><span title='2026-03-01 12:12:39 -0700 MST'>March 1, 2026</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1635 words&nbsp;·&nbsp;Me
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#goals">Goals</a></li>
+    <li><a href="#software-versions">Software Versions</a></li>
+    <li><a href="#pre-requisites">Pre-requisites</a></li>
+    <li><a href="#installing-mosquitto">Installing Mosquitto</a>
+      <ul>
+        <li><a href="#pick-a-static-ip">Pick a static IP</a></li>
+        <li><a href="#create-the-password-secret">Create the password secret</a></li>
+        <li><a href="#install-mosquitto-using-plain-manifest-files">Install Mosquitto using plain manifest files</a></li>
+        <li><a href="#install-mosquitto-with-argocd">Install Mosquitto with ArgoCD</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>Now that the cluster is up and has Argo CD controlling application deployment, I&rsquo;m starting to move my homelab services out of <code>docker-compose</code> stacks and into my k8s cluster.</p>
+<p>I run MQTT (Eclipse <a href="https://mosquitto.org/">Mosquitto</a> in my case) as a message bus between <a href="https://www.zigbee2mqtt.io/">zigbee2mqtt</a> and <a href="https://github.com/zwave-js/zwave-js-ui">zwave-js-ui</a> and <a href="https://www.home-assistant.io/">Home Assistant</a>, so it&rsquo;s the first service I&rsquo;m moving into the k8s cluster.</p>
+<p>This is part 6 of my Kubernetes homelab cluster setup series - <strong>Install MQTT into a k8s cluster</strong>.</p>
+<ul>
+<li><a href="../01-talos-with-cilium-cni-on-proxmox/">Part 1 - Setting up Talos with a Cilium CNI on proxmox</a></li>
+<li><a href="../02-k8s-cilium-r53-and-cert-manager/">Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53</a></li>
+<li><a href="../03-secret-management-with-sops/">Part 3 - Set up Secret Management with SOPS</a></li>
+<li><a href="../04-backup-talos-etcd-to-smb/">Part 4 - Back up your Talos etcd cluster to a SMB share</a></li>
+<li><a href="../05-install-argocd/">Part 5 - Install ArgoCD</a></li>
+<li>Part 6 - Install MQTT into a k8s cluster</li>
+</ul>
+<h2 id="goals">Goals<a hidden class="anchor" aria-hidden="true" href="#goals">#</a></h2>
+<ul>
+<li>Set up an <a href="https://argoproj.github.io/cd/">ArgoCD</a> Application that installs <a href="https://mosquitto.org/">Eclipse Mosquitto</a> into your cluster</li>
+</ul>
+<h2 id="software-versions">Software Versions<a hidden class="anchor" aria-hidden="true" href="#software-versions">#</a></h2>
+<p>Here are the versions of the software I used while writing this post.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Software</th>
+          <th>Version</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>argocd</code></td>
+          <td>3.2.6</td>
+      </tr>
+      <tr>
+          <td><code>cilium</code></td>
+          <td>1.18.6</td>
+      </tr>
+      <tr>
+          <td><code>kubectl</code></td>
+          <td>1.34</td>
+      </tr>
+      <tr>
+          <td><code>kubernetes</code></td>
+          <td>1.34.1</td>
+      </tr>
+      <tr>
+          <td><code>mosquitto</code></td>
+          <td>2.1.2</td>
+      </tr>
+      <tr>
+          <td><code>talos</code></td>
+          <td>1.12.4</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="pre-requisites">Pre-requisites<a hidden class="anchor" aria-hidden="true" href="#pre-requisites">#</a></h2>
+<p>To follow along with this post, you will need:</p>
+<ul>
+<li>A kubernetes cluster. I&rsquo;m using the talos cluster from <a href="../01-talos-with-cilium-cni-on-proxmox/">Part 1 - Setting up Talos with a Cilium CNI on proxmox</a>, but this will work with any kubernetes cluster.</li>
+<li>A GitHub account. You can also use GitLab or your own <code>git</code> server, but all the examples in this post assume you&rsquo;re storing your Argo CD repository on GitHub.</li>
+<li><a href="https://argoproj.github.io/cd/">ArgoCD</a> installed in your cluster. See <a href="../05-install-argocd/">Part 5 - Install ArgoCD</a> for installation instructions</li>
+<li>If you&rsquo;ve been following along with this series, you already have <code>helm</code> and <code>kubectl</code>.  Otherwise you can <code>brew install</code> them or follow the install instructions at <a href="https://helm.sh">helm.sh</a>  and <a href="https://kubernetes.io/docs/tasks/tools/">kubectl</a>.</li>
+</ul>
+<h2 id="installing-mosquitto">Installing Mosquitto<a hidden class="anchor" aria-hidden="true" href="#installing-mosquitto">#</a></h2>
+<p>I created a helm chart for <a href="https://mosquitto.org/">Mosquitto</a> <a href="https://github.com/unixorn-argocd/laboratorium-domesticum/tree/main/charts/mqtt-cilium">here</a>.</p>
+<p>Before we install it, I&rsquo;m going to show you the manifests I used to create the chart so you can see how everything works. I recommend you read through that before going to the easier gitops way to have Argo CD install the helm chart with your own <code>values.yaml</code>.</p>
+<h3 id="pick-a-static-ip">Pick a static IP<a hidden class="anchor" aria-hidden="true" href="#pick-a-static-ip">#</a></h3>
+<p>Mosquitto needs a static IP to run on so that your IOT devices can find it. I recommend you make your life easier and add a <code>mqtt-server.example.com</code> entry in your homelab pointing at the IP though, instead of configuring your devices with the bare IP. I have too many devices to want to hassle with reconfiguring things later just because I decide to move the MQTT server - that&rsquo;s what DNS is for.</p>
+<h3 id="create-the-password-secret">Create the password secret<a hidden class="anchor" aria-hidden="true" href="#create-the-password-secret">#</a></h3>
+<p>Whether you install from the manifests directly or via Argo and Helm, you&rsquo;re going to need to create a secret containing the password file. Here&rsquo;s one I created with <a href="../03-secret-management-with-sops/">sops</a>.</p>
+<p>First, you need to create a password file - we&rsquo;ll use <code>docker</code> so we don&rsquo;t have to install mosquitto outside of k8s just to make a password file.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">docker run --rm -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/mnt eclipse-mosquitto mosquitto_passwd -b -c /mnt/mqtt_password iot your iot_password
+</span></span></code></pre></div><p>Replace the <code>iot</code> entry in this manifest with the one in the <code>mqtt_password</code> file you just created.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># mqtt-sops-secret.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">isindir.github.com/v1alpha3</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">SopsSecret</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt-secret</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">secretTemplates</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt-secret</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">stringData</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">password.txt</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">                iot:$7$1000$APd9OAc+QTR9rB8Zq8KOseIIWNl8AbyfDmqn4aHgwaSlFTKi7lrn1P/6+cHQDiJmzYtDaBCy7vNemrvxGr0PZg==$ZOqrxA2Y4vnHLtSC8HpQhGTV8b49IGiAAU2fhcFMxz1L9M42IBBk8yun03t1WTw6CUcfr3sBRuZ8Y6Gdt3FMag==</span><span class="w">
+</span></span></span></code></pre></div><p>Then use <code>sops</code> to encrypt the secret.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sops encrypt -i mqtt-secret.yaml
+</span></span></code></pre></div><p>If you haven&rsquo;t already set SOPS up in your cluster, I documented that in <a href="../03-secret-management-with-sops/">Part 3 - Set up Secret Management with SOPS</a>.</p>
+<p>Finally, create the secret containing the password file.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl create namespace mqtt <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  kubectl apply -f mqtt-sops-secret.yaml
+</span></span></code></pre></div><h3 id="install-mosquitto-using-plain-manifest-files">Install Mosquitto using plain manifest files<a hidden class="anchor" aria-hidden="true" href="#install-mosquitto-using-plain-manifest-files">#</a></h3>
+<p>Make a <code>mosquitto</code> directory in the repository your Argo CD installation is using for configuration.</p>
+<h4 id="create-a-namespace">Create a Namespace<a hidden class="anchor" aria-hidden="true" href="#create-a-namespace">#</a></h4>
+<p>Keep Mosquitto in its own namespace for tidiness.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># mqtt-namespace.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Namespace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">kubernetes.io/metadata.name</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">pod-security.kubernetes.io/enforce</span><span class="p">:</span><span class="w"> </span><span class="l">privileged</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt</span><span class="w">
+</span></span></span></code></pre></div><h4 id="create-a-pvc">Create a PVC<a hidden class="anchor" aria-hidden="true" href="#create-a-pvc">#</a></h4>
+<p>Create a PVC for <code>mosquitto</code> to store its data in</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># mqtt-data-pvc.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">PersistentVolumeClaim</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mosquitto-data-pvc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">accessModes</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;ReadWriteMany&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">requests</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="l">1Gi</span><span class="w">
+</span></span></span></code></pre></div><h4 id="it-needs-a-loadbalancer-so-it-can-be-reached-from-outside-the-cluster">It needs a <code>LoadBalancer</code> so it can be reached from outside the cluster<a hidden class="anchor" aria-hidden="true" href="#it-needs-a-loadbalancer-so-it-can-be-reached-from-outside-the-cluster">#</a></h4>
+<p>I run <a href="https://www.zigbee2mqtt.io/">zigbee2mqtt</a> and <a href="https://github.com/zwave-js/zwave-js-ui">zwave-js-ui</a> as part of my Home Assistant system. I haven&rsquo;t moved them into the k8s cluster yet though, so I need mosquitto accessible from outside the cluster.</p>
+<p>This service manifest works with the Cilium CNI we set up in <a href="../01-talos-with-cilium-cni-on-proxmox/">Part 1 - Setting up Talos with a Cilium CNI on proxmox</a>.</p>
+<p>Change the <code>cilium.io/lb-ipam-pool-name</code> and <code>lbipam.cilium.io/ips</code> keys in the manifest file to match your local setup.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># mqtt-lb.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Service</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt-lb</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cilium.io/lb-ipam-pool-name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;default-pool&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">cilium.io/assign-internal-ip</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">lbipam.cilium.io/ips</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;10.9.8.7&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">lbipam.cilium.io/sharing-key</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;mqtt&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">homelab.service</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">LoadBalancer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt-tcp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">1883</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l">TCP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">1883</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt-websocket</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">9001</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l">TCP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">targetPort</span><span class="p">:</span><span class="w"> </span><span class="m">9001</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">mosquitto</span><span class="w">
+</span></span></span></code></pre></div><h4 id="create-a-manifest-for-the-configmap-and-deployment">Create a manifest for the <code>ConfigMap</code> and <code>Deployment</code><a hidden class="anchor" aria-hidden="true" href="#create-a-manifest-for-the-configmap-and-deployment">#</a></h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># mqtt-stack.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ConfigMap</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mosquitto-config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">data</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">mosquitto.conf</span><span class="p">:</span><span class="w"> </span><span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">    persistence true
+</span></span></span><span class="line"><span class="cl"><span class="sd">    persistence_location /mosquitto/data
+</span></span></span><span class="line"><span class="cl"><span class="sd">    log_dest stdout
+</span></span></span><span class="line"><span class="cl"><span class="sd">    
+</span></span></span><span class="line"><span class="cl"><span class="sd">    # Explicitly bind to 0.0.0.0 to allow K8s Service traffic
+</span></span></span><span class="line"><span class="cl"><span class="sd">    listener 1883 0.0.0.0
+</span></span></span><span class="line"><span class="cl"><span class="sd">    allow_anonymous false
+</span></span></span><span class="line"><span class="cl"><span class="sd">    password_file /mosquitto/config/password.txt
+</span></span></span><span class="line"><span class="cl"><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">    listener 9001 0.0.0.0
+</span></span></span><span class="line"><span class="cl"><span class="sd">    protocol websockets
+</span></span></span><span class="line"><span class="cl"><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">    # # MQTT over TLS
+</span></span></span><span class="line"><span class="cl"><span class="sd">    # listener 8883
+</span></span></span><span class="line"><span class="cl"><span class="sd">    # cafile /mosquitto/certs/ca.crt
+</span></span></span><span class="line"><span class="cl"><span class="sd">    # certfile /mosquitto/certs/tls.crt
+</span></span></span><span class="line"><span class="cl"><span class="sd">    # keyfile /mosquitto/certs/tls.key
+</span></span></span><span class="line"><span class="cl"><span class="sd">    # # MQTT over WebSockets (Secure)
+</span></span></span><span class="line"><span class="cl"><span class="sd">    # listener 9001
+</span></span></span><span class="line"><span class="cl"><span class="sd">    # protocol websockets
+</span></span></span><span class="line"><span class="cl"><span class="sd">    # cafile /mosquitto/certs/ca.crt
+</span></span></span><span class="line"><span class="cl"><span class="sd">    # certfile /mosquitto/certs/tls.crt
+</span></span></span><span class="line"><span class="cl"><span class="sd">    # keyfile /mosquitto/certs/tls.key</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">apps/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mosquitto-deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">selector</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">matchLabels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">mosquitto</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">template</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l">mosquitto</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">securityContext</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"> </span><span class="m">1883</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">runAsGroup</span><span class="p">:</span><span class="w"> </span><span class="m">1883</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">fsGroup</span><span class="p">:</span><span class="w"> </span><span class="m">1883</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">fsGroupChangePolicy</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Always&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">seccompProfile</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">RuntimeDefault</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">initContainers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">init-permissions</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">busybox:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">command</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">sh</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- -<span class="l">c</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="p">|</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">          # Copy from read-only secret to writable emptyDir
+</span></span></span><span class="line"><span class="cl"><span class="sd">          # It will be owned by UID 1883 automatically
+</span></span></span><span class="line"><span class="cl"><span class="sd">          cp /mnt/secret/password_file /mosquitto/writable-config/password.txt
+</span></span></span><span class="line"><span class="cl"><span class="sd">          chmod 0600 /mosquitto/writable-config/password.txt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">securityContext</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">allowPrivilegeEscalation</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">capabilities</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">drop</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;ALL&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"> </span><span class="m">1883</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">seccompProfile</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">RuntimeDefault</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">volumeMounts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">password-file-raw</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/mnt/secret</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">readOnly</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">writable-config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/mosquitto/writable-config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">containers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mosquitto</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">eclipse-mosquitto:latest</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">securityContext</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">allowPrivilegeEscalation</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">capabilities</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">drop</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">&#34;ALL&#34;</span><span class="p">]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">readOnlyRootFilesystem</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">runAsNonRoot</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">runAsUser</span><span class="p">:</span><span class="w"> </span><span class="m">1883</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">seccompProfile</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">RuntimeDefault</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">limits</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;128Mi&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">requests</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;100m&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;128Mi&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">1883</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">containerPort</span><span class="p">:</span><span class="w"> </span><span class="m">9001</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">volumeMounts</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/mosquitto/config/mosquitto.conf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">subPath</span><span class="p">:</span><span class="w"> </span><span class="l">mosquitto.conf</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/mosquitto/data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">writable-config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/mosquitto/config/password.txt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">subPath</span><span class="p">:</span><span class="w"> </span><span class="l">password.txt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">tmp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">mountPath</span><span class="p">:</span><span class="w"> </span><span class="l">/tmp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">configMap</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mosquitto-config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">password-file-raw</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">secret</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt-secret</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">writable-config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">emptyDir</span><span class="p">:</span><span class="w"> </span>{}<span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">data</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">persistentVolumeClaim</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">claimName</span><span class="p">:</span><span class="w"> </span><span class="l">mosquitto-data-pvc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">tmp</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">emptyDir</span><span class="p">:</span><span class="w"> </span>{}<span class="w">
+</span></span></span></code></pre></div><p>Move all the manifest files into your <code>mqtt</code> directory, then install them with</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl apply -f mqtt
+</span></span></code></pre></div><h3 id="install-mosquitto-with-argocd">Install Mosquitto with ArgoCD<a hidden class="anchor" aria-hidden="true" href="#install-mosquitto-with-argocd">#</a></h3>
+<p>The helm chart has only been tested on clusters using Cilium as their CNI. Clusters without Cilium <em>should</em> ignore the cilium annotations and work, I haven&rsquo;t tested that.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">helm repo add laboratorium-domesticum https://unixorn-argocd.github.io/laboratorium-domesticum <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  helm search repo laboratorium-domesticum --versions
+</span></span></code></pre></div><p>First, install the password secret from the manifest we created earlier.</p>
+<h4 id="create-a-valuesyaml-file-to-configure-the-chart">Create a <code>values.yaml</code> file to configure the chart<a hidden class="anchor" aria-hidden="true" href="#create-a-valuesyaml-file-to-configure-the-chart">#</a></h4>
+<p>Add a directory in your configuration <code>git</code> repository. I put mine in <code>configs/mosquitto/values.yaml</code>.</p>
+<p>Here&rsquo;s an example <code>values.yaml</code> you can base yours on.</p>
+<ul>
+<li>Make sure you change the <code>ips</code> and <code>poolName</code> keys in the <code>cilium</code> section.</li>
+<li>The <code>mosquittoConfig</code> section contains a reasonable configuration for using <code>mqtt</code> with <code>zigbee2mqtt</code>, <code>zwave-js-ui</code> and all the WIFI-based IOT devices I&rsquo;ve used.</li>
+<li>Don&rsquo;t increase the <code>replicas</code> in the <code>mosquittoDeployment</code> section or some of your devices and services will update one replica and some others and you will have weird errors.</li>
+<li>If you didn&rsquo;t name your password secret <code>mqtt-secret</code>, update the <code>existingSecret</code> key in the <code>mosquittoSecret</code> section.</li>
+</ul>
+<p>The full documentation for the <code>helm</code> chart is <a href="https://github.com/unixorn-argocd/laboratorium-domesticum/tree/main/charts/mqtt-cilium">here</a></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># values.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Networking</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">cilium</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">assign-internal-ip</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ips</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;10.9.8.7&#34;</span><span class="w"> </span><span class="c"># Set the IP address of your MQTT server here</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">pool-name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;default-pool&#34;</span><span class="w">     </span><span class="c"># The cilium IP pool that contains the IP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sharing-key</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;mqtt&#34;</span><span class="w">           </span><span class="c"># Changed from sharingKey</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Mosquitto Deployment Settings</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">mosquittoDeployment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="c"># Don&#39;t </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">image</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">repository</span><span class="p">:</span><span class="w"> </span><span class="l">eclipse-mosquitto</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">tag</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;2.0.18&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">podSecurityContext</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">fsGroup</span><span class="p">:</span><span class="w"> </span><span class="m">1883</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">resources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">limits</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l">100m</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l">128Mi</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">requests</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">cpu</span><span class="p">:</span><span class="w"> </span><span class="l">100m</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">memory</span><span class="p">:</span><span class="w"> </span><span class="l">128Mi</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Configuration (Supports templates for dynamic values)</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">mosquittoConfig</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">mosquittoConf</span><span class="p">:</span><span class="w"> </span><span class="p">|-</span><span class="sd">
+</span></span></span><span class="line"><span class="cl"><span class="sd">    persistence true
+</span></span></span><span class="line"><span class="cl"><span class="sd">    persistence_location /mosquitto/data
+</span></span></span><span class="line"><span class="cl"><span class="sd">    log_dest stdout
+</span></span></span><span class="line"><span class="cl"><span class="sd">    listener 1883 0.0.0.0
+</span></span></span><span class="line"><span class="cl"><span class="sd">    allow_anonymous false
+</span></span></span><span class="line"><span class="cl"><span class="sd">    # This must match the mount path in our deployment
+</span></span></span><span class="line"><span class="cl"><span class="sd">    password_file /mosquitto/config/password.txt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Password Secret Configuration</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">mosquittoSecrets</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Set to false because you are providing the secret manually</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">create</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># The name of your existing Kubernetes Secret</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">existingSecret</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;mqtt-secret&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># This can be left empty since create is false</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">passwordData</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Persistent Storage</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">pvc</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">storageRequest</span><span class="p">:</span><span class="w"> </span><span class="l">1Gi</span><span class="w"> </span><span class="c"># Probably overkill</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">mqttLb</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">LoadBalancer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Add these lines here:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">poolName</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;default-pool&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sharingKey</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;mqtt&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ips</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;10.9.8.7&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">revisionHistoryLimit</span><span class="p">:</span><span class="w"> </span><span class="m">3</span><span class="w">
+</span></span></span></code></pre></div><p>Commit the file and push your changes to the default branch of your configuration repository.</p>
+<h4 id="create-an-argocd-application-manifest">Create an ArgoCD Application Manifest<a hidden class="anchor" aria-hidden="true" href="#create-an-argocd-application-manifest">#</a></h4>
+<p>Here&rsquo;s an ArgoCD multi-source application manifest you can use. It will configure Argo to use my chart to install Mosquitto using the <code>values.yaml</code> you just created in your <code>git</code> repository. I keep mine in an <code>argocd-applications</code> directory in my configuration repository.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># mosquitto-argocd.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">argoproj.io/v1alpha1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Application</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">mosquitto-mqtt</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">argocd</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l">default</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">destination</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l">https://kubernetes.default.svc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># CHANGED: Now points to the &#39;mqtt&#39; namespace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">mqtt </span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">repoURL</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;https://github.com/unixorn-argocd/laboratorium-domesticum.git&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">targetRevision</span><span class="p">:</span><span class="w"> </span><span class="l">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l">charts/mqtt-cilium</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">helm</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">valueFiles</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="l">$config/configs/mosquitto/values.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">repoURL</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;https://github.com/your_username/your_config_repo&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">targetRevision</span><span class="p">:</span><span class="w"> </span><span class="l">HEAD</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l">config</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">syncPolicy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">automated</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">prune</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">selfHeal</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">syncOptions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># Ensures the &#39;mqtt&#39; namespace is created if missing</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">CreateNamespace=true</span><span class="w">
+</span></span></span></code></pre></div><p>Apply it with <code>kubectl</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl apply -f argocd-applications/mosquitto-argocd.yaml
+</span></span></code></pre></div><p>And within a minute or so, you should see ArgoCD finish creating the deployment and it&rsquo;ll be active on your LAN.</p>
+<p>It&rsquo;ll look something like this:</p>
+<p><img alt="tile" loading="lazy" src="https://unixorn.github.io/images/homelab/mqtt/mqtt-tile.png#center"></p>
+<p>and the detailed view should look similar to this:</p>
+<p><img alt="tile" loading="lazy" src="https://unixorn.github.io/images/homelab/mqtt/mqtt-breakdown.png#center"></p>
+<p>You can see that there are two <code>ReplicaSets</code> - ArgoCD keeps old <code>ReplicaSets</code> to make rollback easier - they&rsquo;re set to zero replicas since they&rsquo;ve been superseded by a newer version.</p>
+
+  </div>
+  <div>
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://unixorn.github.io/tags/argocd/">Argocd</a></li>
+      <li><a href="https://unixorn.github.io/tags/gitops/">Gitops</a></li>
+      <li><a href="https://unixorn.github.io/tags/helm/">Helm</a></li>
+      <li><a href="https://unixorn.github.io/tags/homeassistant/">Homeassistant</a></li>
+      <li><a href="https://unixorn.github.io/tags/homelab/">Homelab</a></li>
+      <li><a href="https://unixorn.github.io/tags/k8s/">K8s</a></li>
+      <li><a href="https://unixorn.github.io/tags/mosquitto/">Mosquitto</a></li>
+      <li><a href="https://unixorn.github.io/tags/mqtt/">Mqtt</a></li>
+      <li><a href="https://unixorn.github.io/tags/sops/">Sops</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://unixorn.github.io/post/homelab/k8s/05-install-argocd/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Install Argo CD in a homelab cluster</span>
+  </a>
+</nav>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Install MQTT into k8s on x"
+            href="https://x.com/intent/tweet/?text=Install%20MQTT%20into%20k8s&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fk8s%2f06-install-mqtt%2f&amp;hashtags=argocd%2cgitops%2chelm%2chomeassistant%2chomelab%2ck8s%2cmosquitto%2cmqtt%2csops">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Install MQTT into k8s on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fk8s%2f06-install-mqtt%2f&amp;title=Install%20MQTT%20into%20k8s&amp;summary=Install%20MQTT%20into%20k8s&amp;source=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fk8s%2f06-install-mqtt%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Install MQTT into k8s on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fk8s%2f06-install-mqtt%2f&title=Install%20MQTT%20into%20k8s">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Install MQTT into k8s on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fk8s%2f06-install-mqtt%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Install MQTT into k8s on whatsapp"
+            href="https://api.whatsapp.com/send?text=Install%20MQTT%20into%20k8s%20-%20https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fk8s%2f06-install-mqtt%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Install MQTT into k8s on telegram"
+            href="https://telegram.me/share/url?text=Install%20MQTT%20into%20k8s&amp;url=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fk8s%2f06-install-mqtt%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Install MQTT into k8s on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Install%20MQTT%20into%20k8s&u=https%3a%2f%2funixorn.github.io%2fpost%2fhomelab%2fk8s%2f06-install-mqtt%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>Copyright 2019-2026, Joe Block. All rights reserved.</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+        <a rel="me" href="https://hachyderm.io/@unixorn">Mastodon</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

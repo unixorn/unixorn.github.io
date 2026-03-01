@@ -184,6 +184,21 @@
 
 <article class="post-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Set up nginx-proxy-manager with LetsEncrypt SSL certificates
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In the next few posts, I’m going to document how to set up Home Assistant (HA) from scratch. We’re going to want to protect the admin UI interfaces for HA and its support services with SSL, and add authentication to services that don’t provide it themselves.
+We’re going to do this with Nginx Proxy Manager because it has built in support for using LetsEncrypt to obtain free SSL certificates, supports adding authentication to services that don’t do it themselves, and is overall easy to use.
+Before I start writing more Home Assitant articles, let’s set up a SSL proxy server to keep everything secure.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2023-07-22 08:19:38 -0600 MDT'>July 22, 2023</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;2101 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Set up nginx-proxy-manager with LetsEncrypt SSL certificates" href="https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/"></a>
+</article>
+
+<article class="post-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Installing ESPHome
     </h2>
   </header>
@@ -301,20 +316,6 @@ I’ve had a few people new to Home Assistant ask about how to best set up their
   </div>
   <footer class="entry-footer"><span title='2022-11-06 14:47:14 -1000 -1000'>November 6, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;986 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Zigbee and Zwave Setup Tips" href="https://unixorn.github.io/post/zigbee-and-zwave-setup-tip/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Switch Home Assistant to Use PostgreSQL Instead of SQLite
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>I wanted to switch my new Home Assistant (HA) installation to write data to PostgreSQL instead of SQLite for a variety of reasons. Here’s how I did it.
-Here’s why I decided to switch:
-Resilience. If you’re running Home Assistant on a Raspberry Pi’s SD card, the constant churn of history updates will eventually destroy the card. The more entities you have, the faster HA will grind your SD card to failure. Writing all that to another server that is writing to a real SSD or spinning disk eliminates that problem. Convenience. I can back up the postgres database without having to stop HA. I don’t even have to run the backup on the HA server. Speed. Using a real database will speed up history display, especially once you have a large number of entities. ...</p>
-  </div>
-  <footer class="entry-footer"><span title='2022-11-05 09:42:58 -0600 MDT'>November 5, 2022</span>&nbsp;·&nbsp;5 min&nbsp;·&nbsp;864 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to Switch Home Assistant to Use PostgreSQL Instead of SQLite" href="https://unixorn.github.io/post/hass-using-postgresql-instead-of-sqlite/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

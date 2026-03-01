@@ -27,6 +27,7 @@
 &lt;li&gt;&lt;a href=&#34;../03-secret-management-with-sops/&#34;&gt;Part 3 - Secret Management with SOPS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;../04-backup-talos-etcd-to-smb/&#34;&gt;Part 4 - Back up your Talos etcd cluster to a SMB share&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;Part 5 - Install Argo CD&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../06-install-mqtt/&#34;&gt;Part 6 - Install MQTT into a k8s cluster&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;why-bother-with-gitops-its-a-homelab-and-im-the-only-administrator&#34;&gt;Why bother with gitops? It&amp;rsquo;s a homelab, and I&amp;rsquo;m the only administrator&lt;/h2&gt;
 &lt;p&gt;Using gitops to configure your cluster instead of running &lt;code&gt;kubectl apply&lt;/code&gt; commands directly makes it possible to reproduce the exact state of the cluster later if you need to revert to a known-good state.&lt;/p&gt;</description>
@@ -58,6 +59,7 @@
 &lt;li&gt;&lt;a href=&#34;../03-secret-management-with-sops/&#34;&gt;Part 3 - Set up Secret Management with SOPS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;../04-backup-talos-etcd-to-smb/&#34;&gt;Part 4 - Back up your Talos etcd cluster to a SMB share&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;../05-install-argocd/&#34;&gt;Part 5 - Install ArgoCD&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;../06-install-mqtt/&#34;&gt;Part 6 - Install MQTT into a k8s cluster&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;The tutorials I&amp;rsquo;ve seen for using cert-manager with a DNS challenge all use CloudFlare. I have my lab domain on &lt;a href=&#34;https://aws.amazon.com/route53/&#34;&gt;Route 53&lt;/a&gt; so this post will cover that instead.&lt;/p&gt;</description>
     </item>
