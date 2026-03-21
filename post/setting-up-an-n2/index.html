@@ -261,14 +261,14 @@
 <p>Add docker repository key - <code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</code></p>
 <p>Add the repo:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl">sudo add-apt-repository <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>   <span class="s2">&#34;deb [arch=arm64] https://download.docker.com/linux/ubuntu \
+</span></span></span><span class="line"><span class="cl">   <span class="s2">&#34;deb [arch=arm64] https://download.docker.com/linux/ubuntu \
 </span></span></span><span class="line"><span class="cl"><span class="s2">   </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> \
 </span></span></span><span class="line"><span class="cl"><span class="s2">   stable&#34;</span>
 </span></span></code></pre></div><p>Install docker community edition
 <code>apt update &amp;&amp; apt install docker-ce docker-ce-cli containerd.io</code></p>
 <hr>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">#</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1">#</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Put the setup all in one script. Run as root with sudo.</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Disable XWindow login</span>
@@ -281,7 +281,7 @@
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Add docker apt repository</span>
 </span></span><span class="line"><span class="cl">add-apt-repository <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>   <span class="s2">&#34;deb [arch=arm64] https://download.docker.com/linux/ubuntu \
+</span></span></span><span class="line"><span class="cl">   <span class="s2">&#34;deb [arch=arm64] https://download.docker.com/linux/ubuntu \
 </span></span></span><span class="line"><span class="cl"><span class="s2">   </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> \
 </span></span></span><span class="line"><span class="cl"><span class="s2">   stable&#34;</span>
 </span></span><span class="line"><span class="cl">
@@ -289,13 +289,13 @@
 </span></span><span class="line"><span class="cl">apt-get update <span class="o">&amp;&amp;</span> apt-get upgrade
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">apt-get install -y <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    git <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    htop <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    iotop <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    libssl-dev <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    python3-pip <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    vim vim-doc vim-scripts <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>    zsh
+</span></span></span><span class="line"><span class="cl">    git <span class="se">\
+</span></span></span><span class="line"><span class="cl">    htop <span class="se">\
+</span></span></span><span class="line"><span class="cl">    iotop <span class="se">\
+</span></span></span><span class="line"><span class="cl">    libssl-dev <span class="se">\
+</span></span></span><span class="line"><span class="cl">    python3-pip <span class="se">\
+</span></span></span><span class="line"><span class="cl">    vim vim-doc vim-scripts <span class="se">\
+</span></span></span><span class="line"><span class="cl">    zsh
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Install docker community edition</span>
 </span></span><span class="line"><span class="cl">apt update <span class="o">&amp;&amp;</span> apt install docker-ce docker-ce-cli containerd.io

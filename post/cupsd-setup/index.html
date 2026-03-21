@@ -259,12 +259,12 @@
 <li>Run the <code>cupsd</code> server with</li>
 </ol>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">sudo docker run -d --restart unless-stopped <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -p 631:631 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --privileged <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -v /var/run/dbus:/var/run/dbus <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -v /dev/bus/usb:/dev/bus/usb <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -v <span class="nv">$CUPSD_DIR</span>/printers.conf:/etc/cups/printers.conf <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  unixorn/cupsd
+</span></span></span><span class="line"><span class="cl">  -p 631:631 <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --privileged <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -v /var/run/dbus:/var/run/dbus <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -v /dev/bus/usb:/dev/bus/usb <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -v <span class="nv">$CUPSD_DIR</span>/printers.conf:/etc/cups/printers.conf <span class="se">\
+</span></span></span><span class="line"><span class="cl">  unixorn/cupsd
 </span></span></code></pre></div><p>You can now connect to <code>http://cupsd.example.com:631</code> and add printers using the web UI.</p>
 <p>When adding the printers to your Mac, select Internet Printing Protocol and put in the IP or DNS name of your print server machine.</p>
 <p>When entering the printer information into your printer settings, the queues should be entered as <code>printers/printername</code>, not <code>printername</code>.</p>

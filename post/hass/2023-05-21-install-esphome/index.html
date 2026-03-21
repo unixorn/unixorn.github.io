@@ -253,7 +253,7 @@
 <p>First, make a directory to put a <code>docker-compose.yml</code> file in. Create a <code>config</code> subdirectory in it so that ESPHome has someplace to put device configuration YAML files. You&rsquo;re going to want to keep those files to make it easier to update your devices later.</p>
 <p>Create a <code>docker-compose.yml</code> file with the following contents:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">esphome</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">esphome</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
@@ -268,8 +268,8 @@
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
 </span></span></span></code></pre></div><p>You&rsquo;re also going to need a file to store secrets like your WIFI network name and password. Create <code>config/secrets.yml</code> with the following contents:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">wifi_ssid</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;WIFI_NETWORK_TO_JOIN&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">wifi_password</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;WIFI_PASSWORD&#34;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">api_password</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;AnAPIPassword&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">wifi_password</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;WIFI_PASSWORD&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">api_password</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;AnAPIPassword&#34;</span><span class="w">
 </span></span></span></code></pre></div><p>This will let you use secrets in your device configurations as <code>!secretname</code>.</p>
 <h3 id="run-it">Run it<a hidden class="anchor" aria-hidden="true" href="#run-it">#</a></h3>
 <p>I only run ESPHome when I&rsquo;m adding a new device or updating an existing one, so I usually run it on my laptop. It&rsquo;s more convenient this way since I don&rsquo;t have to go downstairs to the server rack to connect whatever device I&rsquo;m working on.</p>

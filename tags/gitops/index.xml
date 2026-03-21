@@ -9,18 +9,26 @@
       <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.152.2</generator>
+    <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2026, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 01 Mar 2026 12:12:39 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2026 22:56:20 -0600</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/gitops/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Add an ArgoCD git generator ApplicationSet</title>
+      <link>https://unixorn.github.io/post/homelab/k8s/07-argocd-git-generator/</link>
+      <pubDate>Thu, 19 Mar 2026 22:56:20 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/homelab/k8s/07-argocd-git-generator/</guid>
+      <description>&lt;p&gt;The next gitops task for my home cluster was to make ArgoCD automatically install new applications when I add them to the configuration &lt;code&gt;git&lt;/code&gt; repository.&lt;/p&gt;
+&lt;p&gt;In this post, I&amp;rsquo;m going to show how to set up an Argo CD &lt;code&gt;git&lt;/code&gt; generator &lt;code&gt;ApplicationSet&lt;/code&gt; and point it at a specific directory in a configuration repository.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Install MQTT into k8s</title>
       <link>https://unixorn.github.io/post/homelab/k8s/06-install-mqtt/</link>
       <pubDate>Sun, 01 Mar 2026 12:12:39 -0700</pubDate>
       <guid>https://unixorn.github.io/post/homelab/k8s/06-install-mqtt/</guid>
       <description>&lt;p&gt;Now that the cluster is up and has Argo CD controlling application deployment, I&amp;rsquo;m starting to move my homelab services out of &lt;code&gt;docker-compose&lt;/code&gt; stacks and into my k8s cluster.&lt;/p&gt;
-&lt;p&gt;I run MQTT (Eclipse &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; in my case) as a message bus between &lt;a href=&#34;https://www.zigbee2mqtt.io/&#34;&gt;zigbee2mqtt&lt;/a&gt; and &lt;a href=&#34;https://github.com/zwave-js/zwave-js-ui&#34;&gt;zwave-js-ui&lt;/a&gt; and &lt;a href=&#34;https://www.home-assistant.io/&#34;&gt;Home Assistant&lt;/a&gt;, so it&amp;rsquo;s the first service I&amp;rsquo;m moving into the k8s cluster.&lt;/p&gt;</description>
+&lt;p&gt;I run MQTT (Eclipse &lt;a href=&#34;https://mosquitto.org/&#34;&gt;Mosquitto&lt;/a&gt; in my case) as a message bus between &lt;a href=&#34;https://www.zigbee2mqtt.io/&#34;&gt;zigbee2mqtt&lt;/a&gt;, &lt;a href=&#34;https://github.com/zwave-js/zwave-js-ui&#34;&gt;zwave-js-ui&lt;/a&gt; and &lt;a href=&#34;https://www.home-assistant.io/&#34;&gt;Home Assistant&lt;/a&gt;, so it&amp;rsquo;s the first service I&amp;rsquo;m moving into the k8s cluster.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

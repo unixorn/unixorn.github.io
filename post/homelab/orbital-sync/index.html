@@ -254,8 +254,8 @@ Enter orbital-sync.">
 <h3 id="docker-compose">docker-compose<a hidden class="anchor" aria-hidden="true" href="#docker-compose">#</a></h3>
 <p>I&rsquo;m running <a href="https://github.com/mattwebbio/orbital-sync">orbital-sync</a> via docker-compose with this <code>docker-compose.yaml</code> file.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># docker-compose.yaml</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">orbital-sync</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">mattwebbio/orbital-sync:1</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
@@ -271,9 +271,9 @@ Enter orbital-sync.">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># SECONDARY_HOSTS_3_PATH: &#39;/apps/pi-hole&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">INTERVAL_MINUTES</span><span class="p">:</span><span class="w"> </span><span class="l">$INTERVAL_MINUTES</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Run it in the same docker network I run the master pihole in for simplicity.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># You can comment this stanza out if you&#39;re not using a ssl proxy.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Run it in the same docker network I run the master pihole in for simplicity.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># You can comment this stanza out if you&#39;re not using a ssl proxy.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">networks</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ssl_proxy_network</span><span class="w">

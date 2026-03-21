@@ -275,7 +275,7 @@ Wyze cameras are nice and cheap, and you can reflash them to support RTSP in add
 <p>I&rsquo;m running shinobi in a docker container. As of 2021-03-14, there is only an AMD64 build of this docker image so I&rsquo;m running it on the Intel machine in my homelab.</p>
 <p>Here&rsquo;s a <a href="https://github.com/unixorn/blog-scripts/blob/master/shinobi/shinobi-start">shinobi-start</a> script:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">#</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1">#</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Start shinobi</span>
 </span></span><span class="line"><span class="cl"><span class="c1">#</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Copyright 2021, Joe Block &lt;jpb@unixorn.net&gt;</span>
@@ -295,17 +295,17 @@ Wyze cameras are nice and cheap, and you can reflash them to support RTSP in add
 </span></span><span class="line"><span class="cl"><span class="k">done</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="nb">exec</span> docker run -d -p 8080:8080 <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --name<span class="o">=</span><span class="s1">&#39;shinobi&#39;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -v <span class="si">${</span><span class="nv">SHINOBI_D</span><span class="si">}</span>/config:/config:rw <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -v <span class="si">${</span><span class="nv">SHINOBI_D</span><span class="si">}</span>/customAutoLoad:/home/Shinobi/libs/customAutoLoad:rw <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -v <span class="si">${</span><span class="nv">SHINOBI_D</span><span class="si">}</span>/database:/var/lib/mysql:rw <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -v <span class="si">${</span><span class="nv">SHINOBI_D</span><span class="si">}</span>/plugins:/plugins:rw <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -v <span class="si">${</span><span class="nv">SHINOBI_D</span><span class="si">}</span>/videos:/home/Shinobi/videos:rw <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -v /dev/shm/Shinobi/streams:/dev/shm/streams:rw <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -v /etc/localtime:/etc/localtime:ro <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -v /etc/timezone:/etc/timezone:ro <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --restart always <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  shinobisystems/shinobi
+</span></span></span><span class="line"><span class="cl">  --name<span class="o">=</span><span class="s1">&#39;shinobi&#39;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -v <span class="si">${</span><span class="nv">SHINOBI_D</span><span class="si">}</span>/config:/config:rw <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -v <span class="si">${</span><span class="nv">SHINOBI_D</span><span class="si">}</span>/customAutoLoad:/home/Shinobi/libs/customAutoLoad:rw <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -v <span class="si">${</span><span class="nv">SHINOBI_D</span><span class="si">}</span>/database:/var/lib/mysql:rw <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -v <span class="si">${</span><span class="nv">SHINOBI_D</span><span class="si">}</span>/plugins:/plugins:rw <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -v <span class="si">${</span><span class="nv">SHINOBI_D</span><span class="si">}</span>/videos:/home/Shinobi/videos:rw <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -v /dev/shm/Shinobi/streams:/dev/shm/streams:rw <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -v /etc/localtime:/etc/localtime:ro <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -v /etc/timezone:/etc/timezone:ro <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --restart always <span class="se">\
+</span></span></span><span class="line"><span class="cl">  shinobisystems/shinobi
 </span></span></code></pre></div><p>Run this with <code>SHINOBI_D=/path/to/local/dvr/files shinobi_start</code> and it will create any missing required directories for you and start shinobi.</p>
 <h4 id="configure-shinobi">Configure shinobi<a hidden class="anchor" aria-hidden="true" href="#configure-shinobi">#</a></h4>
 <h5 id="set-up-a-new-admin-account">Set up a new admin account<a hidden class="anchor" aria-hidden="true" href="#set-up-a-new-admin-account">#</a></h5>

@@ -259,7 +259,7 @@
 <p>I decided to use the <a href="https://github.com/hon95/prometheus-nut-exporter">hon95/prometheus-nut-exporter</a> container to proxy metrics from NUT to Prometheus.</p>
 <p>Here&rsquo;s a <code>docker-compose.yaml</code> file for starting nut-upsd and the prometheus nut exporter. For simplicity, I&rsquo;m not including how to make it accessible via https. If you do want to secure the exporter with SSL, I documented how to use <a href="https://nginxproxymanager.com/">nginx-proxy-manager</a> as an SSL reverse proxy <a href="https://unixorn.github.io/post/hass/2023-07-09-set-up-nginx-proxy-manager/">here</a>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3.9&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Details on nuts-upsd configuration are at https://unixorn.github.io/post/homelab/homelab-nut-upsd</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">nut-upsd</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">instantlinux/nut-upsd</span><span class="w">
@@ -319,7 +319,7 @@ nut_ups_info{ups=&#34;ups&#34;,description=&#34;UPS&#34;,device_type=&#34;ups&#3
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">scrape_interval</span><span class="p">:</span><span class="w"> </span><span class="l">15s</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">scrape_timeout</span><span class="p">:</span><span class="w"> </span><span class="l">10s</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">scrape_configs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">scrape_configs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;nut&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">scrape_interval</span><span class="p">:</span><span class="w"> </span><span class="l">30s</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">static_configs</span><span class="p">:</span><span class="w">

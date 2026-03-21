@@ -333,11 +333,11 @@ To follow these instructions, you will need:">
 <p>This docker-compose file is based on the Node-RED <a href="https://nodered.org/docs/getting-started/docker">Getting Started with Docker</a> page. I added a <code>ts-nodered</code> container to act as a tailscale sidecar and made some other minor changes. I prefer to mount a local directory instead of using a docker volume to make backups easier. I can copy the directory into a <code>.tar.bz2</code> or <code>.zip</code> file, and it&rsquo;s also easier to edit the configuration files since I can do that from the host OS.</p>
 <p>Save this as <code>docker-compose.yaml</code></p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c">################################################################################</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Node-RED Stack or Compose</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">################################################################################</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.7&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Node-RED Stack or Compose</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c">################################################################################</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;3.7&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">ts-nodered</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">tailscale/tailscale:latest</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># The hostname specified here will be registered in your tailnet. You will</span><span class="w">
@@ -366,12 +366,12 @@ To follow these instructions, you will need:">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">restart</span><span class="p">:</span><span class="w"> </span><span class="l">unless-stopped</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">TZ=America/Denver</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># We specify the port in nodered.json so tailscale serve knows what port to</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># proxy to. We don&#39;t actually activate external access to these ports since</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># everything gets proxied by Tailscale.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#   ports:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c">#     - &#34;1880:1880&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># We specify the port in nodered.json so tailscale serve knows what port to</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># proxy to. We don&#39;t actually activate external access to these ports since</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># everything gets proxied by Tailscale.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c">#</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c">#   ports:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c">#     - &#34;1880:1880&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./nodered:/data</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">./externals:/externals</span><span class="w">
@@ -406,13 +406,13 @@ To follow these instructions, you will need:">
 <h4 id="update-settingsjs">Update <code>settings.js</code><a hidden class="anchor" aria-hidden="true" href="#update-settingsjs">#</a></h4>
 <p>Use your editor of choice to edit <code>./nodered/settings.js</code>. You will find a commented out block that looks like</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">    <span class="c1">//adminAuth: {
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//    type: &#34;credentials&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//    users: [{
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//        username: &#34;admin&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//        password: &#34;$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN.&#34;,
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//        permissions: &#34;*&#34;
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//    }]
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="c1">//},
+</span></span></span><span class="line"><span class="cl">    <span class="c1">//    type: &#34;credentials&#34;,
+</span></span></span><span class="line"><span class="cl">    <span class="c1">//    users: [{
+</span></span></span><span class="line"><span class="cl">    <span class="c1">//        username: &#34;admin&#34;,
+</span></span></span><span class="line"><span class="cl">    <span class="c1">//        password: &#34;$2a$08$zZWtXTja0fB1pzD4sHCMyOCMYz2Z6dNbM6tl8sJogENOMcxWV9DN.&#34;,
+</span></span></span><span class="line"><span class="cl">    <span class="c1">//        permissions: &#34;*&#34;
+</span></span></span><span class="line"><span class="cl">    <span class="c1">//    }]
+</span></span></span><span class="line"><span class="cl">    <span class="c1">//},
 </span></span></span></code></pre></div><p>Replace that with:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl">    <span class="err">adminAuth:</span> <span class="p">{</span>
 </span></span><span class="line"><span class="cl">        <span class="err">type:</span> <span class="nt">&#34;credentials&#34;</span><span class="p">,</span>

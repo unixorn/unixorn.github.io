@@ -263,7 +263,7 @@ Here&rsquo;s how I installed Prometheus and Grafana in my homelab to get them.">
 <h3 id="prometheus">Prometheus<a hidden class="anchor" aria-hidden="true" href="#prometheus">#</a></h3>
 <p>Here&rsquo;s the <code>docker-compose.yaml</code> I&rsquo;m using to start prometheus. We&rsquo;re specifying a local directory to map in as <code>/prometheus</code> so we don&rsquo;t lose all our history every time we restart the container. I prefer to use a local directory instead of a named volume to make it easier to back up data from my prometheus server to b2.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">prometheus</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">prom/prometheus:latest</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">prometheus</span><span class="w">
@@ -288,7 +288,7 @@ Here&rsquo;s how I installed Prometheus and Grafana in my homelab to get them.">
 <p>All of my homelab machines run <code>docker</code> to provide services, so in addition to <code>node_exporter</code>, I run a <code>cadvisor</code> container to collect container data.</p>
 <p>Here&rsquo;s the <code>docker-compose.yaml</code> I run on all my homelab instances. I mount several of the host machine&rsquo;s interesting directory trees as read-only to allow <code>node_exporter</code> and <code>cadvisor</code> to create useful metrics for <strong>prometheus</strong> &amp; <strong>grafana</strong>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">node_exporter</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">quay.io/prometheus/node-exporter:latest</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">node_exporter</span><span class="w">
@@ -360,9 +360,9 @@ process_start_time_seconds 1.69881316144e+09
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># external_labels:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c">#  monitor: &#39;codelab-monitor&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># A scrape configuration containing exactly one endpoint to scrape:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># Here it&#39;s Prometheus itself.</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">scrape_configs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># A scrape configuration containing exactly one endpoint to scrape:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># Here it&#39;s Prometheus itself.</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">scrape_configs</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># The job name is added as a label `job=&lt;job_name&gt;` to any timeseries scraped from this config.</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span>- <span class="nt">job_name</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;prometheus&#39;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Override the global default and scrape targets from this job every 5 seconds.</span><span class="w">
@@ -426,7 +426,7 @@ process_start_time_seconds 1.69881316144e+09
 <h2 id="combined-yaml">Combined YAML<a hidden class="anchor" aria-hidden="true" href="#combined-yaml">#</a></h2>
 <p>Here&rsquo;s the combined <code>docker-compose.yaml</code> to start <code>prometheus</code> and <code>grafana</code>.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s1">&#39;3&#39;</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">services</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">prometheus</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l">prom/prometheus:latest</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">container_name</span><span class="p">:</span><span class="w"> </span><span class="l">prometheus</span><span class="w">
@@ -461,8 +461,8 @@ process_start_time_seconds 1.69881316144e+09
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">environment</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">GF_INSTALL_PLUGINS=grafana-clock-panel,natel-discrete-panel,grafana-piechart-panel</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="c"># If you aren&#39;t using SSL you can remove this section</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">networks</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># If you aren&#39;t using SSL you can remove this section</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">networks</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">default</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">external</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">ssl_proxy_network</span><span class="w">

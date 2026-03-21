@@ -73,7 +73,7 @@ I no longer recommend duplicacy. Instead, read my article on restic backups on T
     <meta property="article:published_time" content="2019-09-01T15:47:23-06:00">
     <meta property="article:modified_time" content="2019-09-01T15:47:23-06:00">
     <meta property="article:tag" content="Arm">
-    <meta property="article:tag" content="Arm7">
+    <meta property="article:tag" content="ARM7">
     <meta property="article:tag" content="B2">
     <meta property="article:tag" content="Backups">
     <meta property="article:tag" content="Deprecated">
@@ -359,11 +359,11 @@ I no longer recommend duplicacy. Instead, read my article on restic backups on T
 <p>Once you&rsquo;ve updated the file, install the cronjob with <code>kubectl apply -f backup-example-directory-tree.yml</code>.</p>
 <p>You can download this from <a href="https://github.com/unixorn/blog-scripts/blob/master/duplicacy-examples/backup-example-directory-tree.yml">backup-example-directory-tree.yml</a> instead of hassling with copy and paste.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">batch/v1beta1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">CronJob</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">CronJob</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">backup-exampledir</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">backups</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">schedule</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;35 */2 * * *&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jobTemplate</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
@@ -426,11 +426,11 @@ I no longer recommend duplicacy. Instead, read my article on restic backups on T
 <p>Once you&rsquo;ve updated the configuration, install the cron job with <code>kubectl apply -f purge-stale-duplicacy-snapshots.yml</code></p>
 <p>You can download this from <a href="https://github.com/unixorn/blog-scripts/blob/master/duplicacy-examples/purge-stale-duplicacy-snapshots.yml">purge-stale-duplicacy-snapshots.yml</a> instead of hassling with copy and paste.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">batch/v1beta1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">CronJob</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">CronJob</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">purge-stale-duplicacy-snapshots</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">backups</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">schedule</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;48 */3 * * *&#34;</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">jobTemplate</span><span class="p">:</span><span class="w">
 </span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">spec</span><span class="p">:</span><span class="w">
@@ -524,7 +524,7 @@ I no longer recommend duplicacy. Instead, read my article on restic backups on T
   <footer class="post-footer">
     <ul class="post-tags">
       <li><a href="https://unixorn.github.io/tags/arm/">Arm</a></li>
-      <li><a href="https://unixorn.github.io/tags/arm7/">Arm7</a></li>
+      <li><a href="https://unixorn.github.io/tags/arm7/">ARM7</a></li>
       <li><a href="https://unixorn.github.io/tags/b2/">B2</a></li>
       <li><a href="https://unixorn.github.io/tags/backups/">Backups</a></li>
       <li><a href="https://unixorn.github.io/tags/deprecated/">Deprecated</a></li>

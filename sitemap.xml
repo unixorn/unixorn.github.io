@@ -2,11 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/post/homelab/k8s/07-argocd-git-generator/</loc>
+    <lastmod>2026-03-19T22:56:20-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/applicationset/</loc>
+    <lastmod>2026-03-19T22:56:20-06:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/tags/argocd/</loc>
-    <lastmod>2026-03-01T12:12:39-07:00</lastmod>
+    <lastmod>2026-03-19T22:56:20-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/gitops/</loc>
-    <lastmod>2026-03-01T12:12:39-07:00</lastmod>
+    <lastmod>2026-03-19T22:56:20-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/homelab/</loc>
+    <lastmod>2026-03-19T22:56:20-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/k8s/</loc>
+    <lastmod>2026-03-19T22:56:20-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/</loc>
+    <lastmod>2026-03-19T22:56:20-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2026-03-19T22:56:20-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/</loc>
+    <lastmod>2026-03-19T22:56:20-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/helm/</loc>
     <lastmod>2026-03-01T12:12:39-07:00</lastmod>
@@ -14,13 +35,7 @@
     <loc>https://unixorn.github.io/tags/homeassistant/</loc>
     <lastmod>2026-03-01T12:12:39-07:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/tags/homelab/</loc>
-    <lastmod>2026-03-01T12:12:39-07:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/post/homelab/k8s/06-install-mqtt/</loc>
-    <lastmod>2026-03-01T12:12:39-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/k8s/</loc>
     <lastmod>2026-03-01T12:12:39-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/mosquitto/</loc>
@@ -29,16 +44,7 @@
     <loc>https://unixorn.github.io/tags/mqtt/</loc>
     <lastmod>2026-03-01T12:12:39-07:00</lastmod>
   </url><url>
-    <loc>https://unixorn.github.io/post/</loc>
-    <lastmod>2026-03-01T12:12:39-07:00</lastmod>
-  </url><url>
     <loc>https://unixorn.github.io/tags/sops/</loc>
-    <lastmod>2026-03-01T12:12:39-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
-    <lastmod>2026-03-01T12:12:39-07:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/</loc>
     <lastmod>2026-03-01T12:12:39-07:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/homelab/k8s/05-install-argocd/</loc>

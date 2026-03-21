@@ -9,23 +9,44 @@
       <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.152.2</generator>
+    <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2026, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sun, 01 Mar 2026 12:12:39 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 19 Mar 2026 22:56:20 -0600</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>ApplicationSet</title>
+      <link>https://unixorn.github.io/tags/applicationset/</link>
+      <pubDate>Thu, 19 Mar 2026 22:56:20 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/applicationset/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Argocd</title>
       <link>https://unixorn.github.io/tags/argocd/</link>
-      <pubDate>Sun, 01 Mar 2026 12:12:39 -0700</pubDate>
+      <pubDate>Thu, 19 Mar 2026 22:56:20 -0600</pubDate>
       <guid>https://unixorn.github.io/tags/argocd/</guid>
       <description></description>
     </item>
     <item>
       <title>Gitops</title>
       <link>https://unixorn.github.io/tags/gitops/</link>
-      <pubDate>Sun, 01 Mar 2026 12:12:39 -0700</pubDate>
+      <pubDate>Thu, 19 Mar 2026 22:56:20 -0600</pubDate>
       <guid>https://unixorn.github.io/tags/gitops/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Homelab</title>
+      <link>https://unixorn.github.io/tags/homelab/</link>
+      <pubDate>Thu, 19 Mar 2026 22:56:20 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/homelab/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>K8s</title>
+      <link>https://unixorn.github.io/tags/k8s/</link>
+      <pubDate>Thu, 19 Mar 2026 22:56:20 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/k8s/</guid>
       <description></description>
     </item>
     <item>
@@ -40,20 +61,6 @@
       <link>https://unixorn.github.io/tags/homeassistant/</link>
       <pubDate>Sun, 01 Mar 2026 12:12:39 -0700</pubDate>
       <guid>https://unixorn.github.io/tags/homeassistant/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Homelab</title>
-      <link>https://unixorn.github.io/tags/homelab/</link>
-      <pubDate>Sun, 01 Mar 2026 12:12:39 -0700</pubDate>
-      <guid>https://unixorn.github.io/tags/homelab/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>K8s</title>
-      <link>https://unixorn.github.io/tags/k8s/</link>
-      <pubDate>Sun, 01 Mar 2026 12:12:39 -0700</pubDate>
-      <guid>https://unixorn.github.io/tags/k8s/</guid>
       <description></description>
     </item>
     <item>
@@ -981,7 +988,7 @@
       <description></description>
     </item>
     <item>
-      <title>Arm7</title>
+      <title>ARM7</title>
       <link>https://unixorn.github.io/tags/arm7/</link>
       <pubDate>Sat, 13 Jun 2020 09:07:49 -0600</pubDate>
       <guid>https://unixorn.github.io/tags/arm7/</guid>

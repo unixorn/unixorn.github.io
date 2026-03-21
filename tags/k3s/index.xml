@@ -9,7 +9,7 @@
       <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.152.2</generator>
+    <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2026, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Tue, 07 Dec 2021 11:13:39 -0700</lastBuildDate>
@@ -50,6 +50,13 @@
       <pubDate>Fri, 01 Mar 2019 21:49:17 -0700</pubDate>
       <guid>https://unixorn.github.io/post/arm_cluster_parts_list/</guid>
       <description>ARM cluster parts list</description>
+    </item>
+    <item>
+      <title>Getting an ARM kubernetes cluster up and running</title>
+      <link>https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</link>
+      <pubDate>Sun, 17 Feb 2019 16:00:05 -0700</pubDate>
+      <guid>https://unixorn.github.io/post/in_the_beginning_there_was_bare_metal/</guid>
+      <description>In the beginning, there was bare metal</description>
     </item>
   </channel>
 </rss>

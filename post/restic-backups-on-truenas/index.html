@@ -318,7 +318,7 @@ In this blog entry, I&rsquo;m going to explain how to create a jail in TrueNAS, 
 <p><code>ssh</code> into your TrueNAS server and stick the following files in a directory visible inside your backups jail.</p>
 <p>Here&rsquo;s the <a href="https://unixorn.github.io/resources/truenas-restic/restic-driver"><code>restic-driver</code></a> script I use to run <code>restic</code> and trim snapshots once they age out.</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">#</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1">#</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># restic-driver-script</span>
 </span></span><span class="line"><span class="cl"><span class="c1">#</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># License: Apache 2.0</span>
@@ -380,11 +380,11 @@ In this blog entry, I&rsquo;m going to explain how to create a jail in TrueNAS, 
 </span></span><span class="line"><span class="cl"><span class="c1"># information is misleading at best, so add --ignore-inode.</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">restic backup --verbose<span class="o">=</span><span class="m">2</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --exclude<span class="o">=</span>.duplicacy <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --exclude<span class="o">=</span>.DS_Store <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --tag periodic <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  -o b2.connections<span class="o">=</span><span class="m">15</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  <span class="nv">$EXCLUDE_FILE</span> <span class="nv">$DRY_RUN</span> <span class="nv">$BACKUP_PATHS</span> <span class="nv">$@</span>
+</span></span></span><span class="line"><span class="cl">  --exclude<span class="o">=</span>.duplicacy <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --exclude<span class="o">=</span>.DS_Store <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --tag periodic <span class="se">\
+</span></span></span><span class="line"><span class="cl">  -o b2.connections<span class="o">=</span><span class="m">15</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  <span class="nv">$EXCLUDE_FILE</span> <span class="nv">$DRY_RUN</span> <span class="nv">$BACKUP_PATHS</span> <span class="nv">$@</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> <span class="nv">$?</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
 </span></span><span class="line"><span class="cl">  fail <span class="s2">&#34;restic backup failed&#34;</span> <span class="c1"># We don&#39;t want to prune any snapshots if this backup failed</span>
@@ -392,21 +392,21 @@ In this blog entry, I&rsquo;m going to explain how to create a jail in TrueNAS, 
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># Prune backup snapshots</span>
 </span></span><span class="line"><span class="cl">restic forget --verbose <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --tag periodic <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --group-by <span class="s2">&#34;paths,tags&#34;</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --keep-last <span class="nv">$MINIMUM_SNAPSHOTS_RETAINED</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --keep-hourly <span class="nv">$HOURS_RETAINED</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --keep-daily <span class="nv">$DAYS_RETAINED</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --keep-weekly <span class="nv">$WEEKS_RETAINED</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --keep-monthly <span class="nv">$MONTHS_RETAINED</span> <span class="se">\
-</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --keep-yearly <span class="nv">$YEARS_RETAINED</span>
+</span></span></span><span class="line"><span class="cl">  --tag periodic <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --group-by <span class="s2">&#34;paths,tags&#34;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --keep-last <span class="nv">$MINIMUM_SNAPSHOTS_RETAINED</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --keep-hourly <span class="nv">$HOURS_RETAINED</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --keep-daily <span class="nv">$DAYS_RETAINED</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --keep-weekly <span class="nv">$WEEKS_RETAINED</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --keep-monthly <span class="nv">$MONTHS_RETAINED</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">  --keep-yearly <span class="nv">$YEARS_RETAINED</span>
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="k">if</span> <span class="o">[[</span> <span class="nv">$?</span> !<span class="o">=</span> <span class="m">0</span> <span class="o">]]</span><span class="p">;</span> <span class="k">then</span>
 </span></span><span class="line"><span class="cl">  fail <span class="s2">&#34;restic snapshot cleanup failed&#34;</span>
 </span></span><span class="line"><span class="cl"><span class="k">fi</span>
 </span></span></code></pre></div><p>Here&rsquo;s an <a href="https://unixorn.github.io/resources/truenas-restic/example-settings.sh">example settings file</a> for it:</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl"><span class="cp">#!/usr/bin/env bash
-</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="c1">#</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1">#</span>
 </span></span><span class="line"><span class="cl"><span class="c1"># Here are our backup settings</span>
 </span></span><span class="line"><span class="cl"><span class="c1">#</span>
 </span></span><span class="line"><span class="cl"><span class="nb">export</span> <span class="nv">B2_ACCOUNT_ID</span><span class="o">=</span><span class="s1">&#39;your_b2_account_id&#39;</span>
