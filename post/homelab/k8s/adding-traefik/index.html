@@ -1,0 +1,912 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Adding Traefik to the cluster | unixorn.github.io</title>
+<meta name="keywords" content="argocd, homelab, k8s, kubernetes, traefik">
+<meta name="description" content="The next thing I&rsquo;m adding to my cluster is Traefik.
+In this post, I&rsquo;ll cover installing Traefik with Argo CD, then using the built-in basic auth middleware to control access to its control panel.">
+<meta name="author" content="Me">
+<link rel="canonical" href="http://localhost:1313/post/homelab/k8s/adding-traefik/">
+<meta name="google-site-verification" content="UA-100853138-2">
+<link crossorigin="anonymous" href="http://localhost:1313/assets/css/stylesheet.f49d66caae9ea0fd43f21f29e71a8d3e284517ed770f2aa86fa012953ad3c9ef.css" integrity="sha256-9J1myq6eoP1D8h8p5xqNPihFF&#43;13Dyqob6ASlTrTye8=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
+<link rel="apple-touch-icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
+<link rel="mask-icon" href="http://localhost:1313/%3Clink%20/%20abs%20url%3E">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" hreflang="en" href="http://localhost:1313/post/homelab/k8s/adding-traefik/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="http://localhost:1313/post/homelab/k8s/adding-traefik/">
+  <meta property="og:site_name" content="unixorn.github.io">
+  <meta property="og:title" content="Adding Traefik to the cluster">
+  <meta property="og:description" content="The next thing I’m adding to my cluster is Traefik.
+In this post, I’ll cover installing Traefik with Argo CD, then using the built-in basic auth middleware to control access to its control panel.">
+  <meta property="og:locale" content="en-us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-04-04T15:40:01-06:00">
+    <meta property="article:modified_time" content="2026-04-04T15:40:01-06:00">
+    <meta property="article:tag" content="Argocd">
+    <meta property="article:tag" content="Homelab">
+    <meta property="article:tag" content="K8s">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="article:tag" content="Traefik">
+      <meta property="og:image" content="http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E">
+<meta name="twitter:title" content="Adding Traefik to the cluster">
+<meta name="twitter:description" content="The next thing I&rsquo;m adding to my cluster is Traefik.
+In this post, I&rsquo;ll cover installing Traefik with Argo CD, then using the built-in basic auth middleware to control access to its control panel.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Posts",
+      "item": "http://localhost:1313/post/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Adding Traefik to the cluster",
+      "item": "http://localhost:1313/post/homelab/k8s/adding-traefik/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Adding Traefik to the cluster",
+  "name": "Adding Traefik to the cluster",
+  "description": "The next thing I\u0026rsquo;m adding to my cluster is Traefik.\nIn this post, I\u0026rsquo;ll cover installing Traefik with Argo CD, then using the built-in basic auth middleware to control access to its control panel.\n",
+  "keywords": [
+    "argocd", "homelab", "k8s", "kubernetes", "traefik"
+  ],
+  "articleBody": "The next thing I’m adding to my cluster is Traefik.\nIn this post, I’ll cover installing Traefik with Argo CD, then using the built-in basic auth middleware to control access to its control panel.\nOverview This is part 8 of my kubernetes homelab cluster setup series - Add Traefik to the cluster\nPart 1 - Setting up Talos with a Cilium CNI on proxmox Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53 Part 3 - Set up Secret Management with SOPS Part 4 - Back up your Talos etcd cluster to a SMB share Part 5 - Install ArgoCD Part 6 - Install MQTT into a k8s cluster Part 7 - Add an ArgoCD git generator ApplicationSet Part 8 - Add Traefik to the cluster In this article, we’re going to\nInstall Traefik with Argo CD, Create an Argo CD Application via the git generator to install extra Traefik manifests to enable using the Traefik dashboard using the Traefik basic auth middleware to control access Software Versions Here are the versions of the software I used while writing this post. Later versions should work, but this is what these instructions were tested with.\nSoftware Version argocd 3.2.6 (chart 9.4.8) cert-manager 1.19.2 kubectl 1.34 kubernetes 1.34.1 traefik 3.3.1 sops 3.11.0 Pre-requisites To follow along with this post, you will need:\nA homelab kubernetes cluster. I’m using the talos cluster from Part 1 - Setting up Talos with a Cilium CNI on proxmox, but this will work with any kubernetes cluster. Argo CD installed in your cluster, with a git generator installed. If you don’t have them installed, I have instructions in Part 5 - Install ArgoCD and Part 7 - Add an ArgoCD git generator ApplicationSet. A GitHub account. You can also use GitLab or your own git server, but all the examples in this post assume you’re storing your Argo CD repository on GitHub. If you’ve been following along with this series, you already have kubectl. Otherwise you can brew install kubectl on macOS or follow the install instructions for kubectl. The sops operator installed into your cluster. Instructions are at Part 3 - Set up Secret Management with SOPS cert-manager so you can set up SSL for the gateway. Instructions are at Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53. Installation First, create the traefik namespace and a SSL certificate Make it a privileged namespace so Talos doesn’t complain later.\n# traefik-namespace.yaml apiVersion: v1 kind: Namespace metadata: labels: kubernetes.io/metadata.name: traefik pod-security.kubernetes.io/enforce: privileged name: traefik Creating a SSL certificate can take a minute or two for LetsEncrypt to issue the cert, so let’s get that started ASAP. Even if you have a certificate in another namespace, go ahead and create one in the traefik namespace, it’ll make things less of a hassle later.\n# traefik-cert.yaml apiVersion: cert-manager.io/v1 kind: Certificate metadata: name: wildcard-YOUR_DOMAIN namespace: traefik spec: secretName: wildcard-YOUR_DOMAIN-tls issuerRef: name: letsencrypt-dns-r53 kind: ClusterIssuer commonName: \"*.YOUR_DOMAIN\" dnsNames: - \"*.YOUR_DOMAIN\" - \"YOUR_DOMAIN\" In the interest of speed, apply them now - Argo CD will take over the resources when we create the Application resource.\nkubectl apply -f traefik-cert.yaml \u0026\u0026 \\ kubectl apply -f traefik-namespace.yaml Create a traefik-values.yaml to configure Traefik We’re going to use Argo CD to install Traefik using a helm chart. To configure it, we’re first going to set up a traefik-values.yaml file in our configuration git repository.\nI created mine in argocd/infrastructure/traefik/traefik-values.yaml\n# argocd/infrastructure/traefik/traefik-values.yaml api: dashboard: true insecure: false # We're going to put the dashboard behind basic auth deployment: kind: Deployment replicas: 2 podAnnotations: \"networking.k8s.io/mtu\": \"1450\" service: enabled: true type: LoadBalancer externalTrafficPolicy: Local annotations: prometheus.io/scrape: \"true\" prometheus.io/port: \"9100\" ports: web: port: 8000 exposedPort: 80 expose: default: true http: redirections: entryPoint: to: websecure scheme: https permanent: true websecure: port: 8443 exposedPort: 443 expose: default: true tls: enabled: true traefik: # This is the dashboard port port: 9000 expose: default: true exposedPort: 9000 protocol: TCP providers: kubernetesIngress: publishedService: enabled: true pathOverride: \"traefik/traefik\" kubernetesGateway: enabled: true infrastructure: entryPoints: - web - websecure # Let traefik find resources in all namespaces to make using git-generated # apps easier namespaces: [] logs: general: level: INFO access: enabled: true Create a Argo CD app to install traefik We’re going to use a multi-source Argo application to install Traefik. We’ll use one source to pull in the helm chart and the second source to pull in our traefik-values.yaml file.\n# argocd/infrastructure/traefik.application.yaml apiVersion: argoproj.io/v1alpha1 kind: Application metadata: name: traefik namespace: argocd spec: project: default sources: - repoURL: https://traefik.github.io/charts chart: traefik targetRevision: 34.0.0 helm: valueFiles: - $values/argocd/infrastructure/traefik/traefik-values.yaml - repoURL: https://github.com/YOUR_USERNAME/YOUR_CONFIGURATION_REPO.git targetRevision: main ref: values destination: server: https://kubernetes.default.svc namespace: traefik syncPolicy: automated: prune: true selfHeal: true syncOptions: - CreateNamespace=true - ServerSideApply=true # # This prevents the \"Invalid Task\" lockup if an API is missing # - SkipDryRunOnMissingResource=true Commit them and push them to your git repository so that Argo will be able to find the traefik-values.yaml file.\nNow we can add the application to Argo\nkubectl apply -f traefik.application.yaml In a minute or so, you should see that Traefik is installed\n$ kubectl get -n argocd Application/traefik NAME SYNC STATUS HEALTH STATUS traefik Synced Healthy $ k get -n traefik all NAME READY STATUS RESTARTS AGE pod/traefik-69d9f94ff9-8p6tr 1/1 Running 0 16m pod/traefik-69d9f94ff9-tht4x 1/1 Running 0 16m NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE service/traefik LoadBalancer 10.106.40.190 10.0.1.43 9000:30443/TCP,80:31178/TCP,443:31727/TCP 16m NAME READY UP-TO-DATE AVAILABLE AGE deployment.apps/traefik 2/2 2 2 18m deployment.apps/whoami 1/1 1 1 18m NAME DESIRED CURRENT READY AGE replicaset.apps/traefik-69d9f94ff9 2 2 2 16m Dashboard Access Now that traefik is running, let’s get access set up. We’re going to set up a traefik-dashboard Argo App so we can have Argo CD install and update our dashboard setup.\nIn your configuration repository, create an argocd/apps/traefik-dashboard directory. Put all the following manifests in that directory.\nUpdate DNS It can take a couple of minutes for DNS to propagate after you make a change, so start that now and hopefully by the time you create the manifests and Argo installs them DNS will be up to date.\nFind out what IP the LoadBalancer was assigned:\n$ kubectl get -n traefik svc NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE traefik LoadBalancer 10.106.40.190 10.9.8.7 9000:30443/TCP,80:31178/TCP,443:31727/TCP 18m Add an A record in your DNS of traefik-dashboard.YOUR_DOMAIN that is set to the EXTERNAL-IP shown by kubectl.\nSet up basic auth We’re going to need a username and password.\n# basic-auth.yaml apiVersion: v1 kind: Secret metadata: name: dashboard-auth namespace: traefik type: Opaque stringData: # Generate the BASE64 string with echo $(htpasswd -nb user password) | base64 users: admin:BASE64_STRING If you installed the sops operator, run sops encrypt -i basic-auth.yaml to encrypt it. If you didn’t, committing unencrypted secrets is a bad habit to get into, so go install sops and then encrypt basic-auth.yaml before you commit it to the repository.\nGo ahead and kubectl apply -f basic-auth.yaml to that the secret is available when Argo installs the dashboard configuration.\ntraefik-gateway.yaml We need to set up a Traefik Gatewayclass and a traefik-gateway Gateway to route traffic for the dashboard.\n--- # traefik-gateway-class.yaml apiVersion: gateway.networking.k8s.io/v1 kind: GatewayClass metadata: name: traefik spec: controllerName: traefik.io/gateway-controller --- # traefik-owned-gateway.yaml apiVersion: gateway.networking.k8s.io/v1 kind: Gateway metadata: name: traefik-gateway namespace: traefik spec: gatewayClassName: traefik listeners: - name: http port: 80 protocol: HTTP allowedRoutes: namespaces: from: All - name: https port: 443 protocol: HTTPS allowedRoutes: namespaces: from: All tls: mode: Terminate certificateRefs: - name: wildcard-your-domain-tls namespace: traefik traefik-dashboard.yaml Finally, we’re going to create a manifest to:\nCreate a basic-auth Middleware resource to control access to the dashboard An IngressRoute to route traffic An HTTPRoute to redirect traffic from https://traefik-dashboard.YOUR_DOMAIN to https://traefik-dashboard.YOUR_DOMAIN/dashboard/ so you don’t have to remember to add the /dashbaord. # argocd/apps/traefik-configuration/traefik-dashboard.yaml --- apiVersion: traefik.io/v1alpha1 kind: Middleware metadata: name: dashboard-auth namespace: traefik spec: basicAuth: secret: dashboard-auth --- apiVersion: traefik.io/v1alpha1 kind: IngressRoute metadata: name: traefik-dashboard-api namespace: traefik spec: entryPoints: - websecure routes: - match: Host(`traefik-dashboard.YOUR_DOMAIN`) \u0026\u0026 (PathPrefix(`/dashboard`) || PathPrefix(`/api`)) kind: Rule services: - name: api@internal kind: TraefikService # This is the \"Lock\" that uses the Middleware above middlewares: - name: dashboard-auth tls: secretName: wildcard-miniclusters-rocks-tls --- apiVersion: gateway.networking.k8s.io/v1 kind: HTTPRoute metadata: name: traefik-dashboard-redirect namespace: traefik spec: parentRefs: - name: traefik-gateway namespace: traefik hostnames: - \"traefik-dashboard.YOUR_DOMAIN\" rules: - matches: - path: type: Exact value: / filters: - type: RequestRedirect requestRedirect: scheme: https path: type: ReplaceFullPath replaceFullPath: /dashboard/ statusCode: 301 Add an argo-config.yaml to trigger installation by ArgoCD Commit all the yaml files and push them to github if you haven’t already. Now we can create an argo-config.yaml file to trigger Argo to install our manifests. The argo-config.yaml file must be in the same directory as traefik-cert.yaml, basic-auth.yaml, traefik-gateway.yaml and traefik-dashboard.yaml. The Argo CD git generator ApplicationSet only processes directories that contain an argo-config.yaml file.\n# argo-config.yaml app: name: \"traefik-configuration\" namespace: traefik clusterName: YOURCLUSTERNAME # Use the full URL for the destination clusterUrl: https://kubernetes.default.svc project: default Add, commit and push argo-config.yaml. With the default configuration, Argo CD will detect the new app and start installing it in two to three minutes. You can force it to check right away by clicking Sync Apps or running\nargocd repo get \"$YOUR_CONFIG\" --refresh Update DNS Once Argo finishes installing, find out what IP the LoadBalancer was assigned\n$ kubectl get -n traefik svc NAME TYPE CLUSTER-IP EXTERNAL-IP PORT(S) AGE traefik LoadBalancer 10.106.40.190 10.9.8.7 9000:30443/TCP,80:31178/TCP,443:31727/TCP 18m Update DNS for your domain with an the external IP.\nChecking Once Argo finishes installing your manifests, try going to traefik-dashboard.YOUR_DOMAIN in a browser. If DNS hasn’t propagated, you can check with curl anyway by setting the host header and basic auth information.\ncurl -vL -k -u admin:YOUR_ADMIN_PASSWORD -H \"Host: traefik-dashboard.YOUR_DOMAIN\" https://SERVICE_EXTERNAL_IP/dashboard/ What the cli flags do:\n-u admin:YOUR_ADMIN_PASSWORD: The magic flag. It takes username:password and converts it into the required HTTP header. -k (or –insecure): The TLS certificate (which is for *.YOUR_DOMAIN) won’t match SERVICE_EXTERNAL_IP. This flag tells curl to ignore that mismatch. -v: Verbose mode. This lets you see the HTTP/1.1 200 OK and confirm the Authorization header is being sent. -L: Follows the redirect (though since you’re hitting /dashboard/ directly, it likely won’t need to). You should see something similar to\n* Trying SERVICE_EXTERNAL_IP:443... * ALPN: curl offers h2,http/1.1 * TLSv1.3 (OUT), TLS handshake, Client hello (1): * SSL Trust: peer verification disabled * TLSv1.3 (IN), TLS handshake, Server hello (2): * TLSv1.3 (IN), TLS change cipher, Change cipher spec (1): * TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8): * TLSv1.3 (IN), TLS handshake, Certificate (11): * TLSv1.3 (IN), TLS handshake, CERT verify (15): * TLSv1.3 (IN), TLS handshake, Finished (20): * TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1): * TLSv1.3 (OUT), TLS handshake, Finished (20): * SSL connection using TLSv1.3 / TLS_CHACHA20_POLY1305_SHA256 / x25519 / RSASSA-PSS * ALPN: server accepted h2 * Server certificate: * subject: CN=TRAEFIK DEFAULT CERT * start date: Apr 4 23:11:05 2026 GMT * expire date: Apr 4 23:11:05 2027 GMT * issuer: CN=TRAEFIK DEFAULT CERT * Certificate level 0: Public key type RSA (2048/112 Bits/secBits), signed using sha256WithRSAEncryption * SSL certificate verification failed, continuing anyway! * Established connection to SERVICE_EXTERNAL_IP (SERVICE_EXTERNAL_IP port 443) from 10.11.12.13 port 59344 * using HTTP/2 * Server auth using Basic with user 'admin' * [HTTP/2] [1] OPENED stream for https://SERVICE_EXTERNAL_IP/dashboard/ * [HTTP/2] [1] [:method: GET] * [HTTP/2] [1] [:scheme: https] * [HTTP/2] [1] [:authority: traefik-dashboard.YOUR_DOMAIN] * [HTTP/2] [1] [:path: /dashboard/] * [HTTP/2] [1] [authorization: Basic FEEDBABEDEADBEEFFEEDBABEDEADBEEFFEEDBABE] * [HTTP/2] [1] [user-agent: curl/8.18.0] * [HTTP/2] [1] [accept: */*] \u003e GET /dashboard/ HTTP/2 \u003e Host: traefik-dashboard.YOUR_DOMAIN \u003e Authorization: Basic FEEDBABEDEADBEEFFEEDBABEDEADBEEFFEEDBABE \u003e User-Agent: curl/8.18.0 \u003e Accept: */* \u003e * Request completely sent off * TLSv1.3 (IN), TLS handshake, Newsession Ticket (4): \u003c HTTP/2 200 \u003c content-security-policy: frame-src 'self' https://traefik.io https://*.traefik.io; \u003c content-type: text/html; charset=utf-8 \u003c content-length: 1193 \u003c date: Sat, 04 Apr 2026 23:15:25 GMT \u003c \u003c!DOCTYPE html\u003eTraefik * Connection #0 to host SERVICE_EXTERNAL_IP:443 left intact HTTP CODE 200 Congratulations You have successfully\nCreated a Argo CD dual-source Application resource to install Traefik Created a Argo CD application using the git generator that Enabled access to the Traefik dashboard Protected the dashboard with basic auth ",
+  "wordCount" : "2058",
+  "inLanguage": "en",
+  "image": "http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E","datePublished": "2026-04-04T15:40:01-06:00",
+  "dateModified": "2026-04-04T15:40:01-06:00",
+  "author":{
+    "@type": "Person",
+    "name": "Me"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "http://localhost:1313/post/homelab/k8s/adding-traefik/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "unixorn.github.io",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "http://localhost:1313/%3Clink%20/%20abs%20url%3E"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:1313/" accesskey="h" title="Home (Alt + H)">
+                <img src="http://localhost:1313/apple-touch-icon.png" alt="" aria-label="logo"
+                    height="35">Home</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)" aria-label="Toggle theme">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:1313/archives/" title="archives">
+                    <span>archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/search/" title="search (Alt &#43; /)" accesskey=/>
+                    <span>search</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/about/" title="about">
+                    <span>about</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/projects/" title="projects">
+                    <span>projects</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:1313/tags/" title="tags">
+                    <span>tags</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://hachyderm.io/@unixorn" title="hachyderm.io/@unixorn">
+                    <span>hachyderm.io/@unixorn</span>&nbsp;
+                    <svg fill="none" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round"
+                        stroke-linejoin="round" stroke-width="2.5" viewBox="0 0 24 24" height="12" width="12">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"></path>
+                        <path d="M15 3h6v6"></path>
+                        <path d="M10 14L21 3"></path>
+                    </svg>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+<link rel="stylesheet" type="text/css" href="http://localhost:1313/css/mastodon.css" />
+<article class="post-single">
+  <header class="post-header">
+    <div class="breadcrumbs"><a href="http://localhost:1313/">Home</a>&nbsp;»&nbsp;<a href="http://localhost:1313/post/">Posts</a></div>
+    <h1 class="post-title">
+      Adding Traefik to the cluster<sup><span class="entry-isdraft">&nbsp;&nbsp;[draft]</span></sup>
+    </h1>
+    <div class="post-meta"><span title='2026-04-04 15:40:01 -0600 MDT'>April 4, 2026</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;2058 words&nbsp;·&nbsp;Me
+
+</div>
+  </header> <div class="toc">
+    <details >
+        <summary accesskey="c" title="(Alt + C)">
+            <span class="details">Table of Contents</span>
+        </summary>
+
+        <div class="inner"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a>
+      <ul>
+        <li><a href="#software-versions">Software Versions</a></li>
+        <li><a href="#pre-requisites">Pre-requisites</a></li>
+      </ul>
+    </li>
+    <li><a href="#installation">Installation</a>
+      <ul>
+        <li><a href="#first-create-the-traefik-namespace-and-a-ssl-certificate">First, create the traefik namespace and a SSL certificate</a></li>
+        <li><a href="#create-a-traefik-valuesyaml-to-configure-traefik">Create a traefik-values.yaml to configure Traefik</a></li>
+        <li><a href="#create-a-argo-cd-app-to-install-traefik">Create a Argo CD app to install traefik</a></li>
+      </ul>
+    </li>
+    <li><a href="#dashboard-access">Dashboard Access</a>
+      <ul>
+        <li><a href="#update-dns">Update DNS</a></li>
+        <li><a href="#set-up-basic-auth">Set up basic auth</a></li>
+        <li><a href="#traefik-gatewayyaml">traefik-gateway.yaml</a></li>
+        <li><a href="#traefik-dashboardyaml">traefik-dashboard.yaml</a></li>
+        <li><a href="#add-an-argo-configyaml-to-trigger-installation-by-argocd">Add an argo-config.yaml to trigger installation by ArgoCD</a></li>
+        <li><a href="#update-dns-1">Update DNS</a></li>
+      </ul>
+    </li>
+    <li><a href="#checking">Checking</a></li>
+    <li><a href="#congratulations">Congratulations</a></li>
+  </ul>
+</nav>
+        </div>
+    </details>
+</div>
+
+  <div class="post-content"><p>The next thing I&rsquo;m adding to my cluster is <a href="https://traefik.io/">Traefik</a>.</p>
+<p>In this post, I&rsquo;ll cover installing Traefik with Argo CD, then using the built-in basic auth middleware to control access to its control panel.</p>
+<h2 id="overview">Overview<a hidden class="anchor" aria-hidden="true" href="#overview">#</a></h2>
+<p>This is part 8 of my kubernetes homelab cluster setup series - <strong>Add Traefik to the cluster</strong></p>
+<ul>
+<li><a href="../01-talos-with-cilium-cni-on-proxmox/">Part 1 - Setting up Talos with a Cilium CNI on proxmox</a></li>
+<li><a href="../02-k8s-cilium-r53-and-cert-manager/">Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53</a></li>
+<li><a href="../03-secret-management-with-sops/">Part 3 - Set up Secret Management with SOPS</a></li>
+<li><a href="../04-backup-talos-etcd-to-smb/">Part 4 - Back up your Talos etcd cluster to a SMB share</a></li>
+<li><a href="../05-install-argocd/">Part 5 - Install ArgoCD</a></li>
+<li><a href="../06-install-mqtt/">Part 6 - Install MQTT into a k8s cluster</a></li>
+<li><a href="../07-argocd-git-generator/">Part 7 - Add an ArgoCD git generator <code>ApplicationSet</code></a></li>
+<li><strong>Part 8 - Add Traefik to the cluster</strong></li>
+</ul>
+<p>In this article, we&rsquo;re going to</p>
+<ul>
+<li>Install Traefik with Argo CD,</li>
+<li>Create an Argo CD Application via the git generator to install extra Traefik manifests to enable using the Traefik dashboard using the Traefik basic auth middleware to control access</li>
+</ul>
+<h3 id="software-versions">Software Versions<a hidden class="anchor" aria-hidden="true" href="#software-versions">#</a></h3>
+<p>Here are the versions of the software I used while writing this post. Later versions should work, but this is what these instructions were tested with.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Software</th>
+          <th>Version</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>argocd</code></td>
+          <td>3.2.6 (chart 9.4.8)</td>
+      </tr>
+      <tr>
+          <td><code>cert-manager</code></td>
+          <td>1.19.2</td>
+      </tr>
+      <tr>
+          <td><code>kubectl</code></td>
+          <td>1.34</td>
+      </tr>
+      <tr>
+          <td><code>kubernetes</code></td>
+          <td>1.34.1</td>
+      </tr>
+      <tr>
+          <td><code>traefik</code></td>
+          <td>3.3.1</td>
+      </tr>
+      <tr>
+          <td><code>sops</code></td>
+          <td>3.11.0</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="pre-requisites">Pre-requisites<a hidden class="anchor" aria-hidden="true" href="#pre-requisites">#</a></h3>
+<p>To follow along with this post, you will need:</p>
+<ul>
+<li>A homelab kubernetes cluster. I&rsquo;m using the talos cluster from <a href="../01-talos-with-cilium-cni-on-proxmox/">Part 1 - Setting up Talos with a Cilium CNI on proxmox</a>, but this will work with any kubernetes cluster.</li>
+<li>Argo CD installed in your cluster, with a git generator installed. If you don&rsquo;t have them installed, I have instructions in <a href="../05-install-argocd/">Part 5 - Install ArgoCD</a> and <a href="../07-argocd-git-generator/">Part 7 - Add an ArgoCD git generator <code>ApplicationSet</code></a>.</li>
+<li>A GitHub account. You can also use GitLab or your own <code>git</code> server, but all the examples in this post assume you&rsquo;re storing your Argo CD repository on GitHub.</li>
+<li>If you&rsquo;ve been following along with this series, you already have <code>kubectl</code>.  Otherwise you can <code>brew install kubectl</code> on macOS or follow the install instructions for <a href="https://kubernetes.io/docs/tasks/tools/">kubectl</a>.</li>
+<li>The <code>sops</code> operator installed into your cluster. Instructions are at <a href="../03-secret-management-with-sops/">Part 3 - Set up Secret Management with SOPS</a></li>
+<li>cert-manager so you can set up SSL for the gateway. Instructions are at <a href="../02-k8s-cilium-r53-and-cert-manager/">Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53</a>.</li>
+</ul>
+<h2 id="installation">Installation<a hidden class="anchor" aria-hidden="true" href="#installation">#</a></h2>
+<h3 id="first-create-the-traefik-namespace-and-a-ssl-certificate">First, create the traefik namespace and a SSL certificate<a hidden class="anchor" aria-hidden="true" href="#first-create-the-traefik-namespace-and-a-ssl-certificate">#</a></h3>
+<p>Make it a privileged namespace so Talos doesn&rsquo;t complain later.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># traefik-namespace.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Namespace</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">labels</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">kubernetes.io/metadata.name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">pod-security.kubernetes.io/enforce</span><span class="p">:</span><span class="w"> </span><span class="l">privileged</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span></code></pre></div><p>Creating a SSL certificate can take a minute or two for LetsEncrypt to issue the cert, so let&rsquo;s get that started ASAP. Even if you have a certificate in another namespace, go ahead and create one in the traefik namespace, it&rsquo;ll make things less of a hassle later.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># traefik-cert.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">cert-manager.io/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Certificate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">wildcard-YOUR_DOMAIN</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l">wildcard-YOUR_DOMAIN-tls</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">issuerRef</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">letsencrypt-dns-r53</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">ClusterIssuer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">commonName</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;*.YOUR_DOMAIN&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">dnsNames</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s2">&#34;*.YOUR_DOMAIN&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s2">&#34;YOUR_DOMAIN&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>In the interest of speed, apply them now - Argo CD will take over the resources when we create the Application resource.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl apply -f traefik-cert.yaml <span class="o">&amp;&amp;</span> <span class="se">\
+</span></span></span><span class="line"><span class="cl">    kubectl apply -f traefik-namespace.yaml
+</span></span></code></pre></div><h3 id="create-a-traefik-valuesyaml-to-configure-traefik">Create a traefik-values.yaml to configure Traefik<a hidden class="anchor" aria-hidden="true" href="#create-a-traefik-valuesyaml-to-configure-traefik">#</a></h3>
+<p>We&rsquo;re going to use Argo CD to install Traefik using a helm chart. To configure it, we&rsquo;re first going to set up a <code>traefik-values.yaml</code> file in our configuration git repository.</p>
+<p>I created mine in <code>argocd/infrastructure/traefik/traefik-values.yaml</code></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># argocd/infrastructure/traefik/traefik-values.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">api</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">dashboard</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">insecure</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w"> </span><span class="c"># We&#39;re going to put the dashboard behind basic auth</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">deployment</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Deployment</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="m">2</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">podAnnotations</span><span class="p">:</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">&#34;networking.k8s.io/mtu&#34;: </span><span class="s2">&#34;1450&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">service</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">LoadBalancer</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">externalTrafficPolicy</span><span class="p">:</span><span class="w"> </span><span class="l">Local</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">annotations</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">prometheus.io/scrape</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;true&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">prometheus.io/port</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;9100&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">ports</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">web</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">exposedPort</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">expose</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">http</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">redirections</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">entryPoint</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">to</span><span class="p">:</span><span class="w"> </span><span class="l">websecure</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">scheme</span><span class="p">:</span><span class="w"> </span><span class="l">https</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">permanent</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">websecure</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">8443</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">exposedPort</span><span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">expose</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">tls</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">traefik</span><span class="p">:</span><span class="w"> </span><span class="c"># This is the dashboard port</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">9000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">expose</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">default</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">exposedPort</span><span class="p">:</span><span class="w"> </span><span class="m">9000</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l">TCP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">providers</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">kubernetesIngress</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">publishedService</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">pathOverride</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik/traefik&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">kubernetesGateway</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">infrastructure</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">entryPoints</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">web</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="l">websecure</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Let traefik find resources in all namespaces to make using git-generated</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c">#  apps easier</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">namespaces</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">logs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">general</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">level</span><span class="p">:</span><span class="w"> </span><span class="l">INFO</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">access</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span></code></pre></div><h3 id="create-a-argo-cd-app-to-install-traefik">Create a Argo CD app to install traefik<a hidden class="anchor" aria-hidden="true" href="#create-a-argo-cd-app-to-install-traefik">#</a></h3>
+<p>We&rsquo;re going to use a multi-source Argo application to install Traefik. We&rsquo;ll use one source to pull in the helm chart and the second source to pull in our <code>traefik-values.yaml</code> file.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># argocd/infrastructure/traefik.application.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">argoproj.io/v1alpha1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Application</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">argocd</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l">default</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">sources</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">repoURL</span><span class="p">:</span><span class="w"> </span><span class="l">https://traefik.github.io/charts</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">chart</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">targetRevision</span><span class="p">:</span><span class="w"> </span><span class="m">34.0.0</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">helm</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">valueFiles</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="l">$values/argocd/infrastructure/traefik/traefik-values.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">repoURL</span><span class="p">:</span><span class="w"> </span><span class="l">https://github.com/YOUR_USERNAME/YOUR_CONFIGURATION_REPO.git</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">targetRevision</span><span class="p">:</span><span class="w"> </span><span class="l">main</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">ref</span><span class="p">:</span><span class="w"> </span><span class="l">values</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">destination</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">server</span><span class="p">:</span><span class="w"> </span><span class="l">https://kubernetes.default.svc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">syncPolicy</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">automated</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">prune</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">selfHeal</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">syncOptions</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">CreateNamespace=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">ServerSideApply=true</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># # This prevents the &#34;Invalid Task&#34; lockup if an API is missing</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># - SkipDryRunOnMissingResource=true</span><span class="w">
+</span></span></span></code></pre></div><p>Commit them and push them to your <code>git</code> repository so that Argo will be able to find the <code>traefik-values.yaml</code> file.</p>
+<p>Now we can add the application to Argo</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">kubectl apply -f traefik.application.yaml
+</span></span></code></pre></div><p>In a minute or so, you should see that Traefik is installed</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ kubectl get -n argocd Application/traefik
+</span></span><span class="line"><span class="cl">NAME      SYNC STATUS   HEALTH STATUS
+</span></span><span class="line"><span class="cl">traefik   Synced        Healthy
+</span></span><span class="line"><span class="cl">$ k get -n traefik all
+</span></span><span class="line"><span class="cl">NAME                           READY   STATUS    RESTARTS   AGE
+</span></span><span class="line"><span class="cl">pod/traefik-69d9f94ff9-8p6tr   1/1     Running   <span class="m">0</span>          16m
+</span></span><span class="line"><span class="cl">pod/traefik-69d9f94ff9-tht4x   1/1     Running   <span class="m">0</span>          16m
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME              TYPE           CLUSTER-IP      EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>                                     AGE
+</span></span><span class="line"><span class="cl">service/traefik   LoadBalancer   10.106.40.190   10.0.1.43     9000:30443/TCP,80:31178/TCP,443:31727/TCP   16m
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+</span></span><span class="line"><span class="cl">deployment.apps/traefik   2/2     <span class="m">2</span>            <span class="m">2</span>           18m
+</span></span><span class="line"><span class="cl">deployment.apps/whoami    1/1     <span class="m">1</span>            <span class="m">1</span>           18m
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">NAME                                 DESIRED   CURRENT   READY   AGE
+</span></span><span class="line"><span class="cl">replicaset.apps/traefik-69d9f94ff9   <span class="m">2</span>         <span class="m">2</span>         <span class="m">2</span>       16m
+</span></span></code></pre></div><h2 id="dashboard-access">Dashboard Access<a hidden class="anchor" aria-hidden="true" href="#dashboard-access">#</a></h2>
+<p>Now that traefik is running, let&rsquo;s get access set up. We&rsquo;re going to set up a <code>traefik-dashboard</code> Argo App so we can have Argo CD install and update our dashboard setup.</p>
+<p>In your configuration repository, create an <code>argocd/apps/traefik-dashboard</code> directory. Put all the following manifests in that directory.</p>
+<h3 id="update-dns">Update DNS<a hidden class="anchor" aria-hidden="true" href="#update-dns">#</a></h3>
+<p>It can take a couple of minutes for DNS to propagate after you make a change, so start that now and hopefully by the time you create the manifests and Argo installs them DNS will be up to date.</p>
+<p>Find out what IP the LoadBalancer was assigned:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ kubectl get -n traefik svc
+</span></span><span class="line"><span class="cl">NAME      TYPE           CLUSTER-IP      EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>                                     AGE
+</span></span><span class="line"><span class="cl">traefik   LoadBalancer   10.106.40.190   10.9.8.7      9000:30443/TCP,80:31178/TCP,443:31727/TCP   18m
+</span></span></code></pre></div><p>Add an A record in your DNS of traefik-dashboard.YOUR_DOMAIN that is set to the <code>EXTERNAL-IP</code> shown by <code>kubectl</code>.</p>
+<h3 id="set-up-basic-auth">Set up basic auth<a hidden class="anchor" aria-hidden="true" href="#set-up-basic-auth">#</a></h3>
+<p>We&rsquo;re going to need a username and password.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># basic-auth.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Secret</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">dashboard-auth</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">Opaque</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">stringData</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="c"># Generate the BASE64 string with echo $(htpasswd -nb user password) | base64</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">users</span><span class="p">:</span><span class="w"> </span><span class="l">admin:BASE64_STRING</span><span class="w">
+</span></span></span></code></pre></div><p>If you installed the <code>sops</code> operator, run <code>sops encrypt -i basic-auth.yaml</code> to encrypt it. If you didn&rsquo;t, committing unencrypted secrets is a bad habit to get into, so go <a href="../03-secret-management-with-sops/">install sops</a> and then encrypt <code>basic-auth.yaml</code> before you commit it to the repository.</p>
+<p>Go ahead and <code>kubectl apply -f basic-auth.yaml</code> to that the secret is available when Argo installs the dashboard configuration.</p>
+<h3 id="traefik-gatewayyaml">traefik-gateway.yaml<a hidden class="anchor" aria-hidden="true" href="#traefik-gatewayyaml">#</a></h3>
+<p>We need to set up a Traefik <code>Gatewayclass</code> and a traefik-gateway <code>Gateway</code> to route traffic for the dashboard.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># traefik-gateway-class.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">gateway.networking.k8s.io/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">GatewayClass</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">controllerName</span><span class="p">:</span><span class="w"> </span><span class="l">traefik.io/gateway-controller</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># traefik-owned-gateway.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">gateway.networking.k8s.io/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Gateway</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-gateway</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">gatewayClassName</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">listeners</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">http</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">80</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l">HTTP</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">allowedRoutes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">namespaces</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="l">All</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">https</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">port</span><span class="p">:</span><span class="w"> </span><span class="m">443</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">protocol</span><span class="p">:</span><span class="w"> </span><span class="l">HTTPS</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">allowedRoutes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">namespaces</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">from</span><span class="p">:</span><span class="w"> </span><span class="l">All</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">tls</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l">Terminate</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">certificateRefs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">wildcard-your-domain-tls</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span></code></pre></div><h3 id="traefik-dashboardyaml">traefik-dashboard.yaml<a hidden class="anchor" aria-hidden="true" href="#traefik-dashboardyaml">#</a></h3>
+<p>Finally, we&rsquo;re going to create a manifest to:</p>
+<ul>
+<li>Create a basic-auth <code>Middleware</code> resource to control access to the dashboard</li>
+<li>An <code>IngressRoute</code> to route traffic</li>
+<li>An <code>HTTPRoute</code> to redirect traffic from <code>https://traefik-dashboard.YOUR_DOMAIN</code> to <code>https://traefik-dashboard.YOUR_DOMAIN/dashboard/</code> so you don&rsquo;t have to remember to add the <code>/dashbaord</code>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># argocd/apps/traefik-configuration/traefik-dashboard.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">traefik.io/v1alpha1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Middleware</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">dashboard-auth</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">basicAuth</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">secret</span><span class="p">:</span><span class="w"> </span><span class="l">dashboard-auth</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">traefik.io/v1alpha1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">IngressRoute</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-dashboard-api</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">entryPoints</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="l">websecure</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">routes</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">match</span><span class="p">:</span><span class="w"> </span><span class="l">Host(`traefik-dashboard.YOUR_DOMAIN`) &amp;&amp; (PathPrefix(`/dashboard`) || PathPrefix(`/api`))</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">Rule</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">services</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">api@internal</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">TraefikService</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># This is the &#34;Lock&#34; that uses the Middleware above</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">middlewares</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">dashboard-auth</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">tls</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">secretName</span><span class="p">:</span><span class="w"> </span><span class="l">wildcard-miniclusters-rocks-tls</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l">gateway.networking.k8s.io/v1</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l">HTTPRoute</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">metadata</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-dashboard-redirect</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">spec</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">parentRefs</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">traefik-gateway</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">hostnames</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="s2">&#34;traefik-dashboard.YOUR_DOMAIN&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">rules</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span>- <span class="nt">matches</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">path</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">Exact</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">value</span><span class="p">:</span><span class="w"> </span><span class="l">/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="nt">filters</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">        </span>- <span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">RequestRedirect</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">requestRedirect</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">scheme</span><span class="p">:</span><span class="w"> </span><span class="l">https</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">path</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="l">ReplaceFullPath</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">              </span><span class="nt">replaceFullPath</span><span class="p">:</span><span class="w"> </span><span class="l">/dashboard/</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">            </span><span class="nt">statusCode</span><span class="p">:</span><span class="w"> </span><span class="m">301</span><span class="w">
+</span></span></span></code></pre></div><h3 id="add-an-argo-configyaml-to-trigger-installation-by-argocd">Add an argo-config.yaml to trigger installation by ArgoCD<a hidden class="anchor" aria-hidden="true" href="#add-an-argo-configyaml-to-trigger-installation-by-argocd">#</a></h3>
+<p>Commit all the yaml files and push them to github if you haven&rsquo;t already. Now we can create an <code>argo-config.yaml</code> file to trigger Argo to install our manifests. The <code>argo-config.yaml</code> file must be in the same directory as <code>traefik-cert.yaml</code>, <code>basic-auth.yaml</code>, <code>traefik-gateway.yaml</code> and <code>traefik-dashboard.yaml</code>. The Argo CD git generator ApplicationSet only processes directories that contain an <code>argo-config.yaml</code> file.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="c"># argo-config.yaml</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nt">app</span><span class="p">:</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;traefik-configuration&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l">traefik</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">clusterName</span><span class="p">:</span><span class="w"> </span><span class="l">YOURCLUSTERNAME</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="c"># Use the full URL for the destination</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">clusterUrl</span><span class="p">:</span><span class="w"> </span><span class="l">https://kubernetes.default.svc</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">project</span><span class="p">:</span><span class="w"> </span><span class="l">default</span><span class="w">
+</span></span></span></code></pre></div><p>Add, commit and push <code>argo-config.yaml</code>. With the default configuration, Argo CD will detect the new app and start installing it in two to three minutes. You can force it to check right away by clicking <code>Sync Apps</code> or running</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">argocd repo get <span class="s2">&#34;</span><span class="nv">$YOUR_CONFIG</span><span class="s2">&#34;</span> --refresh
+</span></span></code></pre></div><h3 id="update-dns-1">Update DNS<a hidden class="anchor" aria-hidden="true" href="#update-dns-1">#</a></h3>
+<p>Once Argo finishes installing, find out what IP the <code>LoadBalancer</code> was assigned</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">$ kubectl get -n traefik svc
+</span></span><span class="line"><span class="cl">NAME      TYPE           CLUSTER-IP      EXTERNAL-IP   PORT<span class="o">(</span>S<span class="o">)</span>                                     AGE
+</span></span><span class="line"><span class="cl">traefik   LoadBalancer   10.106.40.190   10.9.8.7      9000:30443/TCP,80:31178/TCP,443:31727/TCP   18m
+</span></span></code></pre></div><p>Update DNS for your domain with an the external IP.</p>
+<h2 id="checking">Checking<a hidden class="anchor" aria-hidden="true" href="#checking">#</a></h2>
+<p>Once Argo finishes installing your manifests, try going to <code>traefik-dashboard.YOUR_DOMAIN</code> in a browser. If DNS hasn&rsquo;t propagated, you can check with <code>curl</code> anyway by setting the host header and basic auth information.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="line"><span class="cl">curl -vL -k -u admin:YOUR_ADMIN_PASSWORD -H <span class="s2">&#34;Host: traefik-dashboard.YOUR_DOMAIN&#34;</span> https://SERVICE_EXTERNAL_IP/dashboard/
+</span></span></code></pre></div><p>What the cli flags do:</p>
+<ul>
+<li>-u admin:YOUR_ADMIN_PASSWORD: The magic flag. It takes username:password and converts it into the required HTTP header.</li>
+<li>-k (or &ndash;insecure): The TLS certificate (which is for *.YOUR_DOMAIN) won&rsquo;t match SERVICE_EXTERNAL_IP. This flag tells curl to ignore that mismatch.</li>
+<li>-v: Verbose mode. This lets you see the HTTP/1.1 200 OK and confirm the Authorization header is being sent.</li>
+<li>-L: Follows the redirect (though since you&rsquo;re hitting /dashboard/ directly, it likely won&rsquo;t need to).</li>
+</ul>
+<p>You should see something similar to</p>
+<pre tabindex="0"><code>*   Trying SERVICE_EXTERNAL_IP:443...
+* ALPN: curl offers h2,http/1.1
+* TLSv1.3 (OUT), TLS handshake, Client hello (1):
+* SSL Trust: peer verification disabled
+* TLSv1.3 (IN), TLS handshake, Server hello (2):
+* TLSv1.3 (IN), TLS change cipher, Change cipher spec (1):
+* TLSv1.3 (IN), TLS handshake, Encrypted Extensions (8):
+* TLSv1.3 (IN), TLS handshake, Certificate (11):
+* TLSv1.3 (IN), TLS handshake, CERT verify (15):
+* TLSv1.3 (IN), TLS handshake, Finished (20):
+* TLSv1.3 (OUT), TLS change cipher, Change cipher spec (1):
+* TLSv1.3 (OUT), TLS handshake, Finished (20):
+* SSL connection using TLSv1.3 / TLS_CHACHA20_POLY1305_SHA256 / x25519 / RSASSA-PSS
+* ALPN: server accepted h2
+* Server certificate:
+*   subject: CN=TRAEFIK DEFAULT CERT
+*   start date: Apr  4 23:11:05 2026 GMT
+*   expire date: Apr  4 23:11:05 2027 GMT
+*   issuer: CN=TRAEFIK DEFAULT CERT
+*   Certificate level 0: Public key type RSA (2048/112 Bits/secBits), signed using sha256WithRSAEncryption
+*  SSL certificate verification failed, continuing anyway!
+* Established connection to SERVICE_EXTERNAL_IP (SERVICE_EXTERNAL_IP port 443) from 10.11.12.13 port 59344
+* using HTTP/2
+* Server auth using Basic with user &#39;admin&#39;
+* [HTTP/2] [1] OPENED stream for https://SERVICE_EXTERNAL_IP/dashboard/
+* [HTTP/2] [1] [:method: GET]
+* [HTTP/2] [1] [:scheme: https]
+* [HTTP/2] [1] [:authority: traefik-dashboard.YOUR_DOMAIN]
+* [HTTP/2] [1] [:path: /dashboard/]
+* [HTTP/2] [1] [authorization: Basic FEEDBABEDEADBEEFFEEDBABEDEADBEEFFEEDBABE]
+* [HTTP/2] [1] [user-agent: curl/8.18.0]
+* [HTTP/2] [1] [accept: */*]
+&gt; GET /dashboard/ HTTP/2
+&gt; Host: traefik-dashboard.YOUR_DOMAIN
+&gt; Authorization: Basic FEEDBABEDEADBEEFFEEDBABEDEADBEEFFEEDBABE
+&gt; User-Agent: curl/8.18.0
+&gt; Accept: */*
+&gt;
+* Request completely sent off
+* TLSv1.3 (IN), TLS handshake, Newsession Ticket (4):
+&lt; HTTP/2 200
+&lt; content-security-policy: frame-src &#39;self&#39; https://traefik.io https://*.traefik.io;
+&lt; content-type: text/html; charset=utf-8
+&lt; content-length: 1193
+&lt; date: Sat, 04 Apr 2026 23:15:25 GMT
+&lt;
+&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;&lt;script&gt;window.APIURL = &#34;/api/&#34;&lt;/script&gt;&lt;title&gt;Traefik&lt;/title&gt;&lt;meta charset=utf-8&gt;&lt;meta name=description content=&#34;Traefik UI&#34;&gt;&lt;meta name=format-detection content=&#34;telephone=no&#34;&gt;&lt;meta name=msapplication-tap-highlight content=no&gt;&lt;meta name=viewport content=&#34;user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width&#34;&gt;&lt;link rel=icon type=image/png href=./app-logo-128x128.png&gt;&lt;link rel=icon type=image/png sizes=16x16 href=./icons/favicon-16x16.png&gt;&lt;link rel=icon type=image/png sizes=32x32 href=./icons/favicon-32x32.png&gt;&lt;link rel=icon type=image/png sizes=96x96 href=./icons/favicon-96x96.png&gt;&lt;link rel=icon type=image/ico href=./icons/favicon.ico&gt;&lt;link rel=apple-touch-icon href=./icons/apple-icon-152x152.png&gt;&lt;link rel=apple-touch-icon sizes=152x152 href=./icons/apple-icon-152x152.png&gt;&lt;link rel=apple-touch-icon sizes=167x167 href=./icons/apple-icon-167x167.png&gt;&lt;link rel=apple-touch-icon sizes=180x180 href=./icons/apple-icon-180x180.png&gt;  &lt;script type=&#34;module&#34; crossorigin src=&#34;./assets/index-CLgUCYBL.js&#34;&gt;&lt;/script&gt;
+  &lt;link rel=&#34;stylesheet&#34; crossorigin href=&#34;./assets/index-jjiyEA_O.css&#34;&gt;
+* Connection #0 to host SERVICE_EXTERNAL_IP:443 left intact
+&lt;/head&gt;&lt;body&gt;&lt;div id=q-app&gt;&lt;/div&gt;&lt;/body&gt;&lt;/html&gt;HTTP CODE 200
+</code></pre><h2 id="congratulations">Congratulations<a hidden class="anchor" aria-hidden="true" href="#congratulations">#</a></h2>
+<p>You have successfully</p>
+<ul>
+<li>Created a Argo CD dual-source Application resource to install Traefik</li>
+<li>Created a Argo CD application using the git generator that
+<ul>
+<li>Enabled access to the Traefik dashboard</li>
+<li>Protected the dashboard with basic auth</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="http://localhost:1313/tags/argocd/">Argocd</a></li>
+      <li><a href="http://localhost:1313/tags/homelab/">Homelab</a></li>
+      <li><a href="http://localhost:1313/tags/k8s/">K8s</a></li>
+      <li><a href="http://localhost:1313/tags/kubernetes/">Kubernetes</a></li>
+      <li><a href="http://localhost:1313/tags/traefik/">Traefik</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="http://localhost:1313/post/homelab/k8s/07-argocd-git-generator/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Add an ArgoCD git generator ApplicationSet</span>
+  </a>
+</nav>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Adding Traefik to the cluster on x"
+            href="https://x.com/intent/tweet/?text=Adding%20Traefik%20to%20the%20cluster&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fhomelab%2fk8s%2fadding-traefik%2f&amp;hashtags=argocd%2chomelab%2ck8s%2ckubernetes%2ctraefik">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Adding Traefik to the cluster on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fhomelab%2fk8s%2fadding-traefik%2f&amp;title=Adding%20Traefik%20to%20the%20cluster&amp;summary=Adding%20Traefik%20to%20the%20cluster&amp;source=http%3a%2f%2flocalhost%3a1313%2fpost%2fhomelab%2fk8s%2fadding-traefik%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Adding Traefik to the cluster on reddit"
+            href="https://reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fpost%2fhomelab%2fk8s%2fadding-traefik%2f&title=Adding%20Traefik%20to%20the%20cluster">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Adding Traefik to the cluster on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fpost%2fhomelab%2fk8s%2fadding-traefik%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Adding Traefik to the cluster on whatsapp"
+            href="https://api.whatsapp.com/send?text=Adding%20Traefik%20to%20the%20cluster%20-%20http%3a%2f%2flocalhost%3a1313%2fpost%2fhomelab%2fk8s%2fadding-traefik%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Adding Traefik to the cluster on telegram"
+            href="https://telegram.me/share/url?text=Adding%20Traefik%20to%20the%20cluster&amp;url=http%3a%2f%2flocalhost%3a1313%2fpost%2fhomelab%2fk8s%2fadding-traefik%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Adding Traefik to the cluster on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Adding%20Traefik%20to%20the%20cluster&u=http%3a%2f%2flocalhost%3a1313%2fpost%2fhomelab%2fk8s%2fadding-traefik%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+    <span>Copyright 2019-2026, Joe Block. All rights reserved.</span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+        <a rel="me" href="https://hachyderm.io/@unixorn">Mastodon</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+<script>
+    document.querySelectorAll('pre > code').forEach((codeblock) => {
+        const container = codeblock.parentNode.parentNode;
+
+        const copybutton = document.createElement('button');
+        copybutton.classList.add('copy-code');
+        copybutton.innerHTML = 'copy';
+
+        function copyingDone() {
+            copybutton.innerHTML = 'copied!';
+            setTimeout(() => {
+                copybutton.innerHTML = 'copy';
+            }, 2000);
+        }
+
+        copybutton.addEventListener('click', (cb) => {
+            if ('clipboard' in navigator) {
+                navigator.clipboard.writeText(codeblock.textContent);
+                copyingDone();
+                return;
+            }
+
+            const range = document.createRange();
+            range.selectNodeContents(codeblock);
+            const selection = window.getSelection();
+            selection.removeAllRanges();
+            selection.addRange(range);
+            try {
+                document.execCommand('copy');
+                copyingDone();
+            } catch (e) { };
+            selection.removeRange(range);
+        });
+
+        if (container.classList.contains("highlight")) {
+            container.appendChild(copybutton);
+        } else if (container.parentNode.firstChild == container) {
+            
+        } else if (codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.nodeName == "TABLE") {
+            
+            codeblock.parentNode.parentNode.parentNode.parentNode.parentNode.appendChild(copybutton);
+        } else {
+            
+            codeblock.parentNode.appendChild(copybutton);
+        }
+    });
+</script>
+</body>
+
+</html>

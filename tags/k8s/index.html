@@ -169,6 +169,20 @@
 
 <article class="post-entry tag-entry"> 
   <header class="entry-header">
+    <h2 class="entry-hint-parent">Adding Traefik to the cluster
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>The next thing I’m adding to my cluster is Traefik.
+In this post, I’ll cover installing Traefik with Argo CD and using Traefik’s built-in basic auth middleware to control access to its control panel.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2026-04-04 15:40:01 -0600 MDT'>April 4, 2026</span>&nbsp;·&nbsp;10 min&nbsp;·&nbsp;2060 words&nbsp;·&nbsp;Me</footer>
+  <a class="entry-link" aria-label="post link to Adding Traefik to the cluster" href="https://unixorn.github.io/post/homelab/k8s/08-add-traefik/"></a>
+</article>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
     <h2 class="entry-hint-parent">Add an ArgoCD git generator ApplicationSet
     </h2>
   </header>
@@ -177,7 +191,7 @@
 In this post, I’m going to show how to set up an Argo CD git generator ApplicationSet and point it at a specific directory in a configuration repository.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-03-19 22:56:20 -0600 MDT'>March 19, 2026</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;807 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2026-03-19 22:56:20 -0600 MDT'>March 19, 2026</span>&nbsp;·&nbsp;4 min&nbsp;·&nbsp;833 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Add an ArgoCD git generator ApplicationSet" href="https://unixorn.github.io/post/homelab/k8s/07-argocd-git-generator/"></a>
 </article>
 
@@ -191,7 +205,7 @@ In this post, I’m going to show how to set up an Argo CD git generator Applica
 I run MQTT (Eclipse Mosquitto in my case) as a message bus between zigbee2mqtt, zwave-js-ui and Home Assistant, so it’s the first service I’m moving into the k8s cluster.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-03-01 12:12:39 -0700 MST'>March 1, 2026</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1643 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2026-03-01 12:12:39 -0700 MST'>March 1, 2026</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1651 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Install MQTT into k8s" href="https://unixorn.github.io/post/homelab/k8s/06-install-mqtt/"></a>
 </article>
 
@@ -203,10 +217,10 @@ I run MQTT (Eclipse Mosquitto in my case) as a message bus between zigbee2mqtt, 
   <div class="entry-content">
     <p>In part five of my kubernetes homelab series, we will install Argo CD into a homelab cluster so we can use gitops practices instead of ad-hoc kubectl commands.
 This will make it much easier to recreate the cluster exactly if we decide to move it to new hardware or just want to reset things to a known-good state after experimentation.
-Part 1 - Setting up Talos with a Cilium CNI on proxmox Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53 Part 3 - Secret Management with SOPS Part 4 - Back up your Talos etcd cluster to a SMB share Part 5 - Install Argo CD Part 6 - Install MQTT into a k8s cluster Part 7 - Add an ArgoCD git generator ApplicationSet Why bother with gitops? It’s a homelab, and I’m the only administrator Using gitops to configure your cluster instead of running kubectl apply commands directly makes it possible to reproduce the exact state of the cluster later if you need to revert to a known-good state.
+Part 1 - Setting up Talos with a Cilium CNI on proxmox Part 2 Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53 Part 3 - Secret Management with SOPS Part 4 - Back up your Talos etcd cluster to a SMB share Part 5 - Install Argo CD Part 6 - Install MQTT into a k8s cluster Part 7 - Add an ArgoCD git generator ApplicationSet Part 8 - Add Traefik to the cluster Why bother with gitops? It’s a homelab, and I’m the only administrator Using gitops to configure your cluster instead of running kubectl apply commands directly makes it possible to reproduce the exact state of the cluster later if you need to revert to a known-good state.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-02-08 09:21:34 -0700 MST'>February 8, 2026</span>&nbsp;·&nbsp;11 min&nbsp;·&nbsp;2138 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2026-02-08 09:21:34 -0700 MST'>February 8, 2026</span>&nbsp;·&nbsp;11 min&nbsp;·&nbsp;2146 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Install Argo CD in a homelab cluster" href="https://unixorn.github.io/post/homelab/k8s/05-install-argocd/"></a>
 </article>
 
@@ -220,7 +234,7 @@ Part 1 - Setting up Talos with a Cilium CNI on proxmox Part 2 Add SSL to Kuberne
 This is part four of my Homelab Kubernetes series.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-01-24 12:20:42 -0700 MST'>January 24, 2026</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1801 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2026-01-24 12:20:42 -0700 MST'>January 24, 2026</span>&nbsp;·&nbsp;9 min&nbsp;·&nbsp;1809 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Back up your Talos etcd cluster to a smb share" href="https://unixorn.github.io/post/homelab/k8s/04-backup-talos-etcd-to-smb/"></a>
 </article>
 
@@ -233,7 +247,7 @@ This is part four of my Homelab Kubernetes series.
     <p>This is part 3 of my Kubernetes homelab cluster setup series - Secrets Management with SOPS.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-01-19 14:19:03 -0700 MST'>January 19, 2026</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1644 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2026-01-19 14:19:03 -0700 MST'>January 19, 2026</span>&nbsp;·&nbsp;8 min&nbsp;·&nbsp;1652 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Secret Management with SOPS" href="https://unixorn.github.io/post/homelab/k8s/03-secret-management-with-sops/"></a>
 </article>
 
@@ -244,10 +258,10 @@ This is part four of my Homelab Kubernetes series.
   </header>
   <div class="entry-content">
     <p>In part two of this homelab kubernetes setup series, we’re going to install &amp; configure cert-manager to use LetsEncrypt with Route 53 so we can use SSL to connect to our services.
-Part 1 - Setting up Talos with a Cilium CNI on proxmox Part 2 - Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53 Part 3 - Set up Secret Management with SOPS Part 4 - Back up your Talos etcd cluster to a SMB share Part 5 - Install ArgoCD Part 6 - Install MQTT into a k8s cluster Part 7 - Add an ArgoCD git generator ApplicationSet The tutorials I’ve seen for using cert-manager with a DNS challenge all use CloudFlare. I have my lab domain on Route 53 so this post will cover that instead.
+Part 1 - Setting up Talos with a Cilium CNI on proxmox Part 2 - Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53 Part 3 - Set up Secret Management with SOPS Part 4 - Back up your Talos etcd cluster to a SMB share Part 5 - Install ArgoCD Part 6 - Install MQTT into a k8s cluster Part 7 - Add an ArgoCD git generator ApplicationSet Part 8 - Add Traefik to the cluster The tutorials I’ve seen for using cert-manager with a DNS challenge all use CloudFlare. I have my lab domain on Route 53 so this post will cover that instead.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-01-05 22:17:37 -0700 MST'>January 5, 2026</span>&nbsp;·&nbsp;14 min&nbsp;·&nbsp;2918 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2026-01-05 22:17:37 -0700 MST'>January 5, 2026</span>&nbsp;·&nbsp;14 min&nbsp;·&nbsp;2926 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Add SSL to Kubernetes using Cilium, cert-manager and LetsEncrypt with domains hosted on Amazon Route 53" href="https://unixorn.github.io/post/homelab/k8s/02-k8s-cilium-r53-and-cert-manager/"></a>
 </article>
 
@@ -260,7 +274,7 @@ Part 1 - Setting up Talos with a Cilium CNI on proxmox Part 2 - Add SSL to Kuber
     <p>I’ve been meaning to set up a Talos linux kubernetes cluster in my homelab for a while and set one up over the holiday break. Here’s how I did it.
 ...</p>
   </div>
-  <footer class="entry-footer"><span title='2026-01-04 09:27:42 -0700 MST'>January 4, 2026</span>&nbsp;·&nbsp;15 min&nbsp;·&nbsp;3084 words&nbsp;·&nbsp;Me</footer>
+  <footer class="entry-footer"><span title='2026-01-04 09:27:42 -0700 MST'>January 4, 2026</span>&nbsp;·&nbsp;15 min&nbsp;·&nbsp;3092 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Creating a Talos kubernetes cluster with a Cilium CNI on Proxmox" href="https://unixorn.github.io/post/homelab/k8s/01-talos-with-cilium-cni-on-proxmox/"></a>
 </article>
 
@@ -289,22 +303,6 @@ I decided to use my Synology to store k8s volumes, here’s how I set that up.
   </div>
   <footer class="entry-footer"><span title='2025-12-08 17:54:19 -0700 MST'>December 8, 2025</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;233 words&nbsp;·&nbsp;Me</footer>
   <a class="entry-link" aria-label="post link to Weird shit is afoot with macOS and iTerm" href="https://unixorn.github.io/post/homelab/weird-shit-is-afoot-with-macos-and-iterm/"></a>
-</article>
-
-<article class="post-entry tag-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Backing Up the Cluster with Duplicacy
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>Do not use duplicacy! TL;DR: duplicacy is unusable if you’re serious about backing up your data. Use restic instead!
-I wanted to ensure any data I put into my ARM k3s cluster is backed up to prevent data loss.
-I no longer recommend duplicacy. Instead, read my article on restic backups on TrueNas instead.
-2025 edit: This post is only here for historical reasons. Do NOT use duplicacy. It does not report backup errors in its exit code. You will have to parse its logs yourself and hope your regex didn’t miss an error condition. And every update, you’ll have to check and make sure it hasn’t changed anything that your regex was catching. Backups are supposed to be something you set up once and ignore other than to do periodic restore tests, and duplicacy fails that simple criteria.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-09-01 15:47:23 -0600 MDT'>September 1, 2019</span>&nbsp;·&nbsp;11 min&nbsp;·&nbsp;2190 words&nbsp;·&nbsp;Me</footer>
-  <a class="entry-link" aria-label="post link to Backing Up the Cluster with Duplicacy" href="https://unixorn.github.io/post/backing-up-the-cluster-with-duplicacy/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

@@ -12,8 +12,43 @@
     <generator>Hugo -- 0.157.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2026, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Thu, 19 Mar 2026 22:56:20 -0600</lastBuildDate>
+    <lastBuildDate>Sat, 04 Apr 2026 15:40:01 -0600</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Argocd</title>
+      <link>https://unixorn.github.io/tags/argocd/</link>
+      <pubDate>Sat, 04 Apr 2026 15:40:01 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/argocd/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Homelab</title>
+      <link>https://unixorn.github.io/tags/homelab/</link>
+      <pubDate>Sat, 04 Apr 2026 15:40:01 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/homelab/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>K8s</title>
+      <link>https://unixorn.github.io/tags/k8s/</link>
+      <pubDate>Sat, 04 Apr 2026 15:40:01 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/k8s/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes</title>
+      <link>https://unixorn.github.io/tags/kubernetes/</link>
+      <pubDate>Sat, 04 Apr 2026 15:40:01 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Traefik</title>
+      <link>https://unixorn.github.io/tags/traefik/</link>
+      <pubDate>Sat, 04 Apr 2026 15:40:01 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/traefik/</guid>
+      <description></description>
+    </item>
     <item>
       <title>ApplicationSet</title>
       <link>https://unixorn.github.io/tags/applicationset/</link>
@@ -22,31 +57,10 @@
       <description></description>
     </item>
     <item>
-      <title>Argocd</title>
-      <link>https://unixorn.github.io/tags/argocd/</link>
-      <pubDate>Thu, 19 Mar 2026 22:56:20 -0600</pubDate>
-      <guid>https://unixorn.github.io/tags/argocd/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Gitops</title>
       <link>https://unixorn.github.io/tags/gitops/</link>
       <pubDate>Thu, 19 Mar 2026 22:56:20 -0600</pubDate>
       <guid>https://unixorn.github.io/tags/gitops/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Homelab</title>
-      <link>https://unixorn.github.io/tags/homelab/</link>
-      <pubDate>Thu, 19 Mar 2026 22:56:20 -0600</pubDate>
-      <guid>https://unixorn.github.io/tags/homelab/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>K8s</title>
-      <link>https://unixorn.github.io/tags/k8s/</link>
-      <pubDate>Thu, 19 Mar 2026 22:56:20 -0600</pubDate>
-      <guid>https://unixorn.github.io/tags/k8s/</guid>
       <description></description>
     </item>
     <item>
@@ -82,13 +96,6 @@
       <link>https://unixorn.github.io/tags/sops/</link>
       <pubDate>Sun, 01 Mar 2026 12:12:39 -0700</pubDate>
       <guid>https://unixorn.github.io/tags/sops/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Kubernetes</title>
-      <link>https://unixorn.github.io/tags/kubernetes/</link>
-      <pubDate>Sun, 08 Feb 2026 09:21:34 -0700</pubDate>
-      <guid>https://unixorn.github.io/tags/kubernetes/</guid>
       <description></description>
     </item>
     <item>
@@ -1034,13 +1041,6 @@
       <link>https://unixorn.github.io/tags/filesystems/</link>
       <pubDate>Tue, 20 Aug 2019 07:10:27 -0600</pubDate>
       <guid>https://unixorn.github.io/tags/filesystems/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Traefik</title>
-      <link>https://unixorn.github.io/tags/traefik/</link>
-      <pubDate>Fri, 09 Aug 2019 09:02:31 -0600</pubDate>
-      <guid>https://unixorn.github.io/tags/traefik/</guid>
       <description></description>
     </item>
     <item>
