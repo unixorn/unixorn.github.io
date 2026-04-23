@@ -9,7 +9,7 @@
       <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
       <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
     </image>
-    <generator>Hugo -- 0.157.0</generator>
+    <generator>Hugo -- 0.160.1</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2026, Joe Block. All rights reserved.</copyright>
     <lastBuildDate>Sat, 04 Apr 2026 15:40:01 -0600</lastBuildDate>
@@ -995,7 +995,7 @@
       <description></description>
     </item>
     <item>
-      <title>Arm7</title>
+      <title>ARM7</title>
       <link>https://unixorn.github.io/tags/arm7/</link>
       <pubDate>Sat, 13 Jun 2020 09:07:49 -0600</pubDate>
       <guid>https://unixorn.github.io/tags/arm7/</guid>
