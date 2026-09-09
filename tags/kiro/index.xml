@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Kiro on unixorn.github.io</title>
+    <link>https://unixorn.github.io/tags/kiro/</link>
+    <description>Recent content in Kiro on unixorn.github.io</description>
+    <image>
+      <title>unixorn.github.io</title>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.164.0</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019-2026, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Tue, 08 Sep 2026 19:34:28 -0600</lastBuildDate>
+    <atom:link href="https://unixorn.github.io/tags/kiro/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Some Useful AI Prompts</title>
+      <link>https://unixorn.github.io/post/ai/2026-09-08-some-useful-ai-prompts/</link>
+      <pubDate>Tue, 08 Sep 2026 19:34:28 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/ai/2026-09-08-some-useful-ai-prompts/</guid>
+      <description>&lt;p&gt;I&amp;rsquo;ve been coding with AI (specifically Kiro) assistance at work lately. There are a lot of things I like about it, but it took some tuning to make it more useful and less annoying.&lt;/p&gt;
+&lt;p&gt;With kiro, these should be placed in &lt;code&gt;.kiro/steering&lt;/code&gt;, either in your home directory for global settings or if you only want them to apply to a single repository, in &lt;code&gt;$REPO_ROOT/.kiro/steering&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;With VS Code and Copilot, they belong in &lt;code&gt;$REPO_ROOT/.github/prompts&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
