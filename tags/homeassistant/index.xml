@@ -19,10 +19,8 @@
       <link>https://unixorn.github.io/post/hass/2026-10-17-use-groups-instead-of-devices/</link>
       <pubDate>Sat, 17 Oct 2026 16:30:24 -0600</pubDate>
       <guid>https://unixorn.github.io/post/hass/2026-10-17-use-groups-instead-of-devices/</guid>
-      <description>&lt;p&gt;Using groups can make your automations a lot cleaner, and as an added bonus, make it much easier to replace devices.&lt;/p&gt;
-&lt;p&gt;In the past I&amp;rsquo;ve had a couple of sensors die because I was using indoor-rated sensors on my patio and in my garage, and Denver winters were not kind to them. Replacing them was a pain because I was using those sensors to trigger multiple automations.&lt;/p&gt;
-&lt;p&gt;Enter groups.&lt;/p&gt;
-&lt;p&gt;If you put sensors (or even just one sensor) in a group, you can have all your automations read what they need from the group instead of the actual sensor. Sensor dies? Just add a new one to the device group, and every automation that reads from that group works without you touching any of them.&lt;/p&gt;</description>
+      <description>&lt;p&gt;This is very minor tip, but also very useful. Using groups can make your automations a lot cleaner, and as an added bonus, make it much easier to replace devices.&lt;/p&gt;
+&lt;p&gt;In the past I&amp;rsquo;ve had a couple of sensors die because I was using indoor-rated sensors on my patio and in my garage, and Denver winters were not kind to them. Replacing them was a pain because I was using those sensors to trigger multiple automations.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Install MQTT into k8s</title>
