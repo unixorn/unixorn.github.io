@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Automations on unixorn.github.io</title>
+    <link>https://unixorn.github.io/tags/automations/</link>
+    <description>Recent content in Automations on unixorn.github.io</description>
+    <image>
+      <title>unixorn.github.io</title>
+      <url>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
+      <link>https://unixorn.github.io/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</link>
+    </image>
+    <generator>Hugo -- 0.164.0</generator>
+    <language>en-us</language>
+    <copyright>Copyright 2019-2026, Joe Block. All rights reserved.</copyright>
+    <lastBuildDate>Sat, 17 Oct 2026 16:30:24 -0600</lastBuildDate>
+    <atom:link href="https://unixorn.github.io/tags/automations/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Use groups instead of devices</title>
+      <link>https://unixorn.github.io/post/hass/2026-10-17-use-groups-instead-of-devices/</link>
+      <pubDate>Sat, 17 Oct 2026 16:30:24 -0600</pubDate>
+      <guid>https://unixorn.github.io/post/hass/2026-10-17-use-groups-instead-of-devices/</guid>
+      <description>&lt;p&gt;Using groups can make your automations a lot cleaner, and as an added bonus, make it much easier to replace devices.&lt;/p&gt;
+&lt;p&gt;In the past I&amp;rsquo;ve had a couple of sensors die because I was using indoor-rated sensors on my patio and in my garage, and Denver winters were not kind to them. Replacing them was a pain because I was using those sensors to trigger multiple automations.&lt;/p&gt;
+&lt;p&gt;Enter groups.&lt;/p&gt;
+&lt;p&gt;If you put sensors (or even just one sensor) in a group, you can have all your automations read what they need from the group instead of the actual sensor. Sensor dies? Just add a new one to the device group, and every automation that reads from that group works without you touching any of them.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
