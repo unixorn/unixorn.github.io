@@ -2,19 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://unixorn.github.io/tags/eversecu/</loc>
+    <lastmod>2026-10-19T21:12:53-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/frigate/</loc>
+    <lastmod>2026-10-19T21:12:53-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/onvif/</loc>
+    <lastmod>2026-10-19T21:12:53-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/</loc>
+    <lastmod>2026-10-19T21:12:53-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/rtsp/</loc>
+    <lastmod>2026-10-19T21:12:53-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/security_camera/</loc>
+    <lastmod>2026-10-19T21:12:53-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/tags/</loc>
+    <lastmod>2026-10-19T21:12:53-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/</loc>
+    <lastmod>2026-10-19T21:12:53-06:00</lastmod>
+  </url><url>
+    <loc>https://unixorn.github.io/post/homelab/2026-10-19-eversecu-lcb2/</loc>
+    <lastmod>2026-10-19T21:12:53-06:00</lastmod>
+  </url><url>
     <loc>https://unixorn.github.io/tags/automations/</loc>
     <lastmod>2026-10-17T16:30:24-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/tags/homeassistant/</loc>
-    <lastmod>2026-10-17T16:30:24-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/post/</loc>
-    <lastmod>2026-10-17T16:30:24-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/tags/</loc>
-    <lastmod>2026-10-17T16:30:24-06:00</lastmod>
-  </url><url>
-    <loc>https://unixorn.github.io/</loc>
     <lastmod>2026-10-17T16:30:24-06:00</lastmod>
   </url><url>
     <loc>https://unixorn.github.io/post/hass/2026-10-17-use-groups-instead-of-devices/</loc>

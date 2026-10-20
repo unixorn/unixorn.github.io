@@ -12,8 +12,43 @@
     <generator>Hugo -- 0.164.0</generator>
     <language>en-us</language>
     <copyright>Copyright 2019-2026, Joe Block. All rights reserved.</copyright>
-    <lastBuildDate>Sat, 17 Oct 2026 16:30:24 -0600</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 21:12:53 -0600</lastBuildDate>
     <atom:link href="https://unixorn.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Eversecu</title>
+      <link>https://unixorn.github.io/tags/eversecu/</link>
+      <pubDate>Mon, 19 Oct 2026 21:12:53 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/eversecu/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Frigate</title>
+      <link>https://unixorn.github.io/tags/frigate/</link>
+      <pubDate>Mon, 19 Oct 2026 21:12:53 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/frigate/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Onvif</title>
+      <link>https://unixorn.github.io/tags/onvif/</link>
+      <pubDate>Mon, 19 Oct 2026 21:12:53 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/onvif/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Rtsp</title>
+      <link>https://unixorn.github.io/tags/rtsp/</link>
+      <pubDate>Mon, 19 Oct 2026 21:12:53 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/rtsp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Security_camera</title>
+      <link>https://unixorn.github.io/tags/security_camera/</link>
+      <pubDate>Mon, 19 Oct 2026 21:12:53 -0600</pubDate>
+      <guid>https://unixorn.github.io/tags/security_camera/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Automations</title>
       <link>https://unixorn.github.io/tags/automations/</link>
@@ -1009,7 +1044,7 @@
       <description></description>
     </item>
     <item>
-      <title>Arm</title>
+      <title>ARM</title>
       <link>https://unixorn.github.io/tags/arm/</link>
       <pubDate>Sat, 13 Jun 2020 09:07:49 -0600</pubDate>
       <guid>https://unixorn.github.io/tags/arm/</guid>
