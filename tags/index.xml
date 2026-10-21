@@ -841,13 +841,6 @@
       <description></description>
     </item>
     <item>
-      <title>Home-Assistant</title>
-      <link>https://unixorn.github.io/tags/home-assistant/</link>
-      <pubDate>Sat, 05 Nov 2022 09:42:58 -0600</pubDate>
-      <guid>https://unixorn.github.io/tags/home-assistant/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Postgres</title>
       <link>https://unixorn.github.io/tags/postgres/</link>
       <pubDate>Sat, 05 Nov 2022 09:42:58 -0600</pubDate>
@@ -1044,7 +1037,7 @@
       <description></description>
     </item>
     <item>
-      <title>Arm</title>
+      <title>ARM</title>
       <link>https://unixorn.github.io/tags/arm/</link>
       <pubDate>Sat, 13 Jun 2020 09:07:49 -0600</pubDate>
       <guid>https://unixorn.github.io/tags/arm/</guid>
